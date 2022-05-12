@@ -6,18 +6,54 @@ body {
   background: linear-gradient(90deg, #79DAE8, #0AA1DD);
 }
 
-nav a {
+a {
   text-decoration: none;
-  color: white;
+}
+
+nav a {
   font-family: Poppins;
   font-weight: 900;
+  color: white;
   font-size: 3.5vh;
 }
 
-section.hero p {
-  color: white;
+section.hero .tagLine p {
   font-family: Poppins;
   font-weight: 900;
+  color: white;
   font-size: 6vh;
   margin-top: 20vh;
+}
+
+section.hero .signUpForm h1 {
+  font-family: Poppins;
+  font-weight: bold;
+  color: white;
+  margin-top: 10vh;
+  margin-bottom: 5vh;
+}
+
+section.hero .signUpForm .form input {
+  background: transparent;
+  border: 1px solid white;
+  font-family: Quicksand;
+  font-weight: 400;
+  color: white;
+}
+
+section.hero .signUpForm .form label {
+  font-family: Quicksand;
+  font-weight: bold;
+  color: white;
+}
+
+section.hero .signUpForm .submit input {
+  background: #EDAC04;
+  border: none;
+  font-family: Poppins;
+  font-weight: bold;
+  color: white;
+  padding: 1.5vh;
+  border-radius: 1vh;
+  margin-top: 1vh;
 }

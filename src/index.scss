@@ -7,6 +7,22 @@ $contentFont: Quicksand;
     font-weight: 900;
     color: white;
 }
+@mixin headingFontBoldStyle {
+    font-family: $headingFont;
+    font-weight: bold;
+    color: white;
+}
+@mixin contentFontBoldStyle {
+    font-family: $contentFont;
+    font-weight: bold;
+    color: white;
+}
+@mixin contentFontRegularStyle {
+    font-family: $contentFont;
+    font-weight: 400;
+    color: white;
+}
+
 *{
     box-sizing: border-box;
 }
@@ -18,7 +34,7 @@ a{
 }
 
 
-
+// Navbar Section
 nav{
     a{
         @include headingFontBlackStyle();
@@ -26,10 +42,41 @@ nav{
     }
 }
 
+// Hero Section
 section.hero{
-    p{
-        @include headingFontBlackStyle();
-        font-size: 6vh;
-        margin-top: 20vh;
+    .tagLine{
+        p{
+            @include headingFontBlackStyle();
+            font-size: 6vh;
+            margin-top: 20vh;
+        }
     }
+    .signUpForm{
+        h1{
+            @include headingFontBoldStyle();
+            margin-top: 10vh;
+            margin-bottom: 5vh;
+        }
+        .form{
+            input{
+                background: transparent;
+                border: 1px solid $firstTextColor;
+                @include contentFontRegularStyle();
+            }
+            label{
+                @include contentFontBoldStyle();
+            }
+        }
+        .submit{
+            input{
+                background: #EDAC04;
+                border: none;
+                @include headingFontBoldStyle();
+                padding: 1.5vh;
+                border-radius: 1vh;
+                margin-top: 1vh;
+            }
+        }
+    }
+    
 }

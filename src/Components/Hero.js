@@ -1,13 +1,15 @@
 import React from 'react'
+import RegisterForm from './RegisterForm'
 
 const Hero = () => {
     return (
         <section className='hero'>
             <div className='container'>
                 <div className='row'>
-                    <div className='col-6'>
+                    <div className='col-6 tagLine'>
                         <p>Connect your loved ones with just one click.</p>
                     </div>
+                    <RegisterForm/>
                 </div>
             </div>
         </section>
