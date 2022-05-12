@@ -1,13 +1,23 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background: linear-gradient(90deg, #79DAE8, #0AA1DD);
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-family: Poppins;
+  font-weight: 900;
+  font-size: 3.5vh;
+}
+
+section.hero p {
+  color: white;
+  font-family: Poppins;
+  font-weight: 900;
+  font-size: 6vh;
+  margin-top: 20vh;
 }
