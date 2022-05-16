@@ -26,9 +26,8 @@ const IndividualProfile = () => {
   return (
     <div>
 
-        <h1>{userid}</h1>
+        <h1>HELLO {profile.firstName} {profile.lastName} welcome to your profile</h1>
 
-        SHET HELLO {profile.firstName}
 
     </div>
 
