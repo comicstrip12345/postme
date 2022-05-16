@@ -1,14 +1,14 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import NotLoggedIn from './Components/NotLoggedIn'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import "./index.css"
+import App from './App';
+import {createRoot} from "react-dom/client";
 
-const App = () => {
-  return (
-    <NotLoggedIn/>
-  )
-}
+const container = document.getElementById("root")
+const root = createRoot(container)
 
-ReactDOM.render(<App/>, document.getElementById("root"))
+
+
+
+root.render(<App/>)

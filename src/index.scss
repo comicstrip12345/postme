@@ -22,12 +22,36 @@ $contentFont: Quicksand;
     font-weight: 400;
     color: white;
 }
+@mixin  formHeadingDesign {
+    @include headingFontBoldStyle();
+    font-size: 5vh;
+    margin-bottom: 4vh;
+}
+@mixin  formInputDesign {
+    background: transparent;
+    border: 1px solid $firstTextColor;
+    height: 9vh;
+    @include contentFontRegularStyle();
+}
+@mixin  formLabelDesign {
+    @include contentFontBoldStyle();
+    font-size: 2.2vh;
+}
+@mixin  formSubmitDesign {
+    background: #EDAC04;
+    border: none;
+    @include headingFontBoldStyle();
+    padding: 1.5vh;
+    border-radius: 1vh;
+    margin-top: 1vh;
+}
 
 *{
     box-sizing: border-box;
 }
 body{
     background:linear-gradient(90deg,#79DAE8,#0AA1DD);
+    overflow: hidden;
 }
 a{
     text-decoration: none;
@@ -36,9 +60,19 @@ a{
 
 // Navbar Section
 nav{
-    a{
+    p{
         @include headingFontBlackStyle();
         font-size: 3.5vh;
+        margin-bottom: 0;
+    }
+
+    .forms{
+        p{
+            margin-bottom: 0;
+            text-align: center;
+            margin-top: 2vh;
+            margin-bottom: 2vh;
+        }
     }
 }
 
@@ -50,31 +84,145 @@ section.hero{
             font-size: 6vh;
             margin-top: 20vh;
         }
+        input{
+            background: #EDAC04;
+            border: none;
+            @include headingFontBoldStyle();
+            padding: 2vh;
+            border-radius: 1vh;
+            margin-top: 1vh;
+            margin-right: 4vh;
+        }
+    }
+    .gif{
+        img{
+            height: 70vh;
+            border-radius: 2vh;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 6vh;
+        }
     }
     .signUpForm{
         h1{
-            @include headingFontBoldStyle();
-            margin-top: 10vh;
-            margin-bottom: 5vh;
+            @include formHeadingDesign();
+            margin-top: 3vh;
         }
         .form{
             input{
-                background: transparent;
-                border: 1px solid $firstTextColor;
-                @include contentFontRegularStyle();
+                @include formInputDesign();
+                // width: 35vw;
+                width: 74%;
             }
             label{
-                @include contentFontBoldStyle();
+                @include formLabelDesign();
             }
         }
         .submit{
             input{
-                background: #EDAC04;
-                border: none;
-                @include headingFontBoldStyle();
-                padding: 1.5vh;
-                border-radius: 1vh;
-                margin-top: 1vh;
+                @include formSubmitDesign();
+            }
+            p{
+                padding-top: 2.5vh;
+                padding-bottom: 2.5vh;
+                margin-bottom: 0;
+                @include contentFontRegularStyle();
+                font-size: 1.7vh;
+                float: right;
+            }
+        }
+        .row{
+            .form{
+                input{
+                    width: 100%;
+                }
+                label{
+                    margin-left: 2vh;
+                }
+            }
+        }
+    }
+    .loginForm{
+        h1{
+            @include formHeadingDesign();
+            margin-top: 10vh;
+        }
+        .form{
+            input{
+                @include formInputDesign();
+                width: 74%;
+            }
+            label{
+                @include formLabelDesign();
+            }
+        }
+        .submit{
+            input{
+                @include formSubmitDesign();
+            }
+            p{
+                padding-top: 2.5vh;
+                padding-bottom: 2.5vh;
+                margin-bottom: 0;
+                @include contentFontRegularStyle();
+                font-size: 1.7vh;
+                float: right;
+            }
+        }
+    }
+    .profile{
+        h1{
+            @include formHeadingDesign();
+            margin-top: 3vh;
+        }
+
+        .form{
+            input{
+                @include formInputDesign();
+                width: 74%;
+            }
+            label{
+                @include formLabelDesign();
+            }
+        }
+        .submit{
+            input[type=submit]{
+                @include formSubmitDesign();
+            }
+        }
+    }
+    .friends{
+        img{
+            height: 20vh;
+        }
+    }
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    
+    .container{
+        border-top: 1px solid white;
+
+        p{
+            @include contentFontRegularStyle();
+            font-size: 1.5vh;
+            padding-top: 2vh;
+            // padding-bottom: 2vh;
+
+            &.copyright{
+                float: left;
+            }
+            &.options{
+                float: right;
+
+                a{
+                    color: white;
+                    margin-left: 10vh;
+                }
             }
         }
     }
