@@ -14,7 +14,7 @@ const RegisterForm = () => {
     let navigate = useNavigate();
 
     const register = () => {
-        axios.post("http://serserserver.herokuapp.com/register",{
+        axios.post("https://serserserver.herokuapp.com/register",{
             firstName:firstNameReg,
             lastName:lastNameReg,
             username:usernameReg,
