@@ -4,9 +4,8 @@ const NavbarNotLoggedIn = () => {
     return (
         <nav className='navbar'>
             <div className='container'>
-                <a href='/#'>postme</a>
+                <p>postme</p>
             </div>
-            
         </nav>
     )
 }

@@ -1,31 +1,50 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+import { Fade } from 'react-reveal'
 
 const RegisterForm = () => {
     
     const [usernameReg, setUsernameReg] = useState("")
     const [passwordReg, setPasswordReg] = useState("")
-    const [nameReg,setNameReg] = useState("") 
+    const [firstnameReg,setFirstNameReg] = useState("") 
+    const [lastnameReg,setLastNameReg] = useState("") 
+    const [emailReg,setEmailReg] = useState("") 
 
     const register = () => {
         axios.post("http://localhost:3006/register",{
-            name:nameReg,
+            firstname:firstnameReg,
+            lastname:lastnameReg,
             username:usernameReg,
             password:passwordReg,
+            email:emailReg,
         }).then((response)=> {
             console.log(response);
         })
-        console.log(`${usernameReg},${passwordReg},${nameReg}`)
+        console.log(`${usernameReg},${passwordReg},${firstnameReg},${lastnameReg},${emailReg}`)
         }
     
 
 
     return (
+        <Fade right>
+
+        
         <div className='col-6 signUpForm'>
             <h1>Sign Up</h1>
+            <div className='row'>
+                <div className="col-4 form-floating mb-3 form">
+                    <input type="text" className="form-control" id="floatingFirstName" placeholder="text" onChange={(e)=>{setFirstNameReg(e.target.value)}}/>
+                    <label htmlFor="floatingFirstName">First Name</label>
+                </div>
+                <div className="col-5 form-floating mb-3 form">
+                    <input type="text" className="form-control" id="floatingLastName" placeholder="text" onChange={(e)=>{setLastNameReg(e.target.value)}}/>
+                    <label htmlFor="floatingLastName">Last Name</label>
+                </div>
+            </div>
             <div className="form-floating mb-3 form">
-                <input type="text" className="form-control" id="floatingName" placeholder="text" onChange={(e)=>{setNameReg(e.target.value)}}/>
-                <label htmlFor="floatingName">Name</label>
+                <input type="text" className="form-control" id="email" placeholder="text" onChange={(e)=>{setEmailReg(e.target.value)}}/>
+                <label htmlFor="email">Email</label>
             </div>
             <div className="form-floating mb-3 form">
                 <input type="text" className="form-control" id="floatingUsername" placeholder="text" onChange={(e)=>{setUsernameReg(e.target.value)}}/>
@@ -40,9 +59,17 @@ const RegisterForm = () => {
                 <label htmlFor="floatingConfirmPassword">Confirm Password</label>
             </div>
             <div className='submit'>
-                <input type="submit" onClick={register}/>
+                <div className='row'>
+                    <div className='col-3'>
+                        <Link to="/regprofile"><input type="submit" onClick={register}/></Link>
+                    </div>
+                    <div className='col-6'>
+                        <Link to="/login"><p>Already have an account, then Log In.</p></Link>
+                    </div>
+                </div>
             </div>
         </div>
+        </Fade>
     )
 }
 

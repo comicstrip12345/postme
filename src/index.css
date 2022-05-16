@@ -4,17 +4,26 @@
 
 body {
   background: linear-gradient(90deg, #79DAE8, #0AA1DD);
+  overflow: hidden;
 }
 
 a {
   text-decoration: none;
 }
 
-nav a {
+nav p {
   font-family: Poppins;
   font-weight: 900;
   color: white;
   font-size: 3.5vh;
+  margin-bottom: 0;
+}
+
+nav .forms p {
+  margin-bottom: 0;
+  text-align: center;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
 }
 
 section.hero .tagLine p {
@@ -25,26 +34,51 @@ section.hero .tagLine p {
   margin-top: 20vh;
 }
 
+section.hero .tagLine input {
+  background: #EDAC04;
+  border: none;
+  font-family: Poppins;
+  font-weight: bold;
+  color: white;
+  padding: 2vh;
+  border-radius: 1vh;
+  margin-top: 1vh;
+  margin-right: 4vh;
+}
+
+section.hero .gif img {
+  height: 70vh;
+  border-radius: 2vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6vh;
+}
+
 section.hero .signUpForm h1 {
   font-family: Poppins;
   font-weight: bold;
   color: white;
-  margin-top: 10vh;
-  margin-bottom: 5vh;
+  font-size: 5vh;
+  margin-bottom: 4vh;
+  margin-top: 3vh;
 }
 
 section.hero .signUpForm .form input {
   background: transparent;
   border: 1px solid white;
+  height: 9vh;
   font-family: Quicksand;
   font-weight: 400;
   color: white;
+  width: 74%;
 }
 
 section.hero .signUpForm .form label {
   font-family: Quicksand;
   font-weight: bold;
   color: white;
+  font-size: 2.2vh;
 }
 
 section.hero .signUpForm .submit input {
@@ -56,4 +90,143 @@ section.hero .signUpForm .submit input {
   padding: 1.5vh;
   border-radius: 1vh;
   margin-top: 1vh;
+}
+
+section.hero .signUpForm .submit p {
+  padding-top: 2.5vh;
+  padding-bottom: 2.5vh;
+  margin-bottom: 0;
+  font-family: Quicksand;
+  font-weight: 400;
+  color: white;
+  font-size: 1.7vh;
+  float: right;
+}
+
+section.hero .signUpForm .row .form input {
+  width: 100%;
+}
+
+section.hero .signUpForm .row .form label {
+  margin-left: 2vh;
+}
+
+section.hero .loginForm h1 {
+  font-family: Poppins;
+  font-weight: bold;
+  color: white;
+  font-size: 5vh;
+  margin-bottom: 4vh;
+  margin-top: 10vh;
+}
+
+section.hero .loginForm .form input {
+  background: transparent;
+  border: 1px solid white;
+  height: 9vh;
+  font-family: Quicksand;
+  font-weight: 400;
+  color: white;
+  width: 74%;
+}
+
+section.hero .loginForm .form label {
+  font-family: Quicksand;
+  font-weight: bold;
+  color: white;
+  font-size: 2.2vh;
+}
+
+section.hero .loginForm .submit input {
+  background: #EDAC04;
+  border: none;
+  font-family: Poppins;
+  font-weight: bold;
+  color: white;
+  padding: 1.5vh;
+  border-radius: 1vh;
+  margin-top: 1vh;
+}
+
+section.hero .loginForm .submit p {
+  padding-top: 2.5vh;
+  padding-bottom: 2.5vh;
+  margin-bottom: 0;
+  font-family: Quicksand;
+  font-weight: 400;
+  color: white;
+  font-size: 1.7vh;
+  float: right;
+}
+
+section.hero .profile h1 {
+  font-family: Poppins;
+  font-weight: bold;
+  color: white;
+  font-size: 5vh;
+  margin-bottom: 4vh;
+  margin-top: 3vh;
+}
+
+section.hero .profile .form input {
+  background: transparent;
+  border: 1px solid white;
+  height: 9vh;
+  font-family: Quicksand;
+  font-weight: 400;
+  color: white;
+  width: 74%;
+}
+
+section.hero .profile .form label {
+  font-family: Quicksand;
+  font-weight: bold;
+  color: white;
+  font-size: 2.2vh;
+}
+
+section.hero .profile .submit input[type=submit] {
+  background: #EDAC04;
+  border: none;
+  font-family: Poppins;
+  font-weight: bold;
+  color: white;
+  padding: 1.5vh;
+  border-radius: 1vh;
+  margin-top: 1vh;
+}
+
+section.hero .friends img {
+  height: 20vh;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+footer .container {
+  border-top: 1px solid white;
+}
+
+footer .container p {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: white;
+  font-size: 1.5vh;
+  padding-top: 2vh;
+}
+
+footer .container p.copyright {
+  float: left;
+}
+
+footer .container p.options {
+  float: right;
+}
+
+footer .container p.options a {
+  color: white;
+  margin-left: 10vh;
 }
