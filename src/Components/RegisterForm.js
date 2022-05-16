@@ -1,29 +1,32 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Fade } from 'react-reveal'
 
 const RegisterForm = () => {
     
     const [usernameReg, setUsernameReg] = useState("")
     const [passwordReg, setPasswordReg] = useState("")
-    const [firstnameReg,setFirstNameReg] = useState("") 
-    const [lastnameReg,setLastNameReg] = useState("") 
+    const [firstNameReg,setFirstNameReg] = useState("") 
+    const [lastNameReg,setLastNameReg] = useState("") 
     const [emailReg,setEmailReg] = useState("") 
 
+    let navigate = useNavigate();
+
     const register = () => {
-        axios.post("http://localhost:3006/register",{
-            firstname:firstnameReg,
-            lastname:lastnameReg,
+        axios.post("http://serserserver.herokuapp.com/register",{
+            firstName:firstNameReg,
+            lastName:lastNameReg,
             username:usernameReg,
             password:passwordReg,
-            email:emailReg,
+            email:emailReg
         }).then((response)=> {
             console.log(response);
         })
-        console.log(`${usernameReg},${passwordReg},${firstnameReg},${lastnameReg},${emailReg}`)
-        }
-    
+        console.log(`${usernameReg},${passwordReg},${firstNameReg},${lastNameReg},${emailReg}`)
+
+        navigate("/regprofile")
+    }
 
 
     return (
@@ -61,7 +64,7 @@ const RegisterForm = () => {
             <div className='submit'>
                 <div className='row'>
                     <div className='col-3'>
-                        <Link to="/regprofile"><input type="submit" onClick={register}/></Link>
+                        <input type="submit" onClick={register}/>
                     </div>
                     <div className='col-6'>
                         <Link to="/login"><p>Already have an account, then Log In.</p></Link>
