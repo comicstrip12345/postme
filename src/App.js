@@ -8,6 +8,7 @@ import 'bootstrap/dist/js/bootstrap.js';
 import "./index.css"
 import { BrowserRouter,Routes, Route } from 'react-router-dom';
 import IndividualProfile from './Components/IndividualProfile';
+import SearchPage from './Components/SearchPage';
 
 
 const App = () => {
@@ -16,9 +17,10 @@ const App = () => {
             <Routes>
                 <Route path='/' element={<Hero/>}></Route>
                 <Route path='/register' element={<HeroRegisterForm/>}></Route>
-                <Route path='/regprofile' element={<HeroRegisterProfile/>}></Route>
+                <Route path='/regprofile/:usernameReg' element={<HeroRegisterProfile/>}></Route>
                 <Route path='/login' element={<HeroLogInForm/>}></Route>
                 <Route path='/profile/:userid' element={<IndividualProfile/>}></Route>
+                <Route path='/searchpage/:userid' element={<SearchPage/>}></Route>
             </Routes>
         </BrowserRouter>
     )

@@ -9,7 +9,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 const IndividualProfile = () => {
 
     const {userid} = useParams();
-    const [profile, setProfile] = useState([])
+    const [profile, setProfile] = useState([]);
     
         useEffect(
             ()=> {
