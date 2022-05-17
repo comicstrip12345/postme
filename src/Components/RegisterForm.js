@@ -25,7 +25,7 @@ const RegisterForm = () => {
         })
         console.log(`${usernameReg},${passwordReg},${firstNameReg},${lastNameReg},${emailReg}`)
 
-        navigate("/regprofile")
+        navigate("/regprofile/"+usernameReg)
     }
 
 
