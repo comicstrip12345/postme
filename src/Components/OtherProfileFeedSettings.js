@@ -4,17 +4,18 @@ import axios from 'axios';
 import ProfileFeedPost from './ProfileFeedPost';
 
 
-const ProfileFeedSettings = (props) => {
+const OtherProfileFeedSettings = (props) => {
     
     const userid = props.userid
+    const wallid = props.wallOwnerId
     const [post, setPost] = useState();
     const [postCounter, setPostCounter] = useState(1);
     const postRef = useRef();
-    
 
     const submitHandler = () => {
-        axios.post("https://serserserver.herokuapp.com/newpost",{
+        axios.post("https://serserserver.herokuapp.com/newpostother",{
             userid:userid,
+            wallid:wallid,
             post:post,
         }).then((response)=> {
             console.log(response)
@@ -37,15 +38,15 @@ const ProfileFeedSettings = (props) => {
                 <div className='col-10 postInput'>
                     <div className="form-floating form">
                         <i className="bi bi-send" onClick={submitHandler}></i>
-                        <input type="text" className="form-control" ref={postRef} id="post" placeholder="text" onChange={(e)=> { setPost(e.target.value) }}/>
+                        <input type="text" className="form-control" id="post" ref={postRef} placeholder="text" onChange={(e)=> { setPost(e.target.value) }}/>
                         <label htmlFor="post">Post Something...</label>
                     </div>
                 </div>
             </div>
 
-            <ProfileFeedPost userid={`${userid}`} postCounter={postCounter} />
+            <ProfileFeedPost userid={`${wallid}`} postCounter={postCounter} />
         </div>
     )
 }
 
-export default ProfileFeedSettings
+export default OtherProfileFeedSettings

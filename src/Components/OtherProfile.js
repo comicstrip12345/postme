@@ -2,22 +2,45 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import NavbarNotLoggedin from './NavbarNotLoggedIn'
-import ProfileFeedSettings from './ProfileFeedSettings';
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import OtherProfileFeedSettings from './OtherProfileFeedSettings';
 
-const IndividualProfile = () => {
+const OtherProfile = () => {
 
     const {userid} = useParams();
+    const {wallOwnerId} = useParams();
     const [profile, setProfile] = useState([]);
+    const [hasFriendRequest, setHasFriendRequest] = useState(false);
+    const [stateChanger,setStateChanger] = useState(1)
     
-   
-                axios.post("https://serserserver.herokuapp.com/profile", {userid:userid} ).then((res)=> {
+        useEffect(
+            ()=> {
+                axios.post("https://serserserver.herokuapp.com/profile", {userid:wallOwnerId} ).then((res)=> {
                     if(res.status===200){
                         const id = res["data"]["array"][0]
                         setProfile(id)
                     }
                 })
-       
+
+                axios.post("https://serserserver.herokuapp.com/frsearcher", {userid:userid, wallid:wallOwnerId} ).then((res)=> {
+                    if(res.data.array.length>0){
+                        setHasFriendRequest(true)
+                    }
+                })
+            },
+            [stateChanger]
+        )
+
+    const addFriend = () => {
+        console.log("friend request sent")
+        axios.post("https://serserserver.herokuapp.com/friendrequest", {
+            userid:userid,
+            otherid:wallOwnerId}).then((res)=> {
+                    console.log(res)
+                    setStateChanger(stateChanger+1)
+                })
+
+    }
 
   return (
     <>
@@ -34,6 +57,11 @@ const IndividualProfile = () => {
                         <h1>
                             {profile.firstName} {profile.lastName} <br/>
                             <p>Adrii</p>
+                            {
+                            !hasFriendRequest ? <button type="button" className='btn btn-primary' onClick={addFriend}>Add Friend</button> :
+                            <button type="button" className='btn btn-primary' disabled>Friend request sent</button>
+                            }
+                            
                         </h1>
                     </div>
                     <div className='col-12 profileFeed'>
@@ -48,13 +76,12 @@ const IndividualProfile = () => {
                                         <p>December 22, 1994</p>
                                         <p>{profile.city}</p>
                                         <p>Basketball, Volleyball, Coding</p>
-                                        <button><h1>Edit Details</h1></button>
                                     </div>
                                 </div>
                             </div>
                             <div className='col-7 newsFeed'>
                                 <div className='row'>
-                                    <ProfileFeedSettings userid={`${userid}`} />
+                                    <OtherProfileFeedSettings userid={`${userid}`} wallOwnerId={`${wallOwnerId}`} />
                                    
                                 </div>
                             </div>
@@ -72,4 +99,4 @@ const IndividualProfile = () => {
   )
 }
 
-export default IndividualProfile
+export default OtherProfile
