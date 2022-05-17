@@ -1,5 +1,6 @@
 import React from 'react'
 import NavbarNotLoggedIn from './NavbarNotLoggedIn'
+import Footer from './Footer'
 import { Link } from 'react-router-dom'
 
 const Hero = () => {
@@ -20,6 +21,7 @@ const Hero = () => {
                     </div>
                 </div>
             </section>
+            <Footer/>
         </>
         
     )

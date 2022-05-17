@@ -1,26 +1,47 @@
-$firstTextColor:white;
+$mainTextColor: black;
+$secondTextColor:white;
 $headingFont: Poppins;
 $contentFont: Quicksand;
 
 @mixin headingFontBlackStyle {
     font-family: $headingFont;
     font-weight: 900;
-    color: white;
+    color: $secondTextColor;
 }
 @mixin headingFontBoldStyle {
     font-family: $headingFont;
     font-weight: bold;
-    color: white;
+    color: $secondTextColor;
 }
 @mixin contentFontBoldStyle {
     font-family: $contentFont;
     font-weight: bold;
-    color: white;
+    color: $secondTextColor;
 }
 @mixin contentFontRegularStyle {
     font-family: $contentFont;
     font-weight: 400;
-    color: white;
+    color: $secondTextColor;
+}
+@mixin headingFontBlackStyleProfile {
+    font-family: $headingFont;
+    font-weight: 900;
+    color: $mainTextColor;
+}
+@mixin headingFontBoldStyleProfile {
+    font-family: $headingFont;
+    font-weight: bold;
+    color: $mainTextColor;
+}
+@mixin contentFontBoldStyleProfile {
+    font-family: $contentFont;
+    font-weight: bold;
+    color: $mainTextColor;
+}
+@mixin contentFontRegularStyleProfile {
+    font-family: $contentFont;
+    font-weight: 400;
+    color: $mainTextColor;
 }
 @mixin  formHeadingDesign {
     @include headingFontBoldStyle();
@@ -29,7 +50,7 @@ $contentFont: Quicksand;
 }
 @mixin  formInputDesign {
     background: transparent;
-    border: 1px solid $firstTextColor;
+    border: 1px solid $secondTextColor;
     height: 9vh;
     @include contentFontRegularStyle();
 }
@@ -45,21 +66,24 @@ $contentFont: Quicksand;
     border-radius: 1vh;
     margin-top: 1vh;
 }
+@mixin profileTiles {
+    
+}
 
 *{
     box-sizing: border-box;
 }
-body{
-    background:linear-gradient(90deg,#79DAE8,#0AA1DD);
-    overflow: hidden;
-}
 a{
     text-decoration: none;
+}
+h1,p{
+    margin: 0;
 }
 
 
 // Navbar Section
 nav{
+    background:linear-gradient(90deg,#79DAE8,#0AA1DD);
     p{
         @include headingFontBlackStyle();
         font-size: 3.5vh;
@@ -70,14 +94,17 @@ nav{
         p{
             margin-bottom: 0;
             text-align: center;
-            margin-top: 2vh;
-            margin-bottom: 2vh;
+            padding-top: 2vh;
+            padding-bottom: 2vh;
         }
     }
 }
 
 // Hero Section
 section.hero{
+    background:linear-gradient(90deg,#79DAE8,#0AA1DD);
+    height: 90vh;
+    overflow: hidden;
     .tagLine{
         p{
             @include headingFontBlackStyle();
@@ -199,19 +226,175 @@ section.hero{
     }
 }
 
+// Profile Section
+section.profile{
+    margin-top: 10vh;
+
+    .circlePhoto{
+        background-color: $mainTextColor;
+        height: 160px;
+        width: 160px;
+        border-radius: 20vh;
+    }
+    .profileName{
+        h1{
+            @include headingFontBoldStyleProfile();
+            
+            p{
+                @include contentFontRegularStyleProfile();
+                font-size: 4vh;
+                margin: 0;
+            }
+        }
+    }
+    .profileFeed{
+        .info{
+            padding: 4vh;
+            
+            .intro{
+                border: 1px solid $mainTextColor;
+                border-radius: 2vh;
+                padding: 3vh;
+                padding-top: 4vh;
+                padding-bottom: 5vh;
+                width: 90%;
+                margin-bottom: 5vh;
+                margin-top: 10vh;
+
+                h1{
+                    @include headingFontBoldStyleProfile();
+                    font-size: 4vh;
+                    margin-bottom: 3vh;
+                }
+                p{
+                    @include contentFontRegularStyleProfile();
+                    font-size: 2.5vh;
+                    margin-bottom: 1.5vh;
+
+                    span{
+                        @include headingFontBoldStyleProfile();
+                    }
+                }
+                button{
+                    width: 100%;
+                    border: 1px solid $mainTextColor;
+                    background: none;
+                    border-radius: 2vh;
+                    margin-top: 2vh;
+
+                    h1{
+                        margin: 0;
+                        padding: 2vh;
+                        font-size: 3vh;
+                    }
+                }
+            }
+        }
+        .newsFeed{
+            padding: 4vh;
+
+            .feed{
+                border: 1px solid $mainTextColor;
+                border-radius: 2vh;
+                padding: 3vh;
+                padding-top: 4vh;
+                padding-bottom: 4vh;
+                margin-bottom: 5vh;
+                margin-top: 10vh;
+
+                .profImage{
+                    background-color: $mainTextColor;
+                    height: 59px;
+                    width: 59px;
+                    border-radius: 20vh;
+                    margin-left: 2vh;
+                }
+                .postInput{
+                    .form{
+                        i{
+                            position: absolute;
+                            right: 3vh;
+                            bottom: 2vh;
+                            font-size: 3vh;
+                        }
+                    }
+                    input{
+                        border: 1px solid black;
+                        border-radius: 2vh;
+                    }
+                    label{
+                        @include contentFontRegularStyleProfile();
+                    }
+                }
+            }
+            .post{
+                border: 1px solid $mainTextColor;
+                border-radius: 2vh;
+                padding: 3vh;
+                padding-top: 4vh;
+                padding-bottom: 2vh;
+                margin-bottom: 5vh;
+
+                .profImage{
+                    background-color: $mainTextColor;
+                    height: 59px;
+                    width: 59px;
+                    border-radius: 20vh;
+                    margin-left: 2vh;
+                }
+                .postName{
+                    h1{
+                        @include headingFontBoldStyleProfile();
+                        font-size: 3vh;
+
+                        p{
+                            @include contentFontRegularStyleProfile();
+                            font-size: 2.5vh;
+                        }
+                    }
+                }
+                .postContent{
+                    margin-top: 3vh;
+                    padding-left: 4vh;
+                    margin-bottom: 10vh;
+
+                    p{
+                        @include contentFontRegularStyleProfile();
+                        font-size: 3.5vh;
+                    }
+                }
+                .postMenu{
+                    padding-top: 2vh;
+                    border-top: 1px solid $mainTextColor;
+                    p{
+                        text-align: center;
+                        @include headingFontBoldStyleProfile();
+                        font-size: 2.5vh;
+                        
+                        a{
+                            color: $mainTextColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 footer{
+    background:linear-gradient(90deg,#79DAE8,#0AA1DD);
     position: absolute;
     bottom: 0;
     width: 100%;
     
     .container{
-        border-top: 1px solid white;
+        border-top: 1px solid $secondTextColor;
 
         p{
             @include contentFontRegularStyle();
             font-size: 1.5vh;
             padding-top: 2vh;
-            // padding-bottom: 2vh;
+            padding-bottom: 2vh;
 
             &.copyright{
                 float: left;
@@ -220,7 +403,7 @@ footer{
                 float: right;
 
                 a{
-                    color: white;
+                    color: $secondTextColor;
                     margin-left: 10vh;
                 }
             }

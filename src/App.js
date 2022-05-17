@@ -1,5 +1,4 @@
 import React from 'react'
-import Footer from './Components/Footer';
 import Hero from './Components/Hero';
 import HeroRegisterForm from './Components/HeroRegisterForm';
 import HeroRegisterProfile from './Components/HeroRegisterProfile';
@@ -21,7 +20,6 @@ const App = () => {
                 <Route path='/login' element={<HeroLogInForm/>}></Route>
                 <Route path='/profile/:userid' element={<IndividualProfile/>}></Route>
             </Routes>
-            <Footer/>
         </BrowserRouter>
     )
 }

@@ -1,6 +1,8 @@
 import React from 'react'
 import RegisterForm from './RegisterForm'
 import NavbarForm from './NavbarForm'
+import Footer from './Footer'
+
 
 const HeroRegisterForm = () => {
     return (
@@ -16,6 +18,7 @@ const HeroRegisterForm = () => {
                     </div>
                 </div>
             </section>
+            <Footer/>
         </>
         
     )
