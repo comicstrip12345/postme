@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import NavbarNotLoggedin from './NavbarNotLoggedIn'
 import ProfileFeedSettings from './ProfileFeedSettings';
-import ProfileFeedPost from './ProfileFeedPost';
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
 const IndividualProfile = () => {
@@ -15,11 +14,7 @@ const IndividualProfile = () => {
             ()=> {
                 axios.post("https://serserserver.herokuapp.com/profile", {userid:userid} ).then((res)=> {
                     if(res.status===200){
-                        console.log(res)
-                        
                         const id = res["data"]["array"][0]
-                        console.log(id)
-
                         setProfile(id)
                     }
                 })
@@ -62,8 +57,8 @@ const IndividualProfile = () => {
                             </div>
                             <div className='col-7 newsFeed'>
                                 <div className='row'>
-                                    <ProfileFeedSettings/>
-                                    <ProfileFeedPost/>
+                                    <ProfileFeedSettings userid={`${userid}`} />
+                                   
                                 </div>
                             </div>
                         </div>

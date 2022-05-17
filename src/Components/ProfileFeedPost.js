@@ -1,8 +1,34 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
-const ProfileFeedPost = () => {
+const ProfileFeedPost = (props) => {
+
+   
+    const [posts,setPosts] = useState([])
+    const counter = props.postCounter
+
+
+    useEffect(()=> {
+        const id=props.userid
+
+        axios.post("https://serserserver.herokuapp.com/postfeed",{
+            userid:id,
+        }).then((response)=> {
+            console.log(response)
+            setPosts(response["data"]["array"])
+            
+        })
+
+},[counter])
+  
+       
+
+
     return (
-        <div className='col-12 post'>
+
+        <>
+        {posts.map((post,index)=> (
+            <div className='col-12 post' key={index}>
             <div className='row'>
                 <div className='col-2'>
                     <div className='profImage'>
@@ -11,12 +37,12 @@ const ProfileFeedPost = () => {
                 </div>
                 <div className='col-10 postName d-flex align-items-center'>
                     <h1>
-                        Adriano Sabanal Jr.
-                        <p>4hrs.</p>
+                        {post.firstName} {post.lastName}
+                        <p>{post.date_created} hrs.</p>
                     </h1>
                 </div>
                 <div className='col-12 postContent'>
-                    <p>Good Morning Everyone :)</p>
+                    <p>{post.content}</p>
                 </div>
                 <div className='col-12 postMenu'>
                     <div className='row'>
@@ -30,6 +56,10 @@ const ProfileFeedPost = () => {
                 </div>
             </div>
         </div>
+        ))}
+        
+
+        </>
     )
 }
 
