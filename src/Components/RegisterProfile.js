@@ -8,7 +8,6 @@ const RegisterProfile = () => {
     const {usernameReg} = useParams();
     const [birthday, setBirthday] = useState("")
     const [city, setCity] = useState("")
-    const [img, setImg] = useState("")
     const navigate = useNavigate()
   
 
