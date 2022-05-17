@@ -1,6 +1,8 @@
 import React from 'react'
 import LoginForm from './LoginForm'
 import NavbarForm from './NavbarForm'
+import Footer from './Footer'
+
 
 const HeroLogInForm = () => {
     return (
@@ -16,6 +18,7 @@ const HeroLogInForm = () => {
                     </div>
                 </div>
             </section>
+            <Footer/>
         </>
         
     )

@@ -1,5 +1,4 @@
 import React from 'react'
-import Footer from './Components/Footer';
 import Hero from './Components/Hero';
 import HeroRegisterForm from './Components/HeroRegisterForm';
 import HeroRegisterProfile from './Components/HeroRegisterProfile';
@@ -23,7 +22,6 @@ const App = () => {
                 <Route path='/profile/:userid' element={<IndividualProfile/>}></Route>
                 <Route path='/searchpage/:userid' element={<SearchPage/>}></Route>
             </Routes>
-            <Footer/>
         </BrowserRouter>
     )
 }

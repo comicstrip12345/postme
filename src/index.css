@@ -2,13 +2,16 @@
   box-sizing: border-box;
 }
 
-body {
-  background: linear-gradient(90deg, #79DAE8, #0AA1DD);
-  overflow: hidden;
-}
-
 a {
   text-decoration: none;
+}
+
+h1, p {
+  margin: 0;
+}
+
+nav {
+  background: linear-gradient(90deg, #79DAE8, #0AA1DD);
 }
 
 nav p {
@@ -22,8 +25,14 @@ nav p {
 nav .forms p {
   margin-bottom: 0;
   text-align: center;
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
+section.hero {
+  background: linear-gradient(90deg, #79DAE8, #0AA1DD);
+  height: 90vh;
+  overflow: hidden;
 }
 
 section.hero .tagLine p {
@@ -200,7 +209,185 @@ section.hero .friends img {
   height: 20vh;
 }
 
+section.profile {
+  margin-top: 10vh;
+}
+
+section.profile .circlePhoto {
+  background-color: black;
+  height: 160px;
+  width: 160px;
+  border-radius: 20vh;
+}
+
+section.profile .profileName h1 {
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+}
+
+section.profile .profileName h1 p {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  font-size: 4vh;
+  margin: 0;
+}
+
+section.profile .profileFeed .info {
+  padding: 4vh;
+}
+
+section.profile .profileFeed .info .intro {
+  border: 1px solid black;
+  border-radius: 2vh;
+  padding: 3vh;
+  padding-top: 4vh;
+  padding-bottom: 5vh;
+  width: 90%;
+  margin-bottom: 5vh;
+  margin-top: 10vh;
+}
+
+section.profile .profileFeed .info .intro h1 {
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+  font-size: 4vh;
+  margin-bottom: 3vh;
+}
+
+section.profile .profileFeed .info .intro p {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  font-size: 2.5vh;
+  margin-bottom: 1.5vh;
+}
+
+section.profile .profileFeed .info .intro p span {
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+}
+
+section.profile .profileFeed .info .intro button {
+  width: 100%;
+  border: 1px solid black;
+  background: none;
+  border-radius: 2vh;
+  margin-top: 2vh;
+}
+
+section.profile .profileFeed .info .intro button h1 {
+  margin: 0;
+  padding: 2vh;
+  font-size: 3vh;
+}
+
+section.profile .profileFeed .newsFeed {
+  padding: 4vh;
+}
+
+section.profile .profileFeed .newsFeed .feed {
+  border: 1px solid black;
+  border-radius: 2vh;
+  padding: 3vh;
+  padding-top: 4vh;
+  padding-bottom: 4vh;
+  margin-bottom: 5vh;
+  margin-top: 10vh;
+}
+
+section.profile .profileFeed .newsFeed .feed .profImage {
+  background-color: black;
+  height: 59px;
+  width: 59px;
+  border-radius: 20vh;
+  margin-left: 2vh;
+}
+
+section.profile .profileFeed .newsFeed .feed .postInput .form i {
+  position: absolute;
+  right: 3vh;
+  bottom: 2vh;
+  font-size: 3vh;
+}
+
+section.profile .profileFeed .newsFeed .feed .postInput input {
+  border: 1px solid black;
+  border-radius: 2vh;
+}
+
+section.profile .profileFeed .newsFeed .feed .postInput label {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+}
+
+section.profile .profileFeed .newsFeed .post {
+  border: 1px solid black;
+  border-radius: 2vh;
+  padding: 3vh;
+  padding-top: 4vh;
+  padding-bottom: 2vh;
+  margin-bottom: 5vh;
+}
+
+section.profile .profileFeed .newsFeed .post .profImage {
+  background-color: black;
+  height: 59px;
+  width: 59px;
+  border-radius: 20vh;
+  margin-left: 2vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postName h1 {
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+  font-size: 3vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postName h1 p {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  font-size: 2.5vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postContent {
+  margin-top: 3vh;
+  padding-left: 4vh;
+  margin-bottom: 10vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postContent p {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  font-size: 3.5vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu {
+  padding-top: 2vh;
+  border-top: 1px solid black;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu p {
+  text-align: center;
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+  font-size: 2.5vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu p a {
+  color: black;
+}
+
 footer {
+  background: linear-gradient(90deg, #79DAE8, #0AA1DD);
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -216,6 +403,7 @@ footer .container p {
   color: white;
   font-size: 1.5vh;
   padding-top: 2vh;
+  padding-bottom: 2vh;
 }
 
 footer .container p.copyright {

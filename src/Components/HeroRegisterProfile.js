@@ -1,6 +1,8 @@
 import React from 'react'
 import RegisterProfile from './RegisterProfile'
 import NavbarForm from './NavbarForm'
+import Footer from './Footer'
+
 
 const HeroRegisterProfile = () => {
     return (
@@ -16,6 +18,7 @@ const HeroRegisterProfile = () => {
                     </div>
                 </div>
             </section>
+            <Footer/>
         </>
         
     )
