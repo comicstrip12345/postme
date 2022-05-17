@@ -10,17 +10,14 @@ const IndividualProfile = () => {
     const {userid} = useParams();
     const [profile, setProfile] = useState([]);
     
-        useEffect(
-            ()=> {
+   
                 axios.post("https://serserserver.herokuapp.com/profile", {userid:userid} ).then((res)=> {
                     if(res.status===200){
                         const id = res["data"]["array"][0]
                         setProfile(id)
                     }
                 })
-            },
-            []
-        )
+       
 
   return (
     <>

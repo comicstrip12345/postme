@@ -10,6 +10,8 @@ const OtherProfile = () => {
     const {userid} = useParams();
     const {wallOwnerId} = useParams();
     const [profile, setProfile] = useState([]);
+    const [hasFriendRequest, setHasFriendRequest] = useState(false);
+    const [stateChanger,setStateChanger] = useState(1)
     
         useEffect(
             ()=> {
@@ -19,9 +21,26 @@ const OtherProfile = () => {
                         setProfile(id)
                     }
                 })
+
+                axios.post("https://serserserver.herokuapp.com/frsearcher", {userid:userid, wallid:wallOwnerId} ).then((res)=> {
+                    if(res.data.array.length>0){
+                        setHasFriendRequest(true)
+                    }
+                })
             },
-            []
+            [stateChanger]
         )
+
+    const addFriend = () => {
+        console.log("friend request sent")
+        axios.post("https://serserserver.herokuapp.com/friendrequest", {
+            userid:userid,
+            otherid:wallOwnerId}).then((res)=> {
+                    console.log(res)
+                    setStateChanger(stateChanger+1)
+                })
+
+    }
 
   return (
     <>
@@ -38,7 +57,11 @@ const OtherProfile = () => {
                         <h1>
                             {profile.firstName} {profile.lastName} <br/>
                             <p>Adrii</p>
-                            <button type="button" className='btn btn-primary'>Add Friend</button>
+                            {
+                            !hasFriendRequest ? <button type="button" className='btn btn-primary' onClick={addFriend}>Add Friend</button> :
+                            <button type="button" className='btn btn-primary' disabled>Friend request sent</button>
+                            }
+                            
                         </h1>
                     </div>
                     <div className='col-12 profileFeed'>
