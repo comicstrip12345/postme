@@ -2,17 +2,18 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import NavbarNotLoggedin from './NavbarNotLoggedIn'
-import ProfileFeedSettings from './ProfileFeedSettings';
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import OtherProfileFeedSettings from './OtherProfileFeedSettings';
 
-const IndividualProfile = () => {
+const OtherProfile = () => {
 
     const {userid} = useParams();
+    const {wallOwnerId} = useParams();
     const [profile, setProfile] = useState([]);
     
         useEffect(
             ()=> {
-                axios.post("https://serserserver.herokuapp.com/profile", {userid:userid} ).then((res)=> {
+                axios.post("https://serserserver.herokuapp.com/profile", {userid:wallOwnerId} ).then((res)=> {
                     if(res.status===200){
                         const id = res["data"]["array"][0]
                         setProfile(id)
@@ -37,6 +38,7 @@ const IndividualProfile = () => {
                         <h1>
                             {profile.firstName} {profile.lastName} <br/>
                             <p>Adrii</p>
+                            <button type="button" className='btn btn-primary'>Add Friend</button>
                         </h1>
                     </div>
                     <div className='col-12 profileFeed'>
@@ -51,13 +53,12 @@ const IndividualProfile = () => {
                                         <p>December 22, 1994</p>
                                         <p>{profile.city}</p>
                                         <p>Basketball, Volleyball, Coding</p>
-                                        <button><h1>Edit Details</h1></button>
                                     </div>
                                 </div>
                             </div>
                             <div className='col-7 newsFeed'>
                                 <div className='row'>
-                                    <ProfileFeedSettings userid={`${userid}`} />
+                                    <OtherProfileFeedSettings userid={`${userid}`} wallOwnerId={`${wallOwnerId}`} />
                                    
                                 </div>
                             </div>
@@ -75,4 +76,4 @@ const IndividualProfile = () => {
   )
 }
 
-export default IndividualProfile
+export default OtherProfile

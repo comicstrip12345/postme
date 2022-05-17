@@ -22,6 +22,7 @@ const ProfileFeedPost = (props) => {
 },[counter])
   
        
+    
 
 
     return (
@@ -37,7 +38,13 @@ const ProfileFeedPost = (props) => {
                 </div>
                 <div className='col-10 postName d-flex align-items-center'>
                     <h1>
-                        {post.firstName} {post.lastName}
+                    {post.firstName} {post.lastName}
+                        {
+                            post.wallid!==post.userid && <span> &gt; {post.wallOwnerFirstName} {post.wallOwnerLastName}  </span>
+
+                        }
+                        
+                        
                         <p>{post.date_created} hrs.</p>
                     </h1>
                 </div>
