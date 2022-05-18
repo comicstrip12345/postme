@@ -386,6 +386,59 @@ section.profile .profileFeed .newsFeed .post .postMenu p a {
   color: black;
 }
 
+section.searchPage .form button {
+  position: absolute;
+  right: 3vh;
+  bottom: 1.8vh;
+  background: none;
+  border: none;
+}
+
+section.searchPage .form button i {
+  font-size: 3.5vh;
+}
+
+section.searchPage .form input {
+  border: 1px solid black;
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  margin-bottom: 5vh;
+}
+
+section.searchPage .form label {
+  font-family: Quicksand;
+  font-weight: bold;
+  color: black;
+}
+
+section.searchPage .row {
+  margin-bottom: 4vh;
+}
+
+section.searchPage .row .image img {
+  height: 70px;
+  float: right;
+}
+
+section.searchPage .row .detail h1 {
+  font-size: 3vh;
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+}
+
+section.searchPage .row .detail h1 a {
+  color: black;
+}
+
+section.searchPage .row .detail small {
+  font-family: Quicksand;
+  font-weight: bold;
+  color: black;
+  font-size: 2.5vh;
+}
+
 footer {
   background: linear-gradient(90deg, #79DAE8, #0AA1DD);
   position: absolute;
