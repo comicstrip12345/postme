@@ -88,44 +88,47 @@ const saveEditHandler = (e) => {
             </div>
 
             <div className="col-2 postName d-flex align-items-center">
-              <div className="dropdown">
-                <a
-                  className="btn btn-outline-black dropdown-toggle"
-                  href="/#"
-                  role="button"
-                  id="dropdownMenuLink"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                ></a>
-
-                <ul
-                  className="dropdown-menu"
-                  aria-labelledby="dropdownMenuLink"
-                >
-                  <li>
-                    <div className="dropdown-item" id={post.postid}>
-                      <button
-                        type="button"
-                        className="btn btn-outline-dark border-0"
-                        data-bs-toggle="modal"
-                        data-bs-target={`#exampleModal${post.postid}`}
-                        id={post.postid}
-                      >
-                        Edit post
-                      </button>
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      className="dropdown-item"
-                      id={post.postid}
-                      onClick={(e) => deleteHandler(e)}
-                    >
-                      Delete Post
-                    </div>
-                  </li>
-                </ul>
-              </div>
+            {post.wallid === post.userid && (
+                   <div className="dropdown">
+                   <a
+                     className="btn btn-outline-black dropdown-toggle"
+                     href="/#"
+                     role="button"
+                     id="dropdownMenuLink"
+                     data-bs-toggle="dropdown"
+                     aria-expanded="false"
+                   ></a>
+   
+                   <ul
+                     className="dropdown-menu"
+                     aria-labelledby="dropdownMenuLink"
+                   >
+                     <li>
+                       <div className="dropdown-item" id={post.postid}>
+                         <button
+                           type="button"
+                           className="btn btn-outline-dark border-0"
+                           data-bs-toggle="modal"
+                           data-bs-target={`#exampleModal${post.postid}`}
+                           id={post.postid}
+                         >
+                           Edit post
+                         </button>
+                       </div>
+                     </li>
+                     <li>
+                       <div
+                         className="dropdown-item"
+                         id={post.postid}
+                         onClick={(e) => deleteHandler(e)}
+                       >
+                         Delete Post
+                       </div>
+                     </li>
+                   </ul>
+                 </div>
+                )}
+             
             </div>
             <div className="col-12 postContent">
               <p>{post.content}</p>
