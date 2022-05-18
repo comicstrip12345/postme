@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const ProfileFeedPost = (props) => {
+const OtherProfileFeedPost = (props) => {
   const profileupdater = props.profileupdater;
   const [posts, setPosts] = useState([]);
   const origCounter = props.postCounter;
@@ -88,7 +88,7 @@ const saveEditHandler = (e) => {
             </div>
 
             <div className="col-2 postName d-flex align-items-center">
-           
+            {post.wallid !== post.userid && (
                    <div className="dropdown">
                    <a
                      className="btn btn-outline-black dropdown-toggle"
@@ -127,7 +127,7 @@ const saveEditHandler = (e) => {
                      </li>
                    </ul>
                  </div>
-                
+                )}
              
             </div>
             <div className="col-12 postContent">
@@ -203,4 +203,4 @@ const saveEditHandler = (e) => {
   );
 };
 
-export default ProfileFeedPost;
+export default OtherProfileFeedPost;
