@@ -56,7 +56,7 @@ const OtherProfile = () => {
                     <div className='col-10 profileName d-flex align-items-center'>
                         <h1>
                             {profile.firstName} {profile.lastName} <br/>
-                            <p>Adrii</p>
+                            <p>{profile.nickname}</p>
                             {
                             !hasFriendRequest ? <button type="button" className='btn btn-primary' onClick={addFriend}>Add Friend</button> :
                             <button type="button" className='btn btn-primary' disabled>Friend request sent</button>
@@ -70,12 +70,10 @@ const OtherProfile = () => {
                                 <div className='row'>
                                     <div className='col-12 intro'>
                                         <h1>Intro</h1>
-                                        <p>Studied <span>BS. in Aeronautical Engineering</span> at <span>Philippine State College of Aeronautics</span></p>
-                                        <p>Work at <span>Bahay</span> for <span>Front End Web Developer</span></p>
-                                        <p>Single</p>
-                                        <p>December 22, 1994</p>
+                                        <p>{profile.intro}</p>
+                                        <p>{profile.status}</p>
+                                        <p>{profile.birthday}</p>
                                         <p>{profile.city}</p>
-                                        <p>Basketball, Volleyball, Coding</p>
                                     </div>
                                 </div>
                             </div>
