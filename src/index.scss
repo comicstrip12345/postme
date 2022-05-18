@@ -432,6 +432,54 @@ section.searchPage{
     
 }
 
+// Friend Request Page
+section.friendRequests{
+    .title{
+        margin-bottom: 5vh;
+
+        h1{
+            @include headingFontBoldStyleProfile();
+            font-size: 5vh;
+        }
+    }
+    .friendsProfile{
+        .friendsImage{
+            img{
+                height: 80px;
+            }
+        }
+        .friendsDetail{
+            h1{
+                @include headingFontBoldStyleProfile();
+                font-size: 3vh;
+    
+                small{
+                    @include contentFontBoldStyleProfile();
+                    font-size: 2.5vh;
+                }
+            }
+            button{
+                background: none;
+                border: none;
+                height: 30px;
+                width: 30px;
+                padding: 0;
+                text-align: left;
+
+                i{
+                    font-size: 3vh;
+
+                    &.green{
+                        color: green;
+                    }
+                    &.red{
+                        color: red;
+                    }
+                }
+            }
+        }
+    }
+}
 
 footer{
     background:linear-gradient(90deg,#79DAE8,#0AA1DD);
