@@ -1,6 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import NavbarNotLoggedin from './NavbarNotLoggedIn'
+import { Fade } from 'react-reveal';
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 const FriendRequests = () => {
     const {userid} = useParams();
@@ -22,42 +25,43 @@ const FriendRequests = () => {
         []
     )
 
-  return (
-    <div className='container text-center'>
-        <h1>FRIEND REQUESTS</h1>
-
-        {
-                    profiles.map((profile,index)=> (
-                        <div className='container' key={index}>
-                            <div className='row justify-content-center'>
-                                <div className='col-3'>
-                                    {/* container ng image sa future */}
-                                    <img src="https://e7.pngegg.com/pngimages/505/761/png-clipart-login-computer-icons-avatar-icon-monochrome-black-thumbnail.png" alt="avatar" style={{width:"50px"}}></img>
-                                </div>
-
-                                <div className='col-9'>
-                                    <div className='row text-start'>     
-                                        {profile.firstName} {profile.lastName} 
+    return (
+        <>
+            <NavbarNotLoggedin/>
+            <section className='friendRequests'>
+                <div className='container'>
+                    <div className='row pt-4'>
+                        <div className='col-12 title'>
+                            <h1>Friend Requests</h1>    
+                        </div>
+                        {profiles.map((profile,index)=> (
+                        <Fade>
+                            <div className='col-4 friendsProfile' key={index}>
+                                <div className='row'>
+                                    <div className='col-3 friendsImage'>
+                                        {/* container ng image sa future */}
+                                        <img src="https://e7.pngegg.com/pngimages/505/761/png-clipart-login-computer-icons-avatar-icon-monochrome-black-thumbnail.png" alt="avatar"/>
                                     </div>
-                                    <div className='row text-start'>     
-                                        <small className='text-muted'>from {profile.city} </small>
+                                    <div className='col-9 d-flex align-items-center friendsDetail'>
+                                        <h1>
+                                            {profile.firstName} {profile.lastName} <br/>
+                                            <small className='text-muted'>from {profile.city}</small> <br/>
+                                            <button><i class="bi bi-check-lg green"></i></button>
+                                            <button><i class="bi bi-x-lg red"></i></button>
+                                        </h1>
+                                       
                                     </div>
-                                    
                                 </div>
                             </div>
-
-                           
-
-                        </div>
-                    )
-
-                       
-
-                    )
-                }
-
-    </div>
-  )
+                        </Fade>
+                    ))}
+                    </div>
+                    
+                    
+                </div>
+            </section>
+        </>
+    )
 }
 
 export default FriendRequests
