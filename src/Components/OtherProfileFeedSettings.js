@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import axios from 'axios';
-import ProfileFeedPost from './ProfileFeedPost';
+import OtherProfileFeedPost from './OtherProfileFeedPost';
 
 
 const OtherProfileFeedSettings = (props) => {
@@ -44,7 +44,7 @@ const OtherProfileFeedSettings = (props) => {
                 </div>
             </div>
 
-            <ProfileFeedPost userid={`${wallid}`} postCounter={postCounter} />
+            <OtherProfileFeedPost userid={`${wallid}`} postCounter={postCounter} />
         </div>
     )
 }
