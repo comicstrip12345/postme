@@ -23,7 +23,7 @@ const App = () => {
                 <Route path='/login' element={<HeroLogInForm/>}></Route>
                 <Route path='/profile/:userid' element={<IndividualProfile/>}></Route>
                 <Route path='/profile/:userid/:wallOwnerId' element={<OtherProfile/>}></Route>
-                <Route path='/searchpage/:userid' element={<SearchPage/>}></Route>
+                <Route path='/searchpage/:currentuserid' element={<SearchPage/>}></Route>
                 <Route path='/friendrequests/:userid' element={<FriendRequests/>}></Route>
             </Routes>
         </BrowserRouter>

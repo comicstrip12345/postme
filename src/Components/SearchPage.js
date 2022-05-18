@@ -8,7 +8,7 @@ import { Fade } from 'react-reveal';
 
 const SearchPage = () => {
 
-    const {userid} = useParams();
+    const {currentuserid} = useParams();
     const [search,setSearch] = useState();
     const [profiles,setProfiles]=useState([]);
 
@@ -47,7 +47,7 @@ const SearchPage = () => {
                                                 </div>
                                                 <div className='col-10 detail d-flex align-items-center'>
                                                     <h1>
-                                                        <Link to={`/profile/${profile.userid}`}>{profile.firstName} {profile.lastName}</Link> <br/>
+                                                        <Link to={`/profile/${currentuserid}/${profile.userid}`}>{profile.firstName} {profile.lastName}</Link> <br/>
                                                         <small className='text-muted'>from {profile.city} </small>
                                                     </h1>
                                                 </div>

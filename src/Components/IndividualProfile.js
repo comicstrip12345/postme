@@ -7,17 +7,30 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 
 const IndividualProfile = () => {
 
+
     const {userid} = useParams();
     const [profile, setProfile] = useState([]);
+    const [profileUpdater,setProfileUpdater]=useState(1)
     const [editingMode, setEditingMode]=useState(false)
-    const [cityChange,setCityChange] = useState();
-    const [birthday,setBirthday] = useState();
-    const [firstName,setFirstName] = useState();
-    const [lastName,setLastName] = useState();
-    const [nickname,setNickname] = useState();
-    const [intro,setIntro] = useState();
-    const [status,setStatus] = useState();
-    
+    const [formInput,setFormInput] = useState({
+        firstName:"",
+        lastName:"",
+        nickname:"",
+        intro:"",
+        status:"",
+        city:"",
+        birthday:"",
+    });
+
+    const handleInput = (e) => {
+        e.preventDefault()
+        setFormInput({...formInput,[
+            e.target.name
+        ]:e.target.value})
+    }
+
+   
+
     useEffect(
         ()=> {
    
@@ -38,29 +51,32 @@ const IndividualProfile = () => {
        
     }
 
-    const saveEditHandler = () => {
-        
+    const saveEditHandler = (e) => {
+        e.preventDefault()
+         const data = {
+             userid:userid,
+             firstName:formInput.firstName,
+             lastName:formInput.lastName,
+             nickname:formInput.nickname,
+             intro:formInput.intro,
+             status:formInput.status,
+             birthday:formInput.birthday,
+             city:formInput.city
+         }
 
-        axios.post("https://serserserver.herokuapp.com/editprofile", {
-            userid:userid,
-            firstName:firstName,
-            lastName:lastName,
-            nickname:nickname,
-            intro:intro,
-            status:status,
-            newcity:cityChange,
-            birthday:birthday
-            } ).then((res)=> {
+         console.log(data)
+
+         axios.post("https://serserserver.herokuapp.com/editprofile", data ).then((res)=> {
                     if(res.status===200){
                         console.log(res)
+                        setEditingMode(false)
+                        setProfileUpdater(profileUpdater+1)
                     }
                 }) 
             }
 
-            setEditingMode(false)
-       
-    
- 
+            
+
 
   return (
     <>
@@ -84,11 +100,11 @@ const IndividualProfile = () => {
 
                                 <>
                                      <div className="form-floating form">
-                                         <input type="text" className="form-control" id="post" placeholder="text" defaultValue={profile.firstName}  onChange={(e)=>{setFirstName(e.target.value)}}/>
+                                         <input type="text" className="form-control" id="post" placeholder="text" name="firstName" defaultValue={profile.firstName}   onChange={handleInput}/>
                                         <label htmlFor="post">First Name </label>
                                      </div>
                                      <div className="form-floating form">
-                                         <input type="text" className="form-control" id="post" placeholder="text" defaultValue={profile.lastName}  onChange={(e)=>{setLastName(e.target.value)}}/>
+                                         <input type="text" className="form-control" id="post" placeholder="text" name="lastName" defaultValue={profile.lastName}  onChange={handleInput}/>
                                         <label htmlFor="post">Last Name</label>
                                      </div>
                                 </>
@@ -102,7 +118,7 @@ const IndividualProfile = () => {
                                 
                                 <div className="form-floating form">
 
-                                            <input type="text" className="form-control" id="post" placeholder="text" defaultValue={profile.nickname}  onChange={(e)=>{setNickname(e.target.value)}}/>
+                                            <input type="text" className="form-control" id="post" placeholder="text" name="nickname" defaultValue={profile.nickname}  onChange={handleInput}/>
                                             <label htmlFor="post">Nickname</label>
                                  </div>
                                      }
@@ -119,14 +135,14 @@ const IndividualProfile = () => {
 
                                         { !editingMode?  <p>{profile.intro}</p>:
                                             <div className="form-floating form">
-                                                <input type="text" className="form-control" id="post" placeholder="text" defaultValue={profile.intro}  onChange={(e)=>{setIntro(e.target.value)}}/>
+                                                <input type="text" className="form-control" id="post" placeholder="text" name="intro" defaultValue={profile.intro}  onChange={handleInput}/>
                                                 <label htmlFor="post">Intro</label>
                                             </div>
                                         }
 
                                         { !editingMode?  <p>{profile.status}</p>:
                                             <div className="form-floating form">
-                                                <input type="text" className="form-control" id="post" placeholder="text" defaultValue={profile.status}  onChange={(e)=>{setStatus(e.target.value)}}/>
+                                                <input type="text" className="form-control" id="post" placeholder="text" name="status" defaultValue={profile.status}  onChange={handleInput}/>
                                                 <label htmlFor="post">Status</label>
                                             </div>
                                         }
@@ -134,13 +150,13 @@ const IndividualProfile = () => {
                                         
                                         { !editingMode? <p>{profile.birthday}</p>:
                                             <div className="form-floating mb-3 form">
-                                                <input type="date" className="form-control" id="birthday" placeholder="date" defaultValue={profile.birthday} onChange={(e)=>{setBirthday(e.target.value)}}/>
+                                                <input type="date" className="form-control" id="birthday" placeholder="date" name="birthday" defaultValue={profile.birthday} onChange={handleInput}/>
                                                 <label htmlFor="birthday">Birthday</label>
                                             </div>
                                         }
                                         { !editingMode? <p>{profile.city}</p>:
                                             <div className="form-floating form">
-                                                <input type="text" className="form-control" id="post" placeholder="text" defaultValue={profile.city}  onChange={(e)=>{setCityChange(e.target.value)}}/>
+                                                <input type="text" className="form-control" id="post" placeholder="text" name="city" defaultValue={profile.city}  onChange={handleInput}/>
                                                 <label htmlFor="post">City</label>
                                             </div>
                                         }
@@ -153,12 +169,13 @@ const IndividualProfile = () => {
                                             <button onClick={saveEditHandler}><h1>Save Edit</h1></button>
                                          </>
                                          }
+
                                     </div>
                                 </div>
                             </div>
                             <div className='col-7 newsFeed'>
                                 <div className='row'>
-                                    <ProfileFeedSettings userid={`${userid}`} />
+                                    <ProfileFeedSettings userid={`${userid}`} profileupdater={profileUpdater} />
                                    
                                 </div>
                             </div>

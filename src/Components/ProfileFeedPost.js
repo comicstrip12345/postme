@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 const ProfileFeedPost = (props) => {
 
-   
+    const profileupdater = props.profileupdater
     const [posts,setPosts] = useState([])
     const origCounter = props.postCounter
     const [counter,setCounter] = useState(props.postCounter)
@@ -22,7 +22,7 @@ const ProfileFeedPost = (props) => {
             
         })
 // eslint-disable-next-line
-},[origCounter,counter])
+},[origCounter,counter,profileupdater])
   
 const deleteHandler = (e) => {
     const postid = e.target.id

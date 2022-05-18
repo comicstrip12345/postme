@@ -9,6 +9,7 @@ const ProfileFeedSettings = (props) => {
     const userid = props.userid
     const [post, setPost] = useState();
     const [postCounter, setPostCounter] = useState(1);
+    const profileupdater = props.profileupdater
     const postRef = useRef();
     
 
@@ -43,7 +44,7 @@ const ProfileFeedSettings = (props) => {
                 </div>
             </div>
 
-            <ProfileFeedPost userid={`${userid}`} postCounter={postCounter} />
+            <ProfileFeedPost userid={`${userid}`} postCounter={postCounter} profileupdater={profileupdater} />
         </div>
     )
 }
