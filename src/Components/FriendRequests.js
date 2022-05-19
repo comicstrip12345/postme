@@ -27,7 +27,9 @@ const FriendRequests = () => {
 
     return (
         <>
-            <NavbarLoggedIn/>
+            <NavbarLoggedIn
+                link={userid}
+            />
             <section className='friendRequests'>
                 <div className='container'>
                     <div className='row pt-4'>

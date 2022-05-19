@@ -1,11 +1,21 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
 import NavbarLoggedIn from './NavbarLoggedIn'
+import SettingsMenu from './SettingsMenu'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
 const Settings = () => {
+    const {userid} = useParams()
+    useEffect(
+        ()=> {
+            axios.post("https://serserserver.herokuapp.com/profile", {userid:userid})
+        })
     return (
         <>
-            <NavbarLoggedIn/>
+            <NavbarLoggedIn
+                link={userid}
+            />
             <section className='settings'>
                 <div className='container'>
                     <div className='row pt-4'>
@@ -14,24 +24,18 @@ const Settings = () => {
                         </div>
                         <div className='col-12 account'>
                             <div className='row'>
-                                <div className='col-3 userHead'>
-                                    <h1>Username:</h1>
-                                </div>
-                                <div className='col-8 username'>
-                                    <p>casdnadjna</p>
-                                </div>
-                                <div className='col-1 edit'>
-                                    <button><i class="bi bi-pencil-square"></i></button>
-                                </div>
-                                <div className='col-3 passHead'>
-                                    <h1>Password:</h1>
-                                </div>
-                                <div className='col-8 password'>
-                                    <p>Password:</p>
-                                </div>
-                                <div className='col-1 edit'>
-                                <button><i class="bi bi-pencil-square"></i></button>
-                                </div>
+                                <SettingsMenu
+                                    title="Email:"
+                                    input="example@gmail.com"
+                                />
+                                <SettingsMenu
+                                    title="Username:"
+                                    input="hello"
+                                />
+                                <SettingsMenu
+                                    title="Password:"
+                                    input="hello"
+                                />
                                 <div className='col-12 delete'>
                                     <button>Delete Account</button>
                                 </div>
