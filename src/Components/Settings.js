@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import NavbarLoggedIn from './NavbarLoggedIn'
@@ -6,11 +6,18 @@ import SettingsMenu from './SettingsMenu'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
 const Settings = () => {
-    const {userid} = useParams()
+    const {userid} = useParams();
+    const [axiosResult, setAxiosResult]=useState([])
     useEffect(
         ()=> {
-            axios.post("https://serserserver.herokuapp.com/profile", {userid:userid})
-        })
+            axios.post("https://serserserver.herokuapp.com/profile", {userid:userid}).then((res)=> {
+                    if(res.status===200){
+                        console.log(res)
+                        setAxiosResult(res["data"]["array"][0])
+                    }
+               
+                })
+        },[userid])
     return (
         <>
             <NavbarLoggedIn
@@ -26,15 +33,15 @@ const Settings = () => {
                             <div className='row'>
                                 <SettingsMenu
                                     title="Email:"
-                                    input="example@gmail.com"
+                                    input={axiosResult.email}
                                 />
                                 <SettingsMenu
                                     title="Username:"
-                                    input="hello"
+                                    input={axiosResult.username}
                                 />
                                 <SettingsMenu
                                     title="Password:"
-                                    input="hello"
+                                    input="*******"
                                 />
                                 <div className='col-12 delete'>
                                     <button>Delete Account</button>

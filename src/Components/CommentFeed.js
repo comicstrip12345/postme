@@ -14,8 +14,6 @@ const CommentFeed = (props) => {
         postid: postid,
       })
       .then((response) => {
-        console.log(response);
-
         setComments(response["data"]["array"]);
       });
   }, [counter, commentUpdater, postid]);

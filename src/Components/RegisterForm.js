@@ -67,7 +67,7 @@ const RegisterForm = () => {
                         <input type="submit" onClick={register}/>
                     </div>
                     <div className='col-6'>
-                        <Link to="/login"><p>Already have an account, then Log In.</p></Link>
+                        <Link to="/login"><p>Already have an account? Sign in here</p></Link>
                     </div>
                 </div>
             </div>

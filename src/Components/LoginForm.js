@@ -29,11 +29,11 @@ const LoginForm = () => {
             console.log(err)
 
             if(err.response.status===400){
-                setErrorMessage("please input user or password")
+                setErrorMessage("Please input username and/or password")
             }
 
             else if(err.response.status===401){
-                setErrorMessage("invalid user or password")
+                setErrorMessage("Invalid username and/or password")
             }
         })
        
@@ -61,12 +61,15 @@ const LoginForm = () => {
                             <input type="submit" onClick={login}/>
                         </div>
                         <div className='col-6'>
-                            <Link to="/register"><p>New? Sign Up to join.</p></Link>
+                            <Link to="/register"><p>New to postme? <span className='font-weight-bold'>Sign Up to join.</span></p></Link>
                         </div>
                     </div>
+                    <div className='row'>
+                    <span style={{color:"red"}} className="pt-2">{errorMessage}</span>
                     
-                    {errorMessage}
+                    </div>
                     
+                   
                 </div>
             </div>
         </Fade>

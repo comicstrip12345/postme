@@ -11,6 +11,7 @@ const OtherProfileFeedSettings = (props) => {
     const [post, setPost] = useState();
     const [postCounter, setPostCounter] = useState(1);
     const postRef = useRef();
+    const [createdPostId,setCreatedPostid]=useState()
 
     const submitHandler = () => {
         axios.post("https://serserserver.herokuapp.com/newpostother",{
@@ -19,12 +20,25 @@ const OtherProfileFeedSettings = (props) => {
             post:post,
         }).then((response)=> {
             console.log(response)
-            setPostCounter(postCounter+1)
-            console.log(postCounter)
+            setCreatedPostid(response["data"]["array"]["insertId"])
+            postnotifHandler()
             postRef.current.value=""
+            setPostCounter(postCounter+1)
 
         })
-        console.log(`${userid},${post}`)
+    }
+
+    const postnotifHandler = () => {
+        console.log("running notifs")
+        axios.post("https://serserserver.herokuapp.com/newpostothernotif",{
+            userid:userid,
+            wallid:wallid,
+            postid:createdPostId,
+            notiftype:"post"
+        }).then((response)=> {
+            console.log(response)
+
+        })
     }
 
     return (

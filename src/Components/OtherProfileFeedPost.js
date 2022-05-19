@@ -3,13 +3,16 @@ import React, { useEffect, useState } from "react";
 import CommentFeed from "./CommentFeed";
 
 const OtherProfileFeedPost = (props) => {
+
   const profileupdater = props.profileupdater;
   const commentorid = props.commentorid;
-  const [posts, setPosts] = useState([]);
-  const origCounter = props.postCounter;
-  const [counter, setCounter] = useState(props.postCounter);
-  // eslint-disable-next-line
   const id = props.userid;
+  const origCounter = props.postCounter;
+  const [commenting,setCommenting] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [commentIdAdded,setCommentIdAdded]=useState([]);
+  const [postOwner, setPostOwner]=useState([]);
+  const [counter, setCounter] = useState(props.postCounter);
   const [formInput,setFormInput] = useState({
     content:"",
     });
@@ -18,7 +21,7 @@ const OtherProfileFeedPost = (props) => {
         content:"",
     });
 
-    const [commenting,setCommenting] = useState(false);
+    
 
 
   useEffect(() => {
@@ -27,7 +30,6 @@ const OtherProfileFeedPost = (props) => {
         userid: id,
       })
       .then((response) => {
-        console.log(response);
         setPosts(response["data"]["array"]);
       });
     // eslint-disable-next-line
@@ -63,8 +65,6 @@ const OtherProfileFeedPost = (props) => {
        
      }
 
-     console.log(data)
-
      axios.post("https://serserserver.herokuapp.com/editpost", data ).then((res)=> {
                 if(res.status===200){
                     console.log(res)
@@ -88,7 +88,6 @@ const OtherProfileFeedPost = (props) => {
         const writeComment = (e) => {
             e.preventDefault()
             const postid = e.target.id;
-            console.log(postid)
             const data = {
                 userid:commentorid,
                 postid:postid,
@@ -96,16 +95,31 @@ const OtherProfileFeedPost = (props) => {
             
             }
     
-            console.log(data)
     
             axios.post("https://serserserver.herokuapp.com/addcomment", data ).then((res)=> {
                         if(res.status===200){
                             console.log(res)
+                            setCommentIdAdded(res["data"]["array"]["insertId"])
+                            setPostOwner(postid)
                             setCounter(counter + 1)
+                            commentnotifHandler()
                             
                         }
                     }) 
         }
+
+        const commentnotifHandler = () => {
+
+          axios.post("https://serserserver.herokuapp.com/newcommentnotif",{
+              userid:commentorid,
+              commentid:commentIdAdded,
+              postid:postOwner,
+              notiftype:"comment"
+          }).then((response)=> {
+              console.log(response)
+  
+          })
+      }
 
   return (
     <>

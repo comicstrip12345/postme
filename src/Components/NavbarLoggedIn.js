@@ -9,8 +9,8 @@ const NavbarLoggedIn = (props) => {
                 <p>postme</p>
                 <nav className='nav'>
                     <Link to={`/searchpage/${props.link}`}><i className="bi bi-search"></i></Link>
-                    <Link to=""><i class="bi bi-bell"></i></Link>
-                    <a className='' href='#/' role="button" id="profileSettings" data-bs-toggle="dropdown" aria-expanded="false">
+                    <Link to={`/notifications/${props.link}`}><i className="bi bi-bell"></i></Link>
+                    <a className='' href='/#' role="button" id="profileSettings" data-bs-toggle="dropdown" aria-expanded="false">
                         <div className='navImageCircle'>
                         </div>
                     </a>

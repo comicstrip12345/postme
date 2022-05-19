@@ -12,6 +12,7 @@ import SearchPage from './Components/SearchPage';
 import OtherProfile from './Components/OtherProfile';
 import FriendRequests from './Components/FriendRequests';
 import Settings from './Components/Settings';
+import NotificationsPage from './Components/NotificationsPage';
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
                 <Route path='/searchpage/:currentuserid' element={<SearchPage/>}></Route>
                 <Route path='/friendrequests/:userid' element={<FriendRequests/>}></Route>
                 <Route path='/settings/:userid' element={<Settings/>}></Route>
+                <Route path='/notifications/:userid' element={<NotificationsPage/>}></Route>
             </Routes>
         </BrowserRouter>
     )
