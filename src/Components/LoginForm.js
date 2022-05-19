@@ -61,7 +61,7 @@ const LoginForm = () => {
                             <input type="submit" onClick={login}/>
                         </div>
                         <div className='col-6'>
-                            <Link to="/register"><p>New to postme? <span className='font-weight-bold'>Sign Up to join.</span></p></Link>
+                            <Link to="/register"><p>New to postme? Sign Up to join.</p></Link>
                         </div>
                     </div>
                     <div className='row'>

@@ -28,24 +28,26 @@ const ProfileFeedSettings = (props) => {
     }
 
     return (
-        <div className='col-12 feed'>
-            <div className='row pb-5'>
-                <div className='col-2'>
-                    <div className='profImage'>
+        <>
+            <div className='col-12 feed'>
+                <div className='row'>
+                    <div className='col-2'>
+                        <div className='profImage'>
 
+                        </div>
                     </div>
-                </div>
-                <div className='col-10 postInput'>
-                    <div className="form-floating form">
-                        <i className="bi bi-send" onClick={submitHandler}></i>
-                        <input type="text" className="form-control" ref={postRef} id="post" placeholder="text" onChange={(e)=> { setPost(e.target.value) }}/>
-                        <label htmlFor="post">Post Something...</label>
+                    <div className='col-10 postInput'>
+                        <div className="form-floating form">
+                            <button onClick={submitHandler}><i className="bi bi-send"></i></button>
+                            <input type="text" className="form-control" ref={postRef} id="post" placeholder="text" onChange={(e)=> { setPost(e.target.value) }}/>
+                            <label htmlFor="post">Post Something...</label>
+                        </div>
                     </div>
                 </div>
             </div>
-
             <ProfileFeedPost userid={`${userid}`} postCounter={postCounter} profileupdater={profileupdater} />
-        </div>
+        </>
+        
     )
 }
 
