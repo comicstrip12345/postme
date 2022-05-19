@@ -29,6 +29,50 @@ nav .forms p {
   padding-bottom: 2vh;
 }
 
+nav.loggedIn nav {
+  background: none;
+  position: relative;
+}
+
+nav.loggedIn nav .navImageCircle {
+  background-color: black;
+  height: 33px;
+  width: 33px;
+  border-radius: 20vh;
+}
+
+nav.loggedIn nav a {
+  margin-left: 4vh;
+}
+
+nav.loggedIn nav a i {
+  font-size: 3.4vh;
+  color: white;
+}
+
+nav.loggedIn nav ul {
+  padding-bottom: 2vh;
+}
+
+nav.loggedIn nav ul li {
+  width: 12vw;
+}
+
+nav.loggedIn nav ul li a {
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+  padding: 2vh;
+  margin: 0;
+  text-align: center;
+  transition: 0.2s all ease-in;
+}
+
+nav.loggedIn nav ul li a:hover {
+  color: white;
+  background-color: #0AA1DD;
+}
+
 section.hero {
   background: linear-gradient(90deg, #79DAE8, #0AA1DD);
   height: 90vh;
@@ -487,6 +531,53 @@ section.friendRequests .friendsProfile .friendsDetail button i.green {
 
 section.friendRequests .friendsProfile .friendsDetail button i.red {
   color: red;
+}
+
+section.settings .title {
+  margin-bottom: 6vh;
+}
+
+section.settings .title h1 {
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+  font-size: 5vh;
+  padding-bottom: 2vh;
+  border-bottom: 1px solid black;
+}
+
+section.settings .account .userHead, section.settings .account .passHead {
+  margin-bottom: 4vh;
+}
+
+section.settings .account .userHead h1, section.settings .account .passHead h1 {
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+  font-size: 3.5vh;
+}
+
+section.settings .account .edit button {
+  background: none;
+  border: none;
+  float: right;
+}
+
+section.settings .account .edit button i {
+  font-size: 2.8vh;
+}
+
+section.settings .account .delete {
+  margin-top: 2vh;
+}
+
+section.settings .account .delete button {
+  background: none;
+  padding: 2vh;
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+  border-radius: 2vh;
 }
 
 footer {
