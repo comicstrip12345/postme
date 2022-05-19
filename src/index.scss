@@ -109,6 +109,7 @@ nav{
                 height: 33px;
                 width: 33px;
                 border-radius: 20vh;
+                margin-left: 2vh;
             }
             a{
                 margin-left: 4vh;
@@ -537,12 +538,17 @@ section.settings{
         }
     }
     .account{
-        .userHead,.passHead{
+        .accountMenuTitle{
             margin-bottom: 4vh;
             
             h1{
                 @include headingFontBoldStyleProfile();
-                font-size: 3.5vh;
+                font-size: 3vh;
+            }
+        }
+        .accountMenuInput{
+            p{
+                @include contentFontRegularStyleProfile();
             }
         }
         .edit{
@@ -561,6 +567,8 @@ section.settings{
             
             button{
                 background: none;
+                border: none;
+                border: 1px solid $mainTextColor;
                 padding: 2vh;
                 @include headingFontBoldStyleProfile();
                 border-radius: 2vh;

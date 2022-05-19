@@ -80,7 +80,9 @@ const IndividualProfile = () => {
 
   return (
     <>
-        <NavbarLoggedIn/>
+        <NavbarLoggedIn
+            link={userid}
+        />
         <section className='profile'>
             <div className='container'>
                 <div className='row'>

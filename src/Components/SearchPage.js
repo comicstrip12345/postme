@@ -27,7 +27,9 @@ const SearchPage = () => {
 
     return (
         <>
-            <NavbarLoggedIn/>
+            <NavbarLoggedIn
+                link={currentuserid}
+            />
             <section className='searchPage'>
                 <div className='container'>
                     <div className='row pt-5'>

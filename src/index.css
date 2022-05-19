@@ -39,6 +39,7 @@ nav.loggedIn nav .navImageCircle {
   height: 33px;
   width: 33px;
   border-radius: 20vh;
+  margin-left: 2vh;
 }
 
 nav.loggedIn nav a {
@@ -546,15 +547,21 @@ section.settings .title h1 {
   border-bottom: 1px solid black;
 }
 
-section.settings .account .userHead, section.settings .account .passHead {
+section.settings .account .accountMenuTitle {
   margin-bottom: 4vh;
 }
 
-section.settings .account .userHead h1, section.settings .account .passHead h1 {
+section.settings .account .accountMenuTitle h1 {
   font-family: Poppins;
   font-weight: bold;
   color: black;
-  font-size: 3.5vh;
+  font-size: 3vh;
+}
+
+section.settings .account .accountMenuInput p {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
 }
 
 section.settings .account .edit button {
@@ -573,6 +580,8 @@ section.settings .account .delete {
 
 section.settings .account .delete button {
   background: none;
+  border: none;
+  border: 1px solid black;
   padding: 2vh;
   font-family: Poppins;
   font-weight: bold;
