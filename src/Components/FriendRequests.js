@@ -22,7 +22,7 @@ const FriendRequests = () => {
                 }
             })
         },
-        []
+        [userid]
     )
 
     return (

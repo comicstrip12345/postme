@@ -28,7 +28,7 @@ const OtherProfile = () => {
                     }
                 })
             },
-            [stateChanger]
+            [stateChanger,userid,wallOwnerId]
         )
 
     const addFriend = () => {
