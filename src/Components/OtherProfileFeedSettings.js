@@ -44,7 +44,7 @@ const OtherProfileFeedSettings = (props) => {
                 </div>
             </div>
 
-            <OtherProfileFeedPost userid={`${wallid}`} postCounter={postCounter} />
+            <OtherProfileFeedPost userid={`${wallid}`} commentorid={userid} postCounter={postCounter} />
         </div>
     )
 }
