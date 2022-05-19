@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import NavbarNotLoggedIn from './NavbarNotLoggedIn'
+import NavbarLoggedIn from './NavbarLoggedIn'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import { Link } from 'react-router-dom';
 import { Fade } from 'react-reveal';
@@ -27,7 +27,7 @@ const SearchPage = () => {
 
     return (
         <>
-            <NavbarNotLoggedIn/>
+            <NavbarLoggedIn/>
             <section className='searchPage'>
                 <div className='container'>
                     <div className='row pt-5'>

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import NavbarNotLoggedin from './NavbarNotLoggedIn'
+import NavbarLoggedIn from './NavbarLoggedIn';
 import { Fade } from 'react-reveal';
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
@@ -27,7 +27,7 @@ const FriendRequests = () => {
 
     return (
         <>
-            <NavbarNotLoggedin/>
+            <NavbarLoggedIn/>
             <section className='friendRequests'>
                 <div className='container'>
                     <div className='row pt-4'>

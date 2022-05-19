@@ -11,6 +11,7 @@ import IndividualProfile from './Components/IndividualProfile';
 import SearchPage from './Components/SearchPage';
 import OtherProfile from './Components/OtherProfile';
 import FriendRequests from './Components/FriendRequests';
+import Settings from './Components/Settings';
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
                 <Route path='/profile/:userid/:wallOwnerId' element={<OtherProfile/>}></Route>
                 <Route path='/searchpage/:currentuserid' element={<SearchPage/>}></Route>
                 <Route path='/friendrequests/:userid' element={<FriendRequests/>}></Route>
+                <Route path='/settings/:userid' element={<Settings/>}></Route>
             </Routes>
         </BrowserRouter>
     )

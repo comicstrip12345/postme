@@ -98,6 +98,49 @@ nav{
             padding-bottom: 2vh;
         }
     }
+    
+    &.loggedIn{
+        nav{
+            background: none;
+            position: relative;
+
+            .navImageCircle{
+                background-color: $mainTextColor;
+                height: 33px;
+                width: 33px;
+                border-radius: 20vh;
+            }
+            a{
+                margin-left: 4vh;
+
+                i{
+                    font-size: 3.4vh;
+                    color: $secondTextColor;
+                }
+            }
+            ul{
+                padding-bottom: 2vh;
+
+                li{
+                    width: 12vw;
+
+                    a{
+                        @include headingFontBoldStyleProfile();
+                        padding: 2vh;
+                        margin: 0;
+                        text-align: center;
+                        transition: 0.2s all ease-in;
+
+                        &:hover{
+                            color: white;
+                            background-color: #0AA1DD;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
 }
 
 // Hero Section
@@ -479,6 +522,54 @@ section.friendRequests{
             }
         }
     }
+}
+
+// Settings Page
+section.settings{
+    .title{
+        margin-bottom: 6vh;
+
+        h1{
+            @include headingFontBoldStyleProfile();
+            font-size: 5vh;
+            padding-bottom: 2vh;
+            border-bottom: 1px solid black;
+        }
+    }
+    .account{
+        .userHead,.passHead{
+            margin-bottom: 4vh;
+            
+            h1{
+                @include headingFontBoldStyleProfile();
+                font-size: 3.5vh;
+            }
+        }
+        .edit{
+            button{
+                background: none;
+                border: none;
+                float: right;
+
+                i{
+                    font-size: 2.8vh;
+                }
+            }
+        }
+        .delete{
+            margin-top: 2vh;
+            
+            button{
+                background: none;
+                padding: 2vh;
+                @include headingFontBoldStyleProfile();
+                border-radius: 2vh;
+            }
+        }
+    }
+    
+    
+    
 }
 
 footer{

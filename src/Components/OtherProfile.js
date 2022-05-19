@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import NavbarNotLoggedin from './NavbarNotLoggedIn'
+import NavbarLoggedIn from './NavbarLoggedIn';
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import OtherProfileFeedSettings from './OtherProfileFeedSettings';
 
@@ -44,7 +44,7 @@ const OtherProfile = () => {
 
   return (
     <>
-        <NavbarNotLoggedin/>
+        <NavbarLoggedIn/>
         <section className='profile'>
             <div className='container'>
                 <div className='row'>
