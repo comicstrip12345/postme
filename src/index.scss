@@ -198,8 +198,8 @@ section.hero{
                 padding-top: 2.5vh;
                 padding-bottom: 2.5vh;
                 margin-bottom: 0;
-                @include contentFontRegularStyle();
-                font-size: 1.7vh;
+                @include contentFontBoldStyle();
+                font-size: 2vh;
                 float: right;
             }
         }
@@ -236,8 +236,8 @@ section.hero{
                 padding-top: 2.5vh;
                 padding-bottom: 2.5vh;
                 margin-bottom: 0;
-                @include contentFontRegularStyle();
-                font-size: 1.7vh;
+                @include contentFontBoldStyle();
+                font-size: 2vh;
                 float: right;
             }
         }
@@ -355,11 +355,16 @@ section.profile{
                 }
                 .postInput{
                     .form{
-                        i{
+                        button{
                             position: absolute;
                             right: 3vh;
                             bottom: 2vh;
-                            font-size: 3vh;
+                            border: none;
+                            background: none;
+
+                            i{
+                                font-size: 3vh;
+                            }
                         }
                     }
                     input{
@@ -393,7 +398,22 @@ section.profile{
 
                         p{
                             @include contentFontRegularStyleProfile();
-                            font-size: 2.5vh;
+                            font-size: 2.2vh;
+                        }
+                    }
+                }
+                .postSettings{
+                    .dropdown{
+                        a{
+                            font-size: 3vh;
+                        }
+                        ul{
+                            li{
+                                a{
+                                    color: $mainTextColor;
+                                    font-size: 2.5vh;
+                                }
+                            }
                         }
                     }
                 }
@@ -409,14 +429,90 @@ section.profile{
                 }
                 .postMenu{
                     padding-top: 2vh;
+                    padding: 0;
                     border-top: 1px solid $mainTextColor;
-                    p{
-                        text-align: center;
-                        @include headingFontBoldStyleProfile();
-                        font-size: 2.5vh;
+                    width: 94%;
+                    margin-left: auto;
+                    margin-right: auto;
+
+                    .menu1{
+                        padding-top: 4vh;
+                        padding-bottom: 2vh;
                         
-                        a{
-                            color: $mainTextColor;
+                        button{
+                            border: none;
+                            background: none;
+                            display: block;
+                            margin-left: auto;
+                            margin-right: auto;
+
+                            p{
+                                text-align: center;
+                                @include headingFontBoldStyleProfile();
+                                font-size: 2.7vh;
+                            }
+                        }
+                    }
+                    .form{
+                        margin-top: 5vh;
+                        margin-bottom: 4vh;
+                        
+                        button{
+                            position: absolute;
+                            right: 3vh;
+                            bottom: 2vh;
+                            border: none;
+                            background: none;
+
+                            i{
+                                font-size: 3vh;
+                            }
+                        }
+                        input{
+                            border: 1px solid black;
+                            border-radius: 2vh;
+                        }
+                        label{
+                            @include contentFontRegularStyleProfile();
+                        }
+                    }
+                    .comments{
+                        .commentTile{
+                            border: 1px solid $mainTextColor;
+                            margin-left: auto;
+                            margin-right: auto;
+                            width: 100%;
+                            padding: 2vh;
+                            margin-bottom: 3vh;
+                            border-radius: 2vh;
+                            padding-top: 3vh;
+                            padding-bottom: 3vh;
+                            margin-top: 2vh;
+                        }
+                        .name{
+                            h1{
+                                @include headingFontBoldStyleProfile();
+                                font-size: 2.7vh;
+                                margin-bottom: 1vh;
+
+                                span{
+                                    padding-left: 2vh;
+                                    @include contentFontRegularStyleProfile();
+                                    font-size: 2.2vh;
+                                }
+                            }
+                            p{
+                                @include contentFontRegularStyleProfile();
+                                font-size: 3vh;
+                                
+                            }
+                        }
+                        .settings{
+                            button{
+                                float: right;
+                                border: none;
+                                background: none;
+                            }
                         }
                     }
                 }

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 const CommentFeed = (props) => {
   const postid = props.postid;
@@ -58,34 +59,20 @@ const CommentFeed = (props) => {
   return (
     <>
       {comments.map((comment, index) => (
-        <div className="row border" key={index}>
-          <p className="text-start">
-            {comment.firstName} {comment.lastName}
-          </p>
-          {comment.content} <br />
-          {comment.date_created} <br />
-          <div className="row border" key={index}>
-            <div
-              className="col"
-              id={comment.commentid}
-            >
-              <button
-                type="button"
-                className="btn btn-outline-dark border-0"
-                data-bs-toggle="modal"
-                data-bs-target={`#exampleModal${comment.commentid}`}
-                id={comment.commentid}
-              >
-                Edit comment
-              </button>
-            </div>
-            <div
-              className="col"
-              onClick={deleteCommentHandler}
-              id={comment.commentid}
-            >
-              Delete
-            </div>
+        <div className="row commentTile" key={index}>
+          <div className="col-9 name">
+            <h1>
+              {comment.firstName} {comment.lastName}
+              <span>{comment.date_created}</span>
+            </h1>
+            <p>{comment.content}</p>
+          </div>
+          <div className="col-3 settings">
+            <button type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i className="bi bi-three-dots"></i></button>
+            <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+              <li><a className="dropdown-item" href="#/" id={comment.commentid} type="button" data-bs-toggle="modal" data-bs-target={`#exampleModal${comment.commentid}`}>Edit</a></li>
+              <li><a className="dropdown-item" href="#/" onClick={deleteCommentHandler} id={comment.commentid}>Delete</a></li>
+            </ul>
           </div>
           <div
             className="modal fade"

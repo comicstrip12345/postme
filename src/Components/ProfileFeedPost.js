@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CommentFeed from "./CommentFeed";
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 const ProfileFeedPost = (props) => {
   const profileupdater = props.profileupdater;
@@ -99,7 +100,6 @@ const ProfileFeedPost = (props) => {
                         console.log(res)
                         setCounter(counter + 1)
                         setCommentInput("")
-                       
                     }
                 }) 
     }
@@ -125,51 +125,45 @@ const ProfileFeedPost = (props) => {
                 <p>{post.date_created} hrs.</p>
               </h1>
             </div>
-
-            <div className="col-2 postName d-flex align-items-center">
-           
-                   <div className="dropdown">
-                   <a
-                     className="btn btn-outline-black dropdown-toggle"
-                     href="/#"
-                     role="button"
-                     id="dropdownMenuLink"
-                     data-bs-toggle="dropdown"
-                     aria-expanded="false"
-                   > </a>
-   
-                   <ul
-                     className="dropdown-menu"
-                     aria-labelledby="dropdownMenuLink"
-                   >
-                     <li>
-                       <div className="dropdown-item" id={post.postid}>
-                         <button
-                           type="button"
-                           className="btn btn-outline-dark border-0"
-                           data-bs-toggle="modal"
-                           data-bs-target={`#exampleModal${post.postid}`}
-                           id={post.postid}
-                         >
-                           Edit post
-                         </button>
-                       </div>
-                     </li>
-                     <li>
-                       <div
-                         className="dropdown-item"
-                         id={post.postid}
-                         onClick={(e) => deleteHandler(e)}
-                       >
-                         Delete Post
-                       </div>
-                     </li>
-                   </ul>
-                 </div>
-                
-             
+            <div className="col-2 postSettings">
+                <div className="dropdown text-end">
+                  <a
+                    className="btn btn-outline-black "
+                    href="/#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  ><i className="bi bi-three-dots"></i> </a>
+                  <ul
+                    className="dropdown-menu dropdown-menu-end"
+                    aria-labelledby="dropdownMenuLink"
+                  >
+                    <li>
+                      <div className="dropdown-item" id={post.postid}>
+                        <a
+                          href="/#"
+                          type="button"
+                          data-bs-toggle="modal"
+                          data-bs-target={`#exampleModal${post.postid}`}
+                          id={post.postid}
+                        >
+                          Edit post
+                        </a>
+                      </div>
+                    </li>
+                    <li>
+                      <div
+                        className="dropdown-item"
+                        id={post.postid}
+                        onClick={(e) => deleteHandler(e)}
+                      >
+                        <a href="#/" >Delete Post</a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
             </div>
-
             <div className="col-12 postContent">
               <p>{post.content}</p>
               <div
@@ -224,37 +218,30 @@ const ProfileFeedPost = (props) => {
             </div>
             <div className="col-12 postMenu">
               <div className="row">
-                <div className="col-6">
-                  <p>
-                    <a href="#/">Like</a>
-                  </p>
+                <div className="col-6 menu1">
+                  <button>
+                      <p>Like</p>
+                  </button>
                 </div>
-                <div className="col-6">                 
-                    <div onClick={commentHandler}><p>Comment</p></div>
+                <div className="col-6 menu1">                 
+                    <button onClick={commentHandler}><p>Comment</p></button>
                 </div>
               </div>
 
-              {
-                commenting && (
-                <div className='row pb-5 pt-5'>
-                        <div className='col-2'>
-                            <div className='profImage'>
-        
-                            </div>
-                        </div>
-                        <div className='col-10 postInput'>
-                            <div className="form-floating form">
-                                <i className="bi bi-send" onClick={writeComment} id={post.postid} ></i>
-                                <input type="text" hidden name="postid" />
-                                <input type="text" className="form-control"
-                               placeholder="Comment" name="content" onChange={handleCommentInput} value={commentInput}  />
-                                <label htmlFor="post">Write a comment</label>
-                            </div>
-                        </div>
+            {
+              commenting && (
+                <div className="col-12 form-floating form">
+                    <button onClick={writeComment}><i className="bi bi-send" id={post.postid}></i></button>
+                    <input type="text" hidden name="postid" />
+                    <input type="text" className="form-control"
+                    placeholder="Comment" name="content" onChange={handleCommentInput} value={commentInput}  />
+                    <label htmlFor="post">Write a comment</label>
                 </div>
-                )
-              }
-            <CommentFeed postid={post.postid} counter={counter}/>
+              )
+            }
+            <div className="col-12 comments">
+              <CommentFeed postid={post.postid} counter={counter}/> 
+            </div>
             </div>
           </div>
         </div>

@@ -151,9 +151,9 @@ section.hero .signUpForm .submit p {
   padding-bottom: 2.5vh;
   margin-bottom: 0;
   font-family: Quicksand;
-  font-weight: 400;
+  font-weight: bold;
   color: white;
-  font-size: 1.7vh;
+  font-size: 2vh;
   float: right;
 }
 
@@ -207,9 +207,9 @@ section.hero .loginForm .submit p {
   padding-bottom: 2.5vh;
   margin-bottom: 0;
   font-family: Quicksand;
-  font-weight: 400;
+  font-weight: bold;
   color: white;
-  font-size: 1.7vh;
+  font-size: 2vh;
   float: right;
 }
 
@@ -352,10 +352,15 @@ section.profile .profileFeed .newsFeed .feed .profImage {
   margin-left: 2vh;
 }
 
-section.profile .profileFeed .newsFeed .feed .postInput .form i {
+section.profile .profileFeed .newsFeed .feed .postInput .form button {
   position: absolute;
   right: 3vh;
   bottom: 2vh;
+  border: none;
+  background: none;
+}
+
+section.profile .profileFeed .newsFeed .feed .postInput .form button i {
   font-size: 3vh;
 }
 
@@ -398,6 +403,15 @@ section.profile .profileFeed .newsFeed .post .postName h1 p {
   font-family: Quicksand;
   font-weight: 400;
   color: black;
+  font-size: 2.2vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postSettings .dropdown a {
+  font-size: 3vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postSettings .dropdown ul li a {
+  color: black;
   font-size: 2.5vh;
 }
 
@@ -416,19 +430,102 @@ section.profile .profileFeed .newsFeed .post .postContent p {
 
 section.profile .profileFeed .newsFeed .post .postMenu {
   padding-top: 2vh;
+  padding: 0;
   border-top: 1px solid black;
+  width: 94%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-section.profile .profileFeed .newsFeed .post .postMenu p {
+section.profile .profileFeed .newsFeed .post .postMenu .menu1 {
+  padding-top: 4vh;
+  padding-bottom: 2vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .menu1 button {
+  border: none;
+  background: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .menu1 button p {
   text-align: center;
   font-family: Poppins;
   font-weight: bold;
   color: black;
-  font-size: 2.5vh;
+  font-size: 2.7vh;
 }
 
-section.profile .profileFeed .newsFeed .post .postMenu p a {
+section.profile .profileFeed .newsFeed .post .postMenu .form {
+  margin-top: 5vh;
+  margin-bottom: 4vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .form button {
+  position: absolute;
+  right: 3vh;
+  bottom: 2vh;
+  border: none;
+  background: none;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .form button i {
+  font-size: 3vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .form input {
+  border: 1px solid black;
+  border-radius: 2vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .form label {
+  font-family: Quicksand;
+  font-weight: 400;
   color: black;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .comments .commentTile {
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 2vh;
+  margin-bottom: 3vh;
+  border-radius: 2vh;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  margin-top: 2vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .comments .name h1 {
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+  font-size: 2.7vh;
+  margin-bottom: 1vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .comments .name h1 span {
+  padding-left: 2vh;
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  font-size: 2.2vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .comments .name p {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  font-size: 3vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .comments .settings button {
+  float: right;
+  border: none;
+  background: none;
 }
 
 section.searchPage .form button {

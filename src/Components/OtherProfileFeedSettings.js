@@ -42,24 +42,26 @@ const OtherProfileFeedSettings = (props) => {
     }
 
     return (
-        <div className='col-12 feed'>
-            <div className='row pb-5'>
-                <div className='col-2'>
-                    <div className='profImage'>
+        <>
+            <div className='col-12 feed'>
+                <div className='row'>
+                    <div className='col-2'>
+                        <div className='profImage'>
 
+                        </div>
                     </div>
-                </div>
-                <div className='col-10 postInput'>
-                    <div className="form-floating form">
-                        <i className="bi bi-send" onClick={submitHandler}></i>
-                        <input type="text" className="form-control" id="post" ref={postRef} placeholder="text" onChange={(e)=> { setPost(e.target.value) }}/>
-                        <label htmlFor="post">Post Something...</label>
+                    <div className='col-10 postInput'>
+                        <div className="form-floating form">
+                            <button onClick={submitHandler}><i className="bi bi-send"></i></button>
+                            <input type="text" className="form-control" id="post" ref={postRef} placeholder="text" onChange={(e)=> { setPost(e.target.value) }}/>
+                            <label htmlFor="post">Post Something...</label>
+                        </div>
                     </div>
                 </div>
             </div>
-
             <OtherProfileFeedPost userid={`${wallid}`} commentorid={userid} postCounter={postCounter} />
-        </div>
+        </>
+        
     )
 }
 
