@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import CommentFeed from "./CommentFeed";
 
 const OtherProfileFeedPost = (props) => {
   const profileupdater = props.profileupdater;
+  const commentorid = props.commentorid;
   const [posts, setPosts] = useState([]);
   const origCounter = props.postCounter;
   const [counter, setCounter] = useState(props.postCounter);
@@ -10,7 +12,14 @@ const OtherProfileFeedPost = (props) => {
   const id = props.userid;
   const [formInput,setFormInput] = useState({
     content:"",
-});
+    });
+    
+    const [commentInput,setCommentInput] = useState({
+        content:"",
+    });
+
+    const [commenting,setCommenting] = useState(false);
+
 
   useEffect(() => {
     axios
@@ -24,28 +33,27 @@ const OtherProfileFeedPost = (props) => {
     // eslint-disable-next-line
   }, [origCounter, counter, profileupdater]);
 
-  const deleteHandler = (e) => {
-    const postid = e.target.id;
-    console.log(`${postid} id clicked`);
+    const deleteHandler = (e) => {
+        const postid = e.target.id;
 
-    axios
-      .post("https://serserserver.herokuapp.com/deletepost", {
-        postid: postid,
-      })
-      .then((response) => {
-        console.log(response);
-        setCounter(counter + 1);
-      });
-  };
+        axios
+        .post("https://serserserver.herokuapp.com/deletepost", {
+            postid: postid,
+        })
+        .then((response) => {
+            console.log(response);
+            setCounter(counter + 1);
+        });
+    };
 
-  const handleInput = (e) => {
+    const handleInput = (e) => {
     e.preventDefault()
     setFormInput({...formInput,[
         e.target.name
     ]:e.target.value})
-}
+    }
 
-const saveEditHandler = (e) => {
+    const saveEditHandler = (e) => {
     e.preventDefault()
     const postid = e.target.id;
     console.log(postid)
@@ -64,6 +72,39 @@ const saveEditHandler = (e) => {
                     
                 }
             }) 
+    }
+
+        const commentHandler = () => {
+            setCommenting(true)
+        }
+    
+        const handleCommentInput = (e) => {
+            e.preventDefault()
+            setCommentInput({...commentInput,[
+                e.target.name
+            ]:e.target.value})
+            }
+    
+        const writeComment = (e) => {
+            e.preventDefault()
+            const postid = e.target.id;
+            console.log(postid)
+            const data = {
+                userid:commentorid,
+                postid:postid,
+                content:commentInput.content
+            
+            }
+    
+            console.log(data)
+    
+            axios.post("https://serserserver.herokuapp.com/addcomment", data ).then((res)=> {
+                        if(res.status===200){
+                            console.log(res)
+                            setCounter(counter + 1)
+                            
+                        }
+                    }) 
         }
 
   return (
@@ -97,7 +138,7 @@ const saveEditHandler = (e) => {
                      id="dropdownMenuLink"
                      data-bs-toggle="dropdown"
                      aria-expanded="false"
-                   ></a>
+                   > </a>
    
                    <ul
                      className="dropdown-menu"
@@ -185,19 +226,41 @@ const saveEditHandler = (e) => {
             <div className="col-12 postMenu">
               <div className="row">
                 <div className="col-6">
-                  <p>
-                    <a href="#/">Like</a>
-                  </p>
+                  
+                    <div><p>Like</p></div>
+                  
                 </div>
                 <div className="col-6">
-                  <p>
-                    <a href="#/">Comment</a>
-                  </p>
+                  
+                    <div onClick={commentHandler}><p>Comment</p></div>
+                  
                 </div>
               </div>
+              {
+                commenting && (
+                <div className='row pb-5 pt-5'>
+                        <div className='col-2'>
+                            <div className='profImage'>
+        
+                            </div>
+                        </div>
+                        <div className='col-10 postInput'>
+                            <div className="form-floating form">
+                                <i className="bi bi-send" onClick={writeComment} id={post.postid} ></i>
+                                <input type="text" hidden name="postid" />
+                                <input type="text" className="form-control" id={post.postid} name="content" onChange={handleCommentInput} placeholder="Comment" />
+                                <label htmlFor="post">Write a comment</label>
+                            </div>
+                        </div>
+                </div>
+                )
+              }
+            <CommentFeed postid={post.postid} counter={counter}/>
+
             </div>
           </div>
         </div>
+
       ))}
     </>
   );
