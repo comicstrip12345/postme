@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import axios from 'axios';
 import OtherProfileFeedPost from './OtherProfileFeedPost';
@@ -9,37 +9,44 @@ const OtherProfileFeedSettings = (props) => {
     const userid = props.userid
     const wallid = props.wallOwnerId
     const [post, setPost] = useState();
+    const [notifRunner,setNotifRunner] = useState(false)
     const [postCounter, setPostCounter] = useState(1);
     const postRef = useRef();
     const [createdPostId,setCreatedPostid]=useState()
 
-    const submitHandler = () => {
-        axios.post("https://serserserver.herokuapp.com/newpostother",{
+    const submitHandler =  async () => {
+        await axios.post("https://serserserver.herokuapp.com/newpostother",{
             userid:userid,
             wallid:wallid,
             post:post,
         }).then((response)=> {
             console.log(response)
             setCreatedPostid(response["data"]["array"]["insertId"])
-            postnotifHandler()
-            postRef.current.value=""
-            setPostCounter(postCounter+1)
-
+            setNotifRunner(true)
+           
         })
     }
 
-    const postnotifHandler = () => {
-        console.log("running notifs")
-        axios.post("https://serserserver.herokuapp.com/newpostothernotif",{
-            userid:userid,
-            wallid:wallid,
-            postid:createdPostId,
-            notiftype:"post"
-        }).then((response)=> {
-            console.log(response)
+  
+    useEffect(()=>{
+     
+            console.log(`running notifs ${createdPostId}`)
+            axios.post("https://serserserver.herokuapp.com/newpostothernotif",{
+                userid:userid,
+                wallid:wallid,
+                postid:createdPostId,
+                notiftype:"post"
+            }).then((response)=> {
+                console.log(response)
+                postRef.current.value=""
+                setPostCounter(postCounter+1)
+    
+            })
+        
+    // eslint-disable-next-line
+    },[notifRunner])
 
-        })
-    }
+    
 
     return (
         <>
