@@ -59,6 +59,7 @@ const OtherProfile = () => {
                         <h1>
                             {profile.firstName} {profile.lastName} <br/>
                             <p>{profile.nickname}</p>
+                            
                             {
                             !hasFriendRequest ? <button type="button" className='btn btn-primary' onClick={addFriend}>Add Friend</button> :
                             <button type="button" className='btn btn-primary' disabled>Friend request sent</button>

@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CommentFeed from "./CommentFeed";
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import LikeButton from "./LikeButton";
+import CommentCountFeed from "./CommentCountFeed";
 
 const ProfileFeedPost = (props) => {
   const profileupdater = props.profileupdater;
@@ -33,7 +35,6 @@ const ProfileFeedPost = (props) => {
 
     const deleteHandler = (e) => {
         const postid = e.target.id;
-        console.log(`${postid} id clicked`);
 
         axios
         .post("https://serserserver.herokuapp.com/deletepost", {
@@ -55,14 +56,11 @@ const ProfileFeedPost = (props) => {
     const saveEditHandler = (e) => {
     e.preventDefault()
     const postid = e.target.id;
-    console.log(postid)
      const data = {
          postid: postid,
          content:formInput.content
        
      }
-
-     console.log(data)
 
      axios.post("https://serserserver.herokuapp.com/editpost", data ).then((res)=> {
                 if(res.status===200){
@@ -81,7 +79,7 @@ const ProfileFeedPost = (props) => {
         e.preventDefault()
         setCommentInput(e.target.value)
         }
-        console.log(commentInput)
+   
 
     const writeComment = (e) => {
         e.preventDefault()
@@ -92,8 +90,6 @@ const ProfileFeedPost = (props) => {
             postid:postid,
             content:commentInput
         }
-
-        console.log(data)
 
         axios.post("https://serserserver.herokuapp.com/addcomment", data ).then((res)=> {
                     if(res.status===200){
@@ -139,19 +135,24 @@ const ProfileFeedPost = (props) => {
                     className="dropdown-menu dropdown-menu-end"
                     aria-labelledby="dropdownMenuLink"
                   >
-                    <li>
-                      <div className="dropdown-item" id={post.postid}>
-                        <a
-                          href="/#"
-                          type="button"
-                          data-bs-toggle="modal"
-                          data-bs-target={`#exampleModal${post.postid}`}
-                          id={post.postid}
-                        >
-                          Edit post
-                        </a>
-                      </div>
-                    </li>
+                    {post.wallid === post.userid && (
+                  <li>
+                  <div className="dropdown-item" id={post.postid}>
+                    
+                    <a
+                      href="/#"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target={`#exampleModal${post.postid}`}
+                      id={post.postid}
+                    >
+                      Edit post
+                    </a>
+
+                  </div>
+                </li>
+                )}
+                    
                     <li>
                       <div
                         className="dropdown-item"
@@ -219,11 +220,10 @@ const ProfileFeedPost = (props) => {
             <div className="col-12 postMenu">
               <div className="row">
                 <div className="col-6 menu1">
-                  <button>
-                      <p>Like</p>
-                  </button>
+                  <LikeButton commentorid={id} postid={post.postid}/>
                 </div>
-                <div className="col-6 menu1">                 
+                <div className="col-6 menu1">
+                    <CommentCountFeed postid={post.postid} counter={counter} />                 
                     <button onClick={commentHandler}><p>Comment</p></button>
                 </div>
               </div>
