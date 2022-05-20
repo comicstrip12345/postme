@@ -24,7 +24,7 @@ const LikeFeed = (props) => {
         <div className="text-center" data-bs-toggle="modal" data-bs-target= {`#post${postid}`}>
              {Object.keys(likes).length>0 ? 
                 <span> {Object.keys(likes).length} likes</span> : 
-                <span> </span>} 
+                <span> No likes yet </span>} 
         </div>
 
 
