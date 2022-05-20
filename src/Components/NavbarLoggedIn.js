@@ -24,7 +24,7 @@ const NavbarLoggedIn = (props) => {
      // eslint-disable-next-line
     const commentnotifs = notif.filter(item => item.notiftype === 'comment' && item.new_comment ==='1' && item.wallid==userid );
     const notifcount = postnotifs.length + commentnotifs.length;
-    console.log(notifcount)
+
 
     return (
         <nav className='navbar loggedIn'>

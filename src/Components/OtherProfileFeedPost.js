@@ -2,10 +2,13 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CommentFeed from "./CommentFeed";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import LikeButton from "./LikeButton";
+import CommentCountFeed from "./CommentCountFeed";
 
 const OtherProfileFeedPost = (props) => {
   const profileupdater = props.profileupdater;
-  const commentorid = props.commentorid;
+  // eslint-disable-next-line
+  const [commentorid,setCommentorId] = useState(props.commentorid)
   const id = props.userid;
   const origCounter = props.postCounter;
   const [commenting, setCommenting] = useState(false);
@@ -20,12 +23,15 @@ const OtherProfileFeedPost = (props) => {
 
   const [commentInput, setCommentInput] = useState();
 
+
+
   useEffect(() => {
     axios
       .post("https://serserserver.herokuapp.com/postfeed", {
         userid: id,
       })
       .then((response) => {
+        console.log(response)
         setPosts(response["data"]["array"]);
       });
     // eslint-disable-next-line
@@ -115,6 +121,7 @@ const OtherProfileFeedPost = (props) => {
   // eslint-disable-next-line
   }, [notifTrigger]);
 
+
   return (
     <>
       {posts.map((post, index) => (
@@ -136,7 +143,8 @@ const OtherProfileFeedPost = (props) => {
               </h1>
             </div>
             <div className="col-2 postSettings">
-              {post.wallid !== post.userid && (
+            {/* eslint-disable-next-line */}
+              {commentorid == post.userid && (
                 <div className="dropdown text-end">
                   <a
                     className="btn btn-outline-black"
@@ -238,14 +246,15 @@ const OtherProfileFeedPost = (props) => {
                 </div>
               </div>
             </div>
+
             <div className="col-12 postMenu">
+             
               <div className="row">
-                <div className="col-6 menu1">
-                  <button>
-                    <p>Like</p>
-                  </button>
+                <div className="col-6 menu1 text-center">
+                    <LikeButton commentorid={commentorid} postid={post.postid}/>
                 </div>
                 <div className="col-6 menu1">
+                  <CommentCountFeed postid={post.postid} counter={counter} origCounter={origCounter} profileupdater={profileupdater}/>
                   <button onClick={commentHandler}>
                     <p>Comment</p>
                   </button>
