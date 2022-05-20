@@ -25,7 +25,7 @@ const Settings = () => {
             />
             <section className='settings'>
                 <div className='container'>
-                    <div className='row pt-4'>
+                    <div className='row pt-5'>
                         <div className='col-12 title'>
                             <h1>Account Settings</h1>
                         </div>

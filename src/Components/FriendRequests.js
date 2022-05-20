@@ -32,7 +32,7 @@ const FriendRequests = () => {
             />
             <section className='friendRequests'>
                 <div className='container'>
-                    <div className='row pt-4'>
+                    <div className='row pt-5'>
                         <div className='col-12 title'>
                             <h1>Friend Requests</h1>    
                         </div>

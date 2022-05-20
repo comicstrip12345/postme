@@ -545,7 +545,7 @@ section.searchPage{
             @include contentFontBoldStyleProfile();
         }
     }
-    .row{
+    .searchTile{
         margin-bottom: 4vh;
 
         .image{
@@ -561,6 +561,10 @@ section.searchPage{
 
                 a{
                     color: $mainTextColor;
+
+                    &:hover{
+                        color:#0AA1DD;
+                    }
                 }
             }
             small{
@@ -583,6 +587,8 @@ section.friendRequests{
         }
     }
     .friendsProfile{
+        margin-bottom: 4vh;
+        
         .friendsImage{
             img{
                 height: 80px;
@@ -629,7 +635,7 @@ section.settings{
         h1{
             @include headingFontBoldStyleProfile();
             font-size: 5vh;
-            padding-bottom: 2vh;
+            padding-bottom: 4vh;
             border-bottom: 1px solid black;
         }
     }
@@ -676,6 +682,20 @@ section.settings{
     
 }
 
+// Notification Page
+section.notifications{
+    h1.title{
+        @include headingFontBoldStyleProfile();
+        font-size: 5vh;
+    }
+    h1.menu{
+        @include headingFontBoldStyleProfile();
+        font-size: 4vh;
+        margin-top: 5vh;
+    }
+}
+
+// Footer Section
 footer{
     background:linear-gradient(90deg,#79DAE8,#0AA1DD);
     position: absolute;

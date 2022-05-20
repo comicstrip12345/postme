@@ -39,26 +39,26 @@ const SearchPage = () => {
                                 <input type="text" className="form-control" id="searchPage" placeholder="name" onChange={(e)=>{setSearch(e.target.value)}} />
                                 <label htmlFor="searchPage">Search your friend</label>
                             </div>
-                            <div className='col-6'>
-                                {profiles.map((profile,index)=> (
-                                        <Fade>
-                                            <div className='row' key={index}>
-                                                <div className='col-2 image'>
-                                                    {/* container ng image sa future */}
-                                                    <img src="https://e7.pngegg.com/pngimages/505/761/png-clipart-login-computer-icons-avatar-icon-monochrome-black-thumbnail.png" alt="avatar"/>
-                                                </div>
-                                                <div className='col-10 detail d-flex align-items-center'>
-                                                    <h1>
-                                                        <Link to={`/profile/${currentuserid}/${profile.userid}`}>{profile.firstName} {profile.lastName}</Link> <br/>
-                                                        <small className='text-muted'>from {profile.city} </small>
-                                                    </h1>
-                                                </div>
-                                            </div>
-                                        </Fade>
-                                    ))
-                                }
-                            </div>
                         </div>
+                        {profiles.map((profile,index)=> (
+                                <Fade>
+                                    <div className='col-4'>
+                                        <div className='row searchTile' key={index}>
+                                            <div className='col-3 image'>
+                                                {/* container ng image sa future */}
+                                                <img src="https://e7.pngegg.com/pngimages/505/761/png-clipart-login-computer-icons-avatar-icon-monochrome-black-thumbnail.png" alt="avatar"/>
+                                            </div>
+                                            <div className='col-9 detail d-flex align-items-center'>
+                                                <h1>
+                                                    <Link to={`/profile/${currentuserid}/${profile.userid}`}>{profile.firstName} {profile.lastName}</Link> <br/>
+                                                    <small className='text-muted'>from {profile.city} </small>
+                                                </h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Fade>
+                            ))
+                        }
                     </div>
                 </div>
             </section>
