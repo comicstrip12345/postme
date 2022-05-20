@@ -1,9 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import CommentFeed from "./CommentFeed";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import LikeButton from "./LikeButton";
-import CommentCountFeed from "./CommentCountFeed";
+import OtherCommentFeed from "./OtherCommentFeed";
 
 const OtherProfileFeedPost = (props) => {
   const profileupdater = props.profileupdater;
@@ -250,11 +249,10 @@ const OtherProfileFeedPost = (props) => {
             <div className="col-12 postMenu">
              
               <div className="row">
-                <div className="col-6 menu1 text-center">
+                <div className="col-12 menu1 text-center">
                     <LikeButton commentorid={commentorid} postid={post.postid}/>
                 </div>
-                <div className="col-6 menu1">
-                  <CommentCountFeed postid={post.postid} counter={counter} origCounter={origCounter} profileupdater={profileupdater}/>
+                <div className="col-12 menu1 border-top">
                   <button onClick={commentHandler}>
                     <p>Comment</p>
                   </button>
@@ -278,7 +276,7 @@ const OtherProfileFeedPost = (props) => {
                 </div>
               )}
               <div className="col-12 comments">
-                <CommentFeed postid={post.postid} counter={counter} />
+                <OtherCommentFeed postid={post.postid} counter={counter} id={id} commentorid={commentorid}/> 
               </div>
             </div>
           </div>

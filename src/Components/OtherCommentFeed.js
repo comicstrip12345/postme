@@ -3,10 +3,12 @@ import React, { useEffect, useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import CommentCountFeed from "./CommentCountFeed";
 
-const CommentFeed = (props) => {
+const OtherCommentFeed = (props) => {
   const postid = props.postid;
-  // eslint-disable-next-line 
+  // eslint-disable-next-line
   const [id, setId] = useState(props.id);
+  // eslint-disable-next-line
+  const [commentorid, setCommentorid] = useState(props.commentorid);
   const counter = props.counter;
   const [comments, setComments] = useState([]);
   const [commentUpdater, setCommentUpdater] = useState(counter);
@@ -57,11 +59,15 @@ const CommentFeed = (props) => {
 
   return (
     <>
-       <div className="row">
-         <div className="col">
-           <CommentCountFeed postid={postid} counter={counter} commentUpdater={commentUpdater}/>
-         </div>
-       </div>
+      <div className="row">
+        <div className="col">
+          <CommentCountFeed
+            postid={postid}
+            counter={counter}
+            commentUpdater={commentUpdater}
+          />
+        </div>
+      </div>
       {comments.map((comment, index) => (
         <div className="row commentTile" key={index}>
           <div className="col-9 name">
@@ -72,45 +78,47 @@ const CommentFeed = (props) => {
             <p>{comment.content}</p>
           </div>
           <div className="col-3 settings">
-            <button
-              type="button"
-              id="dropdownMenuButton1"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <i className="bi bi-three-dots"></i>
-            </button>
-            <ul
-              className="dropdown-menu dropdown-menu-end"
-              aria-labelledby="dropdownMenuButton1"
-            >
-              {/* eslint-disable-next-line  */}
-              {comment.id == id && (
-                <li>
-                  <a
-                    className="dropdown-item"
-                    href="#/"
-                    id={comment.commentid}
-                    type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target={`#exampleModal${comment.commentid}`}
-                  >
-                    Edit
-                  </a>
-                </li>
-              )}
-
-              <li>
-                <a
-                  className="dropdown-item"
-                  href="#/"
-                  onClick={deleteCommentHandler}
-                  id={comment.commentid}
+            {/* eslint-disable-next-line  */}
+            {comment.id == commentorid && (
+              <>
+                <button
+                  type="button"
+                  id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
                 >
-                  Delete
-                </a>
-              </li>
-            </ul>
+                  <i className="bi bi-three-dots"></i>
+                </button>
+                <ul
+                  className="dropdown-menu dropdown-menu-end"
+                  aria-labelledby="dropdownMenuButton1"
+                >
+                  <li>
+                    <a
+                      className="dropdown-item"
+                      href="#/"
+                      id={comment.commentid}
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target={`#exampleModal${comment.commentid}`}
+                    >
+                      Edit
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      className="dropdown-item"
+                      href="#/"
+                      onClick={deleteCommentHandler}
+                      id={comment.commentid}
+                    >
+                      Delete
+                    </a>
+                  </li>
+                </ul>
+              </>
+            )}
           </div>
           <div
             className="modal fade"
@@ -172,4 +180,4 @@ const CommentFeed = (props) => {
   );
 };
 
-export default CommentFeed;
+export default OtherCommentFeed;

@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 
 const CommentCountFeed = (props) => {
 
-    const postid = props.postid;
-  const counter = props.counter
+  const postid = props.postid;
+  const counter = props.counter;
+  const commentUpdater=props.commentUpdater;
   const origCounter = props.origCounter
   const profileupdater = props.profileupdater
   const [comments, setComments] = useState([]);
@@ -21,7 +22,7 @@ const CommentCountFeed = (props) => {
       });
     
       
-  }, [counter,origCounter,profileupdater,postid]);
+  }, [counter,origCounter,profileupdater,postid,commentUpdater]);
 
 
   return (
