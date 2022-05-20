@@ -554,27 +554,31 @@ section.searchPage .form label {
   color: black;
 }
 
-section.searchPage .row {
+section.searchPage .searchTile {
   margin-bottom: 4vh;
 }
 
-section.searchPage .row .image img {
+section.searchPage .searchTile .image img {
   height: 70px;
   float: right;
 }
 
-section.searchPage .row .detail h1 {
+section.searchPage .searchTile .detail h1 {
   font-size: 3vh;
   font-family: Poppins;
   font-weight: bold;
   color: black;
 }
 
-section.searchPage .row .detail h1 a {
+section.searchPage .searchTile .detail h1 a {
   color: black;
 }
 
-section.searchPage .row .detail small {
+section.searchPage .searchTile .detail h1 a:hover {
+  color: #0AA1DD;
+}
+
+section.searchPage .searchTile .detail small {
   font-family: Quicksand;
   font-weight: bold;
   color: black;
@@ -590,6 +594,10 @@ section.friendRequests .title h1 {
   font-weight: bold;
   color: black;
   font-size: 5vh;
+}
+
+section.friendRequests .friendsProfile {
+  margin-bottom: 4vh;
 }
 
 section.friendRequests .friendsProfile .friendsImage img {
@@ -640,7 +648,7 @@ section.settings .title h1 {
   font-weight: bold;
   color: black;
   font-size: 5vh;
-  padding-bottom: 2vh;
+  padding-bottom: 4vh;
   border-bottom: 1px solid black;
 }
 
@@ -684,6 +692,21 @@ section.settings .account .delete button {
   font-weight: bold;
   color: black;
   border-radius: 2vh;
+}
+
+section.notifications h1.title {
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+  font-size: 5vh;
+}
+
+section.notifications h1.menu {
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+  font-size: 4vh;
+  margin-top: 5vh;
 }
 
 footer {
