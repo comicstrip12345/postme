@@ -13,6 +13,7 @@ import OtherProfile from './Components/OtherProfile';
 import FriendRequests from './Components/FriendRequests';
 import Settings from './Components/Settings';
 import NotificationsPage from './Components/NotificationsPage';
+import NotifIndivPost from './Components/NotifIndivPost';
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
                 <Route path='/friendrequests/:userid' element={<FriendRequests/>}></Route>
                 <Route path='/settings/:userid' element={<Settings/>}></Route>
                 <Route path='/notifications/:userid' element={<NotificationsPage/>}></Route>
+                <Route path='/indivpost/:userid/:postid' element={<NotifIndivPost/>}></Route>
             </Routes>
         </BrowserRouter>
     )

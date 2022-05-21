@@ -36,9 +36,9 @@ nav.loggedIn nav {
 
 nav.loggedIn nav .navImageCircle {
   background-color: black;
+  border-radius: 20vh;
   height: 33px;
   width: 33px;
-  border-radius: 20vh;
   margin-left: 2vh;
 }
 
@@ -260,9 +260,9 @@ section.profile {
 
 section.profile .circlePhoto {
   background-color: black;
+  border-radius: 20vh;
   height: 160px;
   width: 160px;
-  border-radius: 20vh;
 }
 
 section.profile .profileName h1 {
@@ -346,9 +346,9 @@ section.profile .profileFeed .newsFeed .feed {
 
 section.profile .profileFeed .newsFeed .feed .profImage {
   background-color: black;
+  border-radius: 20vh;
   height: 59px;
   width: 59px;
-  border-radius: 20vh;
   margin-left: 2vh;
 }
 
@@ -386,9 +386,9 @@ section.profile .profileFeed .newsFeed .post {
 
 section.profile .profileFeed .newsFeed .post .profImage {
   background-color: black;
+  border-radius: 20vh;
   height: 59px;
   width: 59px;
-  border-radius: 20vh;
   margin-left: 2vh;
 }
 
@@ -707,6 +707,47 @@ section.notifications h1.menu {
   color: black;
   font-size: 4vh;
   margin-top: 5vh;
+}
+
+section.notifications .notif {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  border-radius: 2vh;
+  margin-top: 1vh;
+  padding-left: 4vh;
+  padding-right: 4vh;
+}
+
+section.notifications .notif:hover {
+  background-color: #d5f7fc;
+}
+
+section.notifications .notif .circlePhoto {
+  background-color: black;
+  border-radius: 20vh;
+  height: 70px;
+  width: 70px;
+}
+
+section.notifications .notif .notifTile p {
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+  font-size: 2.5vh;
+}
+
+section.notifications .notif .notifTile p span {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+}
+
+section.notifications .notif .blueDot {
+  height: 13px;
+  width: 13px;
+  background-color: #0AA1DD;
+  border-radius: 20vh;
+  padding: 9;
 }
 
 footer {
