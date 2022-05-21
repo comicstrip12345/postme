@@ -138,15 +138,14 @@ const ProfileFeedPost = (props) => {
                   <li>
                   <div className="dropdown-item" id={post.postid}>
                     
-                    <a
-                      href="/#"
-                      type="button"
+                    <button
+                      type="button" className="btn btn-outline-black border-0"
                       data-bs-toggle="modal"
                       data-bs-target={`#exampleModal${post.postid}`}
                       id={post.postid}
                     >
                       Edit post
-                    </a>
+                    </button>
 
                   </div>
                 </li>
@@ -155,10 +154,10 @@ const ProfileFeedPost = (props) => {
                     <li>
                       <div
                         className="dropdown-item"
-                        id={post.postid}
-                        onClick={(e) => deleteHandler(e)}
+                        
                       >
-                        <a href="#/" >Delete Post</a>
+                        <button id={post.postid}
+                        onClick={(e) => deleteHandler(e)} type="button" className="btn btn-outline-black border-0"  >Delete Post</button>
                       </div>
                     </li>
                   </ul>

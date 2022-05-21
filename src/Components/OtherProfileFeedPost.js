@@ -161,24 +161,22 @@ const OtherProfileFeedPost = (props) => {
                   >
                     <li>
                       <div className="dropdown-item" id={post.postid}>
-                        <a
-                          href="/#"
+                        <button
+                          className="btn btn-outline-dark border-0"
                           type="button"
                           data-bs-toggle="modal"
                           data-bs-target={`#exampleModal${post.postid}`}
                           id={post.postid}
                         >
                           Edit post
-                        </a>
+                        </button>
                       </div>
                     </li>
                     <li>
                       <div
-                        className="dropdown-item"
-                        id={post.postid}
-                        onClick={(e) => deleteHandler(e)}
-                      >
-                        <a href="#/">Delete Post</a>
+                        className="dropdown-item">
+                        <button type="button" id={post.postid}
+                        onClick={(e) => deleteHandler(e)} className="btn btn-outline-dark border-0">Delete Post</button>
                       </div>
                     </li>
                   </ul>
