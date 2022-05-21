@@ -66,8 +66,9 @@ $contentFont: Quicksand;
     border-radius: 1vh;
     margin-top: 1vh;
 }
-@mixin profileTiles {
-    
+@mixin circlePhoto {
+    background-color: $mainTextColor;
+    border-radius: 20vh;
 }
 
 *{
@@ -105,10 +106,9 @@ nav{
             position: relative;
 
             .navImageCircle{
-                background-color: $mainTextColor;
+                @include circlePhoto();
                 height: 33px;
                 width: 33px;
-                border-radius: 20vh;
                 margin-left: 2vh;
             }
             a{
@@ -275,10 +275,9 @@ section.profile{
     margin-top: 10vh;
 
     .circlePhoto{
-        background-color: $mainTextColor;
+        @include circlePhoto();
         height: 160px;
         width: 160px;
-        border-radius: 20vh;
     }
     .profileName{
         h1{
@@ -347,10 +346,9 @@ section.profile{
                 margin-top: 10vh;
 
                 .profImage{
-                    background-color: $mainTextColor;
+                    @include circlePhoto();
                     height: 59px;
                     width: 59px;
-                    border-radius: 20vh;
                     margin-left: 2vh;
                 }
                 .postInput{
@@ -385,10 +383,9 @@ section.profile{
                 margin-bottom: 5vh;
 
                 .profImage{
-                    background-color: $mainTextColor;
+                    @include circlePhoto();
                     height: 59px;
                     width: 59px;
-                    border-radius: 20vh;
                     margin-left: 2vh;
                 }
                 .postName{
@@ -692,6 +689,41 @@ section.notifications{
         @include headingFontBoldStyleProfile();
         font-size: 4vh;
         margin-top: 5vh;
+    }
+    .notif{
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        border-radius: 2vh;
+        margin-top: 1vh;
+        padding-left: 4vh;
+        padding-right: 4vh;
+
+        &:hover{
+            background-color: #d5f7fc;
+        }
+        .circlePhoto{
+            @include circlePhoto();
+            height: 70px;
+            width: 70px;
+        }
+        .notifTile{
+            p{
+                @include headingFontBoldStyleProfile();
+                font-size: 2.5vh;
+    
+                span{
+                    @include contentFontRegularStyleProfile();
+                }
+            }
+        }
+        .blueDot{
+            height: 13px;
+            width: 13px;
+            background-color: #0AA1DD;
+            border-radius: 20vh;
+            padding: 9;
+        }
+        
     }
 }
 
