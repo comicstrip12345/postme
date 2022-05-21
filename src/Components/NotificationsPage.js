@@ -52,6 +52,28 @@ const NotificationsPage = () => {
                                         </div>
                                     </div></Link> : <></>}
 
+                                     {/* eslint-disable-next-line */}
+                                     {notif.new_comment==="1" && notif.notiftype==="post" && notif.userid==userid? 
+                                    <Link to={`/indivpost/${userid}/${notif.postid}`}><div className='col-12 notif'>
+                                        <div className='row'>
+                                            <div className='col-1 p-0 d-flex align-items-center'>
+                                                <div className='blueDot'>
+                                                </div>
+                                            </div>
+                                            <div className='col-2 p-0'>
+                                            <div className='circlePhoto'>
+
+                                                </div>
+                                            </div>
+                                            <div className='col-9 p-0 d-flex align-items-center'>
+                                                <div className='notifTile'>
+                                                    <p>{notif.whopostedFN} {notif.whopostedLN} <span>added a</span> {notif.notiftype} <span>his post on your wall</span> </p>
+                                                    <p><span>{notif.date_created}</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div></Link> : <></>}
+
                                     {/* eslint-disable-next-line */}
                                     {notif.new_comment==="1" && notif.notiftype==="comment" && notif.wallid==userid? 
                                     <Link to={`/indivpost/${userid}/${notif.postid}`}><div className='col-12 notif'>
