@@ -115,26 +115,39 @@ nav{
                 margin-left: 4vh;
 
                 i{
-                    font-size: 3.4vh;
+                    font-size: 3.9vh;
                     color: $secondTextColor;
+                }
+                &:hover{
+                    i{
+                        color: black;
+                    }
                 }
             }
             ul{
                 padding-bottom: 2vh;
 
                 li{
-                    width: 12vw;
+                    width: 16vw;
 
                     a{
                         @include headingFontBoldStyleProfile();
                         padding: 2vh;
                         margin: 0;
-                        text-align: center;
                         transition: 0.2s all ease-in;
 
+                        i{
+                            color: black;
+                            margin-right: 1.3vh;
+                            transition: 0.2s all ease-in;
+                        }
                         &:hover{
                             color: white;
                             background-color: #0AA1DD;
+
+                            i{
+                                color: white;
+                            }
                         }
                     }
                 }
@@ -272,7 +285,7 @@ section.hero{
 
 // Profile Section
 section.profile{
-    margin-top: 10vh;
+    margin-top: 6vh;
 
     .circlePhoto{
         @include circlePhoto();
@@ -280,19 +293,31 @@ section.profile{
         width: 160px;
     }
     .profileName{
+        padding-top: 7vh;
+        padding-bottom: 7vh;
+        
         h1{
             @include headingFontBoldStyleProfile();
+        }
+        p{
+            @include contentFontRegularStyleProfile();
+            font-size: 4vh;
+        }
+        .form{
+            padding: 0;
             
-            p{
+            label{
+                @include contentFontBoldStyleProfile();
+            }
+            input{
                 @include contentFontRegularStyleProfile();
-                font-size: 4vh;
-                margin: 0;
+                border: 1px solid black;
+                height: 9vh;
             }
         }
     }
     .profileFeed{
         .info{
-            padding: 4vh;
             
             .intro{
                 border: 1px solid $mainTextColor;
@@ -311,31 +336,49 @@ section.profile{
                 }
                 p{
                     @include contentFontRegularStyleProfile();
-                    font-size: 2.5vh;
+                    font-size: 3vh;
                     margin-bottom: 1.5vh;
 
                     span{
                         @include headingFontBoldStyleProfile();
                     }
                 }
+                .form{
+                    label{
+                        @include contentFontBoldStyleProfile();
+                    }
+                    input{
+                        @include contentFontRegularStyleProfile();
+                        border: 1px solid black;
+                    }
+                }
                 button{
                     width: 100%;
-                    border: 1px solid $mainTextColor;
-                    background: none;
+                    border: none;
+                    background-color: #0AA1DD;
                     border-radius: 2vh;
                     margin-top: 2vh;
+                    transition: 0.2s all ease-in-out;
 
                     h1{
                         margin: 0;
                         padding: 2vh;
                         font-size: 3vh;
+                        color: white;
+                        transition: 0.2s all ease-in-out;
+                    }
+                    &:hover{
+                        background-color: white;
+                        border: 1px solid black;
+
+                        h1{
+                            color: #0AA1DD;
+                        }
                     }
                 }
             }
         }
         .newsFeed{
-            padding: 4vh;
-
             .feed{
                 border: 1px solid $mainTextColor;
                 border-radius: 2vh;
@@ -363,6 +406,10 @@ section.profile{
                             i{
                                 font-size: 3vh;
                             }
+                            &:hover{
+                                border: 1px solid $mainTextColor;
+                                border-radius: 1vh;
+                            }
                         }
                     }
                     input{
@@ -377,18 +424,20 @@ section.profile{
             .post{
                 border: 1px solid $mainTextColor;
                 border-radius: 2vh;
-                padding: 3vh;
+                padding: 2vh;
                 padding-top: 4vh;
                 padding-bottom: 2vh;
                 margin-bottom: 5vh;
 
                 .profImage{
                     @include circlePhoto();
-                    height: 59px;
-                    width: 59px;
+                    height: 70px;
+                    width: 70px;
                     margin-left: 2vh;
                 }
                 .postName{
+                    padding:0;
+                    
                     h1{
                         @include headingFontBoldStyleProfile();
                         font-size: 3vh;
@@ -415,104 +464,180 @@ section.profile{
                     }
                 }
                 .postContent{
-                    margin-top: 3vh;
+                    margin-top: 5vh;
                     padding-left: 4vh;
-                    margin-bottom: 10vh;
+                    margin-bottom: 5vh;
 
                     p{
                         @include contentFontRegularStyleProfile();
-                        font-size: 3.5vh;
+                        font-size: 4vh;
                     }
                 }
                 .postMenu{
-                    padding-top: 2vh;
-                    padding: 0;
-                    border-top: 1px solid $mainTextColor;
                     width: 94%;
                     margin-left: auto;
                     margin-right: auto;
 
-                    .menu1{
-                        padding-top: 4vh;
-                        padding-bottom: 2vh;
-                        
-                        button{
-                            border: none;
-                            background: none;
-                            display: block;
-                            margin-left: auto;
-                            margin-right: auto;
-
-                            p{
-                                text-align: center;
-                                @include headingFontBoldStyleProfile();
-                                font-size: 2.7vh;
-                            }
-                        }
-                    }
-                    .form{
-                        margin-top: 5vh;
-                        margin-bottom: 4vh;
-                        
-                        button{
-                            position: absolute;
-                            right: 3vh;
-                            bottom: 2vh;
-                            border: none;
-                            background: none;
-
-                            i{
-                                font-size: 3vh;
-                            }
-                        }
-                        input{
-                            border: 1px solid black;
-                            border-radius: 2vh;
-                        }
-                        label{
-                            @include contentFontRegularStyleProfile();
-                        }
-                    }
-                    .comments{
-                        .commentTile{
-                            border: 1px solid $mainTextColor;
-                            margin-left: auto;
-                            margin-right: auto;
-                            width: 100%;
-                            padding: 2vh;
-                            margin-bottom: 3vh;
-                            border-radius: 2vh;
-                            padding-top: 3vh;
-                            padding-bottom: 3vh;
+                    .likes{
+                        .likesCount{
+                            margin-bottom: 2vh;
                             margin-top: 2vh;
-                        }
-                        .name{
-                            h1{
-                                @include headingFontBoldStyleProfile();
-                                font-size: 2.7vh;
-                                margin-bottom: 1vh;
 
-                                span{
-                                    padding-left: 2vh;
+                            .logo{
+                                padding: 0;
+                                a{
+                                    color: $mainTextColor;
                                     @include contentFontRegularStyleProfile();
-                                    font-size: 2.2vh;
+                                    font-size: 2vh;
+
+                                    img{
+                                        height: 3vh;
+                                    }
+                                }
+                                span{
+                                    @include contentFontRegularStyleProfile();
+                                    font-size: 2.5vh;
                                 }
                             }
-                            p{
-                                @include contentFontRegularStyleProfile();
-                                font-size: 3vh;
-                                
-                            }
                         }
-                        .settings{
+                        .likeButton{
+                            padding-top: 2vh;
+                            border-top: 1px solid black;
+
                             button{
-                                float: right;
                                 border: none;
                                 background: none;
+                                @include headingFontBoldStyleProfile();
+                                font-size: 2.7vh;
+
+                                &:hover{
+                                    color: #0AA1DD;
+                                }
+                            }
+                        }
+                    }
+                    .comment{
+                        .buttons{
+                            padding-top: 2vh;
+                            border-top: 1px solid black;
+
+                            button{
+                                border: none;
+                                background: none;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;
+    
+                                p{
+                                    text-align: center;
+                                    @include headingFontBoldStyleProfile();
+                                    font-size: 2.7vh;
+                                }
+                                &:hover{
+                                    p{
+                                        color: #0AA1DD;
+                                    }
+                                }
                             }
                         }
                     }
                 }
+                .comments{
+                    padding-left: 3vh;
+                    padding-right: 3vh;
+
+                    .commentCount{
+                        margin-bottom: 2vh;
+                        
+                        span{
+                            @include contentFontRegularStyleProfile();
+                            font-size: 2.5vh;
+                        }
+                    }
+                    .profPhoto{
+                        @include circlePhoto();
+                        width: 40px;
+                        height: 40px;
+                        margin-top: 2vh;
+                    }
+                    .commentTile{
+                        border: 1px solid $mainTextColor;
+                        margin-left: auto;
+                        margin-right: auto;
+                        width: 100%;
+                        padding: 1vh;
+                        margin-bottom: 2vh;
+                        border-radius: 2vh;
+                        padding-top: 3vh;
+                        padding-bottom: 3vh;
+                        margin-top: 2vh;
+                    }
+                    .name{
+                        h1{
+                            @include headingFontBoldStyleProfile();
+                            font-size: 2vh;
+                            margin-bottom: 1vh;
+
+                            span{
+                                padding-left: 2vh;
+                                @include contentFontRegularStyleProfile();
+                                font-size: 1.7vh;
+                            }
+                        }
+                        p{
+                            @include contentFontRegularStyleProfile();
+                            font-size: 2.3vh;
+                            
+                        }
+                    }
+                    .settings{
+                        button{
+                            float: right;
+                            border: none;
+                            background: none;
+
+                            &:hover{
+                                border: 1px solid black;
+                                border-radius: 1vh;
+                            }
+                        }
+                    }
+                }
+                .form{
+                    margin-top: 2vh;
+                    margin-bottom: 2vh;
+                    padding: 0;
+                    padding-left: 3vh;
+                    padding-right: 3vh;
+
+                    
+                    button{
+                        position: absolute;
+                        right: 3vh;
+                        bottom: 2vh;
+                        border: none;
+                        background: none;
+                        margin-right: 3vh;
+
+                        i{
+                            font-size: 3vh;
+                        }
+                        &:hover{
+                            border: 1px solid black;
+                            border-radius: 1vh;
+                        }
+                    }
+                    input{
+                        border: 1px solid black;
+                        border-radius: 2vh;
+                        
+                    }
+                    label{
+                        @include contentFontRegularStyleProfile();
+                        margin-left: 3vh;
+
+                    }
+                    }
             }
         }
     }
@@ -530,6 +655,9 @@ section.searchPage{
 
             i{
                 font-size: 3.5vh;
+            }
+            &:hover{
+                color:#0AA1DD;
             }
         }
         
@@ -665,12 +793,25 @@ section.settings{
             margin-top: 2vh;
             
             button{
-                background: none;
+                background-color: rgb(211, 16, 16);
                 border: none;
-                border: 1px solid $mainTextColor;
                 padding: 2vh;
                 @include headingFontBoldStyleProfile();
                 border-radius: 2vh;
+                transition: 0.2s all ease-in-out;
+
+                p{
+                    color: white;
+                    transition: 0.2s all ease-in-out;
+                }
+                &:hover{
+                    background: none;
+                    border: 1px solid black;
+                    
+                    p{
+                        color: rgb(211, 16, 16);
+                    }
+                }
             }
         }
     }

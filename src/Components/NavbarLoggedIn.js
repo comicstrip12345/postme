@@ -32,17 +32,17 @@ const NavbarLoggedIn = (props) => {
                 <p>postme</p>
                 <nav className='nav'>
                     <Link to={`/searchpage/${props.link}`}><i className="bi bi-search"></i></Link>
-                    <Link to={`/notifications/${props.link}`}><i className="bi bi-bell"></i> <span  style={{color:'white',fontSize:'25px'}}>{notifcount}</span></Link>
+                    <Link to={`/notifications/${props.link}`}><i className="bi bi-bell"></i> <span  style={{color:'white',fontSize:'15px'}}>{notifcount}</span></Link>
                     <a className='' href='/#' role="button" id="profileSettings" data-bs-toggle="dropdown" aria-expanded="false">
                         <div className='navImageCircle'>
                         </div>
                     </a>
                     
                     <ul className='dropdown-menu dropdown-menu-end profSettingsDropdown' aria-labelledby='profileSettings'>
-                        <li><Link to={`/profile/${props.link}`} className="dropdown-item">Your Profile</Link></li>
-                        <li><Link to={`/friendrequests/${props.link}`} className="dropdown-item">Friend Requests</Link></li>
-                        <li><Link to={`/settings/${props.link}`} className="dropdown-item">Settings</Link></li>
-                        <li><Link to={""} className="dropdown-item">Logout</Link></li>
+                        <li><Link to={`/profile/${props.link}`} className="dropdown-item"><i class="bi bi-person-fill"></i>Your Profile</Link></li>
+                        <li><Link to={`/friendrequests/${props.link}`} className="dropdown-item"><i class="bi bi-person-plus-fill"></i>Friend Requests</Link></li>
+                        <li><Link to={`/settings/${props.link}`} className="dropdown-item"><i class="bi bi-gear-fill"></i>Settings</Link></li>
+                        <li><Link to={"/"} className="dropdown-item"><i class="bi bi-person-plus-fill"></i>Logout</Link></li>
                     </ul>
                 </nav>
             </div>

@@ -47,8 +47,12 @@ nav.loggedIn nav a {
 }
 
 nav.loggedIn nav a i {
-  font-size: 3.4vh;
+  font-size: 3.9vh;
   color: white;
+}
+
+nav.loggedIn nav a:hover i {
+  color: black;
 }
 
 nav.loggedIn nav ul {
@@ -56,7 +60,7 @@ nav.loggedIn nav ul {
 }
 
 nav.loggedIn nav ul li {
-  width: 12vw;
+  width: 16vw;
 }
 
 nav.loggedIn nav ul li a {
@@ -65,13 +69,22 @@ nav.loggedIn nav ul li a {
   color: black;
   padding: 2vh;
   margin: 0;
-  text-align: center;
+  transition: 0.2s all ease-in;
+}
+
+nav.loggedIn nav ul li a i {
+  color: black;
+  margin-right: 1.3vh;
   transition: 0.2s all ease-in;
 }
 
 nav.loggedIn nav ul li a:hover {
   color: white;
   background-color: #0AA1DD;
+}
+
+nav.loggedIn nav ul li a:hover i {
+  color: white;
 }
 
 section.hero {
@@ -255,7 +268,7 @@ section.hero .friends img {
 }
 
 section.profile {
-  margin-top: 10vh;
+  margin-top: 6vh;
 }
 
 section.profile .circlePhoto {
@@ -265,22 +278,40 @@ section.profile .circlePhoto {
   width: 160px;
 }
 
+section.profile .profileName {
+  padding-top: 7vh;
+  padding-bottom: 7vh;
+}
+
 section.profile .profileName h1 {
   font-family: Poppins;
   font-weight: bold;
   color: black;
 }
 
-section.profile .profileName h1 p {
+section.profile .profileName p {
   font-family: Quicksand;
   font-weight: 400;
   color: black;
   font-size: 4vh;
-  margin: 0;
 }
 
-section.profile .profileFeed .info {
-  padding: 4vh;
+section.profile .profileName .form {
+  padding: 0;
+}
+
+section.profile .profileName .form label {
+  font-family: Quicksand;
+  font-weight: bold;
+  color: black;
+}
+
+section.profile .profileName .form input {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  border: 1px solid black;
+  height: 9vh;
 }
 
 section.profile .profileFeed .info .intro {
@@ -306,7 +337,7 @@ section.profile .profileFeed .info .intro p {
   font-family: Quicksand;
   font-weight: 400;
   color: black;
-  font-size: 2.5vh;
+  font-size: 3vh;
   margin-bottom: 1.5vh;
 }
 
@@ -316,22 +347,43 @@ section.profile .profileFeed .info .intro p span {
   color: black;
 }
 
+section.profile .profileFeed .info .intro .form label {
+  font-family: Quicksand;
+  font-weight: bold;
+  color: black;
+}
+
+section.profile .profileFeed .info .intro .form input {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  border: 1px solid black;
+}
+
 section.profile .profileFeed .info .intro button {
   width: 100%;
-  border: 1px solid black;
-  background: none;
+  border: none;
+  background-color: #0AA1DD;
   border-radius: 2vh;
   margin-top: 2vh;
+  transition: 0.2s all ease-in-out;
 }
 
 section.profile .profileFeed .info .intro button h1 {
   margin: 0;
   padding: 2vh;
   font-size: 3vh;
+  color: white;
+  transition: 0.2s all ease-in-out;
 }
 
-section.profile .profileFeed .newsFeed {
-  padding: 4vh;
+section.profile .profileFeed .info .intro button:hover {
+  background-color: white;
+  border: 1px solid black;
+}
+
+section.profile .profileFeed .info .intro button:hover h1 {
+  color: #0AA1DD;
 }
 
 section.profile .profileFeed .newsFeed .feed {
@@ -364,6 +416,11 @@ section.profile .profileFeed .newsFeed .feed .postInput .form button i {
   font-size: 3vh;
 }
 
+section.profile .profileFeed .newsFeed .feed .postInput .form button:hover {
+  border: 1px solid black;
+  border-radius: 1vh;
+}
+
 section.profile .profileFeed .newsFeed .feed .postInput input {
   border: 1px solid black;
   border-radius: 2vh;
@@ -378,7 +435,7 @@ section.profile .profileFeed .newsFeed .feed .postInput label {
 section.profile .profileFeed .newsFeed .post {
   border: 1px solid black;
   border-radius: 2vh;
-  padding: 3vh;
+  padding: 2vh;
   padding-top: 4vh;
   padding-bottom: 2vh;
   margin-bottom: 5vh;
@@ -387,9 +444,13 @@ section.profile .profileFeed .newsFeed .post {
 section.profile .profileFeed .newsFeed .post .profImage {
   background-color: black;
   border-radius: 20vh;
-  height: 59px;
-  width: 59px;
+  height: 70px;
+  width: 70px;
   margin-left: 2vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postName {
+  padding: 0;
 }
 
 section.profile .profileFeed .newsFeed .post .postName h1 {
@@ -416,33 +477,76 @@ section.profile .profileFeed .newsFeed .post .postSettings .dropdown ul li a {
 }
 
 section.profile .profileFeed .newsFeed .post .postContent {
-  margin-top: 3vh;
+  margin-top: 5vh;
   padding-left: 4vh;
-  margin-bottom: 10vh;
+  margin-bottom: 5vh;
 }
 
 section.profile .profileFeed .newsFeed .post .postContent p {
   font-family: Quicksand;
   font-weight: 400;
   color: black;
-  font-size: 3.5vh;
+  font-size: 4vh;
 }
 
 section.profile .profileFeed .newsFeed .post .postMenu {
-  padding-top: 2vh;
-  padding: 0;
-  border-top: 1px solid black;
   width: 94%;
   margin-left: auto;
   margin-right: auto;
 }
 
-section.profile .profileFeed .newsFeed .post .postMenu .menu1 {
-  padding-top: 4vh;
-  padding-bottom: 2vh;
+section.profile .profileFeed .newsFeed .post .postMenu .likes .likesCount {
+  margin-bottom: 2vh;
+  margin-top: 2vh;
 }
 
-section.profile .profileFeed .newsFeed .post .postMenu .menu1 button {
+section.profile .profileFeed .newsFeed .post .postMenu .likes .likesCount .logo {
+  padding: 0;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .likes .likesCount .logo a {
+  color: black;
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  font-size: 2vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .likes .likesCount .logo a img {
+  height: 3vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .likes .likesCount .logo span {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  font-size: 2.5vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .likes .likeButton {
+  padding-top: 2vh;
+  border-top: 1px solid black;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .likes .likeButton button {
+  border: none;
+  background: none;
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+  font-size: 2.7vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .likes .likeButton button:hover {
+  color: #0AA1DD;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .comment .buttons {
+  padding-top: 2vh;
+  border-top: 1px solid black;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .comment .buttons button {
   border: none;
   background: none;
   display: block;
@@ -450,7 +554,7 @@ section.profile .profileFeed .newsFeed .post .postMenu .menu1 button {
   margin-right: auto;
 }
 
-section.profile .profileFeed .newsFeed .post .postMenu .menu1 button p {
+section.profile .profileFeed .newsFeed .post .postMenu .comment .buttons button p {
   text-align: center;
   font-family: Poppins;
   font-weight: bold;
@@ -458,74 +562,117 @@ section.profile .profileFeed .newsFeed .post .postMenu .menu1 button p {
   font-size: 2.7vh;
 }
 
-section.profile .profileFeed .newsFeed .post .postMenu .form {
-  margin-top: 5vh;
-  margin-bottom: 4vh;
+section.profile .profileFeed .newsFeed .post .postMenu .comment .buttons button:hover p {
+  color: #0AA1DD;
 }
 
-section.profile .profileFeed .newsFeed .post .postMenu .form button {
-  position: absolute;
-  right: 3vh;
-  bottom: 2vh;
-  border: none;
-  background: none;
+section.profile .profileFeed .newsFeed .post .comments {
+  padding-left: 3vh;
+  padding-right: 3vh;
 }
 
-section.profile .profileFeed .newsFeed .post .postMenu .form button i {
-  font-size: 3vh;
+section.profile .profileFeed .newsFeed .post .comments .commentCount {
+  margin-bottom: 2vh;
 }
 
-section.profile .profileFeed .newsFeed .post .postMenu .form input {
-  border: 1px solid black;
-  border-radius: 2vh;
-}
-
-section.profile .profileFeed .newsFeed .post .postMenu .form label {
+section.profile .profileFeed .newsFeed .post .comments .commentCount span {
   font-family: Quicksand;
   font-weight: 400;
   color: black;
+  font-size: 2.5vh;
 }
 
-section.profile .profileFeed .newsFeed .post .postMenu .comments .commentTile {
+section.profile .profileFeed .newsFeed .post .comments .profPhoto {
+  background-color: black;
+  border-radius: 20vh;
+  width: 40px;
+  height: 40px;
+  margin-top: 2vh;
+}
+
+section.profile .profileFeed .newsFeed .post .comments .commentTile {
   border: 1px solid black;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  padding: 2vh;
-  margin-bottom: 3vh;
+  padding: 1vh;
+  margin-bottom: 2vh;
   border-radius: 2vh;
   padding-top: 3vh;
   padding-bottom: 3vh;
   margin-top: 2vh;
 }
 
-section.profile .profileFeed .newsFeed .post .postMenu .comments .name h1 {
+section.profile .profileFeed .newsFeed .post .comments .name h1 {
   font-family: Poppins;
   font-weight: bold;
   color: black;
-  font-size: 2.7vh;
+  font-size: 2vh;
   margin-bottom: 1vh;
 }
 
-section.profile .profileFeed .newsFeed .post .postMenu .comments .name h1 span {
+section.profile .profileFeed .newsFeed .post .comments .name h1 span {
   padding-left: 2vh;
   font-family: Quicksand;
   font-weight: 400;
   color: black;
-  font-size: 2.2vh;
+  font-size: 1.7vh;
 }
 
-section.profile .profileFeed .newsFeed .post .postMenu .comments .name p {
+section.profile .profileFeed .newsFeed .post .comments .name p {
   font-family: Quicksand;
   font-weight: 400;
   color: black;
-  font-size: 3vh;
+  font-size: 2.3vh;
 }
 
-section.profile .profileFeed .newsFeed .post .postMenu .comments .settings button {
+section.profile .profileFeed .newsFeed .post .comments .settings button {
   float: right;
   border: none;
   background: none;
+}
+
+section.profile .profileFeed .newsFeed .post .comments .settings button:hover {
+  border: 1px solid black;
+  border-radius: 1vh;
+}
+
+section.profile .profileFeed .newsFeed .post .form {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  padding: 0;
+  padding-left: 3vh;
+  padding-right: 3vh;
+}
+
+section.profile .profileFeed .newsFeed .post .form button {
+  position: absolute;
+  right: 3vh;
+  bottom: 2vh;
+  border: none;
+  background: none;
+  margin-right: 3vh;
+}
+
+section.profile .profileFeed .newsFeed .post .form button i {
+  font-size: 3vh;
+}
+
+section.profile .profileFeed .newsFeed .post .form button:hover {
+  border: 1px solid black;
+  border-radius: 1vh;
+}
+
+section.profile .profileFeed .newsFeed .post .form input {
+  border: 1px solid black;
+  border-radius: 2vh;
+}
+
+section.profile .profileFeed .newsFeed .post .form label {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  margin-left: 3vh;
 }
 
 section.searchPage .form button {
@@ -538,6 +685,10 @@ section.searchPage .form button {
 
 section.searchPage .form button i {
   font-size: 3.5vh;
+}
+
+section.searchPage .form button:hover {
+  color: #0AA1DD;
 }
 
 section.searchPage .form input {
@@ -684,14 +835,28 @@ section.settings .account .delete {
 }
 
 section.settings .account .delete button {
-  background: none;
+  background-color: #d31010;
   border: none;
-  border: 1px solid black;
   padding: 2vh;
   font-family: Poppins;
   font-weight: bold;
   color: black;
   border-radius: 2vh;
+  transition: 0.2s all ease-in-out;
+}
+
+section.settings .account .delete button p {
+  color: white;
+  transition: 0.2s all ease-in-out;
+}
+
+section.settings .account .delete button:hover {
+  background: none;
+  border: 1px solid black;
+}
+
+section.settings .account .delete button:hover p {
+  color: #d31010;
 }
 
 section.notifications h1.title {

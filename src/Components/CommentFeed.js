@@ -55,121 +55,129 @@ const CommentFeed = (props) => {
       });
   };
 
-  return (
-    <>
-       <div className="row">
-         <div className="col">
-           <CommentCountFeed postid={postid} counter={counter} commentUpdater={commentUpdater}/>
-         </div>
-       </div>
-      {comments.map((comment, index) => (
-        <div className="row commentTile" key={index}>
-          <div className="col-9 name">
-            <h1>
-              {comment.firstName} {comment.lastName}
-              <span>{comment.date_created}</span>
-            </h1>
-            <p>{comment.content}</p>
+    return (
+      <>
+        <div className="row">
+          <div className="col-12 commentCount">
+            <CommentCountFeed postid={postid} counter={counter} commentUpdater={commentUpdater}/>
           </div>
-          <div className="col-3 settings">
-            <button
-              type="button"
-              id="dropdownMenuButton1"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <i className="bi bi-three-dots"></i>
-            </button>
-            <ul
-              className="dropdown-menu dropdown-menu-end"
-              aria-labelledby="dropdownMenuButton1"
-            >
-              {/* eslint-disable-next-line  */}
-              {comment.id == id && (
-                <li>
-                  <a
-                    className="dropdown-item"
-                    href="#/"
-                    id={comment.commentid}
+        </div>
+        {comments.map((comment, index) => (
+          <div className="row" key={index}>
+            <div className="col-1">
+              <div className="profPhoto"></div>
+            </div>
+            <div className="col-11">
+              <div className="row  commentTile">
+                <div className="col-9 name">
+                  <h1>
+                    {comment.firstName} {comment.lastName}
+                    <span>{comment.date_created} hrs</span>
+                  </h1>
+                  <p>{comment.content}</p>
+                </div>
+                <div className="col-3 settings">
+                  <button
                     type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target={`#exampleModal${comment.commentid}`}
+                    id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
                   >
-                    Edit
-                  </a>
-                </li>
-              )}
+                    <i className="bi bi-three-dots"></i>
+                  </button>
+                  <ul
+                    className="dropdown-menu dropdown-menu-end"
+                    aria-labelledby="dropdownMenuButton1"
+                  >
+                    {/* eslint-disable-next-line  */}
+                    {comment.id == id && (
+                      <li>
+                        <a
+                          className="dropdown-item"
+                          href="#/"
+                          id={comment.commentid}
+                          type="button"
+                          data-bs-toggle="modal"
+                          data-bs-target={`#exampleModal${comment.commentid}`}
+                        >
+                          Edit
+                        </a>
+                      </li>
+                    )}
 
-              <li>
-                <a
-                  className="dropdown-item"
-                  href="#/"
-                  onClick={deleteCommentHandler}
-                  id={comment.commentid}
-                >
-                  Delete
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div
-            className="modal fade"
-            id={`exampleModal${comment.commentid}`}
-            tabIndex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">
-                    Edit Post
-                  </h5>
-                  <button
-                    type="button"
-                    className="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="#/"
+                        onClick={deleteCommentHandler}
+                        id={comment.commentid}
+                      >
+                        Delete
+                      </a>
+                    </li>
+                  </ul>
                 </div>
-                <div className="modal-body">
-                  <div className="form-floating mb-3 form">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="floatingUsername"
-                      placeholder="text"
-                      name="content"
-                      onChange={editChangeHandler}
-                    />
-                    <label htmlFor="floatingUsername">Edit Comment</label>
+              </div>
+            </div>
+            
+            <div
+              className="modal fade"
+              id={`exampleModal${comment.commentid}`}
+              tabIndex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">
+                      Edit Post
+                    </h5>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
                   </div>
-                </div>
-                <div className="modal-footer">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-primary"
-                    data-bs-dismiss="modal"
-                    id={comment.commentid}
-                    onClick={editComment}
-                  >
-                    Save changes
-                  </button>
+                  <div className="modal-body">
+                    <div className="form-floating mb-3 form">
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="floatingUsername"
+                        placeholder="text"
+                        name="content"
+                        onChange={editChangeHandler}
+                      />
+                      <label htmlFor="floatingUsername">Edit Comment</label>
+                    </div>
+                  </div>
+                  <div className="modal-footer">
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      data-bs-dismiss="modal"
+                      id={comment.commentid}
+                      onClick={editComment}
+                    >
+                      Save changes
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
-    </>
-  );
+        ))}
+      </>
+    );
 };
 
 export default CommentFeed;
