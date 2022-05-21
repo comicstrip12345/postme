@@ -91,21 +91,23 @@ const IndividualProfile = () => {
 
                         </div>
                     </div>
-                    <div className='col-10 profileName pt-5 align-items-center'>
+                    <div className='col-10 profileName '>
                         <div className='row'>
-                            
+                            {/* <div className='col-12 d-flex align-items-center'>
+
+                            </div> */}
                         { !editingMode? 
-                                <div className='col'>
+                                <div className='col-12'>
 
                                     <h1> {profile.firstName} {profile.lastName}</h1> 
                                 </div>  :
 
                                 <>
-                                     <div className="form-floating form">
+                                     <div className="col-4 me-1 form-floating form">
                                          <input type="text" className="form-control" id="post" placeholder="text" name="firstName" defaultValue={profile.firstName}   onChange={handleInput}/>
                                         <label htmlFor="post">First Name </label>
                                      </div>
-                                     <div className="form-floating form">
+                                     <div className="col-4 mb-1 form-floating form">
                                          <input type="text" className="form-control" id="post" placeholder="text" name="lastName" defaultValue={profile.lastName}  onChange={handleInput}/>
                                         <label htmlFor="post">Last Name</label>
                                      </div>
@@ -118,7 +120,7 @@ const IndividualProfile = () => {
                             { !editingMode? 
                                 <p>{profile.nickname}</p>:
                                 
-                                <div className="form-floating form">
+                                <div className="col-4 form-floating form">
 
                                             <input type="text" className="form-control" id="post" placeholder="text" name="nickname" defaultValue={profile.nickname}  onChange={handleInput}/>
                                             <label htmlFor="post">Nickname</label>
@@ -133,17 +135,15 @@ const IndividualProfile = () => {
                                 <div className='row'>
                                     <div className='col-12 intro'>
                                         <h1>Intro</h1>
-                                       
-
                                         { !editingMode?  <p>{profile.intro}</p>:
-                                            <div className="form-floating form">
+                                            <div className="form-floating mb-3 form">
                                                 <input type="text" className="form-control" id="post" placeholder="text" name="intro" defaultValue={profile.intro}  onChange={handleInput}/>
                                                 <label htmlFor="post">Intro</label>
                                             </div>
                                         }
 
                                         { !editingMode?  <p>{profile.status}</p>:
-                                            <div className="form-floating form">
+                                            <div className="form-floating mb-3 form">
                                                 <input type="text" className="form-control" id="post" placeholder="text" name="status" defaultValue={profile.status}  onChange={handleInput}/>
                                                 <label htmlFor="post">Status</label>
                                             </div>
@@ -157,7 +157,7 @@ const IndividualProfile = () => {
                                             </div>
                                         }
                                         { !editingMode? <p>{profile.city}</p>:
-                                            <div className="form-floating form">
+                                            <div className="form-floating mb-3 form">
                                                 <input type="text" className="form-control" id="post" placeholder="text" name="city" defaultValue={profile.city}  onChange={handleInput}/>
                                                 <label htmlFor="post">City</label>
                                             </div>

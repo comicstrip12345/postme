@@ -49,26 +49,20 @@ const LikeButton = (props) => {
            })
     }
 
-  return (
-    <div className='row'>  
-     <div className='col'>
-     {!like?
-            <div onClick={likeHandler} className='text-center'>
-                <p>Like</p>
-            </div>:
-
-            <div onClick={unlikeHandler} className='text-center'>
-                <p style={{color:'blue'}}>Liked</p>
+    return (
+        <div className='row'>  
+            <div className='col-12 likeButton text-center'>
+                {!like?
+                    <button onClick={likeHandler}>Like</button>
+                    :
+                    <button onClick={unlikeHandler} className='text-center' style={{color:'blue'}}>Liked</button>
+                }
             </div>
-        }
-     </div> 
-
-     <div className='col'>
-        <LikeFeed postid={postid} likecounter={likeCounter}/>
-     </div>
-
-    </div>
-  )
+            <div className='col-6 likesCount'>
+                <LikeFeed postid={postid} likecounter={likeCounter}/>  
+            </div> 
+        </div>
+    )
 }
 
 export default LikeButton

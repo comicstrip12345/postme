@@ -44,7 +44,7 @@ const Settings = () => {
                                     input="*******"
                                 />
                                 <div className='col-12 delete'>
-                                    <button>Delete Account</button>
+                                    <button><p>Delete Account</p></button>
                                 </div>
                             </div>
                         </div>

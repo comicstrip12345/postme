@@ -26,7 +26,7 @@ const CommentCountFeed = (props) => {
 
 
   return (
-    <div className="text-center">
+    <div>
           {Object.keys(comments).length>1 ? 
                 <span> {Object.keys(comments).length} comments</span> : 
                 <span> </span>} 

@@ -217,14 +217,21 @@ const ProfileFeedPost = (props) => {
             </div>
             <div className="col-12 postMenu">
               <div className="row">
-                <div className="col-12 menu1">
+                <div className="col-6 likes">
                   <LikeButton commentorid={id} postid={post.postid}/>
                 </div>
-                <div className="col-12 border-top menu1">             
-                    <button onClick={commentHandler}><p>Comment</p></button>
+                <div className="col-6 comment text-center">
+                  <div className="row">
+                    <div className="col-12 buttons">
+                      <button onClick={commentHandler}><p>Comment</p></button>
+                    </div>
+                  </div>
                 </div>
               </div>
-
+            </div>
+            <div className="col-12 comments">
+              <CommentFeed postid={post.postid} counter={counter} id={id}/> 
+            </div>
             {
               commenting && (
                 <div className="col-12 form-floating form">
@@ -236,10 +243,6 @@ const ProfileFeedPost = (props) => {
                 </div>
               )
             }
-            <div className="col-12 comments">
-              <CommentFeed postid={post.postid} counter={counter} id={id}/> 
-            </div>
-            </div>
           </div>
         </div>
       ))}
