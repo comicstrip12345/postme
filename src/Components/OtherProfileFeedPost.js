@@ -162,7 +162,7 @@ const OtherProfileFeedPost = (props) => {
                     <li>
                       <div className="dropdown-item" id={post.postid}>
                         <button
-                          className="btn btn-outline-dark border-0"
+                          className="btn border-0"
                           type="button"
                           data-bs-toggle="modal"
                           data-bs-target={`#exampleModal${post.postid}`}
@@ -176,7 +176,7 @@ const OtherProfileFeedPost = (props) => {
                       <div
                         className="dropdown-item">
                         <button type="button" id={post.postid}
-                        onClick={(e) => deleteHandler(e)} className="btn btn-outline-dark border-0">Delete Post</button>
+                        onClick={(e) => deleteHandler(e)} className="btn border-0">Delete Post</button>
                       </div>
                     </li>
                   </ul>
@@ -245,18 +245,26 @@ const OtherProfileFeedPost = (props) => {
             </div>
 
             <div className="col-12 postMenu">
-             
               <div className="row">
-                <div className="col-12 menu1 text-center">
+                <div className="col-6 likes">
                     <LikeButton commentorid={commentorid} postid={post.postid}/>
                 </div>
-                <div className="col-12 menu1 border-top">
-                  <button onClick={commentHandler}>
-                    <p>Comment</p>
-                  </button>
+                <div className="col-6 comment text-center">
+                  <div className="row">
+                    <div className="col-12 buttons">
+                      <button onClick={commentHandler}>
+                        <p>Comment</p>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
-              {commenting && (
+              
+            </div>
+            <div className="col-12 comments">
+                <OtherCommentFeed postid={post.postid} counter={counter} id={id} commentorid={commentorid}/> 
+            </div>
+            {commenting && (
                 <div className="COL-12 form-floating form">
                   <button onClick={writeComment}>
                     <i className="bi bi-send" id={post.postid}></i>
@@ -273,10 +281,6 @@ const OtherProfileFeedPost = (props) => {
                   <label htmlFor="post">Write a comment</label>
                 </div>
               )}
-              <div className="col-12 comments">
-                <OtherCommentFeed postid={post.postid} counter={counter} id={id} commentorid={commentorid}/> 
-              </div>
-            </div>
           </div>
         </div>
       ))}
