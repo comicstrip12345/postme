@@ -34,10 +34,10 @@ const SearchPage = () => {
                 <div className='container'>
                     <div className='row pt-5'>
                         <div className="col-12">
-                            <div className="form-floating mb-3 form">
-                                <button onClick={searchHandler}><i className="bi bi-search"></i></button>
-                                <input type="text" className="form-control" id="searchPage" placeholder="name" onChange={(e)=>{setSearch(e.target.value)}} />
+                            <div className="form-floating mb-3 form input-group">
+                                <input type="text" style={{marginBottom:'0'}} className="form-control" id="searchPage" placeholder="name" onChange={(e)=>{setSearch(e.target.value)}} />
                                 <label htmlFor="searchPage">Search your friend</label>
+                                <button onClick={searchHandler}><i className="bi bi-search"></i></button>
                             </div>
                         </div>
                         {profiles.map((profile,index)=> (

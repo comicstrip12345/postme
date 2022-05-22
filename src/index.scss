@@ -407,27 +407,40 @@ section.profile{
                 .postInput{
                     .form{
                         button{
-                            position: absolute;
-                            right: 3vh;
-                            bottom: 2vh;
-                            border: none;
+                            border-top: 1px solid $mainTextColor;
+                            border-right: 1px solid $mainTextColor;
+                            border-bottom: 1px solid $mainTextColor;
+                            border-left: none;
                             background: none;
+                            border-radius: 1vh;
 
                             i{
+                                padding-right: 1vh;
+                                padding-left: 1vh;
                                 font-size: 3vh;
                             }
                             &:hover{
-                                border: 1px solid $mainTextColor;
-                                border-radius: 1vh;
+                                i{
+                                    color: #0AA1DD;
+                                }
                             }
                         }
                     }
                     input{
-                        border: 1px solid black;
-                        border-radius: 2vh;
+                        border-top: 1px solid $mainTextColor;
+                        border-left: 1px solid $mainTextColor;
+                        border-bottom: 1px solid $mainTextColor;
+                        border-right: none;
+
+                        &:focus{
+                            outline:0px !important;
+                            -webkit-appearance:none;
+                            box-shadow: none !important;
+                        }
                     }
                     label{
                         @include contentFontRegularStyleProfile();
+                        z-index: 10;
                     }
                 }
             }
@@ -475,7 +488,7 @@ section.profile{
                 }
                 .postContent{
                     margin-top: 5vh;
-                    padding-left: 4vh;
+                    padding-left: 3.4vh;
                     margin-bottom: 5vh;
 
                     p{
@@ -495,10 +508,9 @@ section.profile{
 
                             .logo{
                                 padding: 0;
+                                height: 4vh;
                                 a{
                                     color: $mainTextColor;
-                                    @include contentFontRegularStyleProfile();
-                                    font-size: 2vh;
 
                                     img{
                                         height: 3vh;
@@ -506,7 +518,7 @@ section.profile{
                                 }
                                 span{
                                     @include contentFontRegularStyleProfile();
-                                    font-size: 2.5vh;
+                                    font-size: 2vh;
                                 }
                             }
                         }
@@ -528,6 +540,7 @@ section.profile{
                     }
                     .comment{
                         .buttons{
+                            margin-top: 8vh;
                             padding-top: 2vh;
                             border-top: 1px solid black;
 
@@ -555,13 +568,19 @@ section.profile{
                 .comments{
                     padding-left: 3vh;
                     padding-right: 3vh;
+                    position: relative;
 
                     .commentCount{
                         margin-bottom: 2vh;
+                        position: absolute;
+                        text-align: right;
+                        right: 0;
+                        top: -11.7vh;
+                        margin-right: 2vh;
                         
                         span{
                             @include contentFontRegularStyleProfile();
-                            font-size: 2.5vh;
+                            font-size: 2vh;
                         }
                     }
                     .profPhoto{
@@ -619,33 +638,41 @@ section.profile{
                     padding: 0;
                     padding-left: 3vh;
                     padding-right: 3vh;
-
                     
                     button{
-                        position: absolute;
-                        right: 3vh;
-                        bottom: 2vh;
-                        border: none;
+                        border-top: 1px solid $mainTextColor;
+                        border-right: 1px solid $mainTextColor;
+                        border-bottom: 1px solid $mainTextColor;
+                        border-left: none;
                         background: none;
-                        margin-right: 3vh;
+                        z-index: 10;
+                        border-radius: 2vh;
 
                         i{
                             font-size: 3vh;
+                            padding-right: 1vh;
+                            padding-left: 1vh;
                         }
                         &:hover{
-                            border: 1px solid black;
-                            border-radius: 1vh;
+                            color: #0AA1DD;
                         }
                     }
                     input{
-                        border: 1px solid black;
-                        border-radius: 2vh;
-                        
+                        border-top: 1px solid $mainTextColor;
+                        border-left: 1px solid $mainTextColor;
+                        border-bottom: 1px solid $mainTextColor;
+                        border-right: none;
+
+                        &:focus{
+                            outline:0px !important;
+                            -webkit-appearance:none;
+                            box-shadow: none !important;
+                        }
                     }
                     label{
                         @include contentFontRegularStyleProfile();
-                        margin-left: 3vh;
-
+                        padding-left: 5vh;
+                        z-index: 10;
                     }
                     }
             }
@@ -657,14 +684,17 @@ section.profile{
 section.searchPage{
     .form{
         button{
-            position: absolute;
-            right: 3vh;
-            bottom: 1.8vh;
             background: none;
-            border: none;
+            border-top: 1px solid $mainTextColor;
+            border-right: 1px solid $mainTextColor;
+            border-bottom: 1px solid $mainTextColor;
+            border-left: none;
+            border-radius: 1vh;
 
             i{
-                font-size: 3.5vh;
+                font-size: 3vh;
+                padding-right: 1vh;
+                padding-left: 1vh;
             }
             &:hover{
                 color:#0AA1DD;
@@ -672,16 +702,26 @@ section.searchPage{
         }
         
         input{
-            border: 1px solid black;
+            border-top: 1px solid $mainTextColor;
+            border-left: 1px solid $mainTextColor;
+            border-bottom: 1px solid $mainTextColor;
+            border-right: none;
             @include contentFontRegularStyleProfile();
-            margin-bottom: 5vh;
+
+            &:focus{
+                outline:0px !important;
+                -webkit-appearance:none;
+                box-shadow: none !important;
+            }
         }
         label{
             @include contentFontBoldStyleProfile();
+            z-index: 10;
         }
     }
     .searchTile{
         margin-bottom: 4vh;
+        margin-top: 4vh;
 
         .image{
             img{

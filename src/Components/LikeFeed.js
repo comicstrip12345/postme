@@ -27,7 +27,6 @@ const LikeFeed = (props) => {
                   <span> No likes yet </span>} 
           </div>
 
-
           <div
             className="modal fade"
             id={`post${postid}`}

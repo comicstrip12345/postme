@@ -51,16 +51,17 @@ const LikeButton = (props) => {
 
     return (
         <div className='row'>  
+            <div className='col-6 likesCount'>
+                <LikeFeed postid={postid} likecounter={likeCounter}/>  
+            </div> 
             <div className='col-12 likeButton text-center'>
                 {!like?
                     <button onClick={likeHandler}>Like</button>
                     :
-                    <button onClick={unlikeHandler} className='text-center' style={{color:'blue'}}>Liked</button>
+                    <button onClick={unlikeHandler} className='text-center' style={{color:'#0AA1DD'}}>Liked</button>
                 }
             </div>
-            <div className='col-6 likesCount'>
-                <LikeFeed postid={postid} likecounter={likeCounter}/>  
-            </div> 
+            
         </div>
     )
 }
