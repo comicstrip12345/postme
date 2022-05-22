@@ -265,10 +265,7 @@ const OtherProfileFeedPost = (props) => {
                 <OtherCommentFeed postid={post.postid} counter={counter} id={id} commentorid={commentorid}/> 
             </div>
             {commenting && (
-                <div className="COL-12 form-floating form">
-                  <button onClick={writeComment}>
-                    <i className="bi bi-send" id={post.postid}></i>
-                  </button>
+                <div className="col-12 form-floating form input-group">
                   <input type="text" hidden name="postid" />
                   <input
                     type="text"
@@ -277,8 +274,12 @@ const OtherProfileFeedPost = (props) => {
                     name="content"
                     onChange={handleCommentInput}
                     placeholder="Comment"
+                    style={{borderTopLeftRadius: '2vh',borderBottomLeftRadius: '2vh' }}
                   />
                   <label htmlFor="post">Write a comment</label>
+                  <button onClick={writeComment}>
+                    <i className="bi bi-send" id={post.postid}></i>
+                  </button>
                 </div>
               )}
           </div>

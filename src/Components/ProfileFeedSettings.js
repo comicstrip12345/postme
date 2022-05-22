@@ -37,10 +37,10 @@ const ProfileFeedSettings = (props) => {
                         </div>
                     </div>
                     <div className='col-10 postInput'>
-                        <div className="form-floating form">
-                            <button onClick={submitHandler}><i className="bi bi-send"></i></button>
+                        <div className="form-floating form input-group">
                             <input type="text" className="form-control" ref={postRef} id="post" placeholder="text" onChange={(e)=> { setPost(e.target.value) }}/>
                             <label htmlFor="post">Post Something...</label>
+                            <button onClick={submitHandler}><i className="bi bi-send"></i></button>
                         </div>
                     </div>
                 </div>
