@@ -314,6 +314,19 @@ section.profile .profileName .form input {
   height: 9vh;
 }
 
+section.profile .otherProfile h1 {
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+}
+
+section.profile .otherProfile h1 p {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  font-size: 4vh;
+}
+
 section.profile .profileFeed .info .intro {
   border: 1px solid black;
   border-radius: 2vh;
@@ -913,6 +926,257 @@ section.notifications .notif .blueDot {
   background-color: #0AA1DD;
   border-radius: 20vh;
   padding: 9;
+}
+
+section.notifIndivPost {
+  margin-top: 5vh;
+}
+
+section.notifIndivPost .notifTiles {
+  margin-left: auto;
+}
+
+section.notifIndivPost .notifTiles .post {
+  border: 1px solid black;
+  border-radius: 2vh;
+  padding: 2vh;
+  padding-top: 4vh;
+  padding-bottom: 2vh;
+  margin-bottom: 5vh;
+}
+
+section.notifIndivPost .notifTiles .post .profImage {
+  background-color: black;
+  border-radius: 20vh;
+  height: 70px;
+  width: 70px;
+  margin-left: 2vh;
+}
+
+section.notifIndivPost .notifTiles .post .postName {
+  padding: 0;
+}
+
+section.notifIndivPost .notifTiles .post .postName h1 {
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+  font-size: 3vh;
+}
+
+section.notifIndivPost .notifTiles .post .postName h1 p {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  font-size: 2.2vh;
+}
+
+section.notifIndivPost .notifTiles .post .postSettings .dropdown a {
+  font-size: 3vh;
+}
+
+section.notifIndivPost .notifTiles .post .postSettings .dropdown ul li a {
+  color: black;
+  font-size: 2.5vh;
+}
+
+section.notifIndivPost .notifTiles .post .postContent {
+  margin-top: 5vh;
+  padding-left: 4vh;
+  margin-bottom: 5vh;
+}
+
+section.notifIndivPost .notifTiles .post .postContent p {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  font-size: 4vh;
+}
+
+section.notifIndivPost .notifTiles .post .postMenu {
+  width: 94%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section.notifIndivPost .notifTiles .post .postMenu .likes .likesCount {
+  margin-bottom: 2vh;
+  margin-top: 2vh;
+}
+
+section.notifIndivPost .notifTiles .post .postMenu .likes .likesCount .logo {
+  padding: 0;
+}
+
+section.notifIndivPost .notifTiles .post .postMenu .likes .likesCount .logo a {
+  color: black;
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  font-size: 2vh;
+}
+
+section.notifIndivPost .notifTiles .post .postMenu .likes .likesCount .logo a img {
+  height: 3vh;
+}
+
+section.notifIndivPost .notifTiles .post .postMenu .likes .likesCount .logo span {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  font-size: 2.5vh;
+}
+
+section.notifIndivPost .notifTiles .post .postMenu .likes .likeButton {
+  padding-top: 2vh;
+  border-top: 1px solid black;
+}
+
+section.notifIndivPost .notifTiles .post .postMenu .likes .likeButton button {
+  border: none;
+  background: none;
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+  font-size: 2.7vh;
+}
+
+section.notifIndivPost .notifTiles .post .postMenu .likes .likeButton button:hover {
+  color: #0AA1DD;
+}
+
+section.notifIndivPost .notifTiles .post .postMenu .comment .buttons {
+  padding-top: 2vh;
+  border-top: 1px solid black;
+}
+
+section.notifIndivPost .notifTiles .post .postMenu .comment .buttons button {
+  border: none;
+  background: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section.notifIndivPost .notifTiles .post .postMenu .comment .buttons button p {
+  text-align: center;
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+  font-size: 2.7vh;
+}
+
+section.notifIndivPost .notifTiles .post .postMenu .comment .buttons button:hover p {
+  color: #0AA1DD;
+}
+
+section.notifIndivPost .notifTiles .post .comments {
+  padding-left: 3vh;
+  padding-right: 3vh;
+}
+
+section.notifIndivPost .notifTiles .post .comments .commentCount {
+  margin-bottom: 2vh;
+}
+
+section.notifIndivPost .notifTiles .post .comments .commentCount span {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  font-size: 2.5vh;
+}
+
+section.notifIndivPost .notifTiles .post .comments .profPhoto {
+  background-color: black;
+  border-radius: 20vh;
+  width: 40px;
+  height: 40px;
+  margin-top: 2vh;
+}
+
+section.notifIndivPost .notifTiles .post .comments .commentTile {
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 1vh;
+  margin-bottom: 2vh;
+  border-radius: 2vh;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  margin-top: 2vh;
+}
+
+section.notifIndivPost .notifTiles .post .comments .name h1 {
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+  font-size: 2vh;
+  margin-bottom: 1vh;
+}
+
+section.notifIndivPost .notifTiles .post .comments .name h1 span {
+  padding-left: 2vh;
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  font-size: 1.7vh;
+}
+
+section.notifIndivPost .notifTiles .post .comments .name p {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  font-size: 2.3vh;
+}
+
+section.notifIndivPost .notifTiles .post .comments .settings button {
+  float: right;
+  border: none;
+  background: none;
+}
+
+section.notifIndivPost .notifTiles .post .comments .settings button:hover {
+  border: 1px solid black;
+  border-radius: 1vh;
+}
+
+section.notifIndivPost .notifTiles .post .form {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  padding: 0;
+  padding-left: 3vh;
+  padding-right: 3vh;
+}
+
+section.notifIndivPost .notifTiles .post .form button {
+  position: absolute;
+  right: 3vh;
+  bottom: 2vh;
+  border: none;
+  background: none;
+  margin-right: 3vh;
+}
+
+section.notifIndivPost .notifTiles .post .form button i {
+  font-size: 3vh;
+}
+
+section.notifIndivPost .notifTiles .post .form button:hover {
+  border: 1px solid black;
+  border-radius: 1vh;
+}
+
+section.notifIndivPost .notifTiles .post .form input {
+  border: 1px solid black;
+  border-radius: 2vh;
+}
+
+section.notifIndivPost .notifTiles .post .form label {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  margin-left: 3vh;
 }
 
 footer {

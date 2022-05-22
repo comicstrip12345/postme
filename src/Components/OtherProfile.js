@@ -55,7 +55,7 @@ const OtherProfile = () => {
 
                         </div>
                     </div>
-                    <div className='col-10 profileName d-flex align-items-center'>
+                    <div className='col-10 otherProfile d-flex align-items-center'>
                         <h1>
                             {profile.firstName} {profile.lastName} <br/>
                             <p>{profile.nickname}</p>

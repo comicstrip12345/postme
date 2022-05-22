@@ -93,9 +93,6 @@ const IndividualProfile = () => {
                     </div>
                     <div className='col-10 profileName '>
                         <div className='row'>
-                            {/* <div className='col-12 d-flex align-items-center'>
-
-                            </div> */}
                         { !editingMode? 
                                 <div className='col-12'>
 

@@ -60,7 +60,7 @@ const OtherCommentFeed = (props) => {
   return (
     <>
       <div className="row">
-        <div className="col">
+        <div className="col-12 commentCount">
           <CommentCountFeed
             postid={postid}
             counter={counter}
@@ -69,57 +69,65 @@ const OtherCommentFeed = (props) => {
         </div>
       </div>
       {comments.map((comment, index) => (
-        <div className="row commentTile" key={index}>
-          <div className="col-9 name">
-            <h1>
-              {comment.firstName} {comment.lastName}
-              <span>{comment.date_created}</span>
-            </h1>
-            <p>{comment.content}</p>
+        <div className="row" key={index}>
+          <div className="col-1">
+            <div className="profPhoto"></div>
           </div>
-          <div className="col-3 settings">
-            {/* eslint-disable-next-line  */}
-            {comment.id == commentorid && (
-              <>
-                <button
-                  type="button"
-                  id="dropdownMenuButton1"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <i className="bi bi-three-dots"></i>
-                </button>
-                <ul
-                  className="dropdown-menu dropdown-menu-end"
-                  aria-labelledby="dropdownMenuButton1"
-                >
-                  <li>
-                    <a
-                      className="dropdown-item"
-                      href="#/"
-                      id={comment.commentid}
+          <div className="col-11">
+            <div className="row  commentTile">
+              <div className="col-9 name">
+                <h1>
+                  {comment.firstName} {comment.lastName}
+                  <span>{comment.date_created}</span>
+                </h1>
+                <p>{comment.content}</p>
+              </div>
+              <div className="col-3 settings">
+                {/* eslint-disable-next-line  */}
+                {comment.id == commentorid && (
+                  <>
+                    <button
                       type="button"
-                      data-bs-toggle="modal"
-                      data-bs-target={`#exampleModal${comment.commentid}`}
+                      id="dropdownMenuButton1"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
                     >
-                      Edit
-                    </a>
-                  </li>
+                      <i className="bi bi-three-dots"></i>
+                    </button>
+                    <ul
+                      className="dropdown-menu dropdown-menu-end"
+                      aria-labelledby="dropdownMenuButton1"
+                    >
+                      <li>
+                        <a
+                          className="dropdown-item"
+                          href="#/"
+                          id={comment.commentid}
+                          type="button"
+                          data-bs-toggle="modal"
+                          data-bs-target={`#exampleModal${comment.commentid}`}
+                        >
+                          Edit
+                        </a>
+                      </li>
 
-                  <li>
-                    <a
-                      className="dropdown-item"
-                      href="#/"
-                      onClick={deleteCommentHandler}
-                      id={comment.commentid}
-                    >
-                      Delete
-                    </a>
-                  </li>
-                </ul>
-              </>
-            )}
+                      <li>
+                        <a
+                          className="dropdown-item"
+                          href="#/"
+                          onClick={deleteCommentHandler}
+                          id={comment.commentid}
+                        >
+                          Delete
+                        </a>
+                      </li>
+                    </ul>
+                  </>
+                )}
+              </div>
+            </div>
           </div>
+          
           <div
             className="modal fade"
             id={`exampleModal${comment.commentid}`}

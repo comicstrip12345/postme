@@ -316,6 +316,16 @@ section.profile{
             }
         }
     }
+    .otherProfile{
+        h1{
+            @include headingFontBoldStyleProfile();
+
+            p{
+                @include contentFontRegularStyleProfile();
+                font-size: 4vh;
+            }
+        }
+    }
     .profileFeed{
         .info{
             
@@ -865,6 +875,234 @@ section.notifications{
             padding: 9;
         }
         
+    }
+}
+
+// NotifIndividual Page
+section.notifIndivPost{
+    margin-top: 5vh;
+    
+    .notifTiles{
+        margin-left: auto;
+        
+        .post{
+            border: 1px solid $mainTextColor;
+            border-radius: 2vh;
+            padding: 2vh;
+            padding-top: 4vh;
+            padding-bottom: 2vh;
+            margin-bottom: 5vh;
+
+            .profImage{
+                @include circlePhoto();
+                height: 70px;
+                width: 70px;
+                margin-left: 2vh;
+            }
+            .postName{
+                padding:0;
+                
+                h1{
+                    @include headingFontBoldStyleProfile();
+                    font-size: 3vh;
+
+                    p{
+                        @include contentFontRegularStyleProfile();
+                        font-size: 2.2vh;
+                    }
+                }
+            }
+            .postSettings{
+                .dropdown{
+                    a{
+                        font-size: 3vh;
+                    }
+                    ul{
+                        li{
+                            a{
+                                color: $mainTextColor;
+                                font-size: 2.5vh;
+                            }
+                        }
+                    }
+                }
+            }
+            .postContent{
+                margin-top: 5vh;
+                padding-left: 4vh;
+                margin-bottom: 5vh;
+
+                p{
+                    @include contentFontRegularStyleProfile();
+                    font-size: 4vh;
+                }
+            }
+            .postMenu{
+                width: 94%;
+                margin-left: auto;
+                margin-right: auto;
+
+                .likes{
+                    .likesCount{
+                        margin-bottom: 2vh;
+                        margin-top: 2vh;
+
+                        .logo{
+                            padding: 0;
+                            a{
+                                color: $mainTextColor;
+                                @include contentFontRegularStyleProfile();
+                                font-size: 2vh;
+
+                                img{
+                                    height: 3vh;
+                                }
+                            }
+                            span{
+                                @include contentFontRegularStyleProfile();
+                                font-size: 2.5vh;
+                            }
+                        }
+                    }
+                    .likeButton{
+                        padding-top: 2vh;
+                        border-top: 1px solid black;
+
+                        button{
+                            border: none;
+                            background: none;
+                            @include headingFontBoldStyleProfile();
+                            font-size: 2.7vh;
+
+                            &:hover{
+                                color: #0AA1DD;
+                            }
+                        }
+                    }
+                }
+                .comment{
+                    .buttons{
+                        padding-top: 2vh;
+                        border-top: 1px solid black;
+
+                        button{
+                            border: none;
+                            background: none;
+                            display: block;
+                            margin-left: auto;
+                            margin-right: auto;
+
+                            p{
+                                text-align: center;
+                                @include headingFontBoldStyleProfile();
+                                font-size: 2.7vh;
+                            }
+                            &:hover{
+                                p{
+                                    color: #0AA1DD;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .comments{
+                padding-left: 3vh;
+                padding-right: 3vh;
+
+                .commentCount{
+                    margin-bottom: 2vh;
+                    
+                    span{
+                        @include contentFontRegularStyleProfile();
+                        font-size: 2.5vh;
+                    }
+                }
+                .profPhoto{
+                    @include circlePhoto();
+                    width: 40px;
+                    height: 40px;
+                    margin-top: 2vh;
+                }
+                .commentTile{
+                    border: 1px solid $mainTextColor;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 100%;
+                    padding: 1vh;
+                    margin-bottom: 2vh;
+                    border-radius: 2vh;
+                    padding-top: 3vh;
+                    padding-bottom: 3vh;
+                    margin-top: 2vh;
+                }
+                .name{
+                    h1{
+                        @include headingFontBoldStyleProfile();
+                        font-size: 2vh;
+                        margin-bottom: 1vh;
+
+                        span{
+                            padding-left: 2vh;
+                            @include contentFontRegularStyleProfile();
+                            font-size: 1.7vh;
+                        }
+                    }
+                    p{
+                        @include contentFontRegularStyleProfile();
+                        font-size: 2.3vh;
+                        
+                    }
+                }
+                .settings{
+                    button{
+                        float: right;
+                        border: none;
+                        background: none;
+
+                        &:hover{
+                            border: 1px solid black;
+                            border-radius: 1vh;
+                        }
+                    }
+                }
+            }
+            .form{
+                margin-top: 2vh;
+                margin-bottom: 2vh;
+                padding: 0;
+                padding-left: 3vh;
+                padding-right: 3vh;
+
+                
+                button{
+                    position: absolute;
+                    right: 3vh;
+                    bottom: 2vh;
+                    border: none;
+                    background: none;
+                    margin-right: 3vh;
+
+                    i{
+                        font-size: 3vh;
+                    }
+                    &:hover{
+                        border: 1px solid black;
+                        border-radius: 1vh;
+                    }
+                }
+                input{
+                    border: 1px solid black;
+                    border-radius: 2vh;
+                    
+                }
+                label{
+                    @include contentFontRegularStyleProfile();
+                    margin-left: 3vh;
+
+                }
+                }
+        }
     }
 }
 
