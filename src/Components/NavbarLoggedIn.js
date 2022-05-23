@@ -39,10 +39,10 @@ const NavbarLoggedIn = (props) => {
                     </a>
                     
                     <ul className='dropdown-menu dropdown-menu-end profSettingsDropdown' aria-labelledby='profileSettings'>
-                        <li><Link to={`/profile/${props.link}`} className="dropdown-item"><i class="bi bi-person-fill"></i>Your Profile</Link></li>
-                        <li><Link to={`/friendrequests/${props.link}`} className="dropdown-item"><i class="bi bi-person-plus-fill"></i>Friend Requests</Link></li>
-                        <li><Link to={`/settings/${props.link}`} className="dropdown-item"><i class="bi bi-gear-fill"></i>Settings</Link></li>
-                        <li><Link to={"/"} className="dropdown-item"><i class="bi bi-person-plus-fill"></i>Logout</Link></li>
+                        <li><Link to={`/profile/${props.link}`} className="dropdown-item"><i className="bi bi-person-fill"></i>Your Profile</Link></li>
+                        <li><Link to={`/friendrequests/${props.link}`} className="dropdown-item"><i className="bi bi-person-plus-fill"></i>Friend Requests</Link></li>
+                        <li><Link to={`/settings/${props.link}`} className="dropdown-item"><i className="bi bi-gear-fill"></i>Settings</Link></li>
+                        <li><Link to={"/"} className="dropdown-item"><i className="bi bi-person-plus-fill"></i>Logout</Link></li>
                     </ul>
                 </nav>
             </div>

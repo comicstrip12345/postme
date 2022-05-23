@@ -9,6 +9,7 @@ const FriendRequests = () => {
     const {userid} = useParams();
 
     const [profiles, setProfiles] = useState([]);
+    const [pageUpdater, setPageUpdater]=useState(1)
     
     useEffect(
         ()=> {
@@ -22,8 +23,38 @@ const FriendRequests = () => {
                 }
             })
         },
-        [userid]
+        [userid,pageUpdater]
     )
+
+    const delRequestHandler = (e) => {
+        const requestid = e.target.id
+        console.log(requestid)
+
+        axios.post("https://serserserver.herokuapp.com/deleterequest", {
+            requestid:requestid
+        }).then((res)=> {
+            if(res.status===200){
+                console.log(res)
+                setPageUpdater(pageUpdater+1)
+            }
+        })
+    }
+
+    const acceptRequestHandler = (e) => {
+        const friendid = e.target.id
+        console.log(`${friendid} ${userid}`)
+
+        axios.post("https://serserserver.herokuapp.com/addfriend", {
+            userid:userid,
+            friendid:friendid
+
+        }).then((res)=> {
+            if(res.status===200){
+                console.log(res)
+                setPageUpdater(pageUpdater+1)
+            }
+        })
+    }
 
     return (
         <>
@@ -37,8 +68,8 @@ const FriendRequests = () => {
                             <h1>Friend Requests</h1>    
                         </div>
                         {profiles.map((profile,index)=> (
-                        <Fade>
-                            <div className='col-4 friendsProfile' key={index}>
+                        <Fade key={index}>
+                            <div className='col-4 friendsProfile'>
                                 <div className='row'>
                                     <div className='col-3 friendsImage'>
                                         {/* container ng image sa future */}
@@ -48,8 +79,8 @@ const FriendRequests = () => {
                                         <h1>
                                             {profile.firstName} {profile.lastName} <br/>
                                             <small className='text-muted'>from {profile.city}</small> <br/>
-                                            <button><i class="bi bi-check-lg green"></i></button>
-                                            <button><i class="bi bi-x-lg red"></i></button>
+                                            <button><i className="bi bi-check-lg green" onClick={acceptRequestHandler} id={profile.requestorid}></i></button>
+                                            <button><i className="bi bi-x-lg red" onClick={delRequestHandler} id={profile.requestid}></i></button>
                                         </h1>
                                        
                                     </div>

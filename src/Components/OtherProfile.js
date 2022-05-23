@@ -12,6 +12,7 @@ const OtherProfile = () => {
     const [profile, setProfile] = useState([]);
     const [hasFriendRequest, setHasFriendRequest] = useState(false);
     const [stateChanger,setStateChanger] = useState(1)
+    const [friend, setFriend] = useState(false);
     
         useEffect(
             ()=> {
@@ -27,15 +28,31 @@ const OtherProfile = () => {
                         setHasFriendRequest(true)
                     }
                 })
+
+                axios.post("https://serserserver.herokuapp.com/flsearcher", {userid:userid, wallid:wallOwnerId} ).then((res)=> {
+                    if(res.data.array.length>0){
+                        console.log(res)
+                        setFriend(true)
+                    }
+                })
             },
             [stateChanger,userid,wallOwnerId]
         )
 
     const addFriend = () => {
-        console.log("friend request sent")
         axios.post("https://serserserver.herokuapp.com/friendrequest", {
             userid:userid,
             otherid:wallOwnerId}).then((res)=> {
+                    console.log(res)
+                    setStateChanger(stateChanger+1)
+                })
+
+    }
+
+    const deleteFriend = () => {
+        axios.post("https://serserserver.herokuapp.com/deletefriend", {
+            userid:userid,
+            friendid:wallOwnerId}).then((res)=> {
                     console.log(res)
                     setStateChanger(stateChanger+1)
                 })
@@ -59,35 +76,57 @@ const OtherProfile = () => {
                         <h1>
                             {profile.firstName} {profile.lastName} <br/>
                             <p>{profile.nickname}</p>
+
+                            {
+                             friend? 
+                             <button type="button" className='btn btn-danger' onClick={deleteFriend}>Delete Friend</button>  : 
+                             <span> </span>
+                            }
+                            
                             
                             {
-                            !hasFriendRequest ? <button type="button" className='btn btn-primary' onClick={addFriend}>Add Friend</button> :
-                            <button type="button" className='btn btn-primary' disabled>Friend request sent</button>
+                            !hasFriendRequest && !friend ? <button type="button" className='btn btn-primary' onClick={addFriend}>Add Friend</button> :
+                            <span> </span>
+                            }
+
+                            {
+                            hasFriendRequest && !friend ? 
+                            <button type="button" className='btn btn-primary' disabled>Friend request sent</button> :
+                            <span> </span>
                             }
                             
                         </h1>
                     </div>
+
+                    {friend?
+                     <div className='col-12 profileFeed'>
+                     <div className='row'>
+                         <div className='col-5 info'>
+                             <div className='row'>
+                                 <div className='col-12 intro'>
+                                     <h1>Intro</h1>
+                                     <p>{profile.intro}</p>
+                                     <p>{profile.status}</p>
+                                     <p>{profile.birthday}</p>
+                                     <p>{profile.city}</p>
+                                 </div>
+                             </div>
+                         </div>
+                         <div className='col-7 newsFeed'>
+                             <div className='row'>
+                                 <OtherProfileFeedSettings userid={`${userid}`} wallOwnerId={`${wallOwnerId}`} />
+                                
+                             </div>
+                         </div>
+                     </div>
+                    </div>:
+                 
                     <div className='col-12 profileFeed'>
-                        <div className='row'>
-                            <div className='col-5 info'>
-                                <div className='row'>
-                                    <div className='col-12 intro'>
-                                        <h1>Intro</h1>
-                                        <p>{profile.intro}</p>
-                                        <p>{profile.status}</p>
-                                        <p>{profile.birthday}</p>
-                                        <p>{profile.city}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='col-7 newsFeed'>
-                                <div className='row'>
-                                    <OtherProfileFeedSettings userid={`${userid}`} wallOwnerId={`${wallOwnerId}`} />
-                                   
-                                </div>
-                            </div>
+                        <div className='row text-center pt-5 mt-5'>
+                            <h1> This Profile is Private</h1>
                         </div>
-                    </div>
+                    </div>}
+                   
                 </div>
             </div>
         </section>
