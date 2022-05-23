@@ -9,9 +9,6 @@ const SettingsMenu = (props) => {
             <div className='col-8 accountMenuInput'>
                 <p>{props.input}</p>
             </div>
-            <div className='col-1 edit'>
-                <button><i className="bi bi-pencil-square"></i></button>
-            </div>
         </>
         
     )

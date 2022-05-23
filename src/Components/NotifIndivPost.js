@@ -243,12 +243,12 @@ const NotifIndivPost = () => {
                               </div>
                               {
                                 commenting && (
-                                  <div className="col-12 form-floating form">
-                                      <button onClick={writeComment}><i className="bi bi-send" id={post.postid}></i></button>
+                                  <div className="col-12 form-floating form input-group">
                                       <input type="text" hidden name="postid" />
-                                      <input type="text" className="form-control"
+                                      <input type="text" style={{borderTopLeftRadius: '2vh',borderBottomLeftRadius: '2vh' }} className="form-control"
                                       placeholder="Comment" name="content" onChange={handleCommentInput} value={commentInput}  />
                                       <label htmlFor="post">Write a comment</label>
+                                      <button onClick={writeComment}><i className="bi bi-send" id={post.postid}></i></button>
                                   </div>
                                 )
                               }
