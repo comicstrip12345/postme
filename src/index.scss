@@ -211,9 +211,14 @@ section.hero{
                 padding-top: 2.5vh;
                 padding-bottom: 2.5vh;
                 margin-bottom: 0;
-                @include contentFontBoldStyle();
+                @include contentFontRegularStyle();
                 font-size: 2vh;
                 float: right;
+
+                a{
+                    color: white;
+                    @include contentFontBoldStyle();
+                }
             }
         }
         .row{
@@ -249,9 +254,14 @@ section.hero{
                 padding-top: 2.5vh;
                 padding-bottom: 2.5vh;
                 margin-bottom: 0;
-                @include contentFontBoldStyle();
+                @include contentFontRegularStyle();
                 font-size: 2vh;
                 float: right;
+
+                a{
+                    color: white;
+                    @include contentFontBoldStyle();
+                }
             }
         }
     }
@@ -511,7 +521,7 @@ section.profile{
                                 height: 4vh;
                                 a{
                                     color: $mainTextColor;
-
+                                    
                                     img{
                                         height: 3vh;
                                     }
@@ -577,6 +587,7 @@ section.profile{
                         right: 0;
                         top: -11.7vh;
                         margin-right: 2vh;
+                        z-index: -10;
                         
                         span{
                             @include contentFontRegularStyleProfile();
@@ -969,7 +980,7 @@ section.notifIndivPost{
             }
             .postContent{
                 margin-top: 5vh;
-                padding-left: 4vh;
+                padding-left: 3.4vh;
                 margin-bottom: 5vh;
 
                 p{
@@ -989,10 +1000,9 @@ section.notifIndivPost{
 
                         .logo{
                             padding: 0;
+                            height: 4vh;
                             a{
                                 color: $mainTextColor;
-                                @include contentFontRegularStyleProfile();
-                                font-size: 2vh;
 
                                 img{
                                     height: 3vh;
@@ -1000,7 +1010,7 @@ section.notifIndivPost{
                             }
                             span{
                                 @include contentFontRegularStyleProfile();
-                                font-size: 2.5vh;
+                                font-size: 2vh;
                             }
                         }
                     }
@@ -1022,6 +1032,7 @@ section.notifIndivPost{
                 }
                 .comment{
                     .buttons{
+                        margin-top: 8vh;
                         padding-top: 2vh;
                         border-top: 1px solid black;
 
@@ -1049,13 +1060,20 @@ section.notifIndivPost{
             .comments{
                 padding-left: 3vh;
                 padding-right: 3vh;
+                position: relative;
 
                 .commentCount{
                     margin-bottom: 2vh;
+                    position: absolute;
+                    text-align: right;
+                    right: 0;
+                    top: -11.7vh;
+                    margin-right: 2vh;
+                    z-index: -10;
                     
                     span{
                         @include contentFontRegularStyleProfile();
-                        font-size: 2.5vh;
+                        font-size: 2vh;
                     }
                 }
                 .profPhoto{
@@ -1113,33 +1131,41 @@ section.notifIndivPost{
                 padding: 0;
                 padding-left: 3vh;
                 padding-right: 3vh;
-
                 
                 button{
-                    position: absolute;
-                    right: 3vh;
-                    bottom: 2vh;
-                    border: none;
+                    border-top: 1px solid $mainTextColor;
+                    border-right: 1px solid $mainTextColor;
+                    border-bottom: 1px solid $mainTextColor;
+                    border-left: none;
                     background: none;
-                    margin-right: 3vh;
+                    z-index: 10;
+                    border-radius: 2vh;
 
                     i{
                         font-size: 3vh;
+                        padding-right: 1vh;
+                        padding-left: 1vh;
                     }
                     &:hover{
-                        border: 1px solid black;
-                        border-radius: 1vh;
+                        color: #0AA1DD;
                     }
                 }
                 input{
-                    border: 1px solid black;
-                    border-radius: 2vh;
-                    
+                    border-top: 1px solid $mainTextColor;
+                    border-left: 1px solid $mainTextColor;
+                    border-bottom: 1px solid $mainTextColor;
+                    border-right: none;
+
+                    &:focus{
+                        outline:0px !important;
+                        -webkit-appearance:none;
+                        box-shadow: none !important;
+                    }
                 }
                 label{
                     @include contentFontRegularStyleProfile();
-                    margin-left: 3vh;
-
+                    padding-left: 5vh;
+                    z-index: 10;
                 }
                 }
         }

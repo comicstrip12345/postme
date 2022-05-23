@@ -31,8 +31,6 @@ const RegisterForm = () => {
 
     return (
         <Fade right>
-
-        
         <div className='col-6 signUpForm'>
             <h1>Sign Up</h1>
             <div className='row'>
@@ -67,7 +65,7 @@ const RegisterForm = () => {
                         <input type="submit" onClick={register}/>
                     </div>
                     <div className='col-6'>
-                        <Link to="/login"><p>Already have an account? Sign in here</p></Link>
+                        <p>Already have an account? <Link to="/login">Sign in</Link> here</p>
                     </div>
                 </div>
             </div>
