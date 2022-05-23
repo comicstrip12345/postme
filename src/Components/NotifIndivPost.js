@@ -115,7 +115,11 @@ const NotifIndivPost = () => {
                           <div className="col-12 post" key={index}>
                             <div className="row">
                               <div className="col-2">
-                                <div className="profImage"></div>
+                                <div className="profImage">
+                             
+              <img src={post.picpath} style={{width:"70px", height:"70px",objectFit:"cover", borderRadius:"70px"}}  alt="profile avatar"/>
+              
+                                </div>
                               </div>
                               <div className="col-8 postName d-flex align-items-center">
                                 <h1>
