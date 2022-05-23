@@ -39,8 +39,8 @@ const NotificationsPage = () => {
                                                 </div>
                                             </div>
                                             <div className='col-2 p-0'>
-                                            <div className='circlePhoto'>
-
+                                                <div className='circlePhoto'>
+                                                    <img src={notif.ownerpicpath} alt="avatar" style={{width:"70px",height:"70px",objectFit:"cover",borderRadius:"500px"}}/>
                                                 </div>
                                             </div>
                                             <div className='col-9 p-0 d-flex align-items-center'>
@@ -62,7 +62,7 @@ const NotificationsPage = () => {
                                             </div>
                                             <div className='col-2 p-0'>
                                             <div className='circlePhoto'>
-
+                                            <img src={notif.wallownerpicpath} alt="avatar" style={{width:"70px",height:"70px",objectFit:"cover",borderRadius:"500px"}}/>
                                                 </div>
                                             </div>
                                             <div className='col-9 p-0 d-flex align-items-center'>
@@ -84,7 +84,7 @@ const NotificationsPage = () => {
                                             </div>
                                             <div className='col-2 p-0'>
                                                 <div className='circlePhoto'>
-
+                                                <img src={notif.ownerpicpath} alt="avatar" style={{width:"70px",height:"70px",objectFit:"cover",borderRadius:"500px"}}/>
                                                 </div>
                                             </div>
                                             <div className='col-9 p-0 d-flex align-items-center'>
@@ -110,7 +110,7 @@ const NotificationsPage = () => {
                                         <div className='row'>
                                             <div className='col-2'>
                                                 <div className='circlePhoto'>
-
+                                                <img src={notif.wallownerpicpath} alt="avatar" style={{width:"70px",height:"70px",objectFit:"cover",borderRadius:"500px"}}/>
                                                 </div>
                                             </div>
                                             <div className='col-10 p-0 d-flex align-items-center'>
