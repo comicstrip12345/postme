@@ -27,7 +27,7 @@ const NotifIndivPost = () => {
                 setNotifPost(response["data"]["array"])
                 console.log(notifPost)
             });
-        }, []);
+        }, [notifPost,userid]);
 
 
         const deleteHandler = (e) => {

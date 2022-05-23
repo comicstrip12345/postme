@@ -6,6 +6,7 @@ import axios from 'axios'
 const RegisterProfile = () => {
 
     const {usernameReg} = useParams();
+    // eslint-disable-next-line
     const [username,setUsername]=useState(usernameReg)
     const navigate = useNavigate()
     const [file, setFile]=useState("")
@@ -57,13 +58,11 @@ const RegisterProfile = () => {
             console.log(response)
            
 
-            // if(response.status===200){
+            if(response.status===200){
         
-            //     const id = response["data"]["result"]["0"]["userid"];
-             
-                
-            //     // navigate(`/profile/${id}`)
-            // } 
+                const id = response["data"]["result"]["0"]["userid"];
+                 navigate(`/profile/${id}`)
+            } 
 
         }).catch(error => {
             console.log(error);

@@ -14,7 +14,7 @@ const IndividualProfile = () => {
     const [profileUpdater,setProfileUpdater]=useState(1)
     const [editingMode, setEditingMode]=useState(false)
     const [formInput,setFormInput] = useState({
-        firstName:"",
+        firstName: "",
         lastName:"",
         nickname:"",
         intro:"",
@@ -34,6 +34,21 @@ const IndividualProfile = () => {
         setFile(e.target.files[0])
      }
 
+    useEffect(()=>{
+
+        const init ={
+            firstName: profile.firstName,
+            lastName:profile.lastName,
+            nickname:profile.nickname,
+            intro:profile.intro,
+            status:profile.status,
+            city:profile.city,
+            birthday:profile.birthday,
+        }
+
+        setFormInput({...formInput, init})
+        // eslint-disable-next-line
+    },[profile])
    
 
     useEffect(
@@ -114,7 +129,7 @@ const IndividualProfile = () => {
                         <div className='circlePhoto'>
 
                             {
-                                !editingMode?    <img src={`${profile.picpath}`} style={{width:"150px", height:"150px",objectFit:"cover", borderRadius:"150px"}}  alt="profile avatar"/> :
+                                !editingMode?    <img src={`${profile.picpath}`} style={{width:"160px", height:"160px",objectFit:"cover", borderRadius:"160px"}}  alt="profile avatar"/> :
 
                                 <>
                                 <input type="file" name="image"  accept="image/*" onChange={handleInput2}/>
@@ -209,7 +224,7 @@ const IndividualProfile = () => {
                             </div>
                             <div className='col-7 newsFeed'>
                                 <div className='row'>
-                                    <ProfileFeedSettings userid={`${userid}`} profileupdater={profileUpdater} />
+                                    <ProfileFeedSettings userid={`${userid}`} profileupdater={profileUpdater} picpath={profile.picpath} />
                                    
                                 </div>
                             </div>

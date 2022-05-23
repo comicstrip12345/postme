@@ -7,6 +7,7 @@ const NavbarLoggedIn = (props) => {
     
     const [notif,setNotifs] = useState([]);
     const userid=props.link
+    const [profile, setProfile] = useState([]);
 
     useEffect(()=>{
         axios
@@ -15,8 +16,15 @@ const NavbarLoggedIn = (props) => {
             console.log(response)
             setNotifs(response["data"]["array"])
         });
+
+        axios.post("https://serserserver.herokuapp.com/profile", {userid:userid} ).then((res)=> {
+                    if(res.status===200){
+                        const id = res["data"]["array"][0]
+                        setProfile(id)
+                    }
+                }) 
   
-    },[])
+    },[userid])
 
     // eslint-disable-next-line
     const postnotifs = notif.filter(item => item.notiftype === 'post' && item.new_comment ==='1' && item.wallid==userid );
@@ -35,11 +43,13 @@ const NavbarLoggedIn = (props) => {
                     <Link to={`/notifications/${props.link}`}><i className="bi bi-bell"></i> <span  style={{color:'white',fontSize:'15px'}}>{notifcount}</span></Link>
                     <a className='' href='/#' role="button" id="profileSettings" data-bs-toggle="dropdown" aria-expanded="false">
                         <div className='navImageCircle'>
+                            <img src={profile.picpath} alt="avatar" style={{width:"33px",height:"33px",objectFit:"cover",borderRadius:"500px"}}/>
                         </div>
                     </a>
                     
                     <ul className='dropdown-menu dropdown-menu-end profSettingsDropdown' aria-labelledby='profileSettings'>
                         <li><Link to={`/profile/${props.link}`} className="dropdown-item"><i className="bi bi-person-fill"></i>Your Profile</Link></li>
+                        <li><Link to={`/friendslist/${props.link}`} className="dropdown-item"><i className="bi bi-people-fill"></i>Friends List</Link></li>
                         <li><Link to={`/friendrequests/${props.link}`} className="dropdown-item"><i className="bi bi-person-plus-fill"></i>Friend Requests</Link></li>
                         <li><Link to={`/settings/${props.link}`} className="dropdown-item"><i className="bi bi-gear-fill"></i>Settings</Link></li>
                         <li><Link to={"/"} className="dropdown-item"><i className="bi bi-person-plus-fill"></i>Logout</Link></li>
