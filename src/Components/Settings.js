@@ -31,7 +31,7 @@ const Settings = () => {
                         setAxiosResult(res["data"]["array"][0])
                     }
                 })
-        })
+        },[editingEmailMode,editingUsernameMode,userid])
 
     const editEmailHandler = () => {
         setEditingEmailMode(true)
@@ -51,20 +51,51 @@ const Settings = () => {
     const doneEditPasswordHandler = () => {
         setEditingPasswordMode(false)
     }
-    const saveEditHandler = (e) => {
+
+    const saveEmailHandler = (e) => {
         e.preventDefault()
         const data = {
             email:formInput.email,
-            username:formInput.username
+            userid:userid
         }    
         console.log(data)
-        axios.post("https://serserserver.herokuapp.com/editprofile", data ).then((res)=> {
+        axios.post("https://serserserver.herokuapp.com/editemail", data ).then((res)=> {
                 if(res.status===200){
                     console.log(res)
+                    doneEditEmailHandler()
+                }
+        }) 
+    }
+
+    const saveUsernameHandler = (e) => {
+        e.preventDefault()
+        const data = {
+            username:formInput.username,
+            userid:userid
+        }    
+        console.log(data)
+        axios.post("https://serserserver.herokuapp.com/editusername", data ).then((res)=> {
+                if(res.status===200){
+                    console.log(res)
+                    doneEditUsernameHandler()
                 }
         }) 
     }
         
+    const savePasswordHandler = (e) => {
+        e.preventDefault()
+        const data = {
+            password:formInput.password,
+            userid:userid
+        }    
+        console.log(data)
+        axios.post("https://serserserver.herokuapp.com/editpassword", data ).then((res)=> {
+                if(res.status===200){
+                    console.log(res)
+                    doneEditPasswordHandler()
+                }
+        }) 
+    }
         
     
     return (
@@ -101,7 +132,7 @@ const Settings = () => {
                                             <button onClick={editEmailHandler}><i className="bi bi-pencil-square"></i></button>
                                         </div>:
                                         <div className='col-5 edit'>
-                                            <button onClick={saveEditHandler}><i class="bi bi-check-lg green"></i></button>
+                                            <button onClick={saveEmailHandler}><i class="bi bi-check-lg green"></i></button>
                                             <button onClick={doneEditEmailHandler}><i class="bi bi-x-lg red"></i></button>
                                         </div>
                                 }         
@@ -117,7 +148,7 @@ const Settings = () => {
                                             <h1>Username:</h1>
                                         </div>
                                         <div className="col-4 form">
-                                            <input type="text" className="form-control" id="post" placeholder={axiosResult.username} onChange={handleInput}/>
+                                            <input type="text" className="form-control" id="post" name="username" placeholder={axiosResult.username} onChange={handleInput}/>
                                         </div>
                                     </>
                                 }
@@ -126,7 +157,7 @@ const Settings = () => {
                                             <button onClick={editUsernameHandler}><i className="bi bi-pencil-square"></i></button>
                                         </div>:
                                         <div className='col-5 edit'>
-                                            <button onClick={saveEditHandler}><i class="bi bi-check-lg green"></i></button>
+                                            <button onClick={saveUsernameHandler}><i class="bi bi-check-lg green"></i></button>
                                             <button onClick={doneEditUsernameHandler}><i class="bi bi-x-lg red"></i></button>
                                         </div>
                                 }    
@@ -142,7 +173,7 @@ const Settings = () => {
                                             <h1>Password:</h1>
                                         </div>
                                         <div className="col-4 form">
-                                            <input type="text" className="form-control" id="post" placeholder={axiosResult.password} onChange={handleInput}/>
+                                            <input type="password" className="form-control"  name="password" id="post"  onChange={handleInput}/>
                                         </div>
                                     </>
                                 }
@@ -151,7 +182,7 @@ const Settings = () => {
                                             <button onClick={editPasswordHandler}><i className="bi bi-pencil-square"></i></button>
                                         </div>:
                                         <div className='col-5 edit'>
-                                            <button onClick={saveEditHandler}><i class="bi bi-check-lg green"></i></button>
+                                            <button onClick={savePasswordHandler}><i class="bi bi-check-lg green"></i></button>
                                             <button onClick={doneEditPasswordHandler}><i class="bi bi-x-lg red"></i></button>
                                         </div>
                                 }    

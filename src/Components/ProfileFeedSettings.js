@@ -6,6 +6,7 @@ import ProfileFeedPost from './ProfileFeedPost';
 
 const ProfileFeedSettings = (props) => {
     
+    const picpath = props.picpath
     const userid = props.userid
     const [post, setPost] = useState();
     const [postCounter, setPostCounter] = useState(1);
@@ -33,7 +34,7 @@ const ProfileFeedSettings = (props) => {
                 <div className='row'>
                     <div className='col-2'>
                         <div className='profImage'>
-
+                            <img src={picpath} style={{width:"59px", height:"59px",objectFit:"cover", borderRadius:"59px"}}  alt="profile avatar"/>
                         </div>
                     </div>
                     <div className='col-10 postInput'>
@@ -45,7 +46,7 @@ const ProfileFeedSettings = (props) => {
                     </div>
                 </div>
             </div>
-            <ProfileFeedPost userid={`${userid}`} postCounter={postCounter} profileupdater={profileupdater} />
+            <ProfileFeedPost userid={`${userid}`} postCounter={postCounter} profileupdater={profileupdater} picpath={picpath} />
         </>
         
     )

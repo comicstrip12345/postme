@@ -10,6 +10,7 @@ const OtherProfile = () => {
     const {userid} = useParams();
     const {wallOwnerId} = useParams();
     const [profile, setProfile] = useState([]);
+    const [yourProfile, setYourProfile] = useState([]);
     const [hasFriendRequest, setHasFriendRequest] = useState(false);
     const [stateChanger,setStateChanger] = useState(1)
     const [friend, setFriend] = useState(false);
@@ -20,6 +21,13 @@ const OtherProfile = () => {
                     if(res.status===200){
                         const id = res["data"]["array"][0]
                         setProfile(id)
+                    }
+                })
+
+                axios.post("https://serserserver.herokuapp.com/profile", {userid:userid} ).then((res)=> {
+                    if(res.status===200){
+                        const id = res["data"]["array"][0]
+                        setYourProfile(id)
                     }
                 })
 
@@ -69,7 +77,7 @@ const OtherProfile = () => {
                 <div className='row'>
                     <div className='col-2'>
                         <div className='circlePhoto'>
-
+                        <img src={`${profile.picpath}`} style={{width:"160px", height:"160px",objectFit:"cover", borderRadius:"160px"}}  alt="profile avatar"/>
                         </div>
                     </div>
                     <div className='col-10 otherProfile d-flex align-items-center'>
@@ -114,7 +122,7 @@ const OtherProfile = () => {
                          </div>
                          <div className='col-7 newsFeed'>
                              <div className='row'>
-                                 <OtherProfileFeedSettings userid={`${userid}`} wallOwnerId={`${wallOwnerId}`} />
+                                 <OtherProfileFeedSettings userid={`${userid}`} wallOwnerId={`${wallOwnerId}`} picpath={yourProfile.picpath} ownerpicpath={profile.picpath} />
                                 
                              </div>
                          </div>

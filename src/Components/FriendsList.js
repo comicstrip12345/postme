@@ -36,7 +36,7 @@ const FriendsList = () => {
                                         <div className='row searchTile'>
                                             <div className='col-3 image'>
                                                 {/* container ng image sa future */}
-                                                <img src="https://e7.pngegg.com/pngimages/505/761/png-clipart-login-computer-icons-avatar-icon-monochrome-black-thumbnail.png" alt="avatar"/>
+                                                <img src={profile.picpath} alt="avatar" style={{width:"100px",height:"100px",objectFit:"cover",borderRadius:"500px"}}/>
                                             </div>
                                             <div className='col-9 detail d-flex align-items-center'>
                                                 <h1>

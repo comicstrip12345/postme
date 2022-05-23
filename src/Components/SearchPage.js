@@ -36,7 +36,7 @@ const SearchPage = () => {
                         <div className="col-12">
                             <div className="form-floating mb-3 form input-group">
                                 <input type="text" style={{marginBottom:'0'}} className="form-control" id="searchPage" placeholder="name" onChange={(e)=>{setSearch(e.target.value)}} />
-                                <label htmlFor="searchPage">Search your friend</label>
+                                <label htmlFor="searchPage">Search someone</label>
                                 <button onClick={searchHandler}><i className="bi bi-search"></i></button>
                             </div>
                         </div>
@@ -46,7 +46,7 @@ const SearchPage = () => {
                                         <div className='row searchTile' key={index}>
                                             <div className='col-3 image'>
                                                 {/* container ng image sa future */}
-                                                <img src="https://e7.pngegg.com/pngimages/505/761/png-clipart-login-computer-icons-avatar-icon-monochrome-black-thumbnail.png" alt="avatar"/>
+                                                <img src={profile.picpath} alt="avatar" style={{width:"100px",height:"100px",objectFit:"cover",borderRadius:"500px"}}/>
                                             </div>
                                             <div className='col-9 detail d-flex align-items-center'>
                                                 <h1>

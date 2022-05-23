@@ -71,7 +71,9 @@ const OtherCommentFeed = (props) => {
       {comments.map((comment, index) => (
         <div className="row" key={index}>
           <div className="col-1">
-            <div className="profPhoto"></div>
+            <div className="profPhoto">
+            <img src={comment.picpath} style={{width:"40px", height:"40px",objectFit:"cover", borderRadius:"40px"}}  alt="profile avatar"/>
+            </div>
           </div>
           <div className="col-11">
             <div className="row  commentTile">

@@ -8,6 +8,7 @@ const ProfileFeedPost = (props) => {
   const profileupdater = props.profileupdater;
   const origCounter = props.postCounter;
   const id = props.userid;
+  const picpath = props.picpath;
 
   const [counter, setCounter] = useState(props.postCounter);
   const [commenting,setCommenting] = useState(false);
@@ -106,7 +107,13 @@ const ProfileFeedPost = (props) => {
         <div className="col-12 post" key={index}>
           <div className="row">
             <div className="col-2">
-              <div className="profImage"></div>
+              <div className="profImage">
+              {post.wallid === post.userid ?
+              <img src={picpath} style={{width:"70px", height:"70px",objectFit:"cover", borderRadius:"70px"}}  alt="profile avatar"/>:
+              <img src={post.picpath} style={{width:"70px", height:"70px",objectFit:"cover", borderRadius:"70px"}}  alt="profile avatar"/>
+              }
+               
+              </div>
             </div>
             <div className="col-8 postName d-flex align-items-center">
               <h1>

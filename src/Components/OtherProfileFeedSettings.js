@@ -8,6 +8,8 @@ const OtherProfileFeedSettings = (props) => {
     
     const userid = props.userid
     const wallid = props.wallOwnerId
+    const picpath = props.picpath
+    const ownerpicpath=props.ownerpicpath
     const [post, setPost] = useState();
     const [notifRunner,setNotifRunner] = useState(false)
     const [postCounter, setPostCounter] = useState(1);
@@ -30,7 +32,7 @@ const OtherProfileFeedSettings = (props) => {
   
     useEffect(()=>{
      
-            console.log(`running notifs ${createdPostId}`)
+           
             axios.post("https://serserserver.herokuapp.com/newpostothernotif",{
                 userid:userid,
                 wallid:wallid,
@@ -54,6 +56,7 @@ const OtherProfileFeedSettings = (props) => {
                 <div className='row'>
                     <div className='col-2'>
                         <div className='profImage'>
+                        <img src={picpath} style={{width:"59px", height:"59px",objectFit:"cover", borderRadius:"59px"}}  alt="profile avatar"/>
 
                         </div>
                     </div>
@@ -66,7 +69,7 @@ const OtherProfileFeedSettings = (props) => {
                     </div>
                 </div>
             </div>
-            <OtherProfileFeedPost userid={`${wallid}`} commentorid={userid} postCounter={postCounter} />
+            <OtherProfileFeedPost userid={`${wallid}`} commentorid={userid} postCounter={postCounter} ownerpicpath={ownerpicpath}/>
         </>
         
     )
