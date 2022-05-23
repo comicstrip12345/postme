@@ -9,6 +9,7 @@ const IndividualProfile = () => {
 
 
     const {userid} = useParams();
+    const [file, setFile]=useState("")
     const [profile, setProfile] = useState([]);
     const [profileUpdater,setProfileUpdater]=useState(1)
     const [editingMode, setEditingMode]=useState(false)
@@ -29,6 +30,10 @@ const IndividualProfile = () => {
         ]:e.target.value})
     }
 
+    const handleInput2 = (e) => {
+        setFile(e.target.files[0])
+     }
+
    
 
     useEffect(
@@ -41,6 +46,7 @@ const IndividualProfile = () => {
                     }
                 }) // eslint-disable-next-line
             }, [editingMode])
+
        
     const editHandler = () => {
         setEditingMode(true)
@@ -53,20 +59,37 @@ const IndividualProfile = () => {
 
     const saveEditHandler = (e) => {
         e.preventDefault()
-         const data = {
-             userid:userid,
-             firstName:formInput.firstName,
-             lastName:formInput.lastName,
-             nickname:formInput.nickname,
-             intro:formInput.intro,
-             status:formInput.status,
-             birthday:formInput.birthday,
-             city:formInput.city
-         }
 
-         console.log(data)
+        const formData = new FormData();
+        formData.append('userid',userid)
+        formData.append('firstName',formInput.firstName)
+        formData.append('lastName',formInput.lastName)
+        formData.append('nickname',formInput.nickname)
+        formData.append('intro',formInput.intro)
+        formData.append('status',formInput.status)
+        formData.append('birthday',formInput.birthday)
+        formData.append('city',formInput.city)
+        formData.append('image',file)
 
-         axios.post("https://serserserver.herokuapp.com/editprofile", data ).then((res)=> {
+        const config = {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }
+
+        //  const data = {
+        //      userid:userid,
+        //      firstName:formInput.firstName,
+        //      lastName:formInput.lastName,
+        //      nickname:formInput.nickname,
+        //      intro:formInput.intro,
+        //      status:formInput.status,
+        //      birthday:formInput.birthday,
+        //      city:formInput.city
+        //  }
+
+
+         axios.post("https://serserserver.herokuapp.com/editprofile", formData, config ).then((res)=> {
                     if(res.status===200){
                         console.log(res)
                         setEditingMode(false)
@@ -84,10 +107,22 @@ const IndividualProfile = () => {
             link={userid}
         />
         <section className='profile'>
+            <form onSubmit={saveEditHandler} encType="multipart/form-data"> 
             <div className='container'>
                 <div className='row'>
                     <div className='col-2'>
                         <div className='circlePhoto'>
+
+                            {
+                                !editingMode?    <img src={`${profile.picpath}`} style={{width:"150px", height:"150px",objectFit:"cover", borderRadius:"150px"}}  alt="profile avatar"/> :
+
+                                <>
+                                <input type="file" name="image"  accept="image/*" onChange={handleInput2}/>
+                                <input type="text" className="form-control" name="userid"  hidden value={userid} readOnly/>
+                                </>
+                   
+                            }
+                         
 
                         </div>
                     </div>
@@ -165,7 +200,7 @@ const IndividualProfile = () => {
                                          <button onClick={editHandler}><h1>Edit Details</h1></button>:
                                          <>
                                             <button onClick={doneEditHandler}><h1>Cancel Edit</h1></button>
-                                            <button onClick={saveEditHandler}><h1>Save Edit</h1></button>
+                                            <button type="submit"><h1>Save Edit</h1></button>
                                          </>
                                          }
 
@@ -182,6 +217,7 @@ const IndividualProfile = () => {
                     </div>
                 </div>
             </div>
+            </form>
         </section>
         
 
