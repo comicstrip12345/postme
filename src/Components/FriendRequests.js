@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import NavbarLoggedIn from './NavbarLoggedIn';
 import { Fade } from 'react-reveal';
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import swal from 'sweetalert'; 
 
 const FriendRequests = () => {
     const {userid} = useParams();
@@ -35,6 +36,7 @@ const FriendRequests = () => {
         }).then((res)=> {
             if(res.status===200){
                 console.log(res)
+                swal("Request rejected", "You have rejected this user's friend request", "info"); 
                 setPageUpdater(pageUpdater+1)
             }
         })
@@ -50,8 +52,9 @@ const FriendRequests = () => {
 
         }).then((res)=> {
             if(res.status===200){
-                console.log(res)
+                swal("Added", "You are now friends", "success"); 
                 setPageUpdater(pageUpdater+1)
+                
             }
         })
     }
@@ -77,8 +80,10 @@ const FriendRequests = () => {
                                     </div>
                                     <div className='col-9 d-flex align-items-center friendsDetail'>
                                         <h1>
+                                            <Link to={`/profile/${userid}/${profile.userid}`}>
                                             {profile.firstName} {profile.lastName} <br/>
                                             <small className='text-muted'>from {profile.city}</small> <br/>
+                                            </Link>
                                             <button><i className="bi bi-check-lg green" onClick={acceptRequestHandler} id={profile.requestorid}></i></button>
                                             <button><i className="bi bi-x-lg red" onClick={delRequestHandler} id={profile.requestid}></i></button>
                                         </h1>

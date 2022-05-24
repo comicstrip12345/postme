@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios';
+import swal from 'sweetalert'; 
 
 const NavbarLoggedIn = (props) => {
     
@@ -25,6 +26,10 @@ const NavbarLoggedIn = (props) => {
                 }) 
   
     },[userid])
+
+    const logoutswal = () => {
+        swal("Logged out", "We will miss you!", "info"); 
+    }
 
     // eslint-disable-next-line
     const postnotifs = notif.filter(item => item.notiftype === 'post' && item.new_comment ==='1' && item.wallid==userid );
@@ -52,7 +57,7 @@ const NavbarLoggedIn = (props) => {
                         <li><Link to={`/friendslist/${props.link}`} className="dropdown-item"><i className="bi bi-people-fill"></i>Friends List</Link></li>
                         <li><Link to={`/friendrequests/${props.link}`} className="dropdown-item"><i className="bi bi-person-plus-fill"></i>Friend Requests</Link></li>
                         <li><Link to={`/settings/${props.link}`} className="dropdown-item"><i className="bi bi-gear-fill"></i>Settings</Link></li>
-                        <li><Link to={"/"} className="dropdown-item"><i className="bi bi-person-plus-fill"></i>Logout</Link></li>
+                        <li><Link to={"/"} className="dropdown-item" onClick={logoutswal}><i className="bi bi-person-plus-fill"></i>Logout</Link></li>
                     </ul>
                 </nav>
             </div>

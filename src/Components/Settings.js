@@ -4,6 +4,7 @@ import axios from 'axios'
 import NavbarLoggedIn from './NavbarLoggedIn'
 import SettingsMenu from './SettingsMenu'
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import swal from 'sweetalert'; 
 
 const Settings = () => {
     const {userid} = useParams();
@@ -62,6 +63,7 @@ const Settings = () => {
         axios.post("https://serserserver.herokuapp.com/editemail", data ).then((res)=> {
                 if(res.status===200){
                     console.log(res)
+                    swal("Success", "E-mail has been edited", "success"); 
                     doneEditEmailHandler()
                 }
         }) 
@@ -77,6 +79,7 @@ const Settings = () => {
         axios.post("https://serserserver.herokuapp.com/editusername", data ).then((res)=> {
                 if(res.status===200){
                     console.log(res)
+                    swal("Success", "Username has been edited", "success"); 
                     doneEditUsernameHandler()
                 }
         }) 
@@ -92,6 +95,7 @@ const Settings = () => {
         axios.post("https://serserserver.herokuapp.com/editpassword", data ).then((res)=> {
                 if(res.status===200){
                     console.log(res)
+                    swal("Success", "Password has been edited", "success"); 
                     doneEditPasswordHandler()
                 }
         }) 
@@ -132,8 +136,8 @@ const Settings = () => {
                                             <button onClick={editEmailHandler}><i className="bi bi-pencil-square"></i></button>
                                         </div>:
                                         <div className='col-5 edit'>
-                                            <button onClick={saveEmailHandler}><i class="bi bi-check-lg green"></i></button>
-                                            <button onClick={doneEditEmailHandler}><i class="bi bi-x-lg red"></i></button>
+                                            <button onClick={saveEmailHandler}><i className="bi bi-check-lg green"></i></button>
+                                            <button onClick={doneEditEmailHandler}><i className="bi bi-x-lg red"></i></button>
                                         </div>
                                 }         
                                 {!editingUsernameMode?
@@ -157,8 +161,8 @@ const Settings = () => {
                                             <button onClick={editUsernameHandler}><i className="bi bi-pencil-square"></i></button>
                                         </div>:
                                         <div className='col-5 edit'>
-                                            <button onClick={saveUsernameHandler}><i class="bi bi-check-lg green"></i></button>
-                                            <button onClick={doneEditUsernameHandler}><i class="bi bi-x-lg red"></i></button>
+                                            <button onClick={saveUsernameHandler}><i className="bi bi-check-lg green"></i></button>
+                                            <button onClick={doneEditUsernameHandler}><i className="bi bi-x-lg red"></i></button>
                                         </div>
                                 }    
                                 {!editingPasswordMode?
@@ -182,8 +186,8 @@ const Settings = () => {
                                             <button onClick={editPasswordHandler}><i className="bi bi-pencil-square"></i></button>
                                         </div>:
                                         <div className='col-5 edit'>
-                                            <button onClick={savePasswordHandler}><i class="bi bi-check-lg green"></i></button>
-                                            <button onClick={doneEditPasswordHandler}><i class="bi bi-x-lg red"></i></button>
+                                            <button onClick={savePasswordHandler}><i className="bi bi-check-lg green"></i></button>
+                                            <button onClick={doneEditPasswordHandler}><i className="bi bi-x-lg red"></i></button>
                                         </div>
                                 }    
                                      

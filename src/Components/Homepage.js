@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import NavbarLoggedIn from "./NavbarLoggedIn";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import HomepageFeedSettings from "./HomepageFeedSettings";
+import swal from 'sweetalert'; 
 
 const Homepage = () => {
   const { userid } = useParams();
@@ -20,6 +21,11 @@ const Homepage = () => {
         }
       }); // eslint-disable-next-line
   }, []);
+
+
+  const logoutswal = () => {
+    swal("Logged out", "We will miss you!", "info"); 
+}
 
   return (
     <>
@@ -75,7 +81,7 @@ const Homepage = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link to={"/"}>
+                      <Link to={"/"} onClick={logoutswal}>
                         <i className="bi bi-person-plus-fill"></i>Logout
                       </Link>
                     </li>

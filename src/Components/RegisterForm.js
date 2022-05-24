@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import { Fade } from 'react-reveal'
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import swal from 'sweetalert'; 
 
 const RegisterForm = () => {
     
@@ -25,7 +26,9 @@ const RegisterForm = () => {
     const [passwordValidity, setPasswordValidity] = useState(false)
 
     let navigate = useNavigate();
+    // eslint-disable-next-line
     let regEx = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+    // eslint-disable-next-line
     let regExPW = /^(?=.*\d).{4,8}$/
 
     const emailChecker = (e) =>{
@@ -93,6 +96,7 @@ const RegisterForm = () => {
             email:emailReg
         }).then((response)=> {
             console.log(response);
+            swal("Success", "You have successfully created an account", "success")
         })
             navigate("/regprofile/"+usernameReg)
         }

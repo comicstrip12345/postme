@@ -2,6 +2,7 @@ import React, {useState } from 'react'
 import { Fade } from 'react-reveal'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
+import swal from 'sweetalert'; 
 
 const RegisterProfile = () => {
 
@@ -61,6 +62,7 @@ const RegisterProfile = () => {
             if(response.status===200){
         
                 const id = response["data"]["result"]["0"]["userid"];
+                swal("Details added", "You have successfully added additional details", "success")
                  navigate(`/profile/${id}`)
             } 
 

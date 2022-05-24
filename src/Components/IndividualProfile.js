@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import NavbarLoggedIn from './NavbarLoggedIn';
 import ProfileFeedSettings from './ProfileFeedSettings';
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import swal from 'sweetalert'; 
 
 const IndividualProfile = () => {
 
@@ -108,6 +109,7 @@ const IndividualProfile = () => {
                     if(res.status===200){
                         console.log(res)
                         setEditingMode(false)
+                        swal("Done Editing", "Profile changes have been reflected", "success"); 
                         setProfileUpdater(profileUpdater+1)
                     }
                 }) 
