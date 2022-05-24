@@ -9,6 +9,7 @@ const LoginForm = () => {
     const [usernameLogin, setUsernameLogin] = useState("")
     const [passwordLogin, setPasswordLogin] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
+    const [errorDisp,setErrorDisp]=useState(false)
 
     let navigate = useNavigate();
 
@@ -17,24 +18,26 @@ const LoginForm = () => {
         axios.post("https://serserserver.herokuapp.com/login", {
             username:usernameLogin,
             password:passwordLogin,
-        }).then((response,error)=> {
+        }).then((response)=> {
 
             console.log(response)
             if(response.status===200){
                 setErrorMessage("success")
                 const id = response["data"]["array"]["0"]["userid"];
+                setErrorDisp(false)
                 swal("Success", "You have successfully logged in", "success"); 
-                
-                navigate(`/profile/${id}`)
+                navigate(`/homepage/${id}`)
             } 
         }).catch((err) =>  {
             console.log(err)
 
             if(err.response.status===400){
+                setErrorDisp(true)
                 setErrorMessage("Please input username and/or password")
             }
 
             else if(err.response.status===401){
+                setErrorDisp(true)
                 setErrorMessage("Invalid username and/or password")
             }
         })
@@ -69,7 +72,8 @@ const LoginForm = () => {
                 </div>
                 <div className='row'>
                     <div className='col-12 errorMessage'>
-                        <p style={{backgroundColor:"red"}}><i class="bi bi-exclamation-triangle-fill"></i> {errorMessage}</p>
+                        {errorDisp &&  <p style={{backgroundColor:"red"}}><i className="bi bi-exclamation-triangle-fill"></i> {errorMessage}</p> }
+                       
                     </div>
                 </div>
             </div>
