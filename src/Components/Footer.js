@@ -6,7 +6,7 @@ const Footer = () => {
             <div className='container'>
                 <p className='copyright'>&copy; 2022 postme. All rights reserved.</p>
                 <p className='options'>
-                    <a href='#/'>Privacy</a>
+                    <a href='#/' className='margin'>Privacy</a>
                     <a href='#/'>Terms and Conditions</a>
                 </p>
             </div>

@@ -85,14 +85,22 @@ h1,p{
 // Navbar Section
 nav{
     background:linear-gradient(90deg,#79DAE8,#0AA1DD);
-    p{
-        @include headingFontBlackStyle();
-        font-size: 3.5vh;
-        margin-bottom: 0;
-    }
+    border: none;
 
+    .home{
+        p{
+            @include headingFontBlackStyle();
+            font-size: 3.5vh;
+            margin-bottom: 0;
+            text-align: center;
+            padding-top: 2vh;
+            padding-bottom: 2vh;
+        }
+    }
     .forms{
         p{
+            @include headingFontBlackStyle();
+            font-size: 3.5vh;
             margin-bottom: 0;
             text-align: center;
             padding-top: 2vh;
@@ -156,37 +164,74 @@ nav{
         
     }
 }
+@media all and (min-width:576px) and (max-width:767px) and (orientation:landscape){
+    nav{
+        .home{
+            p{
+                text-align: left;
+            }
+        }
+    }
+}
+@media all and (min-width:768px) and (max-width:991px) and (orientation:landscape){
+    nav{
+        .home{
+            p{
+                text-align: left;
+            }
+        }
+    }
+}
+@media all and (min-width:992px) and (max-width:1199px) and (orientation:landscape){
+    nav{
+        .home{
+            p{
+                text-align: left;
+            }
+        }
+    }
+}
+@media all and (min-width:1200px) and (max-width:1399px){
+    nav{
+        .home{
+            p{
+                text-align: left;
+            }
+        }
+    }
+}
 
 // Hero Section
 section.hero{
     background:linear-gradient(90deg,#79DAE8,#0AA1DD);
     height: 90vh;
     overflow: hidden;
+    
     .tagLine{
+        text-align: center;
+
         p{
             @include headingFontBlackStyle();
-            font-size: 6vh;
-            margin-top: 20vh;
+            font-size: 5.5vh;
+            margin-top: 17vh;
         }
         input{
             background: #EDAC04;
             border: none;
             @include headingFontBoldStyle();
+            font-size: 2.8vh;
             padding: 2vh;
             border-radius: 1vh;
-            margin-top: 1vh;
+            margin-top: 3vh;
             margin-right: 4vh;
+
+            &.margin{
+                margin-right: 0;
+            }
         }
     }
     .gif{
-        img{
-            height: 70vh;
-            border-radius: 2vh;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 6vh;
-        }
+        display: none;
     }
     .signUpForm{
         h1{
@@ -196,11 +241,29 @@ section.hero{
         .form{
             input{
                 @include formInputDesign();
-                // width: 35vw;
                 width: 74%;
             }
             label{
                 @include formLabelDesign();
+            }
+        }
+        .errorMessage{
+            border-radius: 1vh;
+            text-align: center;
+
+            p{
+                @include contentFontRegularStyle();
+                font-size: 2vh;
+
+                &.emailError{
+                    padding: 22px;
+                }
+                &.passwordError{
+                    font-size: 1.9vh;
+                }
+                &.confirmpasswordError{
+                    padding: 10px;
+                }
             }
         }
         .submit{
@@ -264,6 +327,18 @@ section.hero{
                 }
             }
         }
+        .errorMessage{
+            padding-top: 4vh;
+            padding-bottom: 4vh;
+
+            p{
+                display: inline;
+                border-radius: 1vh;
+                padding: 2vh;
+                font-size: 2vh;
+                @include contentFontRegularStyle();
+            }
+        }
     }
     .profile{
         h1{
@@ -279,6 +354,12 @@ section.hero{
             label{
                 @include formLabelDesign();
             }
+
+            &.image-upload{
+                input{
+                    border: none;
+                }
+            }
         }
         .submit{
             input[type=submit]{
@@ -289,6 +370,121 @@ section.hero{
     .friends{
         img{
             height: 20vh;
+        }
+    }
+}
+@media all and (min-width:540px) and (max-height:720px){
+    section.hero{
+        .tagLine{
+            p{
+                font-size: 6vh;
+            }
+        }
+    }
+}
+@media all and (min-width:576px) and (max-width:767px) and (orientation:portrait) {
+    section.hero{
+        .col-sm-6{
+            width: 100%;
+        }
+    }
+}
+@media all and (min-width:576px) and (max-width:767px) and (orientation:landscape){
+    section.hero{
+        .tagLine{
+            text-align: left;
+        }
+        .gif{ 
+            display: block;
+
+            img{
+                height: 70vh;
+                border-radius: 2vh;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 6vh;
+            }
+        }
+    }
+}
+@media all and (min-width:768px) and (max-width:991px) and (orientation:landscape){
+    section.hero{
+        .col-md-12{
+            width: 50%;
+        }
+        .tagLine{
+            text-align: left;
+        }
+        .gif{ 
+            display: block;
+
+            img{
+                height: 70vh;
+                border-radius: 2vh;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 6vh;
+            }
+        }
+    }
+}
+@media all and (min-width:992px) and (max-width:1199px) and (orientation:portrait){
+    section.hero{
+        .col-lg-6{
+            width: 100%;
+        }
+        .tagLine{
+            p{
+                font-size: 6vh;
+            }
+        }
+    }
+}
+@media all and (min-width:992px) and (max-width:1199px)and (orientation:landscape){
+    section.hero{
+        .tagLine{
+            text-align: left;
+        }
+        .gif{ 
+            display: block;
+
+            img{
+                height: 70vh;
+                border-radius: 2vh;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 6vh;
+            }
+        }
+    }
+}
+@media all and (min-width:1200px) and (max-width:1399px){
+    section.hero{
+        .tagLine{
+            text-align: left;
+
+            p{
+                margin-top: 20vh;
+            }
+            input{
+                margin-top: 3vh;
+                margin-right: 4vh;
+            }
+        }
+        .gif{ 
+            display: block;
+
+            img{
+                height: 70vh;
+                border-radius: 2vh;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 6vh;
+            }
         }
     }
 }
@@ -1181,25 +1377,127 @@ footer{
     
     .container{
         border-top: 1px solid $secondTextColor;
+        text-align: center;
 
         p{
             @include contentFontRegularStyle();
             font-size: 1.5vh;
             padding-top: 2vh;
-            padding-bottom: 2vh;
-
-            &.copyright{
-                float: left;
-            }
+            
             &.options{
-                float: right;
+                padding-bottom: 2vh;
 
                 a{
                     color: $secondTextColor;
-                    margin-left: 10vh;
+
+                    &.margin{
+                        margin-right: 2vh;
+                    }
                 }
             }
         }
     }
     
+}
+@media all and (max-width:575px){
+}
+@media all and (min-width:576px) and (max-width:767px) and (orientation:landscape){
+    footer{
+        .container{
+            p{
+                padding-bottom: 2vh;
+
+                &.copyright{
+                    float: left;
+                }
+                &.options{
+                    float: right;
+    
+                    a{
+                        margin-left: 10vh;
+                    }
+                }
+            }
+        }
+    }
+}
+@media all and (min-width:768px) and (max-width:991px){
+    footer{
+        .container{
+            p{
+                padding-bottom: 2vh;
+
+                &.copyright{
+                    float: left;
+                }
+                &.options{
+                    float: right;
+    
+                    a{
+                        margin-left: 3vh;
+                    }
+                }
+            }
+        }
+    }
+}
+@media all and (min-width:768px) and (max-width:991px) and (orientation:landscape){
+    footer{
+        .container{
+            p{
+                padding-bottom: 2vh;
+
+                &.copyright{
+                    float: left;
+                }
+                &.options{
+                    float: right;
+    
+                    a{
+                        margin-left: 10vh;
+                    }
+                }
+            }
+        }
+    }
+}
+@media all and (min-width:992px) and (max-width:1199px){
+    footer{
+        .container{
+            p{
+                padding-bottom: 2vh;
+
+                &.copyright{
+                    float: left;
+                }
+                &.options{
+                    float: right;
+    
+                    a{
+                        margin-left: 3vh;
+                    }
+                }
+            }
+        }
+    }
+}
+@media all and (min-width:1200px) and (max-width:1399px){
+    footer{
+        .container{
+            p{
+                padding-bottom: 2vh;
+
+                &.copyright{
+                    float: left;
+                }
+                &.options{
+                    float: right;
+    
+                    a{
+                        margin-left: 10vh;
+                    }
+                }
+            }
+        }
+    }
 }

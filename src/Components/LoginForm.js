@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Fade } from 'react-reveal'
 import axios from 'axios';
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 const LoginForm = () => {
     const [usernameLogin, setUsernameLogin] = useState("")
@@ -64,12 +65,11 @@ const LoginForm = () => {
                             <p>New to postme? <Link to="/register">Sign Up</Link> to join.</p>
                         </div>
                     </div>
-                    <div className='row'>
-                    <span style={{color:"red"}} className="pt-2">{errorMessage}</span>
-                    
+                </div>
+                <div className='row'>
+                    <div className='col-12 errorMessage'>
+                        <p style={{backgroundColor:"red"}}><i class="bi bi-exclamation-triangle-fill"></i> {errorMessage}</p>
                     </div>
-                    
-                   
                 </div>
             </div>
         </Fade>
