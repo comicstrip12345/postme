@@ -4,7 +4,7 @@ import CommentFeed from "./CommentFeed";
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import LikeButton from "./LikeButton";
 
-const ProfileFeedPost = (props) => {
+const HomepageFeedPost = (props) => {
   const profileupdater = props.profileupdater;
   const origCounter = props.postCounter;
   const id = props.userid;
@@ -23,7 +23,7 @@ const ProfileFeedPost = (props) => {
     
     useEffect(() => {
         axios
-        .post("https://serserserver.herokuapp.com/postfeed", {
+        .post("https://serserserver.herokuapp.com/homepagefeed", {
             userid: id,
         })
         .then((response) => {
@@ -257,4 +257,4 @@ const ProfileFeedPost = (props) => {
   );
 };
 
-export default ProfileFeedPost;
+export default HomepageFeedPost;

@@ -58,7 +58,7 @@ const RegisterForm = () => {
     }
     const passwordChecker = (e) =>{
         if(!regExPW.test(e.target.value)){
-            setErrorPasswordMessage("Password must be 4-8 digits and at least one numeric digit.")
+            setErrorPasswordMessage("Password must be 4-8 characters and have at least one numeric digit.")
             setErrorColor("is-invalid")
         }
         else{
@@ -70,7 +70,7 @@ const RegisterForm = () => {
     }
     const confirmpasswordChecker = (e) =>{
         if(passwordReg !== e.target.value){
-            setErrorConfirmPasswordMessage("Passwords are not match")
+            setErrorConfirmPasswordMessage("Passwords do not match")
             setErrorColor("is-invalid")
             setPasswordValidity(false)
         }
@@ -95,7 +95,6 @@ const RegisterForm = () => {
             console.log(response);
         })
             navigate("/regprofile/"+usernameReg)
-            console.log(`${usernameReg},${passwordReg},${firstNameReg},${lastNameReg},${emailReg}`)
         }
         else if(emailValidity === true && usernameValidity === true){
             setErrorPasswordBorderColor("red")

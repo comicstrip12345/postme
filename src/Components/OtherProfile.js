@@ -77,7 +77,7 @@ const OtherProfile = () => {
                 <div className='row'>
                     <div className='col-2'>
                         <div className='circlePhoto'>
-                        <img src={`${profile.picpath}`} style={{width:"160px", height:"160px",objectFit:"cover", borderRadius:"160px"}}  alt="profile avatar"/>
+                        <img src={`${profile.picpath}`} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  style={{width:"160px", height:"160px",objectFit:"cover", borderRadius:"160px"}}  alt="profile avatar"/>
                         </div>
                     </div>
                     <div className='col-10 otherProfile d-flex align-items-center'>

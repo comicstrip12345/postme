@@ -129,7 +129,7 @@ const IndividualProfile = () => {
                         <div className='circlePhoto'>
 
                             {
-                                !editingMode?    <img src={`${profile.picpath}`} style={{width:"160px", height:"160px",objectFit:"cover", borderRadius:"160px"}}  alt="profile avatar"/> :
+                                !editingMode?    <img src={`${profile.picpath}`} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  style={{width:"160px", height:"160px",objectFit:"cover", borderRadius:"160px"}}  alt="profile avatar"/> :
 
                                 <>
                                 <input type="file" name="image"  accept="image/*" onChange={handleInput2}/>

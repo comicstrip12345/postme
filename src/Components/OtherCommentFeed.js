@@ -72,7 +72,7 @@ const OtherCommentFeed = (props) => {
         <div className="row" key={index}>
           <div className="col-1">
             <div className="profPhoto">
-            <img src={comment.picpath} style={{width:"40px", height:"40px",objectFit:"cover", borderRadius:"40px"}}  alt="profile avatar"/>
+            <img src={comment.picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  style={{width:"40px", height:"40px",objectFit:"cover", borderRadius:"40px"}}  alt="profile avatar"/>
             </div>
           </div>
           <div className="col-11">

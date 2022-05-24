@@ -4,7 +4,7 @@ import axios from 'axios';
 import ProfileFeedPost from './ProfileFeedPost';
 
 
-const ProfileFeedSettings = (props) => {
+const HomepageFeedSettings = (props) => {
     
     const picpath = props.picpath
     const userid = props.userid
@@ -34,7 +34,8 @@ const ProfileFeedSettings = (props) => {
                 <div className='row'>
                     <div className='col-2'>
                         <div className='profImage'>
-                            <img src={picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  style={{width:"59px", height:"59px",objectFit:"cover", borderRadius:"59px"}}  alt="profile avatar"/>
+                            <img src={picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'} 
+                            style={{width:"59px", height:"59px",objectFit:"cover", borderRadius:"59px"}}  alt="avatar"/>
                         </div>
                     </div>
                     <div className='col-10 postInput'>
@@ -52,4 +53,4 @@ const ProfileFeedSettings = (props) => {
     )
 }
 
-export default ProfileFeedSettings
+export default HomepageFeedSettings

@@ -56,7 +56,7 @@ const OtherProfileFeedSettings = (props) => {
                 <div className='row'>
                     <div className='col-2'>
                         <div className='profImage'>
-                        <img src={picpath} style={{width:"59px", height:"59px",objectFit:"cover", borderRadius:"59px"}}  alt="profile avatar"/>
+                        <img src={picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  style={{width:"59px", height:"59px",objectFit:"cover", borderRadius:"59px"}}  alt="profile avatar"/>
 
                         </div>
                     </div>
