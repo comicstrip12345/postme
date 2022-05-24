@@ -2,6 +2,7 @@ import React from 'react'
 import NavbarNotLoggedIn from './NavbarNotLoggedIn'
 import Footer from './Footer'
 import { Link } from 'react-router-dom'
+import Fade from 'react-reveal/Fade';
 
 const Hero = () => {
     return (
@@ -10,12 +11,14 @@ const Hero = () => {
             <section className='hero'>
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-6 tagLine'>
+                        <Fade top>
+                        <div className='col-12 col-sm-6 col-md-12 col-lg-6 tagLine'>
                             <p>Connect your loved ones with just one click.</p>
                             <Link to="/login"><input type="submit"value="Sign In"/></Link>
-                            <Link to="/register"><input type="submit"value="Sign Up"/></Link>
+                            <Link to="/register"><input className='margin' type="submit"value="Sign Up"/></Link>
                         </div>
-                        <div className='col-6 gif'>
+                        </Fade>
+                        <div className='col-sm-6 gif'>
                             <img src={require('../images/postme.gif')} alt='gif'/>
                         </div>
                     </div>

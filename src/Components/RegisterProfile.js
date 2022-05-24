@@ -88,17 +88,15 @@ const RegisterProfile = () => {
                     <input type="text" className="form-control" name="username"  hidden value={username} readOnly/>
                     <label htmlFor="birthday">Birthday</label>
                 </div>
-
-               
-                    <label htmlFor="birthday" className='text-white'>Profile Photo</label><br/>
+                <div className='form image-upload mb-3'>
+                    <label>Profile Photo</label><br/>
                     <input type="file" name="image"  accept="image/*" onChange={handleInput2}/>
-                     
-
+                </div>
+                
                 <div className='submit'>
                     <input type="submit"  />
                 </div>
                 </form>
-                
             </div>
         </Fade>
         
