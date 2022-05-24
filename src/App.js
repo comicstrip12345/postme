@@ -15,6 +15,7 @@ import Settings from './Components/Settings';
 import NotificationsPage from './Components/NotificationsPage';
 import NotifIndivPost from './Components/NotifIndivPost';
 import FriendsList from './Components/FriendsList';
+import Homepage from './Components/Homepage';
 
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
                 <Route path='/notifications/:userid' element={<NotificationsPage/>}></Route>
                 <Route path='/indivpost/:userid/:postid' element={<NotifIndivPost/>}></Route>
                 <Route path='/friendslist/:userid' element={<FriendsList/>}></Route>
+                <Route path='/homepage/:userid' element={<Homepage/>}></Route>
             </Routes>
         </BrowserRouter>
     )

@@ -36,7 +36,7 @@ const FriendsList = () => {
                                         <div className='row searchTile'>
                                             <div className='col-3 image'>
                                                 {/* container ng image sa future */}
-                                                <img src={profile.picpath} alt="avatar" style={{width:"100px",height:"100px",objectFit:"cover",borderRadius:"500px"}}/>
+                                                <img src={profile.picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="avatar" style={{width:"100px",height:"100px",objectFit:"cover",borderRadius:"500px"}}/>
                                             </div>
                                             <div className='col-9 detail d-flex align-items-center'>
                                                 <h1>

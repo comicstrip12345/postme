@@ -117,7 +117,7 @@ const NotifIndivPost = () => {
                               <div className="col-2">
                                 <div className="profImage">
                              
-              <img src={post.picpath} style={{width:"70px", height:"70px",objectFit:"cover", borderRadius:"70px"}}  alt="profile avatar"/>
+              <img src={post.picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  style={{width:"70px", height:"70px",objectFit:"cover", borderRadius:"70px"}}  alt="profile avatar"/>
               
                                 </div>
                               </div>

@@ -37,13 +37,13 @@ const NavbarLoggedIn = (props) => {
     return (
         <nav className='navbar loggedIn'>
             <div className='container'>
-                <p>postme</p>
+            <Link to={`/homepage/${props.link}`}><p>postme</p></Link>
                 <nav className='nav'>
                     <Link to={`/searchpage/${props.link}`}><i className="bi bi-search"></i></Link>
                     <Link to={`/notifications/${props.link}`}><i className="bi bi-bell"></i> <span  style={{color:'white',fontSize:'15px'}}>{notifcount}</span></Link>
                     <a className='' href='/#' role="button" id="profileSettings" data-bs-toggle="dropdown" aria-expanded="false">
                         <div className='navImageCircle'>
-                            <img src={profile.picpath} alt="avatar" style={{width:"33px",height:"33px",objectFit:"cover",borderRadius:"500px"}}/>
+                            <img src={profile.picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="avatar" style={{width:"33px",height:"33px",objectFit:"cover",borderRadius:"500px"}}/>
                         </div>
                     </a>
                     
