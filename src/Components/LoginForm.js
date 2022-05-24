@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Fade } from 'react-reveal'
 import axios from 'axios';
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import swal from 'sweetalert'; 
 
 const LoginForm = () => {
     const [usernameLogin, setUsernameLogin] = useState("")
@@ -22,7 +23,7 @@ const LoginForm = () => {
             if(response.status===200){
                 setErrorMessage("success")
                 const id = response["data"]["array"]["0"]["userid"];
-             
+                swal("Success", "You have successfully logged in", "success"); 
                 
                 navigate(`/profile/${id}`)
             } 

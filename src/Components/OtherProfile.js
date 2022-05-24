@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom'
 import NavbarLoggedIn from './NavbarLoggedIn';
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import OtherProfileFeedSettings from './OtherProfileFeedSettings';
+import swal from 'sweetalert'; 
+
 
 const OtherProfile = () => {
 
@@ -52,6 +54,7 @@ const OtherProfile = () => {
             userid:userid,
             otherid:wallOwnerId}).then((res)=> {
                     console.log(res)
+                    swal("Added as friend", "Please wait for the user's response", "info"); 
                     setStateChanger(stateChanger+1)
                 })
 
@@ -62,6 +65,7 @@ const OtherProfile = () => {
             userid:userid,
             friendid:wallOwnerId}).then((res)=> {
                     console.log(res)
+                    swal("Deleted friend", "We have removed this user from your friend's list", "info"); 
                     setStateChanger(stateChanger+1)
                 })
 
