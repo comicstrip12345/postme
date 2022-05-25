@@ -4,8 +4,10 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import swal from 'sweetalert'; 
 
+
 const RegisterProfile = () => {
 
+    
     const {usernameReg} = useParams();
     // eslint-disable-next-line
     const [username,setUsername]=useState(usernameReg)

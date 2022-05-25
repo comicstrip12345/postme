@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import NavbarLoggedIn from './NavbarLoggedIn'
 import SettingsMenu from './SettingsMenu'
@@ -7,6 +7,8 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import swal from 'sweetalert'; 
 
 const Settings = () => {
+
+    const navigate = useNavigate()
     const {userid} = useParams();
     const [axiosResult, setAxiosResult]=useState([])
     const [editingEmailMode, setEditingEmailMode]=useState(false)
@@ -26,7 +28,10 @@ const Settings = () => {
         username:"",
         password:""
     });
+
+    // eslint-disable-next-line     
     let regExEmail = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+    // eslint-disable-next-line 
     let regExPW = /^(?=.*\d).{4,8}$/
 
     const emailChecker =(e)=>{
@@ -161,6 +166,22 @@ const Settings = () => {
                     doneEditPasswordHandler()
                 }
         }) 
+    }
+
+    const deleteAccount = () => {
+        console.log(userid)
+
+        axios.post("https://serserserver.herokuapp.com/deleteaccount", {userid:userid}).then((res)=> {
+            if(res.status===200){
+                console.log(res)
+                swal("Deleted Account", "Please wait for 5 seconds, you will be redirected to the homepage", "info")
+                setTimeout(() => {
+                    navigate('/')
+                  }, 5000)
+
+            }
+        })
+
     }
         
     
@@ -303,7 +324,7 @@ const Settings = () => {
                                     
                                 
                                 <div className='col-12 delete'>
-                                    <button><p>Delete Account</p></button>
+                                    <button onClick={deleteAccount}><p>Delete Account</p></button>
                                 </div>
                             </div>
                         </div>
