@@ -20,6 +20,7 @@ const LikeButton = (props) => {
                 }
             })
         },
+        // eslint-disable-next-line
         []
     )
 

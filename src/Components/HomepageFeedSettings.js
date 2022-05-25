@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import axios from 'axios';
-import ProfileFeedPost from './ProfileFeedPost';
+import HomepageFeedPost from './HomepageFeedPost';
 
 
 const HomepageFeedSettings = (props) => {
@@ -47,7 +47,7 @@ const HomepageFeedSettings = (props) => {
                     </div>
                 </div>
             </div>
-            <ProfileFeedPost userid={`${userid}`} postCounter={postCounter} profileupdater={profileupdater} picpath={picpath} />
+            <HomepageFeedPost userid={`${userid}`} postCounter={postCounter} profileupdater={profileupdater} picpath={picpath} />
         </>
         
     )
