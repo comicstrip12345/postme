@@ -27,23 +27,27 @@ const FriendsList = () => {
             <NavbarLoggedIn
                 link={userid}
             />
-            <section className='searchPage'>
+            <section className='friendsList'>
                 <div className='container'>
                     <div className='row pt-5'>
+                        <div className='col-12 title'>
+                            <h1>Friends List</h1>    
+                        </div>
+                        <div className='row'>
                         {friends.map((profile,index)=> (
                                 <Fade key={index}>
                                     <div className='col-4' >
-                                        <div className='row searchTile'>
-                                            <div className='col-3 image'>
+                                        <div className='row listTile'>
+                                            <div className='col-4 image'>
                                                 {/* container ng image sa future */}
-                                                <img src={profile.picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="avatar" style={{width:"100px",height:"100px",objectFit:"cover",borderRadius:"500px"}}/>
+                                                <img src={profile.picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="avatar" style={{}}/>
                                             </div>
-                                            <div className='col-9 detail d-flex align-items-center'>
+                                            <div className='col-8 detail d-flex align-items-center'>
                                                 <h1>
                                                     <Link to={`/profile/${userid}/${profile.friendid}`}>{profile.firstName} {profile.lastName}<br/>
                                                     <small className='text-muted'> {profile.city} </small> <br />
-                                                    <small className='text-muted'> {profile.nickname} </small> <br />
-                                                    <small className='text-muted'> {profile.birthday} </small> <br />
+                                                    <small className='text-muted'> {profile.nickname} </small> 
+                                                    <small className='text-muted'> {profile.birthday} </small>
                                                     </Link> 
                                                 </h1>
                                             </div>
@@ -52,6 +56,8 @@ const FriendsList = () => {
                                 </Fade>
                             ))
                         }
+                        </div>
+                        
                     </div>
                 </div>
             </section>
