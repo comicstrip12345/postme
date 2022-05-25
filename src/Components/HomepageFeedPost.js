@@ -3,11 +3,15 @@ import React, { useEffect, useState } from "react";
 import CommentFeed from "./CommentFeed";
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import LikeButton from "./LikeButton";
+import { Link } from "react-router-dom";
+import Moment from 'react-moment';
+import 'moment-timezone';
 
 const HomepageFeedPost = (props) => {
   const profileupdater = props.profileupdater;
   const origCounter = props.postCounter;
   const id = props.userid;
+  const [userid,setUserid]=useState(id)
   const picpath = props.picpath;
 
   const [counter, setCounter] = useState(props.postCounter);
@@ -117,14 +121,24 @@ const HomepageFeedPost = (props) => {
             </div>
             <div className="col-8 postName d-flex align-items-center">
               <h1>
-                {post.firstName} {post.lastName}
-                {post.wallid !== post.userid && (
+               
+                {post.wallid !== post.userid ? 
                   <span>
+                    <Link to={`/profile/${post.wallid}/${post.userid}`}>{post.firstName} {post.lastName}</Link>
                     {" "}
-                    &gt; {post.wallOwnerFirstName} {post.wallOwnerLastName}{" "}
+                    &gt; <Link to={`/profile/${post.wallid}`}>{post.wallOwnerFirstName} {post.wallOwnerLastName}{" "}</Link>
+                  </span> :
+
+                  <span>
+                  <Link to={`/profile/${post.userid}`}>{post.firstName} {post.lastName}</Link>
                   </span>
-                )}
-                <p>{post.date_created} hrs.</p>
+                }
+
+
+
+
+
+                <p><Moment fromNow>{post.date_created}</Moment></p>
               </h1>
             </div>
             <div className="col-2 postSettings">

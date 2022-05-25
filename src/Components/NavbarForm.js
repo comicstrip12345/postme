@@ -5,7 +5,7 @@ const NavbarForm = () => {
     return (
         <nav>
             <div className='container forms'>
-                <Link to="/"><p>postme</p></Link>
+                <p><Link to="/">postme</Link></p>
             </div>
         </nav>
     )
