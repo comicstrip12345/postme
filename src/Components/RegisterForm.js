@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import { Fade } from 'react-reveal'
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import swal from 'sweetalert'; 
+
 
 const RegisterForm = () => {
     
@@ -95,10 +95,22 @@ const RegisterForm = () => {
             password:passwordReg,
             email:emailReg
         }).then((response)=> {
-            console.log(response);
-            swal("Success", "You have successfully created an account", "success")
+            if(response.data.issue==="email"){
+                console.log(response)
+                setErrorEmailMessage("E-mail is already in use");
+            }
+
+            else if(response.data.issue==="username"){
+                console.log(response)
+                setErrorUsernameMessage("Username is already in use");
+            }
+
+            else if (response.status===200){
+                navigate("/regprofile/"+usernameReg)
+            }
+            
         })
-            navigate("/regprofile/"+usernameReg)
+           
         }
         else if(emailValidity === true && usernameValidity === true){
             setErrorPasswordBorderColor("red")

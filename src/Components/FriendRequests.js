@@ -11,6 +11,7 @@ const FriendRequests = () => {
 
     const [profiles, setProfiles] = useState([]);
     const [pageUpdater, setPageUpdater]=useState(1)
+    const [noFr, setNoFr]=useState(false)
     
     useEffect(
         ()=> {
@@ -18,7 +19,10 @@ const FriendRequests = () => {
             axios.post("https://serserserver.herokuapp.com/friendrequestpage", {
                 userid:userid
             }).then((res)=> {
-                if(res.status===200){
+                if (res["data"]["array"].length===0){
+                    setNoFr("No Friend Requests")
+                }
+                else{
                     console.log(res)
                     setProfiles(res["data"]["array"])
                 }
@@ -70,6 +74,7 @@ const FriendRequests = () => {
                         <div className='col-12 title'>
                             <h1>Friend Requests</h1>    
                         </div>
+                        {noFr && <span><p>No Friend Requests</p></span>}
                         {profiles.map((profile,index)=> (
                         <Fade key={index}>
                             <div className='col-4 friendsProfile'>
