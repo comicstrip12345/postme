@@ -5,6 +5,9 @@ import NavbarLoggedIn from './NavbarLoggedIn';
 import CommentFeed from './CommentFeed';
 import LikeButton from './LikeButton';
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import Moment from 'react-moment';
+import 'moment-timezone';
+
 
 const NotifIndivPost = () => {
     const {userid} = useParams();
@@ -130,7 +133,7 @@ const NotifIndivPost = () => {
                                       &gt; {post.wallOwnerFirstName} {post.wallOwnerLastName}{" "}
                                     </span>
                                   )}
-                                  <p>{post.date_created} hrs.</p>
+                                  <p><Moment fromNow>{post.date_created}</Moment></p>
                                 </h1>
                               </div>
                               <div className="col-2 postSettings">
