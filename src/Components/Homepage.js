@@ -31,62 +31,82 @@ const Homepage = () => {
     <>
       <NavbarLoggedIn link={userid} />
 
-      <section className="profile">
+      <section className="homepage">
         <div className="container">
-          <div className="row profileFeed">
-            <div className="col-4 info">
+          <div className="row">
+            <div className="col-4 shortcutMenu">
               <div className="row">
-                <div className="col-12 intro">
+                <div className="col-12 shortcutTile" >
                   <h1>Shortcuts</h1>
-
-                  <ul className="profSettingsDropdown">
-                    <li>
-                      <Link to={`/profile/${userid}`}>
-                        <div className="navImageCircle">
-                          <img
-                            src={profile.picpath}
-                            onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'} 
-                            alt="avatar"
-                            style={{
-                              width: "33px",
-                              height: "33px",
-                              objectFit: "cover",
-                              borderRadius: "500px",
-                            }}
-                          /> {profile.firstName} {profile.lastName}
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
+                  <div className="row">
+                    <div className="col-2 shortcutPic">
+                        <Link to={`/profile/${userid}`}>
+                            <img
+                              src={profile.picpath}
+                              onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'} 
+                              alt="avatar"
+                            /> 
+                        </Link>
+                    </div>
+                    <div className="col-10 shortcutTitle d-flex align-items-center">
+                      <Link to={`/profile/${userid}`}>{profile.firstName} {profile.lastName}</Link>
+                    </div>
+                    <div className="col-2 shortcutPic">
                       <Link to={`/friendslist/${userid}`}>
-                        <i className="bi bi-people-fill"></i>Friends List
+                        <i className="bi bi-people-fill"></i>
                       </Link>
-                    </li>
-                    <li>
+                    </div>
+                    <div className="col-10 shortcutTitle d-flex align-items-center">
+                        <Link to={`/friendslist/${userid}`}>
+                          Friends List
+                        </Link>
+                    </div>
+                    <div className="col-2 shortcutPic">
                       <Link to={`/friendrequests/${userid}`}>
-                        <i className="bi bi-person-plus-fill"></i>Friend
-                        Requests
+                        <i className="bi bi-person-plus-fill"></i>
                       </Link>
-                    </li>
-
-                    <li>
+                    </div>
+                    <div className="col-10 shortcutTitle d-flex align-items-center">
+                      <Link to={`/friendrequests/${userid}`}>
+                        Friend Requests
+                      </Link>
+                    </div>
+                    <div className="col-2 shortcutPic">
                       <Link to={`/searchpage/${userid}`}>
-                        <i className="bi bi-search"></i>Search Person
+                        <i className="bi bi-search"></i>
                       </Link>
-                    </li>
-
-                    <li>
+                    </div>
+                    <div className="col-10 shortcutTitle d-flex align-items-center">
+                      <Link to={`/searchpage/${userid}`}>
+                        Search Person
+                      </Link>
+                    </div>
+                    <div className="col-2 shortcutPic">
                       <Link to={`/settings/${userid}`}>
-                        <i className="bi bi-gear-fill"></i>Settings
+                        <i className="bi bi-gear-fill"></i>
                       </Link>
-                    </li>
-                    <li>
+                    </div>
+                    <div className="col-10 shortcutTitle d-flex align-items-center">
+                      <Link to={`/settings/${userid}`}>
+                        Settings
+                      </Link>
+                    </div>
+                    <div className="col-2 shortcutPic">
                       <Link to={"/"} onClick={logoutswal}>
-                        <i className="bi bi-person-plus-fill"></i>Logout
+                        <i className="bi bi-person-plus-fill"></i>
                       </Link>
-                    </li>
-                  </ul>
+                    </div>
+                    <div className="col-10 shortcutTitle d-flex align-items-center">
+                      <Link to={"/"} onClick={logoutswal}>
+                        Logout
+                      </Link>
+                    </div>
+                  </div>
                 </div>
+                
+
+                 
+                
               </div>
             </div>
             <div className="col-8 newsFeed">

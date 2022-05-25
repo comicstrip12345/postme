@@ -109,6 +109,10 @@ nav{
     }
     
     &.loggedIn{
+        p{
+            @include headingFontBlackStyle();
+            font-size: 3.5vh;
+        }
         nav{
             background: none;
             position: relative;
@@ -966,6 +970,49 @@ section.searchPage{
     
 }
 
+// Friends List Page
+section.friendsList{
+    .title{
+        margin-bottom: 5vh;
+
+        h1{
+            @include headingFontBoldStyleProfile();
+            font-size: 5vh;
+        }
+    }
+    .listTile{
+        margin-bottom: 4vh;
+        margin-top: 4vh;
+
+        .image{
+            img{
+                object-fit:"cover";
+                border-radius: 500px;
+                height: 15vh;
+                float: right;
+            }
+        }
+        .detail{
+            h1{
+                font-size: 3vh;
+                @include headingFontBoldStyleProfile();
+
+                a{
+                    color: $mainTextColor;
+
+                    &:hover{
+                        color:#0AA1DD;
+                    }
+                }
+            }
+            small{
+                @include contentFontBoldStyleProfile();
+                font-size: 2.5vh;
+            }
+        }
+    }
+}
+
 // Friend Request Page
 section.friendRequests{
     .title{
@@ -1384,6 +1431,342 @@ section.notifIndivPost{
         }
     }
 }
+
+// Home Page
+section.homepage{
+    margin-top: 5vh;
+
+    .shortcutMenu{
+        .shortcutTile{
+            border: 1px solid $mainTextColor;
+            border-radius: 2vh;
+            padding: 5vh;
+            padding-top: 4vh;
+            padding-bottom: 5vh;
+            width: 90%;
+    
+            h1{
+                @include headingFontBoldStyleProfile();
+                font-size: 4vh;
+                margin-bottom: 3vh;
+            }
+            .shortcutPic{
+                a{
+                    color: $mainTextColor;
+    
+                    img{
+                        width: 33px;
+                        height: 33px;
+                        object-fit: cover;
+                        border-radius: 500px;
+                    }
+                    i{
+                        font-size: 4.5vh;
+                    }
+                }
+            }
+            .shortcutTitle{
+                a{
+                    color: $mainTextColor; 
+                    @include contentFontBoldStyleProfile();
+                    font-size: 2.5vh;
+                }
+            }
+        }
+    }
+    .newsFeed{
+        .feed{
+            border: 1px solid $mainTextColor;
+            border-radius: 2vh;
+            padding: 3vh;
+            padding-top: 4vh;
+            padding-bottom: 4vh;
+            margin-bottom: 5vh;
+
+            .profImage{
+                @include circlePhoto();
+                height: 59px;
+                width: 59px;
+                margin-left: 2vh;
+            }
+            .postInput{
+                .form{
+                    button{
+                        border-top: 1px solid $mainTextColor;
+                        border-right: 1px solid $mainTextColor;
+                        border-bottom: 1px solid $mainTextColor;
+                        border-left: none;
+                        background: none;
+                        border-radius: 1vh;
+
+                        i{
+                            padding-right: 1vh;
+                            padding-left: 1vh;
+                            font-size: 3vh;
+                        }
+                        &:hover{
+                            i{
+                                color: #0AA1DD;
+                            }
+                        }
+                    }
+                }
+                input{
+                    border-top: 1px solid $mainTextColor;
+                    border-left: 1px solid $mainTextColor;
+                    border-bottom: 1px solid $mainTextColor;
+                    border-right: none;
+
+                    &:focus{
+                        outline:0px !important;
+                        -webkit-appearance:none;
+                        box-shadow: none !important;
+                    }
+                }
+                label{
+                    @include contentFontRegularStyleProfile();
+                    z-index: 10;
+                }
+            }
+        }
+        .post{
+            border: 1px solid $mainTextColor;
+            border-radius: 2vh;
+            padding: 2vh;
+            padding-top: 4vh;
+            padding-bottom: 2vh;
+            margin-bottom: 5vh;
+
+            .profImage{
+                @include circlePhoto();
+                height: 70px;
+                width: 70px;
+                margin-left: 2vh;
+            }
+            .postName{
+                padding:0;
+                
+                h1{
+                    @include headingFontBoldStyleProfile();
+                    font-size: 3vh;
+
+                    p{
+                        @include contentFontRegularStyleProfile();
+                        font-size: 2.2vh;
+                    }
+                }
+            }
+            .postSettings{
+                .dropdown{
+                    a{
+                        font-size: 3vh;
+                    }
+                    ul{
+                        li{
+                            a{
+                                color: $mainTextColor;
+                                font-size: 2.5vh;
+                            }
+                        }
+                    }
+                }
+            }
+            .postContent{
+                margin-top: 5vh;
+                padding-left: 3.4vh;
+                margin-bottom: 5vh;
+
+                p{
+                    @include contentFontRegularStyleProfile();
+                    font-size: 4vh;
+                }
+            }
+            .postMenu{
+                width: 94%;
+                margin-left: auto;
+                margin-right: auto;
+
+                .likes{
+                    .likesCount{
+                        margin-bottom: 2vh;
+                        margin-top: 2vh;
+
+                        .logo{
+                            padding: 0;
+                            height: 4vh;
+                            a{
+                                color: $mainTextColor;
+                                
+                                img{
+                                    height: 3vh;
+                                }
+                            }
+                            span{
+                                @include contentFontRegularStyleProfile();
+                                font-size: 2vh;
+                            }
+                        }
+                    }
+                    .likeButton{
+                        padding-top: 2vh;
+                        border-top: 1px solid black;
+
+                        button{
+                            border: none;
+                            background: none;
+                            @include headingFontBoldStyleProfile();
+                            font-size: 2.7vh;
+
+                            &:hover{
+                                color: #0AA1DD;
+                            }
+                        }
+                    }
+                }
+                .comment{
+                    .buttons{
+                        margin-top: 8vh;
+                        padding-top: 2vh;
+                        border-top: 1px solid black;
+
+                        button{
+                            border: none;
+                            background: none;
+                            display: block;
+                            margin-left: auto;
+                            margin-right: auto;
+
+                            p{
+                                text-align: center;
+                                @include headingFontBoldStyleProfile();
+                                font-size: 2.7vh;
+                            }
+                            &:hover{
+                                p{
+                                    color: #0AA1DD;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .comments{
+                padding-left: 3vh;
+                padding-right: 3vh;
+                position: relative;
+
+                .commentCount{
+                    margin-bottom: 2vh;
+                    position: absolute;
+                    text-align: right;
+                    right: 0;
+                    top: -11.7vh;
+                    margin-right: 2vh;
+                    z-index: -10;
+                    
+                    span{
+                        @include contentFontRegularStyleProfile();
+                        font-size: 2vh;
+                    }
+                }
+                .profPhoto{
+                    @include circlePhoto();
+                    width: 40px;
+                    height: 40px;
+                    margin-top: 2vh;
+                }
+                .commentTile{
+                    border: 1px solid $mainTextColor;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 100%;
+                    padding: 1vh;
+                    margin-bottom: 2vh;
+                    border-radius: 2vh;
+                    padding-top: 3vh;
+                    padding-bottom: 3vh;
+                    margin-top: 2vh;
+                }
+                .name{
+                    h1{
+                        @include headingFontBoldStyleProfile();
+                        font-size: 2vh;
+                        margin-bottom: 1vh;
+
+                        span{
+                            padding-left: 2vh;
+                            @include contentFontRegularStyleProfile();
+                            font-size: 1.7vh;
+                        }
+                    }
+                    p{
+                        @include contentFontRegularStyleProfile();
+                        font-size: 2.3vh;
+                        
+                    }
+                }
+                .settings{
+                    button{
+                        float: right;
+                        border: none;
+                        background: none;
+
+                        &:hover{
+                            border: 1px solid black;
+                            border-radius: 1vh;
+                        }
+                    }
+                }
+            }
+            .form{
+                margin-top: 2vh;
+                margin-bottom: 2vh;
+                padding: 0;
+                padding-left: 3vh;
+                padding-right: 3vh;
+                
+                button{
+                    border-top: 1px solid $mainTextColor;
+                    border-right: 1px solid $mainTextColor;
+                    border-bottom: 1px solid $mainTextColor;
+                    border-left: none;
+                    background: none;
+                    z-index: 10;
+                    border-radius: 2vh;
+
+                    i{
+                        font-size: 3vh;
+                        padding-right: 1vh;
+                        padding-left: 1vh;
+                    }
+                    &:hover{
+                        color: #0AA1DD;
+                    }
+                }
+                input{
+                    border-top: 1px solid $mainTextColor;
+                    border-left: 1px solid $mainTextColor;
+                    border-bottom: 1px solid $mainTextColor;
+                    border-right: none;
+
+                    &:focus{
+                        outline:0px !important;
+                        -webkit-appearance:none;
+                        box-shadow: none !important;
+                    }
+                }
+                label{
+                    @include contentFontRegularStyleProfile();
+                    padding-left: 5vh;
+                    z-index: 10;
+                }
+                }
+        }
+    }
+    
+    
+}
+
 
 // Footer Section
 footer{
