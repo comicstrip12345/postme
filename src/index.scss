@@ -195,7 +195,7 @@ nav{
         }
     }
 }
-@media all and (min-width:1200px) and (max-width:1399px){
+@media all and (min-width:1200px){
     nav{
         .home{
             p{
@@ -473,7 +473,7 @@ section.hero{
         }
     }
 }
-@media all and (min-width:1200px) and (max-width:1399px){
+@media all and (min-width:1200px){
     section.hero{
         .tagLine{
             text-align: left;
@@ -506,13 +506,15 @@ section.profile{
     margin-top: 6vh;
 
     .circlePhoto{
-        @include circlePhoto();
-        height: 160px;
-        width: 160px;
+        input[type=file]{
+            width: 100%;
+            padding-top: 4vh;
+            padding-bottom: 4vh;
+        }
     }
     .profileName{
-        padding-top: 7vh;
-        padding-bottom: 7vh;
+        padding-top: 6vh;
+        padding-bottom: 6vh;
         
         h1{
             @include headingFontBoldStyleProfile();
@@ -739,6 +741,32 @@ section.profile{
                                     font-size: 2vh;
                                 }
                             }
+                            .modal{
+                                .modal-header{
+                                    h5{
+                                        @include headingFontBoldStyleProfile();
+                                    }
+                                }
+                                .modal-body{
+                                    p{
+                                        @include contentFontRegularStyleProfile();
+                                        margin-bottom: 1.5vh;
+                                    }
+                                }
+                                .modal-footer{
+                                    button{
+                                        background-color: #0AA1DD;
+                                        border: none;
+                                        @include headingFontBoldStyle();
+
+                                        &:hover{
+                                            border: 1px solid $mainTextColor;
+                                            color: #0AA1DD;
+                                            background-color: $secondTextColor;
+                                        }
+                                    }
+                                }
+                            }
                         }
                         .likeButton{
                             padding-top: 2vh;
@@ -894,6 +922,21 @@ section.profile{
                         z-index: 10;
                     }
                     }
+            }
+        }
+    }
+    .privateProfile{
+        margin-top: 10vh;
+
+        .image{
+            img{
+                height: 30vh;
+                float: right;
+            }
+        }
+        .warning{
+            h1{
+                @include headingFontBoldStyleProfile();
             }
         }
     }
@@ -1767,6 +1810,46 @@ section.homepage{
     
 }
 
+// Error 404 Page
+section.error404{
+    background:linear-gradient(90deg,#79DAE8,#0AA1DD);
+    height: 90vh;
+    overflow: hidden;
+
+    .image{
+        img{
+            height: 80vh;
+        }
+    }
+    .warning{
+        .title{
+            margin-bottom: 4vh;
+
+            h1{
+                @include headingFontBoldStyle();
+                font-size: 7vh;
+            }
+        }
+        .content{
+            margin-bottom: 4vh;
+
+            p{
+                @include contentFontBoldStyle();
+                font-size: 3.5vh;
+            }
+        }
+        .button{
+            button{
+                background: #EDAC04;
+                border: none;
+                @include headingFontBoldStyle();
+                font-size: 2.8vh;
+                padding: 2vh;
+                border-radius: 1vh;
+            }
+        }
+    }
+}
 
 // Footer Section
 footer{
@@ -1881,7 +1964,7 @@ footer{
         }
     }
 }
-@media all and (min-width:1200px) and (max-width:1399px){
+@media all and (min-width:1200px){
     footer{
         .container{
             p{

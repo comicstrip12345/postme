@@ -120,7 +120,7 @@ nav.loggedIn nav ul li a:hover i {
   }
 }
 
-@media all and (min-width: 1200px) and (max-width: 1399px) {
+@media all and (min-width: 1200px) {
   nav .home p {
     text-align: left;
   }
@@ -451,7 +451,7 @@ section.hero .friends img {
   }
 }
 
-@media all and (min-width: 1200px) and (max-width: 1399px) {
+@media all and (min-width: 1200px) {
   section.hero .tagLine {
     text-align: left;
   }
@@ -479,16 +479,15 @@ section.profile {
   margin-top: 6vh;
 }
 
-section.profile .circlePhoto {
-  background-color: black;
-  border-radius: 20vh;
-  height: 160px;
-  width: 160px;
+section.profile .circlePhoto input[type=file] {
+  width: 100%;
+  padding-top: 4vh;
+  padding-bottom: 4vh;
 }
 
 section.profile .profileName {
-  padding-top: 7vh;
-  padding-bottom: 7vh;
+  padding-top: 6vh;
+  padding-bottom: 6vh;
 }
 
 section.profile .profileName h1 {
@@ -752,6 +751,33 @@ section.profile .profileFeed .newsFeed .post .postMenu .likes .likesCount .logo 
   font-size: 2vh;
 }
 
+section.profile .profileFeed .newsFeed .post .postMenu .likes .likesCount .modal .modal-header h5 {
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .likes .likesCount .modal .modal-body p {
+  font-family: Quicksand;
+  font-weight: 400;
+  color: black;
+  margin-bottom: 1.5vh;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .likes .likesCount .modal .modal-footer button {
+  background-color: #0AA1DD;
+  border: none;
+  font-family: Poppins;
+  font-weight: bold;
+  color: white;
+}
+
+section.profile .profileFeed .newsFeed .post .postMenu .likes .likesCount .modal .modal-footer button:hover {
+  border: 1px solid black;
+  color: #0AA1DD;
+  background-color: white;
+}
+
 section.profile .profileFeed .newsFeed .post .postMenu .likes .likeButton {
   padding-top: 2vh;
   border-top: 1px solid black;
@@ -921,6 +947,21 @@ section.profile .profileFeed .newsFeed .post .form label {
   color: black;
   padding-left: 5vh;
   z-index: 10;
+}
+
+section.profile .privateProfile {
+  margin-top: 10vh;
+}
+
+section.profile .privateProfile .image img {
+  height: 30vh;
+  float: right;
+}
+
+section.profile .privateProfile .warning h1 {
+  font-family: Poppins;
+  font-weight: bold;
+  color: black;
 }
 
 section.searchPage .form button {
@@ -1857,6 +1898,49 @@ section.homepage .newsFeed .post .form label {
   z-index: 10;
 }
 
+section.error404 {
+  background: linear-gradient(90deg, #79DAE8, #0AA1DD);
+  height: 90vh;
+  overflow: hidden;
+}
+
+section.error404 .image img {
+  height: 80vh;
+}
+
+section.error404 .warning .title {
+  margin-bottom: 4vh;
+}
+
+section.error404 .warning .title h1 {
+  font-family: Poppins;
+  font-weight: bold;
+  color: white;
+  font-size: 7vh;
+}
+
+section.error404 .warning .content {
+  margin-bottom: 4vh;
+}
+
+section.error404 .warning .content p {
+  font-family: Quicksand;
+  font-weight: bold;
+  color: white;
+  font-size: 3.5vh;
+}
+
+section.error404 .warning .button button {
+  background: #EDAC04;
+  border: none;
+  font-family: Poppins;
+  font-weight: bold;
+  color: white;
+  font-size: 2.8vh;
+  padding: 2vh;
+  border-radius: 1vh;
+}
+
 footer {
   background: linear-gradient(90deg, #79DAE8, #0AA1DD);
   position: absolute;
@@ -1949,7 +2033,7 @@ footer .container p.options a.margin {
   }
 }
 
-@media all and (min-width: 1200px) and (max-width: 1399px) {
+@media all and (min-width: 1200px) {
   footer .container p {
     padding-bottom: 2vh;
   }

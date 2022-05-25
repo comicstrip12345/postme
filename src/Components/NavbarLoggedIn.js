@@ -57,7 +57,7 @@ const NavbarLoggedIn = (props) => {
                         <li><Link to={`/friendslist/${props.link}`} className="dropdown-item"><i className="bi bi-people-fill"></i>Friends List</Link></li>
                         <li><Link to={`/friendrequests/${props.link}`} className="dropdown-item"><i className="bi bi-person-plus-fill"></i>Friend Requests</Link></li>
                         <li><Link to={`/settings/${props.link}`} className="dropdown-item"><i className="bi bi-gear-fill"></i>Settings</Link></li>
-                        <li><Link to={"/"} className="dropdown-item" onClick={logoutswal}><i className="bi bi-person-plus-fill"></i>Logout</Link></li>
+                        <li><Link to={"/login"} className="dropdown-item" onClick={logoutswal}><i className="bi bi-person-plus-fill"></i>Logout</Link></li>
                     </ul>
                 </nav>
             </div>
