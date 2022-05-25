@@ -128,14 +128,24 @@ const IndividualProfile = () => {
             <div className='container'>
                 <div className='row'>
                     <div className='col-2'>
-                        <div className='circlePhoto'>
+                        <div className='circlePhoto d-flex align-items-end'>
 
                             {
                                 !editingMode?    <img src={`${profile.picpath}`} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  style={{width:"160px", height:"160px",objectFit:"cover", borderRadius:"160px"}}  alt="profile avatar"/> :
 
                                 <>
-                                <input type="file" name="image"  accept="image/*" onChange={handleInput2}/>
-                                <input type="text" className="form-control" name="userid"  hidden value={userid} readOnly/>
+                                <div className='row'>
+                                    <div className='col-12'>
+                                        <img src={`${profile.picpath}`} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  style={{width:"160px", height:"160px",objectFit:"cover", borderRadius:"160px"}}  alt="profile avatar"/>
+                                    </div>
+                                    <div className='col-12'>
+                                    
+                                        <input type="file" name="image"  accept="image/*" onChange={handleInput2}/>
+                                        <input type="text" className="form-control" name="userid"  hidden value={userid} readOnly/>
+                                        
+                                    </div>
+                                </div>
+                                
                                 </>
                    
                             }

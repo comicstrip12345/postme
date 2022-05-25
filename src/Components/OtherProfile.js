@@ -133,9 +133,15 @@ const OtherProfile = () => {
                      </div>
                     </div>:
                  
-                    <div className='col-12 profileFeed'>
-                        <div className='row text-center pt-5 mt-5'>
-                            <h1> This Profile is Private</h1>
+                    <div className='col-12 privateProfile'>
+                        <div className='row '>
+                            <div className='col-4 image'>
+                                <img src={require("../images/lock.png")} alt="lock"/>
+                            </div>
+                            <div className='col-8 warning d-flex align-items-center'>
+                                <h1> This Profile is Private</h1>
+                            </div>
+                            
                         </div>
                     </div>}
                    
