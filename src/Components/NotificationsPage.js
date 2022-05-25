@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import NavbarLoggedIn from './NavbarLoggedIn';
 import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
+import 'moment-timezone';
 
 const NotificationsPage = () => {
     const {userid}=useParams()
@@ -46,7 +48,7 @@ const NotificationsPage = () => {
                                             <div className='col-9 p-0 d-flex align-items-center'>
                                                 <div className='notifTile'>
                                                     <p>{notif.whopostedFN} {notif.whopostedLN} <span>added a</span> {notif.notiftype} <span>on your wall</span> </p>
-                                                    <p><span>{notif.date_created}</span></p>
+                                                    <p><span><Moment fromNow>{notif.date_created}</Moment></span></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -68,7 +70,7 @@ const NotificationsPage = () => {
                                             <div className='col-9 p-0 d-flex align-items-center'>
                                                 <div className='notifTile'>
                                                     <p>{notif.whopostedFN} {notif.whopostedLN} <span>added a</span> {notif.notiftype} <span>his post on your wall</span> </p>
-                                                    <p><span>{notif.date_created}</span></p>
+                                                    <p><span><Moment fromNow>{notif.date_created}</Moment></span></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -90,7 +92,7 @@ const NotificationsPage = () => {
                                             <div className='col-9 p-0 d-flex align-items-center'>
                                                 <div className='notifTile'>
                                                     <p>{notif.whopostedFN} {notif.whopostedLN} <span>added a</span> {notif.notiftype} <span>on a post on your wall</span></p>
-                                                    <p><span>{notif.date_created}</span></p>
+                                                    <p><span><Moment fromNow>{notif.date_created}</Moment></span></p>
                                                 </div>
                                             </div>
                                         </div>
