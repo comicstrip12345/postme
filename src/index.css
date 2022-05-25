@@ -331,7 +331,6 @@ section.hero .profile .form input {
   font-family: Quicksand;
   font-weight: 400;
   color: white;
-  width: 74%;
 }
 
 section.hero .profile .form label {
@@ -339,10 +338,20 @@ section.hero .profile .form label {
   font-weight: bold;
   color: white;
   font-size: 2.2vh;
+  margin-left: 1.7vh;
 }
 
 section.hero .profile .form.image-upload input {
   border: none;
+}
+
+section.hero .profile .errorMessage p {
+  padding: 2vh;
+  font-size: 2vh;
+  font-family: Quicksand;
+  font-weight: 400;
+  color: white;
+  border-radius: 1vh;
 }
 
 section.hero .profile .submit input[type=submit] {
@@ -1049,7 +1058,7 @@ section.settings .title h1 {
 }
 
 section.settings .account .accountMenuTitle {
-  margin-bottom: 4vh;
+  margin-bottom: 6vh;
 }
 
 section.settings .account .accountMenuTitle h1 {
@@ -1073,6 +1082,16 @@ section.settings .account .edit button {
 
 section.settings .account .edit button i {
   font-size: 2.8vh;
+}
+
+section.settings .account .errorMessage p {
+  background-color: red;
+  border-radius: 1vh;
+  padding: 1.5vh;
+  font-size: 2vh;
+  font-family: Quicksand;
+  font-weight: 400;
+  color: white;
 }
 
 section.settings .account .delete {

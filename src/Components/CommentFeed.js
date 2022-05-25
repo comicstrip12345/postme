@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import CommentCountFeed from "./CommentCountFeed";
+import Moment from 'react-moment';
+import 'moment-timezone';
 
 const CommentFeed = (props) => {
   const postid = props.postid;
@@ -74,7 +76,7 @@ const CommentFeed = (props) => {
                 <div className="col-9 name">
                   <h1>
                     {comment.firstName} {comment.lastName}
-                    <span>{comment.date_created} hrs</span>
+                    <span><Moment fromNow>{comment.date_created}</Moment></span>
                   </h1>
                   <p>{comment.content}</p>
                 </div>

@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import LikeButton from "./LikeButton";
 import OtherCommentFeed from "./OtherCommentFeed";
+import Moment from 'react-moment';
+import 'moment-timezone';
 
 const OtherProfileFeedPost = (props) => {
   const profileupdater = props.profileupdater;
@@ -144,7 +146,7 @@ const OtherProfileFeedPost = (props) => {
                     &gt; {post.wallOwnerFirstName} {post.wallOwnerLastName}{" "}
                   </span>
                 )}
-                <p>{post.date_created} hrs.</p>
+                <p><Moment fromNow>{post.date_created}</Moment></p>
               </h1>
             </div>
             <div className="col-2 postSettings">

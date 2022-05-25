@@ -349,16 +349,24 @@ section.hero{
         .form{
             input{
                 @include formInputDesign();
-                width: 74%;
             }
             label{
                 @include formLabelDesign();
+                margin-left: 1.7vh;
             }
 
             &.image-upload{
                 input{
                     border: none;
                 }
+            }
+        }
+        .errorMessage{
+            p{
+                padding: 2vh;
+                font-size: 2vh;
+                @include contentFontRegularStyle();
+                border-radius: 1vh;
             }
         }
         .submit{
@@ -1023,7 +1031,7 @@ section.settings{
     }
     .account{
         .accountMenuTitle{
-            margin-bottom: 4vh;
+            margin-bottom: 6vh;
             
             h1{
                 @include headingFontBoldStyleProfile();
@@ -1044,6 +1052,15 @@ section.settings{
                 i{
                     font-size: 2.8vh;
                 }
+            }
+        }
+        .errorMessage{
+            p{
+                background-color: red;
+                border-radius: 1vh;
+                padding: 1.5vh;
+                font-size: 2vh;
+                @include contentFontRegularStyle();
             }
         }
         .delete{

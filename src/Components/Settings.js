@@ -12,17 +12,79 @@ const Settings = () => {
     const [editingEmailMode, setEditingEmailMode]=useState(false)
     const [editingUsernameMode, setEditingUsernameMode]=useState(false)
     const [editingPasswordMode, setEditingPasswordMode]=useState(false)
+    const [invalidMessage, setInvalidMessage] =useState("")
+    const [invalidUsernameMessage, setInvalidUsernameMessage] =useState("")
+    const [invalidEmailMessage, setInvalidEmailMessage] =useState("")
+    const [invalidConPWMessage, setInvalidConPWMessage] =useState("")
+    const [hiddenErrorMessage, setHiddenErrorMessage]=useState(false)
+    const [hiddenEmailErrorMessage, setHiddenEmailErrorMessage]=useState(false)
+    const [hiddenUsernameErrorMessage, setHiddenUsernameErrorMessage]=useState(false)
+    const [hiddenConPWErrorMessage, setHiddenConPWErrorMessage]=useState(false)
+    const [password, setPassword] =useState("")
     const [formInput,setFormInput] = useState({
         email:"",
         username:"",
         password:""
     });
+    let regExEmail = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+    let regExPW = /^(?=.*\d).{4,8}$/
 
-    const handleInput = (e) => {
+    const emailChecker =(e)=>{
         e.preventDefault()
-        setFormInput({...formInput,[
-            e.target.name
-        ]:e.target.value})
+        if(!regExEmail.test(e.target.value)){
+            setInvalidEmailMessage("is-invalid")
+            setHiddenEmailErrorMessage(true)
+        }
+        else{
+            setFormInput({...formInput,[
+                e.target.name
+            ]:e.target.value})
+            setInvalidEmailMessage("")
+            setHiddenEmailErrorMessage(false)
+            
+        }
+    }
+    const usernameChecker = (e)=>{
+        e.preventDefault()
+        if(e.target.value.length < 5){
+            setInvalidUsernameMessage("is-invalid")
+            setHiddenUsernameErrorMessage(true)
+        }
+        else{
+            setFormInput({...formInput,[
+                e.target.name
+            ]:e.target.value})
+            setInvalidUsernameMessage("")
+            setHiddenUsernameErrorMessage(false)
+        }
+    }
+
+    const passwordChecker =(e)=>{
+        e.preventDefault()
+        if(!regExPW.test(e.target.value)){
+            setInvalidMessage("is-invalid")
+            setHiddenErrorMessage(true)
+        }
+        else{
+            setInvalidMessage("")
+            setHiddenErrorMessage(false)
+            setPassword(e.target.value)
+        }
+    }
+    const conPWChecker =(e)=>{
+        e.preventDefault()
+        if(password !== e.target.value){
+            setInvalidConPWMessage("is-invalid")
+            setHiddenConPWErrorMessage(true)
+        }
+        else{
+            setFormInput({...formInput,[
+                e.target.name
+            ]:e.target.value})
+            setInvalidConPWMessage("")
+            setHiddenConPWErrorMessage(false)
+            console.log(formInput);
+        }
     }
     useEffect(
         ()=> {
@@ -123,11 +185,14 @@ const Settings = () => {
                                         />
                                         </>:
                                     <>
-                                        <div className='col-3 accountMenuEdit'>
+                                        <div className='col-3 accountMenuTitle'>
                                             <h1>Email:</h1>
                                         </div>
                                         <div className="col-4 form">
-                                            <input type="text" className="form-control" id="post" name="email" placeholder={axiosResult.email} onChange={handleInput}/>
+                                            <input type="text" className={`form-control ${invalidEmailMessage}`} id="post" name="email" placeholder={axiosResult.email} onChange={emailChecker}/>
+                                        </div>
+                                        <div className='col-4 errorMessage'>
+                                            {hiddenEmailErrorMessage && <p><i className="bi bi-exclamation-triangle-fill"></i> Invalid Email</p>}
                                         </div>
                                     </>
                                 }
@@ -135,7 +200,7 @@ const Settings = () => {
                                         <div className='col-1 edit'>
                                             <button onClick={editEmailHandler}><i className="bi bi-pencil-square"></i></button>
                                         </div>:
-                                        <div className='col-5 edit'>
+                                        <div className='col-1 edit'>
                                             <button onClick={saveEmailHandler}><i className="bi bi-check-lg green"></i></button>
                                             <button onClick={doneEditEmailHandler}><i className="bi bi-x-lg red"></i></button>
                                         </div>
@@ -148,11 +213,14 @@ const Settings = () => {
                                         />
                                     </>:
                                     <>
-                                        <div className='col-3 accountMenuEdit'>
+                                        <div className='col-3 accountMenuTitle'>
                                             <h1>Username:</h1>
                                         </div>
                                         <div className="col-4 form">
-                                            <input type="text" className="form-control" id="post" name="username" placeholder={axiosResult.username} onChange={handleInput}/>
+                                            <input type="text" className={`form-control ${invalidUsernameMessage}`} id="post" name="username" placeholder={axiosResult.username} onChange={usernameChecker}/>
+                                        </div>
+                                        <div className='col-4 errorMessage'>
+                                           {hiddenUsernameErrorMessage && <p><i className="bi bi-exclamation-triangle-fill"></i> Username must be 5 or more characters.</p>}
                                         </div>
                                     </>
                                 }
@@ -160,7 +228,7 @@ const Settings = () => {
                                         <div className='col-1 edit'>
                                             <button onClick={editUsernameHandler}><i className="bi bi-pencil-square"></i></button>
                                         </div>:
-                                        <div className='col-5 edit'>
+                                        <div className='col-1 edit'>
                                             <button onClick={saveUsernameHandler}><i className="bi bi-check-lg green"></i></button>
                                             <button onClick={doneEditUsernameHandler}><i className="bi bi-x-lg red"></i></button>
                                         </div>
@@ -173,22 +241,62 @@ const Settings = () => {
                                         />
                                     </>:
                                     <>
-                                        <div className='col-3 accountMenuEdit'>
+                                        <div className='col-3 accountMenuTitle'>
                                             <h1>Password:</h1>
                                         </div>
                                         <div className="col-4 form">
-                                            <input type="password" className="form-control"  name="password" id="post"  onChange={handleInput}/>
+                                            <input type="password" className={`form-control ${invalidMessage}`}  name="password" id="post"  onChange={passwordChecker}/>
                                         </div>
+                                        <div className='col-4 errorMessage'>
+                                            {hiddenErrorMessage && 
+                                            <p>
+                                            <div className='row'>
+                                                <div className='col-1 d-flex align-items-center'>
+                                                    <i className="bi bi-exclamation-triangle-fill"></i>
+                                                </div>
+                                                <div className='col-11'>
+                                                     Password must be 4-8 characters and have at least one numeric digit.
+                                                </div>
+                                            </div>
+                                            </p>
+                                           }
+                                        </div>
+                                        
                                     </>
                                 }
                                 {!editingPasswordMode?
                                         <div className='col-1 edit'>
                                             <button onClick={editPasswordHandler}><i className="bi bi-pencil-square"></i></button>
                                         </div>:
-                                        <div className='col-5 edit'>
-                                            <button onClick={savePasswordHandler}><i className="bi bi-check-lg green"></i></button>
-                                            <button onClick={doneEditPasswordHandler}><i className="bi bi-x-lg red"></i></button>
-                                        </div>
+                                        <>
+                                            <div className='col-1 edit'>
+                                                <button onClick={savePasswordHandler}><i className="bi bi-check-lg green"></i></button>
+                                                <button onClick={doneEditPasswordHandler}><i className="bi bi-x-lg red"></i></button>
+                                            </div>
+                                            <div className='col-3 accountMenuTitle'>
+                                                <h1>Confirm Password:</h1>
+                                            </div>
+                                            <div className="col-4 form">
+                                                <input type="password" className={`form-control ${invalidConPWMessage}`}  name="password" id="post"  onChange={conPWChecker}/>
+                                            </div>
+                                            <div className='col-4 errorMessage'>
+                                                
+                                                {hiddenConPWErrorMessage && 
+                                                <p>
+                                                    <div className='row'>
+                                                        <div className='col-1 d-flex align-items-center'>
+                                                            <i className="bi bi-exclamation-triangle-fill"></i>
+                                                        </div>
+                                                        <div className='col-11'>
+                                                            Passwords do not match
+                                                        </div>
+                                                    </div>
+                                                </p>
+                                            }
+                                            </div>
+                                        </>
+                                        
+                                        
                                 }    
                                      
                                         
