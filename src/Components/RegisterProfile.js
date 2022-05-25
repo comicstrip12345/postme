@@ -1,4 +1,4 @@
-import React, {useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import { Fade } from 'react-reveal'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
@@ -17,6 +17,8 @@ const RegisterProfile = () => {
         city:"",
         birthday:"",
     });
+    const [userId,setUserId]=useState("")
+    const [feed,setFeed]=useState(false)
 
 
     const handleInput = (e) => {
@@ -50,22 +52,32 @@ const RegisterProfile = () => {
         
         axios.post("https://serserserver.herokuapp.com/registeraddtl",
           formData,config).then((response)=> {
-            console.log(response)
-           
-
+   
             if(response.status===200){
         
                 const id = response["data"]["result"]["0"]["userid"];
-                swal("Details added", "You have successfully added additional details", "success")
-                 navigate(`/homepage/${id}`)
+                setUserId(id)
+                setFeed(true)
             } 
 
         }).catch(error => {
             console.log(error);
         })
-        
-
     }
+
+    useEffect(()=>{
+        axios.post("https://serserserver.herokuapp.com/addselffeed",{userid:userId},).then((response)=> {
+            console.log(response)
+            if(response.status===200 && response["data"]["array"]!=null){
+                swal("Details added", "You have successfully added additional details", "success")
+                navigate(`/homepage/${userId}`)
+            }
+
+        }).catch(error => {
+            console.log(error);
+        })
+    },[feed])
+
 
     
     return (

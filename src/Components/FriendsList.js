@@ -10,13 +10,24 @@ const FriendsList = () => {
 
     const {userid} = useParams();
     const [friends,setFriends] = useState([]);
+    const [noFriend,setNoFriend]=useState(false)
 
     useEffect(() => {
         axios.post("https://serserserver.herokuapp.com/flfeed",{
              userid:userid,
         }).then((response)=> {
-            console.log(response);
-            setFriends(response["data"]["array"])
+
+
+            console.log(response)
+
+            if(response["data"]["array"].length===0){
+                setNoFriend("No Friends Yet")
+            } 
+
+            else{
+                setFriends(response["data"]["array"])
+            }
+            
         })
       
     }, [userid])
@@ -34,12 +45,12 @@ const FriendsList = () => {
                             <h1>Friends List</h1>    
                         </div>
                         <div className='row'>
+                        {noFriend&& <span>{noFriend}</span>}
                         {friends.map((profile,index)=> (
                                 <Fade key={index}>
                                     <div className='col-4' >
                                         <div className='row listTile'>
                                             <div className='col-4 image'>
-                                                {/* container ng image sa future */}
                                                 <img src={profile.picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="avatar" style={{}}/>
                                             </div>
                                             <div className='col-8 detail d-flex align-items-center'>

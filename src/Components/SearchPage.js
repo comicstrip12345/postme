@@ -11,6 +11,7 @@ const SearchPage = () => {
     const {currentuserid} = useParams();
     const [search,setSearch] = useState();
     const [profiles,setProfiles]=useState([]);
+    const [noResultContent,setNoResultContent]=useState(false)
 
     const searchHandler = () => {
         axios.post("https://serserserver.herokuapp.com/search",{
@@ -18,12 +19,17 @@ const SearchPage = () => {
         }).then((response)=> {
             console.log(response);
 
-            if(response.status===200){
+            if(response["data"]["result"].length===0){
+                setNoResultContent(true)
+              }
+
+            else {
                 setProfiles(response["data"]["result"])
+                setNoResultContent(false)
             } 
         })
-        console.log(`${search}`)
     }
+
 
     return (
         <>
@@ -40,13 +46,15 @@ const SearchPage = () => {
                                 <button onClick={searchHandler}><i className="bi bi-search"></i></button>
                             </div>
                         </div>
+                        {noResultContent && 
+                        <span><p>No Search Results</p></span> }
+
                         {profiles.map((profile,index)=> (
                                 <Fade>
                                     <div className='col-4'>
                                         <div className='row searchTile' key={index}>
                                             <div className='col-3 image'>
-                                                {/* container ng image sa future */}
-                                                <img src={profile.picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="avatar" style={{width:"100px",height:"100px",objectFit:"cover",borderRadius:"500px"}}/>
+                                                <img src={profile.picpath || "https://eng.asu.edu.eg/img/user.png"}  onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}   alt="avatar" style={{width:"100px",height:"100px",objectFit:"cover",borderRadius:"100px"}}/>
                                             </div>
                                             <div className='col-9 detail d-flex align-items-center'>
                                                 <h1>

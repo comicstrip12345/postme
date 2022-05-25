@@ -33,22 +33,20 @@ const HomepageFeedPost = (props) => {
         })
         .then((response) => {
             console.log(response);
-            setPosts(response["data"]["array"]);
-            setNoPostContent(false)
 
-            // if(response["data"]["array"].length===0){
-            //   setNoPostContent(true)
-            // }
+            if(response["data"]["array"].length===0){
+              setNoPostContent(true)
+            }
 
-            // else if(response["data"]["issue"]==="no friends"){
-            //   setNoPostContent(false)
-            //   setPosts(response["data"]["array"]);
-            // }
+            else if(response["data"]["issue"]==="no friends"){
+              setNoPostContent(false)
+              setPosts(response["data"]["array"]);
+            }
 
-            // else{
-            //   setPosts(response["data"]["array"]);
-            //   setNoPostContent(false)
-            // }
+            else{
+              setPosts(response["data"]["array"]);
+              setNoPostContent(false)
+            }
            ;
         });
     
@@ -141,7 +139,7 @@ const HomepageFeedPost = (props) => {
             <div className="col-8 postName d-flex align-items-center">
               <h1>
                
-                {post.wallid !== post.userid ? 
+                {/* {post.wallid !== post.userid ? 
                   <span>
                     <Link to={`/profile/${post.wallid}/${post.userid}`}>{post.firstName} {post.lastName}</Link>
                     {" "}
@@ -150,6 +148,51 @@ const HomepageFeedPost = (props) => {
 
                   <span>
                   <Link to={`/profile/${post.userid}`}>{post.firstName} {post.lastName}</Link>
+                  </span>
+                } */}
+
+                {(post.wallid === post.userid) && (post.userid == userid) ? 
+                  <span>
+                   <Link to={`/profile/${post.userid}`}>{post.firstName} {post.lastName}</Link>
+                  </span> :
+
+                  <span>
+                  
+                  </span>
+                }
+
+                {(post.wallid === post.userid) && (post.userid != userid) ? 
+                  <span>
+                   <Link to={`/profile/${userid}/${post.userid}`}>{post.firstName} {post.lastName}</Link>
+                  </span> :
+
+                  <span>
+                  
+                  </span>
+                }
+
+                
+                {(post.wallid !== post.userid) && (post.wallid == userid) ? 
+                  <span>
+                    <Link to={`/profile/${post.wallid}/${post.userid}`}>{post.firstName} {post.lastName}</Link>
+                    {" "}
+                    &gt; <Link to={`/profile/${post.wallid}`}>{post.wallOwnerFirstName} {post.wallOwnerLastName}{" "}</Link>
+                  </span> :
+
+                  <span>
+                  
+                  </span>
+                }
+
+                {(post.wallid !== post.userid) && (post.wallid != userid) ? 
+                  <span>
+                    <Link to={`/profile/${userid}/${post.userid}`}>{post.firstName} {post.lastName}</Link>
+                    {" "}
+                    &gt; <Link to={`/profile/${userid}/${post.wallid}`}>{post.wallOwnerFirstName} {post.wallOwnerLastName}{" "}</Link>
+                  </span> :
+
+                  <span>
+                  
                   </span>
                 }
 
