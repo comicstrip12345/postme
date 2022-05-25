@@ -52,7 +52,9 @@ const LikeFeed = (props) => {
                 <div className="modal-body">
                     {likes.map((like,index)=> (
                       <div className="row" key={index}>
-                          {like.firstName} {like.lastName}
+                          <div className="col-12">
+                            <p>{like.firstName} {like.lastName}</p>
+                          </div>
                       </div>
                     ))}
                 </div>
