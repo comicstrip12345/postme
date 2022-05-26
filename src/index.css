@@ -26,6 +26,14 @@ nav .home p {
   padding-bottom: 2vh;
 }
 
+nav .home p a {
+  color: white;
+}
+
+nav .home p a:hover {
+  color: #f3e9e9;
+}
+
 nav .forms p {
   font-family: Poppins;
   font-weight: 900;

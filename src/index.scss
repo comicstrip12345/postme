@@ -95,6 +95,14 @@ nav{
             text-align: center;
             padding-top: 2vh;
             padding-bottom: 2vh;
+
+            a{
+                color: $secondTextColor;
+
+                &:hover{
+                    color: rgb(243, 233, 233);
+                }
+            }
         }
     }
     .forms{
