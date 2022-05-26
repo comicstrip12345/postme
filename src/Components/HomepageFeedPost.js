@@ -123,7 +123,15 @@ const HomepageFeedPost = (props) => {
   return (
     <>
       {noPostContent && 
-      <span><p>You have no posts to see in the homepage yet. Start posting or <Link to={`/searchpage/${userid}`}>search for your friends</Link> to see their posts! </p></span> }
+      <>
+        <div className="col-12 noPostImage">
+          <img src={require("../images/user.png")} alt="user"/>
+        </div>
+        <div className="col-12 noPostContent">
+          <p>You have no posts to see in the homepage yet. Start posting or <Link to={`/searchpage/${userid}`}>search for your friends</Link> to see their posts! </p>
+        </div>
+      </>
+      }
       {posts.map((post, index) => (
         <div className="col-12 post" key={index}>
           <div className="row">

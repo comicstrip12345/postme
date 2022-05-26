@@ -21,7 +21,7 @@ const FriendsList = () => {
             console.log(response)
 
             if(response["data"]["array"].length===0){
-                setNoFriend("No Friends Yet")
+                setNoFriend("You have no friends yet. Go find someone.")
             } 
 
             else{
@@ -42,33 +42,42 @@ const FriendsList = () => {
                 <div className='container'>
                     <div className='row pt-5'>
                         <div className='col-12 title'>
-                            <h1>Friends List</h1>    
-                        </div>
-                        <div className='row'>
-                        {noFriend&& <span>{noFriend}</span>}
-                        {friends.map((profile,index)=> (
-                                <Fade key={index}>
-                                    <div className='col-4' >
-                                        <div className='row listTile'>
-                                            <div className='col-4 image'>
-                                                <img src={profile.picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="avatar" style={{}}/>
-                                            </div>
-                                            <div className='col-8 detail d-flex align-items-center'>
-                                                <h1>
-                                                    <Link to={`/profile/${userid}/${profile.friendid}`}>{profile.firstName} {profile.lastName}<br/>
-                                                    <small className='text-muted'> {profile.city} </small> <br />
-                                                    <small className='text-muted'> {profile.nickname} </small> 
-                                                    <small className='text-muted'> {profile.birthday} </small>
-                                                    </Link> 
-                                                </h1>
+                            <h1>Friends List</h1>   
+                            <div className='row'>
+                            {noFriend&&
+                            <>
+                                <div className='col-6 noFriendsImage'>
+                                    <img src={require("../images/friend-search.png")} alt="friend-search"/>
+                                </div> 
+                                <div className='col-6 noFriendsContent d-flex align-items-center'>
+                                <p>{noFriend}</p>
+                                </div> 
+                                
+                            </>
+                            }
+                            {friends.map((profile,index)=> (
+                                    <Fade key={index}>
+                                        <div className='col-4' >
+                                            <div className='row listTile'>
+                                                <div className='col-4 image'>
+                                                    <img src={profile.picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="avatar" style={{}}/>
+                                                </div>
+                                                <div className='col-8 detail d-flex align-items-center'>
+                                                    <h1>
+                                                        <Link to={`/profile/${userid}/${profile.friendid}`}>{profile.firstName} {profile.lastName}<br/>
+                                                        <small className='text-muted'> {profile.city} </small> <br />
+                                                        <small className='text-muted'> {profile.nickname} </small> 
+                                                        <small className='text-muted'> {profile.birthday} </small>
+                                                        </Link> 
+                                                    </h1>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </Fade>
-                            ))
-                        }
+                                    </Fade>
+                                ))
+                            }
+                            </div>
                         </div>
-                        
                     </div>
                 </div>
             </section>

@@ -987,8 +987,10 @@ section.searchPage{
 
         .image{
             img{
-                height: 70px;
+                height: 100px;
                 float: right;
+                object-fit: cover;
+                border-radius: 100px;
             }
         }
         .detail{
@@ -1010,7 +1012,25 @@ section.searchPage{
             }
         }
     }
-    
+    .noSearchImage{
+        margin-top: 5vh;
+
+        img{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 40vh;
+        }
+    }
+    .noSearchContent{
+        margin-top: 4vh;
+        
+        p{
+            text-align: center;
+            @include contentFontBoldStyleProfile();
+            font-size: 4vh;
+        }
+    }
 }
 
 // Friends List Page
@@ -1052,6 +1072,21 @@ section.friendsList{
                 @include contentFontBoldStyleProfile();
                 font-size: 2.5vh;
             }
+        }
+    }
+    .noFriendsImage{
+        margin-top: 5vh;
+
+        img{
+            height: 60vh;
+            display: block;
+            margin-left: auto;
+        }
+    }
+    .noFriendsContent{
+        p{
+            @include contentFontBoldStyleProfile();
+            font-size: 3.5vh;
         }
     }
 }
@@ -1103,6 +1138,21 @@ section.friendRequests{
                     }
                 }
             }
+        }
+    }
+    .noFriendRequest{
+        margin-top: 5vh;
+        
+        img{
+            display: block;
+            margin-left: auto;
+            height: 60vh;
+        }
+    }
+    .noFriendRequestContent{
+        p{
+            @include contentFontBoldStyleProfile();
+            font-size: 3.5vh;
         }
     }
 }
@@ -1804,6 +1854,26 @@ section.homepage{
                     z-index: 10;
                 }
                 }
+        }
+        .noPostImage{
+            margin-top: 3vh;
+            img{
+                height: 30vh;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+        }
+        .noPostContent{
+            width: 35vw;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 3vh;
+            p{
+                @include contentFontBoldStyleProfile();
+                text-align: center;
+            }
         }
     }
     
