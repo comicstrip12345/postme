@@ -5,6 +5,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import LikeButton from "./LikeButton";
 import Moment from 'react-moment';
 import 'moment-timezone';
+import { Link } from "react-router-dom";
 
 const ProfileFeedPost = (props) => {
   const profileupdater = props.profileupdater;
@@ -105,6 +106,7 @@ const ProfileFeedPost = (props) => {
 
   return (
     <>
+      {posts.length===0 && <span> You have no posts yet! </span>}
       {posts.map((post, index) => (
         <div className="col-12 post" key={index}>
           <div className="row">
@@ -119,13 +121,32 @@ const ProfileFeedPost = (props) => {
             </div>
             <div className="col-8 postName d-flex align-items-center">
               <h1>
-                {post.firstName} {post.lastName}
-                {post.wallid !== post.userid && (
+
+                {/* eslint-disable-next-line  */}
+              {(post.wallid === post.userid) && (post.userid == id) ? 
                   <span>
-                    {" "}
-                    &gt; {post.wallOwnerFirstName} {post.wallOwnerLastName}{" "}
+                   <Link to={`/profile/${post.userid}`}>{post.firstName} {post.lastName}</Link>
+                  </span> :
+
+                  <span>
+                  
                   </span>
-                )}
+                }
+
+                {/* eslint-disable-next-line  */}     
+                {(post.wallid !== post.userid) && (post.wallid == id) ? 
+                  <span>
+                    <Link to={`/profile/${post.wallid}/${post.userid}`}>{post.firstName} {post.lastName}</Link>
+                    {" "}
+                    &gt; <Link to={`/profile/${post.wallid}`}>{post.wallOwnerFirstName} {post.wallOwnerLastName}{" "}</Link>
+                  </span> :
+
+                  <span>
+                  
+                  </span>
+                }
+
+
                 <p><Moment fromNow>{post.date_created}</Moment></p>
               </h1>
             </div>

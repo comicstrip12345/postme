@@ -4,6 +4,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import CommentCountFeed from "./CommentCountFeed";
 import Moment from 'react-moment';
 import 'moment-timezone';
+import { Link } from "react-router-dom";
 
 const CommentFeed = (props) => {
   const postid = props.postid;
@@ -20,6 +21,7 @@ const CommentFeed = (props) => {
         postid: postid,
       })
       .then((response) => {
+        console.log(response)
         setComments(response["data"]["array"]);
       });
   }, [counter, commentUpdater, postid]);
@@ -75,7 +77,18 @@ const CommentFeed = (props) => {
               <div className="row  commentTile">
                 <div className="col-9 name">
                   <h1>
-                    {comment.firstName} {comment.lastName}
+                    {/* eslint-disable-next-line  */}
+                    {comment.id==id? 
+                    <Link to={`/profile/${id}`}> {comment.firstName} {comment.lastName} </Link> :
+                    <span> </span>
+                    }
+
+                    {/* eslint-disable-next-line  */}
+                   {comment.id!=id? 
+                    <Link to={`/profile/${id}/${comment.id}`}> {comment.firstName} {comment.lastName} </Link> :
+                    <span> </span>
+                    }
+                    
                     <span><Moment fromNow>{comment.date_created}</Moment></span>
                   </h1>
                   <p>{comment.content}</p>

@@ -25,8 +25,6 @@ const LikeButton = (props) => {
     )
 
     const likeHandler = () => {
-
-    
         console.log(`${commentorid}  ${postid}`)
          axios.post("https://serserserver.herokuapp.com/addlike",{
                 userid:commentorid,
@@ -34,9 +32,22 @@ const LikeButton = (props) => {
             }).then((response)=> {
                 console.log(response)
                 setLike(true)
+                addLikeNotif()
                 setLikeCounter(likeCounter+1)
             })
     }
+
+    
+    const addLikeNotif = () => {
+        axios.post("https://serserserver.herokuapp.com/newlikenotif",{
+            userid:commentorid,
+            postid:postid,
+        }).then((response)=> {
+            console.log(response)
+        })
+    }
+
+
 
     const unlikeHandler = () => {
         console.log(`${commentorid}  ${postid}`)
@@ -46,8 +57,18 @@ const LikeButton = (props) => {
            }).then((response)=> {
                console.log(response)
                setLike(false)
+               deleteLikeNotif()
                setLikeCounter(likeCounter+1)
            })
+    }
+
+    const deleteLikeNotif = () => {
+        axios.post("https://serserserver.herokuapp.com/deletelikenotif",{
+            userid:commentorid,
+            postid:postid,
+        }).then((response)=> {
+            console.log(response)
+        })
     }
 
     return (

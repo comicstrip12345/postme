@@ -12,6 +12,8 @@ const FriendRequests = () => {
     const [profiles, setProfiles] = useState([]);
     const [pageUpdater, setPageUpdater]=useState(1)
     const [noFr, setNoFr]=useState(false)
+    const [addFriendNotif,setAddFriendNotif]=useState(1)
+    const [friendidd,setFriendidd]=useState()
     
     useEffect(
         ()=> {
@@ -56,12 +58,32 @@ const FriendRequests = () => {
 
         }).then((res)=> {
             if(res.status===200){
+                
+                setFriendidd(friendid)
+                setAddFriendNotif(addFriendNotif+1)
                 swal("Added", "You are now friends", "success"); 
-                setPageUpdater(pageUpdater+1)
+               
                 
             }
         })
     }
+
+    useEffect(()=>{
+
+        axios.post("https://serserserver.herokuapp.com/addfriendnotif", {
+            userid:userid,
+            friendid:friendidd
+
+        }).then((res)=> {
+            if(res.status===200){
+                setPageUpdater(pageUpdater+1)
+                
+
+                
+            }
+        })
+
+    },[addFriendNotif])
 
     return (
         <>
