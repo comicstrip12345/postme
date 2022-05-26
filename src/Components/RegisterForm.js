@@ -204,7 +204,7 @@ const RegisterForm = () => {
                         <input type="submit" onClick={register}/>
                     </div>
                     <div className='col-6'>
-                        <Link to="/login"><p>Already have an account? Sign in here</p></Link>
+                        <p>Already have an account? <Link to="/login">Sign in</Link> here</p>
                     </div>
                 </div>
             </div>

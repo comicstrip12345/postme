@@ -1,13 +1,13 @@
 import React from 'react'
 import RegisterForm from './RegisterForm'
-import NavbarForm from './NavbarForm'
+import NavbarNotLoggedIn from './NavbarNotLoggedIn'
 import Footer from './Footer'
 
 
 const HeroRegisterForm = () => {
     return (
         <>  
-            <NavbarForm/>
+            <NavbarNotLoggedIn/>
             <section className='hero'>
                 <div className='container'>
                     <div className='row'>
