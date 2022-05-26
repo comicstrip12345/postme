@@ -17,6 +17,7 @@ import NotifIndivPost from './Components/NotifIndivPost';
 import FriendsList from './Components/FriendsList';
 import Homepage from './Components/Homepage';
 import NotFound404 from './Components/NotFound404';
+import NotifIndivOtherPost from './Components/NotifIndivOtherPost';
 
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
                 <Route path='/settings/:userid' element={<Settings/>}></Route>
                 <Route path='/notifications/:userid' element={<NotificationsPage/>}></Route>
                 <Route path='/indivpost/:userid/:postid' element={<NotifIndivPost/>}></Route>
+                <Route path='/indivotherpost/:userid/:wallid/:postid' element={<NotifIndivOtherPost/>}></Route>
                 <Route path='/friendslist/:userid' element={<FriendsList/>}></Route>
                 <Route path='/homepage/:userid' element={<Homepage/>}></Route>
                 <Route path='/*' element={<NotFound404/>}></Route>

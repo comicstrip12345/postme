@@ -5,6 +5,7 @@ import LikeButton from "./LikeButton";
 import OtherCommentFeed from "./OtherCommentFeed";
 import Moment from 'react-moment';
 import 'moment-timezone';
+import { Link } from "react-router-dom";
 
 const OtherProfileFeedPost = (props) => {
   const profileupdater = props.profileupdater;
@@ -31,7 +32,7 @@ const OtherProfileFeedPost = (props) => {
     axios
       .post("https://serserserver.herokuapp.com/postfeed", {
         userid: id,
-      })
+      } )
       .then((response) => {
         console.log(response)
         setPosts(response["data"]["array"]);
@@ -126,6 +127,7 @@ const OtherProfileFeedPost = (props) => {
 
   return (
     <>
+      {posts.length===0 && <span>This user has no posts yet</span>}
       {posts.map((post, index) => (
         <div className="col-12 post" key={index}>
           <div className="row">
@@ -139,13 +141,46 @@ const OtherProfileFeedPost = (props) => {
             </div>
             <div className="col-8 postName d-flex align-items-center">
               <h1>
-                {post.firstName} {post.lastName}
-                {post.wallid !== post.userid && (
+                {/* eslint-disable-next-line  */}
+              {(post.wallid === post.userid)? 
                   <span>
-                    {" "}
-                    &gt; {post.wallOwnerFirstName} {post.wallOwnerLastName}{" "}
+                   <Link to={`/profile/${commentorid}/${post.userid}`}>{post.firstName} {post.lastName} </Link>
+                  </span> :
+
+                  <span>
+                  
                   </span>
-                )}
+                }
+
+
+                {/* eslint-disable-next-line  */}
+                {(post.wallid !== post.userid) && (post.userid != commentorid) ? 
+                  <span>
+                    <Link to={`/profile/${commentorid}/${post.userid}`}>{post.firstName} {post.lastName}</Link>
+                    {" "}
+                    &gt; <Link to={`/profile/${commentorid}/${post.wallid}`}>{post.wallOwnerFirstName} {post.wallOwnerLastName}{" "}</Link>
+                  </span> :
+
+                  <span>
+                  
+                  </span>
+                }
+
+                {/* eslint-disable-next-line  */}
+                {(post.wallid !== post.userid) && (post.userid == commentorid) ? 
+                  <span>
+                    <Link to={`/profile/${commentorid}`}>{post.firstName} {post.lastName}</Link>
+                    {" "}
+                    &gt; <Link to={`/profile/${commentorid}/${post.wallid}`}>{post.wallOwnerFirstName} {post.wallOwnerLastName}{" "}</Link>
+                  </span> :
+
+                  <span>
+                  
+                  </span>
+                }
+
+
+
                 <p><Moment fromNow>{post.date_created}</Moment></p>
               </h1>
             </div>

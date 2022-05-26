@@ -19,6 +19,22 @@ const NotificationsPage = () => {
             });
         }, []);
 
+
+    useEffect(() => {
+      
+    
+      return () => {
+        console.log("exit")
+
+        axios
+            .post("https://serserserver.herokuapp.com/notifreset",{userid:userid})
+            .then((response) => {
+                console.log(response)
+            });
+      }
+    }, [])
+    
+
     return (
         <>
             <NavbarLoggedIn
@@ -42,34 +58,12 @@ const NotificationsPage = () => {
                                             </div>
                                             <div className='col-2 p-0'>
                                                 <div className='circlePhoto'>
-                                                    <img src={notif.ownerpicpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="avatar" style={{width:"70px",height:"70px",objectFit:"cover",borderRadius:"500px"}}/>
+                                                    <img src={notif.ownerpicpath } onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="avatar" style={{width:"70px",height:"70px",objectFit:"cover",borderRadius:"500px"}}/>
                                                 </div>
                                             </div>
                                             <div className='col-9 p-0 d-flex align-items-center'>
                                                 <div className='notifTile'>
                                                     <p>{notif.whopostedFN} {notif.whopostedLN} <span>added a</span> {notif.notiftype} <span>on your wall</span> </p>
-                                                    <p><span><Moment fromNow>{notif.date_created}</Moment></span></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div></Link> : <></>}
-
-                                     {/* eslint-disable-next-line */}
-                                     {notif.new_comment==="1" && notif.notiftype==="post" && notif.userid==userid? 
-                                    <Link to={`/indivpost/${userid}/${notif.postid}`}><div className='col-12 notif'>
-                                        <div className='row'>
-                                            <div className='col-1 p-0 d-flex align-items-center'>
-                                                <div className='blueDot'>
-                                                </div>
-                                            </div>
-                                            <div className='col-2 p-0'>
-                                            <div className='circlePhoto'>
-                                            <img src={notif.wallownerpicpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="avatar" style={{width:"70px",height:"70px",objectFit:"cover",borderRadius:"500px"}}/>
-                                                </div>
-                                            </div>
-                                            <div className='col-9 p-0 d-flex align-items-center'>
-                                                <div className='notifTile'>
-                                                    <p>{notif.whopostedFN} {notif.whopostedLN} <span>added a</span> {notif.notiftype} <span>his post on your wall</span> </p>
                                                     <p><span><Moment fromNow>{notif.date_created}</Moment></span></p>
                                                 </div>
                                             </div>
@@ -97,6 +91,95 @@ const NotificationsPage = () => {
                                             </div>
                                         </div>
                                     </div></Link> : <></>}
+
+                                     {/* eslint-disable-next-line */}
+                                     {notif.new_comment==="1" && notif.notiftype==="friends"? 
+                                    <Link to={`/profile/${notif.notifreceiverid}/${notif.notifsenderid}`}><div className='col-12 notif'>
+                                        <div className='row'>
+                                            <div className='col-1 p-0 d-flex align-items-center'>
+                                                <div className='blueDot'>
+                                                </div>
+                                            </div>
+                                            <div className='col-2 p-0'>
+                                                <div className='circlePhoto'>
+                                                <img src={notif.ownerpicpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="avatar" style={{width:"70px",height:"70px",objectFit:"cover",borderRadius:"500px"}}/>
+                                                </div>
+                                            </div>
+                                            <div className='col-9 p-0 d-flex align-items-center'>
+                                                <div className='notifTile'>
+                                                    <p>   <span>You are now </span> {notif.notiftype} <span> with </span> {notif.senderFN} {notif.senderLN}</p>
+                                                    <p><span><Moment fromNow>{notif.date_created}</Moment></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div></Link> : <></>}
+
+
+                                    {/* eslint-disable-next-line */}
+                                    {notif.new_comment==="1" && notif.notiftype==="comment" && notif.userid==userid && notif.wallid!=userid? 
+                                    <Link to={`/indivotherpost/${userid}/${notif.wallid}/${notif.postid}`}><div className='col-12 notif'>
+                                        <div className='row'>
+                                            <div className='col-1 p-0 d-flex align-items-center'>
+                                                <div className='blueDot'>
+                                                </div>
+                                            </div>
+                                            <div className='col-2 p-0'>
+                                                <div className='circlePhoto'>
+                                                <img src={notif.ownerpicpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="avatar" style={{width:"70px",height:"70px",objectFit:"cover",borderRadius:"500px"}}/>
+                                                </div>
+                                            </div>
+                                            <div className='col-9 p-0 d-flex align-items-center'>
+                                                <div className='notifTile'>
+                                                    <p><span>There is a</span> {notif.notiftype} <span>your post on {notif.whosewallFN} {notif.whosewallLN}'s wall</span></p>
+                                                    <p><span><Moment fromNow>{notif.date_created}</Moment></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div></Link> : <></>}
+
+                                    {/* eslint-disable-next-line */}
+                                     {notif.new_comment==="1" && notif.notiftype==="like" && notif.userid==userid && notif.wallid==userid? 
+                                    <Link to={`/indivpost/${userid}/${notif.postid}`}><div className='col-12 notif'>
+                                        <div className='row'>
+                                            <div className='col-1 p-0 d-flex align-items-center'>
+                                                <div className='blueDot'>
+                                                </div>
+                                            </div>
+                                            <div className='col-2 p-0'>
+                                                <div className='circlePhoto'>
+                                                <img src={notif.ownerpicpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="avatar" style={{width:"70px",height:"70px",objectFit:"cover",borderRadius:"500px"}}/>
+                                                </div>
+                                            </div>
+                                            <div className='col-9 p-0 d-flex align-items-center'>
+                                                <div className='notifTile'>
+                                                    <p><span>There is a</span> {notif.notiftype} <span>on your post</span></p>
+                                                    <p><span><Moment fromNow>{notif.date_created}</Moment></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div></Link> : <></>}
+
+                                    {/* eslint-disable-next-line */}
+                                     {notif.new_comment==="1" && notif.notiftype==="like" && notif.userid==userid && notif.wallid!=userid? 
+                                    <Link to={`/indivotherpost/${userid}/${notif.wallid}/${notif.postid}`}><div className='col-12 notif'>
+                                        <div className='row'>
+                                            <div className='col-1 p-0 d-flex align-items-center'>
+                                                <div className='blueDot'>
+                                                </div>
+                                            </div>
+                                            <div className='col-2 p-0'>
+                                                <div className='circlePhoto'>
+                                                <img src={notif.ownerpicpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="avatar" style={{width:"70px",height:"70px",objectFit:"cover",borderRadius:"500px"}}/>
+                                                </div>
+                                            </div>
+                                            <div className='col-9 p-0 d-flex align-items-center'>
+                                                <div className='notifTile'>
+                                                    <p><span>There is a</span> {notif.notiftype} <span>on your post</span></p>
+                                                    <p><span><Moment fromNow>{notif.date_created}</Moment></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div></Link> : <></>}
                                 </div> 
                                 ))
                             } 
@@ -112,12 +195,13 @@ const NotificationsPage = () => {
                                         <div className='row'>
                                             <div className='col-2'>
                                                 <div className='circlePhoto'>
-                                                <img src={notif.wallownerpicpath} alt="avatar" style={{width:"70px",height:"70px",objectFit:"cover",borderRadius:"500px"}}/>
+                                                <img src={notif.wallownerpicpath || "https://eng.asu.edu.eg/img/user.png" } onError={(e) => e.target.src = "https://eng.asu.edu.eg/img/user.png"}  alt="avatar" style={{width:"70px",height:"70px",objectFit:"cover",borderRadius:"500px"}}/>
                                                 </div>
                                             </div>
                                             <div className='col-10 p-0 d-flex align-items-center'>
                                                 <div className='notifTile'>
                                                     <p>{notif.whopostedFN} {notif.whopostedLN} <span>added a</span> {notif.notiftype} <span>on your wall</span></p>
+                                                    <p><span><Moment fromNow>{notif.date_created}</Moment></span></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -129,12 +213,13 @@ const NotificationsPage = () => {
                                         <div className='row'>
                                             <div className='col-2'>
                                                 <div className='circlePhoto'>
-
+                                                <img src={notif.ownerpicpath || "https://eng.asu.edu.eg/img/user.png" } onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="avatar" style={{width:"70px",height:"70px",objectFit:"cover",borderRadius:"500px"}}/>
                                                 </div>
                                             </div>
                                             <div className='col-10 p-0 d-flex align-items-center'>
                                                 <div className='notifTile'>
                                                     <p>{notif.whopostedFN} {notif.whopostedLN} <span>added a</span> {notif.notiftype} <span>on a post on your wall</span></p>
+                                                    <p><span><Moment fromNow>{notif.date_created}</Moment></span></p>
                                                 </div>
                                             </div>
                                         </div>

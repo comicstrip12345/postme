@@ -9,8 +9,9 @@ import Moment from 'react-moment';
 import 'moment-timezone';
 
 
-const NotifIndivPost = () => {
+const NotifIndivOtherPost = () => {
     const {userid} = useParams();
+    const {wallid} = useParams();
     const {postid} = useParams();
     const [notifPost,setNotifPost] = useState([])
 
@@ -24,7 +25,7 @@ const NotifIndivPost = () => {
     
     useEffect(() => {
         axios
-            .post("https://serserserver.herokuapp.com/postfeed",{userid: userid})
+            .post("https://serserserver.herokuapp.com/postfeed",{userid: wallid})
             .then((response) => {
                 console.log(response)
                 setNotifPost(response["data"]["array"])
@@ -126,31 +127,18 @@ const NotifIndivPost = () => {
                               </div>
                               <div className="col-8 postName d-flex align-items-center">
                                 <h1>
-
-                                   {/* eslint-disable-next-line  */}     
-                                    {(post.wallid === post.userid) && (post.wallid == userid) ? 
+                                     {/* eslint-disable-next-line  */}     
+                                     {(post.wallid !== post.userid) && (post.wallid != userid) ? 
                                       <span>
-                                        <Link to={`/profile/${post.wallid}`}>{post.wallOwnerFirstName} {post.wallOwnerLastName}{" "}</Link>
-                                      </span> :
-
-                                      <span>
-                                        
-                                      </span>
-                                    }
-
-                                    {/* eslint-disable-next-line  */}     
-                                    {(post.wallid !== post.userid) && (post.wallid == userid) ? 
-                                      <span>
-                                        <Link to={`/profile/${post.wallid}/${post.userid}`}>{post.firstName} {post.lastName}</Link>
+                                        <Link to={`/profile/${post.userid}`}>{post.firstName} {post.lastName}</Link>
                                         {" "}
-                                        &gt; <Link to={`/profile/${post.wallid}`}>{post.wallOwnerFirstName} {post.wallOwnerLastName}{" "}</Link>
+                                        &gt; <Link to={`/profile/${post.userid}/${post.wallid}`}>{post.wallOwnerFirstName} {post.wallOwnerLastName}{" "}</Link>
                                       </span> :
 
                                       <span>
-                                        
+                                      
                                       </span>
                                     }
-                                  
                                   
                                   <p><Moment fromNow>{post.date_created}</Moment></p>
                                 </h1>
@@ -293,4 +281,4 @@ const NotifIndivPost = () => {
     )
 }
 
-export default NotifIndivPost
+export default NotifIndivOtherPost
