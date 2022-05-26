@@ -45,28 +45,40 @@ const SearchPage = () => {
                                 <label htmlFor="searchPage">Search someone</label>
                                 <button onClick={searchHandler}><i className="bi bi-search"></i></button>
                             </div>
-                        </div>
-                        {noResultContent && 
-                        <span><p>No Search Results</p></span> }
-
-                        {profiles.map((profile,index)=> (
-                                <Fade>
-                                    <div className='col-4'>
-                                        <div className='row searchTile' key={index}>
-                                            <div className='col-3 image'>
-                                                <img src={profile.picpath || "https://eng.asu.edu.eg/img/user.png"}  onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}   alt="avatar" style={{width:"100px",height:"100px",objectFit:"cover",borderRadius:"100px"}}/>
-                                            </div>
-                                            <div className='col-9 detail d-flex align-items-center'>
-                                                <h1>
-                                                    <Link to={`/profile/${currentuserid}/${profile.userid}`}>{profile.firstName} {profile.lastName}</Link> <br/>
-                                                    <small className='text-muted'>from {profile.city} </small>
-                                                </h1>
+                            <div className='row'>
+                                {noResultContent &&
+                                <>
+                                    <div className='col-12 noSearchImage'>
+                                        <img src={require("../images/search.png")} alt="search"/>
+                                    </div>
+                                    <div className='col-12 noSearchContent'>
+                                        <p>No Search Results</p>
+                                    </div>
+                                </>
+                                }
+                                {profiles.map((profile,index)=> (
+                                    <Fade>
+                                        <div className='col-4'>
+                                            <div className='row searchTile' key={index}>
+                                                <div className='col-4 image'>
+                                                    <img src={profile.picpath || "https://eng.asu.edu.eg/img/user.png"}  onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}   alt="avatar"/>
+                                                </div>
+                                                <div className='col-8 detail d-flex align-items-center'>
+                                                    <h1>
+                                                        <Link to={`/profile/${currentuserid}/${profile.userid}`}>{profile.firstName} {profile.lastName}</Link> <br/>
+                                                        <small className='text-muted'>from {profile.city} </small>
+                                                    </h1>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </Fade>
-                            ))
-                        }
+                                    </Fade>
+                                ))
+                                }
+                            </div>
+                        </div>
+                        
+
+                        
                     </div>
                 </div>
             </section>

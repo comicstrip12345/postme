@@ -1012,8 +1012,10 @@ section.searchPage .searchTile {
 }
 
 section.searchPage .searchTile .image img {
-  height: 70px;
+  height: 100px;
   float: right;
+  object-fit: cover;
+  border-radius: 100px;
 }
 
 section.searchPage .searchTile .detail h1 {
@@ -1036,6 +1038,29 @@ section.searchPage .searchTile .detail small {
   font-weight: bold;
   color: black;
   font-size: 2.5vh;
+}
+
+section.searchPage .noSearchImage {
+  margin-top: 5vh;
+}
+
+section.searchPage .noSearchImage img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40vh;
+}
+
+section.searchPage .noSearchContent {
+  margin-top: 4vh;
+}
+
+section.searchPage .noSearchContent p {
+  text-align: center;
+  font-family: Quicksand;
+  font-weight: bold;
+  color: black;
+  font-size: 4vh;
 }
 
 section.friendsList .title {
@@ -1081,6 +1106,23 @@ section.friendsList .listTile .detail small {
   font-weight: bold;
   color: black;
   font-size: 2.5vh;
+}
+
+section.friendsList .noFriendsImage {
+  margin-top: 5vh;
+}
+
+section.friendsList .noFriendsImage img {
+  height: 60vh;
+  display: block;
+  margin-left: auto;
+}
+
+section.friendsList .noFriendsContent p {
+  font-family: Quicksand;
+  font-weight: bold;
+  color: black;
+  font-size: 3.5vh;
 }
 
 section.friendRequests .title {
@@ -1135,6 +1177,23 @@ section.friendRequests .friendsProfile .friendsDetail button i.green {
 
 section.friendRequests .friendsProfile .friendsDetail button i.red {
   color: red;
+}
+
+section.friendRequests .noFriendRequest {
+  margin-top: 5vh;
+}
+
+section.friendRequests .noFriendRequest img {
+  display: block;
+  margin-left: auto;
+  height: 60vh;
+}
+
+section.friendRequests .noFriendRequestContent p {
+  font-family: Quicksand;
+  font-weight: bold;
+  color: black;
+  font-size: 3.5vh;
 }
 
 section.settings .title {
@@ -1896,6 +1955,31 @@ section.homepage .newsFeed .post .form label {
   color: black;
   padding-left: 5vh;
   z-index: 10;
+}
+
+section.homepage .newsFeed .noPostImage {
+  margin-top: 3vh;
+}
+
+section.homepage .newsFeed .noPostImage img {
+  height: 30vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section.homepage .newsFeed .noPostContent {
+  width: 35vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3vh;
+}
+
+section.homepage .newsFeed .noPostContent p {
+  font-family: Quicksand;
+  font-weight: bold;
+  color: black;
+  text-align: center;
 }
 
 section.error404 {
