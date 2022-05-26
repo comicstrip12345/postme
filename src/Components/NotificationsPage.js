@@ -93,7 +93,7 @@ const NotificationsPage = () => {
                                     </div></Link> : <></>}
 
                                      {/* eslint-disable-next-line */}
-                                     {notif.new_comment==="1" && notif.notiftype==="friends"? 
+                                     {notif.new_comment==="1" && notif.notiftype==="friends" && notif.notifreceiverid==userid? 
                                     <Link to={`/profile/${notif.notifreceiverid}/${notif.notifsenderid}`}><div className='col-12 notif'>
                                         <div className='row'>
                                             <div className='col-1 p-0 d-flex align-items-center'>
