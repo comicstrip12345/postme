@@ -41,9 +41,10 @@ const FriendRequests = () => {
             requestid:requestid
         }).then((res)=> {
             if(res.status===200){
+                setPageUpdater(pageUpdater+1)
                 console.log(res)
                 swal("Request rejected", "You have rejected this user's friend request", "info"); 
-                setPageUpdater(pageUpdater+1)
+                
             }
         })
     }
@@ -51,6 +52,8 @@ const FriendRequests = () => {
     const acceptRequestHandler = (e) => {
         const friendid = e.target.id
         console.log(`${friendid} ${userid}`)
+        setFriendidd(friendid)
+        
 
         axios.post("https://serserserver.herokuapp.com/addfriend", {
             userid:userid,
@@ -58,12 +61,12 @@ const FriendRequests = () => {
 
         }).then((res)=> {
             if(res.status===200){
+                console.log(res)
                 
-                setFriendidd(friendid)
-                setAddFriendNotif(addFriendNotif+1)
                 swal("Added", "You are now friends", "success"); 
+                setPageUpdater(pageUpdater+1)
+                setAddFriendNotif(addFriendNotif+1)
                
-                
             }
         })
     }
@@ -76,7 +79,7 @@ const FriendRequests = () => {
 
         }).then((res)=> {
             if(res.status===200){
-                setPageUpdater(pageUpdater+1)
+                console.log(res)
                 
             }
         })
@@ -87,10 +90,12 @@ const FriendRequests = () => {
 
         }).then((res)=> {
             if(res.status===200){
-                setPageUpdater(pageUpdater+1)
-                
+               
+                console.log(res)
             }
         })
+
+        setPageUpdater(pageUpdater+1)
 
     },[addFriendNotif])
 
