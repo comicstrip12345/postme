@@ -71,7 +71,7 @@ const NotificationsPage = () => {
                                     </div></Link> : <></>}
 
                                     {/* eslint-disable-next-line */}
-                                    {notif.new_comment==="1" && notif.notiftype==="comment" && notif.wallid==userid? 
+                                    {notif.new_comment==="1" && notif.notiftype==="comment" && notif.wallid==userid && notif.notifsenderid!=userid?
                                     <Link to={`/indivpost/${userid}/${notif.postid}`}><div className='col-12 notif'>
                                         <div className='row'>
                                             <div className='col-1 p-0 d-flex align-items-center'>
@@ -85,7 +85,7 @@ const NotificationsPage = () => {
                                             </div>
                                             <div className='col-9 p-0 d-flex align-items-center'>
                                                 <div className='notifTile'>
-                                                    <p>{notif.whopostedFN} {notif.whopostedLN} <span>added a</span> {notif.notiftype} <span>on a post on your wall</span></p>
+                                                    <p>{notif.senderFN} {notif.senderLN} <span>added a</span> {notif.notiftype} <span>on a post on your wall</span></p>
                                                     <p><span><Moment fromNow>{notif.date_created}</Moment></span></p>
                                                 </div>
                                             </div>
@@ -102,7 +102,7 @@ const NotificationsPage = () => {
                                             </div>
                                             <div className='col-2 p-0'>
                                                 <div className='circlePhoto'>
-                                                <img src={notif.ownerpicpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="avatar" style={{width:"70px",height:"70px",objectFit:"cover",borderRadius:"500px"}}/>
+                                                <img src={notif.sendernamepicpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="avatar" style={{width:"70px",height:"70px",objectFit:"cover",borderRadius:"500px"}}/>
                                                 </div>
                                             </div>
                                             <div className='col-9 p-0 d-flex align-items-center'>

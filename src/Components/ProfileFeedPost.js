@@ -22,7 +22,9 @@ const ProfileFeedPost = (props) => {
 
     const [commentInput,setCommentInput] = useState("");
 
-
+    const [notifTrigger, setNotifTrigger] = useState(false);
+    const [commentIdAdded, setCommentIdAdded] = useState([]);
+    const [postOwner, setPostOwner] = useState([]);
     
     useEffect(() => {
         axios
@@ -97,11 +99,31 @@ const ProfileFeedPost = (props) => {
         axios.post("https://serserserver.herokuapp.com/addcomment", data ).then((res)=> {
                     if(res.status===200){
                         console.log(res)
-                        setCounter(counter + 1)
+                      
+                        setCommentIdAdded(res["data"]["array"]["insertId"])
+                        setPostOwner(postid)
+                        setNotifTrigger(true)
+
                         setCommentInput("")
+                        setCounter(counter + 1)
                     }
                 }) 
     }
+
+    useEffect(() => {
+      axios
+        .post("https://serserserver.herokuapp.com/newcommentnotif", {
+          userid: id,
+          commentid: commentIdAdded,
+          postid: postOwner,
+          notiftype: "comment",
+        })
+        .then((response) => {
+          console.log(response);
+        });
+  
+    // eslint-disable-next-line
+    }, [notifTrigger]);
 
 
   return (

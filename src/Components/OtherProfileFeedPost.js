@@ -25,6 +25,7 @@ const OtherProfileFeedPost = (props) => {
 
   const [commentInput, setCommentInput] = useState();
   const ownerpicpath=props.ownerpicpath
+  const [postUserId,setPostUserId]=useState()
 
 
 
@@ -89,6 +90,9 @@ const OtherProfileFeedPost = (props) => {
   const writeComment = (e) => {
     e.preventDefault();
     const postid = e.target.id;
+    const postuserid=e.target.name;
+    console.log(postuserid)
+    setPostUserId(postuserid)
     const data = {
       userid: commentorid,
       postid: postid,
@@ -113,7 +117,7 @@ const OtherProfileFeedPost = (props) => {
     axios
       .post("https://serserserver.herokuapp.com/newcommentnotif", {
         userid: commentorid,
-        commentid: commentIdAdded,
+        commentid: postUserId,
         postid: postOwner,
         notiftype: "comment",
       })
@@ -321,7 +325,7 @@ const OtherProfileFeedPost = (props) => {
                   />
                   <label htmlFor="post">Write a comment</label>
                   <button onClick={writeComment}>
-                    <i className="bi bi-send" id={post.postid}></i>
+                    <i className="bi bi-send" id={post.postid} name={post.userid}></i>
                   </button>
                 </div>
               )}
