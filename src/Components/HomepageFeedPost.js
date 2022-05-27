@@ -24,6 +24,10 @@ const HomepageFeedPost = (props) => {
     const [commentInput,setCommentInput] = useState("");
     const [noPostContent,setNoPostContent]=useState(false)
 
+    const [notifTrigger, setNotifTrigger] = useState(false);
+    const [commentIdAdded, setCommentIdAdded] = useState([]);
+    const [postOwner, setPostOwner] = useState([]);
+
 
     
     useEffect(() => {
@@ -113,11 +117,32 @@ const HomepageFeedPost = (props) => {
         axios.post("https://serserserver.herokuapp.com/addcomment", data ).then((res)=> {
                     if(res.status===200){
                         console.log(res)
+
+                        setCommentIdAdded(res["data"]["array"]["insertId"])
+                        setPostOwner(postid)
+                        setNotifTrigger(true)
+
                         setCounter(counter + 1)
                         setCommentInput("")
                     }
                 }) 
     }
+
+    useEffect(() => {
+      axios
+        .post("https://serserserver.herokuapp.com/newcommentnotif", {
+          userid: id,
+          commentid: commentIdAdded,
+          postid: postOwner,
+          notiftype: "comment",
+        })
+        .then((response) => {
+          console.log(response);
+        });
+  
+    // eslint-disable-next-line
+    }, [notifTrigger]);
+
 
 
   return (
@@ -159,6 +184,7 @@ const HomepageFeedPost = (props) => {
                   </span>
                 } */}
 
+                {/* eslint-disable-next-line */}
                 {(post.wallid === post.userid) && (post.userid == userid) ? 
                   <span>
                    <Link to={`/profile/${post.userid}`}>{post.firstName} {post.lastName}</Link>
@@ -169,6 +195,7 @@ const HomepageFeedPost = (props) => {
                   </span>
                 }
 
+                {/* eslint-disable-next-line */}
                 {(post.wallid === post.userid) && (post.userid != userid) ? 
                   <span>
                    <Link to={`/profile/${userid}/${post.userid}`}>{post.firstName} {post.lastName}</Link>
@@ -179,7 +206,7 @@ const HomepageFeedPost = (props) => {
                   </span>
                 }
 
-                
+                {/* eslint-disable-next-line */}
                 {(post.wallid !== post.userid) && (post.wallid == userid) ? 
                   <span>
                     <Link to={`/profile/${post.wallid}/${post.userid}`}>{post.firstName} {post.lastName}</Link>
@@ -192,6 +219,7 @@ const HomepageFeedPost = (props) => {
                   </span>
                 }
 
+                {/* eslint-disable-next-line */}
                 {(post.wallid !== post.userid) && (post.wallid != userid) ? 
                   <span>
                     <Link to={`/profile/${userid}/${post.userid}`}>{post.firstName} {post.lastName}</Link>

@@ -78,7 +78,16 @@ const FriendRequests = () => {
             if(res.status===200){
                 setPageUpdater(pageUpdater+1)
                 
+            }
+        })
 
+        axios.post("https://serserserver.herokuapp.com/addfriendfeed", {
+            userid:userid,
+            friendid:friendidd
+
+        }).then((res)=> {
+            if(res.status===200){
+                setPageUpdater(pageUpdater+1)
                 
             }
         })

@@ -22,6 +22,10 @@ const NotifIndivOtherPost = () => {
     });
 
     const [commentInput,setCommentInput] = useState("");
+
+    const [notifTrigger, setNotifTrigger] = useState(false);
+    const [commentIdAdded, setCommentIdAdded] = useState([]);
+    const [postOwner, setPostOwner] = useState([]);
     
     useEffect(() => {
         axios
@@ -95,11 +99,35 @@ const NotifIndivOtherPost = () => {
             axios.post("https://serserserver.herokuapp.com/addcomment", data ).then((res)=> {
                         if(res.status===200){
                             console.log(res)
+                                              
+                        setCommentIdAdded(res["data"]["array"]["insertId"])
+                        setPostOwner(postid)
+                        setNotifTrigger(true)
+
                             setCounter(counter + 1)
                             setCommentInput("")
                         }
                     }) 
         }
+
+        useEffect(() => {
+          axios
+            .post("https://serserserver.herokuapp.com/newcommentnotif", {
+              userid: userid,
+              commentid: commentIdAdded,
+              postid: postOwner,
+              notiftype: "comment",
+            })
+            .then((response) => {
+              console.log(response);
+            });
+      
+        // eslint-disable-next-line
+        }, [notifTrigger]);
+
+        
+
+
     
     return (
         // 

@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 import swal from 'sweetalert'; 
 
+
 const NavbarLoggedIn = (props) => {
     
     const [notif,setNotifs] = useState([]);
     const userid=props.link
     const [profile, setProfile] = useState([]);
+    const [notifFetcher,setNotifFetcher]=useState(1)
 
     useEffect(()=>{
         axios
@@ -24,8 +26,15 @@ const NavbarLoggedIn = (props) => {
                         setProfile(id)
                     }
                 }) 
-  
-    },[userid])
+                
+    },[userid,notifFetcher])
+
+   
+    setTimeout(() => {
+        setNotifFetcher(notifFetcher+1)
+    }, 15000)
+
+   
 
     const logoutswal = () => {
         swal("Logged out", "We will miss you!", "info"); 
@@ -35,8 +44,14 @@ const NavbarLoggedIn = (props) => {
     const postnotifs = notif.filter(item => item.notiftype === 'post' && item.new_comment ==='1' && item.wallid==userid );
 
      // eslint-disable-next-line
+    const friendnotifs = notif.filter(item => item.notiftype === 'friends' && item.new_comment ==='1' && item.notifreceiverid==userid );
+
+     // eslint-disable-next-line
     const commentnotifs = notif.filter(item => item.notiftype === 'comment' && item.new_comment ==='1' && item.wallid==userid );
-    const notifcount = postnotifs.length + commentnotifs.length;
+    const notifcount = postnotifs.length + commentnotifs.length +friendnotifs.length;
+
+    
+
 
 
     return (
