@@ -34,7 +34,7 @@ const Homepage = () => {
       <section className="homepage">
         <div className="container">
           <div className="row">
-            <div className="col-4">
+            <div className="col-xl-4 shortcut">
               <div className="row">
                 <div className="col-3 shortcutMenu">
                   <div className="row">
@@ -109,7 +109,7 @@ const Homepage = () => {
                 </div>
               </div>
             </div>
-            <div className="col-8 newsFeed">
+            <div className="col-12 col-xl-8 newsFeed">
               <div className="row">
                 <HomepageFeedSettings
                   userid={`${userid}`}

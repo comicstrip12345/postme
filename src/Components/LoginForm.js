@@ -50,7 +50,7 @@ const LoginForm = () => {
 
     return (
         <Fade right>
-            <div className='col-6 loginForm'>
+            <div className='col-12 col-xl-6 loginForm'>
                 <h1>Sign In</h1>
                 <div className="form-floating mb-3 form">
                     <input type="text" className="form-control" id="floatingUsername" placeholder="text" onChange={(e)=> setUsernameLogin(e.target.value)}/>
@@ -62,10 +62,10 @@ const LoginForm = () => {
                 </div>
                 <div className='submit'>
                     <div className='row'>
-                        <div className='col-3'>
+                        <div className='col-12 col-xl-3'>
                             <input type="submit" onClick={login}/>
                         </div>
-                        <div className='col-6'>
+                        <div className='col-12 col-xl-6'>
                             <p>New to postme? <Link to="/register">Sign Up</Link> to join.</p>
                         </div>
                     </div>

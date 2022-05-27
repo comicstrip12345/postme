@@ -61,11 +61,29 @@ const NavbarLoggedIn = (props) => {
                 <nav className='nav'>
                     <Link to={`/searchpage/${props.link}`}><i className="bi bi-search"></i></Link>
                     <Link to={`/notifications/${props.link}`}><i className="bi bi-bell"></i> <span  style={{color:'white',fontSize:'15px'}}>{notifcount}</span></Link>
-                    <a className='' href='/#' role="button" id="profileSettings" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a className='profilePh' href='/#' role="button" id="profileSettings" data-bs-toggle="dropdown" aria-expanded="false">
                         <div className='navImageCircle'>
                             <img src={profile.picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="avatar" style={{width:"33px",height:"33px",objectFit:"cover",borderRadius:"500px"}}/>
                         </div>
                     </a>
+                    <div className='hamburger'>
+                            <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><span><i className="bi bi-list"></i></span></button>
+                        </div>
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasRightLabel"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                        <ul>
+                        <li><Link to={`/profile/${props.link}`} className="dropdown-item"><i className="bi bi-person-fill"></i>Your Profile</Link></li>
+                        <li><Link to={`/friendslist/${props.link}`} className="dropdown-item"><i className="bi bi-people-fill"></i>Friends List</Link></li>
+                        <li><Link to={`/friendrequests/${props.link}`} className="dropdown-item"><i className="bi bi-person-plus-fill"></i>Friend Requests</Link></li>
+                        <li><Link to={`/settings/${props.link}`} className="dropdown-item"><i className="bi bi-gear-fill"></i>Settings</Link></li>
+                        <li><Link to={"/login"} className="dropdown-item" onClick={logoutswal}><i className="bi bi-person-plus-fill"></i>Logout</Link></li>
+                    </ul>
+                        </div>
+                    </div>
                     
                     <ul className='dropdown-menu dropdown-menu-end profSettingsDropdown' aria-labelledby='profileSettings'>
                         <li><Link to={`/profile/${props.link}`} className="dropdown-item"><i className="bi bi-person-fill"></i>Your Profile</Link></li>
