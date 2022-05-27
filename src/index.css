@@ -58,11 +58,43 @@ nav.loggedIn nav {
 }
 
 nav.loggedIn nav .navImageCircle {
+  display: none;
   background-color: black;
   border-radius: 20vh;
   height: 33px;
   width: 33px;
   margin-left: 2vh;
+}
+
+nav.loggedIn nav .hamburger {
+  margin-left: 2vh;
+}
+
+nav.loggedIn nav .hamburger button {
+  background: none;
+  border: none;
+}
+
+nav.loggedIn nav .hamburger button i {
+  font-size: 4vh;
+  color: white;
+}
+
+nav.loggedIn nav .offcanvas {
+  width: 75%;
+  background-color: #0AA1DD;
+}
+
+nav.loggedIn nav .offcanvas ul li {
+  color: white;
+}
+
+nav.loggedIn nav .offcanvas ul li a {
+  color: white;
+}
+
+nav.loggedIn nav .offcanvas ul li a i {
+  color: white;
 }
 
 nav.loggedIn nav a {
@@ -76,6 +108,10 @@ nav.loggedIn nav a i {
 
 nav.loggedIn nav a:hover i {
   color: black;
+}
+
+nav.loggedIn nav a.profilePh {
+  display: none;
 }
 
 nav.loggedIn nav ul {
@@ -132,6 +168,15 @@ nav.loggedIn nav ul li a:hover i {
   nav .home p {
     text-align: left;
   }
+  nav.loggedIn nav .navImageCircle {
+    display: block;
+  }
+  nav.loggedIn nav .hamburger {
+    display: none;
+  }
+  nav.loggedIn nav a.profilePh {
+    display: block;
+  }
 }
 
 section.hero {
@@ -180,6 +225,7 @@ section.hero .signUpForm h1 {
   font-size: 5vh;
   margin-bottom: 4vh;
   margin-top: 3vh;
+  text-align: center;
 }
 
 section.hero .signUpForm .form input {
@@ -276,6 +322,7 @@ section.hero .loginForm h1 {
   font-size: 5vh;
   margin-bottom: 4vh;
   margin-top: 10vh;
+  text-align: center;
 }
 
 section.hero .loginForm .form input {
@@ -286,6 +333,8 @@ section.hero .loginForm .form input {
   font-weight: 400;
   color: white;
   width: 74%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 section.hero .loginForm .form label {
@@ -293,6 +342,9 @@ section.hero .loginForm .form label {
   font-weight: bold;
   color: white;
   font-size: 2.2vh;
+  width: 100%;
+  display: block;
+  text-align: center;
 }
 
 section.hero .loginForm .submit input {
@@ -304,6 +356,9 @@ section.hero .loginForm .submit input {
   padding: 1.5vh;
   border-radius: 1vh;
   margin-top: 1vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 section.hero .loginForm .submit p {
@@ -314,7 +369,7 @@ section.hero .loginForm .submit p {
   font-weight: 400;
   color: white;
   font-size: 2vh;
-  float: right;
+  text-align: center;
 }
 
 section.hero .loginForm .submit p a {
@@ -327,6 +382,7 @@ section.hero .loginForm .submit p a {
 section.hero .loginForm .errorMessage {
   padding-top: 4vh;
   padding-bottom: 4vh;
+  text-align: center;
 }
 
 section.hero .loginForm .errorMessage p {
@@ -405,6 +461,34 @@ section.hero .profile .submit input[type=submit] {
 
 section.hero .friends img {
   height: 20vh;
+}
+
+section.hero .friendPhoto {
+  display: none;
+}
+
+@media all and (max-width: 540px) {
+  section.hero .signUpForm .form input {
+    background: transparent;
+    border: 1px solid white;
+    height: 9vh;
+    font-family: Quicksand;
+    font-weight: 400;
+    color: white;
+    width: 74%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 7vh;
+  }
+  section.hero .signUpForm .form label {
+    font-family: Quicksand;
+    font-weight: bold;
+    color: white;
+    font-size: 2.2vh;
+    font-size: 2vh;
+    padding-top: 1.3vh;
+    padding-bottom: 1.3vh;
+  }
 }
 
 @media all and (min-width: 540px) and (max-height: 720px) {
@@ -503,6 +587,43 @@ section.hero .friends img {
     margin-left: auto;
     margin-right: auto;
     margin-top: 6vh;
+  }
+  section.hero .loginForm h1 {
+    text-align: left;
+  }
+  section.hero .loginForm .form input {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  section.hero .loginForm .form label {
+    font-family: Quicksand;
+    font-weight: bold;
+    color: white;
+    font-size: 2.2vh;
+    width: 100%;
+    display: inline;
+    text-align: left;
+  }
+  section.hero .loginForm .submit input {
+    display: inline;
+  }
+  section.hero .loginForm .submit p {
+    float: right;
+  }
+  section.hero .loginForm .errorMessage {
+    text-align: left;
+  }
+  section.hero .signUpForm h1 {
+    text-align: left;
+  }
+  section.hero .friendPhoto {
+    display: block;
+  }
+  section.hero .friendPhoto img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 70vh;
   }
 }
 
@@ -1658,6 +1779,10 @@ section.homepage {
   margin-top: 5vh;
 }
 
+section.homepage .shortcut {
+  display: none;
+}
+
 section.homepage .shortcutMenu {
   position: fixed;
 }
@@ -1724,11 +1849,14 @@ section.homepage .newsFeed .feed {
 }
 
 section.homepage .newsFeed .feed .profImage {
-  background-color: black;
-  border-radius: 20vh;
-  height: 59px;
-  width: 59px;
   margin-left: 2vh;
+}
+
+section.homepage .newsFeed .feed .profImage img {
+  width: 59px;
+  height: 59px;
+  object-fit: cover;
+  border-radius: 59px;
 }
 
 section.homepage .newsFeed .feed .postInput .form button {
@@ -1780,11 +1908,14 @@ section.homepage .newsFeed .post {
 }
 
 section.homepage .newsFeed .post .profImage {
-  background-color: black;
-  border-radius: 20vh;
-  height: 70px;
-  width: 70px;
   margin-left: 2vh;
+}
+
+section.homepage .newsFeed .post .profImage img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 70px;
 }
 
 section.homepage .newsFeed .post .postName {
@@ -2052,6 +2183,28 @@ section.homepage .newsFeed .noPostContent p {
   font-weight: bold;
   color: black;
   text-align: center;
+}
+
+@media all and (max-width: 575px) {
+  section.homepage .newsFeed .feed .profImage {
+    margin-left: 0;
+  }
+  section.homepage .newsFeed .feed .postInput .form input {
+    height: 9vh;
+  }
+  section.homepage .newsFeed .post .profImage {
+    margin-left: 0;
+  }
+  section.homepage .newsFeed .post .profImage img {
+    width: 59px;
+    height: 59px;
+  }
+}
+
+@media all and (min-width: 1200px) {
+  section.homepage .shortcut {
+    display: block;
+  }
 }
 
 section.error404 {

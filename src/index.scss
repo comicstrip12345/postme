@@ -126,10 +126,38 @@ nav{
             position: relative;
 
             .navImageCircle{
+                display: none;
                 @include circlePhoto();
                 height: 33px;
                 width: 33px;
                 margin-left: 2vh;
+            }
+            .hamburger{
+                margin-left: 2vh;
+                button{
+                    background: none;
+                    border:none;
+                    i{
+                        font-size: 4vh;
+                        color: white;
+                    }
+                }
+                
+            }
+            .offcanvas{
+                width: 75%;
+                background-color: #0AA1DD;
+                ul{
+                    li{
+                        color:white;
+                        a{
+                            color:white;
+                            i{
+                                color:white;
+                            }
+                        }
+                    }
+                }
             }
             a{
                 margin-left: 4vh;
@@ -143,6 +171,9 @@ nav{
                         color: black;
                     }
                 }
+            }
+            a.profilePh{
+                display: none;
             }
             ul{
                 padding-bottom: 2vh;
@@ -176,6 +207,7 @@ nav{
         
     }
 }
+
 @media all and (min-width:576px) and (max-width:767px) and (orientation:landscape){
     nav{
         .home{
@@ -209,6 +241,20 @@ nav{
             p{
                 text-align: left;
             }
+        }
+        &.loggedIn{
+            nav{
+                .navImageCircle{
+                    display: block;
+                }
+                .hamburger{
+                    display:none;
+                }
+                a.profilePh{
+                    display: block;
+                }
+            }
+            
         }
     }
 }
@@ -249,6 +295,7 @@ section.hero{
         h1{
             @include formHeadingDesign();
             margin-top: 3vh;
+            text-align: center;
         }
         .form{
             input{
@@ -319,19 +366,28 @@ section.hero{
         h1{
             @include formHeadingDesign();
             margin-top: 10vh;
+            text-align: center;
         }
         .form{
             input{
                 @include formInputDesign();
                 width: 74%;
+                margin-left: auto;
+                margin-right: auto;
             }
             label{
                 @include formLabelDesign();
+                width: 100%;
+                display: block;
+                text-align: center;
             }
         }
         .submit{
             input{
                 @include formSubmitDesign();
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
             }
             p{
                 padding-top: 2.5vh;
@@ -339,7 +395,7 @@ section.hero{
                 margin-bottom: 0;
                 @include contentFontRegularStyle();
                 font-size: 2vh;
-                float: right;
+                text-align: center;
 
                 a{
                     color: white;
@@ -350,6 +406,7 @@ section.hero{
         .errorMessage{
             padding-top: 4vh;
             padding-bottom: 4vh;
+            text-align: center;
 
             p{
                 display: inline;
@@ -409,6 +466,30 @@ section.hero{
     .friends{
         img{
             height: 20vh;
+        }
+    }
+    .friendPhoto{
+        display: none;
+    }
+}
+@media all and (max-width:540px){
+    section.hero{
+        .signUpForm{
+            .form{
+                input{
+                    @include formInputDesign();
+                    width: 74%;
+                    margin-left: auto;
+                    margin-right: auto;
+                    height: 7vh;
+                }
+                label{
+                    @include formLabelDesign();
+                    font-size: 2vh;
+                    padding-top: 1.3vh;
+                    padding-bottom: 1.3vh;
+                }
+            }
         }
     }
 }
@@ -523,6 +604,49 @@ section.hero{
                 margin-left: auto;
                 margin-right: auto;
                 margin-top: 6vh;
+            }
+        }
+        .loginForm{
+            h1{
+                text-align: left;
+            }
+            .form{
+                input{
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+                label{
+                    @include formLabelDesign();
+                    width: 100%;
+                    display: inline;
+                    text-align: left;
+                }
+            }
+            .submit{
+                input{
+                    display: inline;
+                }
+                p{
+                    float: right;
+                }
+            }
+            .errorMessage{
+                text-align: left;
+            }
+        }
+        .signUpForm{
+            h1{
+                text-align: left;
+            }
+        }
+        .friendPhoto{
+            display: block;
+            
+            img{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                height: 70vh;
             }
         }
     }
@@ -1575,7 +1699,10 @@ section.notifIndivPost{
 // Home Page
 section.homepage{
     margin-top: 5vh;
-
+    
+    .shortcut{
+        display: none;
+    }
     .shortcutMenu{
         position: fixed;
 
@@ -1634,9 +1761,12 @@ section.homepage{
             margin-bottom: 5vh;
 
             .profImage{
-                @include circlePhoto();
-                height: 59px;
-                width: 59px;
+                img{
+                    width: 59px;
+                    height: 59px;
+                    object-fit: cover;
+                    border-radius: 59px;
+                }
                 margin-left: 2vh;
             }
             .postInput{
@@ -1688,10 +1818,14 @@ section.homepage{
             margin-bottom: 5vh;
 
             .profImage{
-                @include circlePhoto();
-                height: 70px;
-                width: 70px;
                 margin-left: 2vh;
+                
+                img{
+                    width: 70px;
+                    height: 70px;
+                    object-fit: cover;
+                    border-radius: 70px;
+                }
             }
             .postName{
                 padding:0;
@@ -1934,7 +2068,41 @@ section.homepage{
         }
     }
     
-    
+    @media all and (max-width:575px){
+        .newsFeed{
+            .feed{
+                .profImage{
+                    margin-left: 0;
+                    // img{
+                    //     height: 45px;
+                    //     width: 45px;
+                    // }
+                }
+                .postInput{
+                    .form{
+                        input{
+                            height: 9vh;
+                        }
+                    }
+                }
+            }
+            .post{
+                .profImage{
+                    margin-left: 0;
+
+                    img{
+                        width: 59px;
+                        height: 59px;
+                    }
+                }
+            }
+        }
+    }
+    @media all and (min-width:1200px){
+        .shortcut{
+            display: block;
+        }
+    }
 }
 
 // Error 404 Page

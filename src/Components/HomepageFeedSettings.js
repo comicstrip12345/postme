@@ -32,13 +32,12 @@ const HomepageFeedSettings = (props) => {
         <>
             <div className='col-12 feed'>
                 <div className='row'>
-                    <div className='col-2'>
+                    <div className='col-3 col-xl-2'>
                         <div className='profImage'>
-                            <img src={picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'} 
-                            style={{width:"59px", height:"59px",objectFit:"cover", borderRadius:"59px"}}  alt="avatar"/>
+                            <img src={picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'} alt="avatar"/>
                         </div>
                     </div>
-                    <div className='col-10 postInput'>
+                    <div className='col-9 col-xl-10 postInput'>
                         <div className="form-floating form input-group">
                             <input type="text" className="form-control" ref={postRef} id="post" placeholder="text" onChange={(e)=> { setPost(e.target.value) }}/>
                             <label htmlFor="post">Post Something...</label>

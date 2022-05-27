@@ -68,12 +68,12 @@ const CommentFeed = (props) => {
         </div>
         {comments.map((comment, index) => (
           <div className="row" key={index}>
-            <div className="col-1">
+            <div className="col-2 col-xl-1">
               <div className="profPhoto">
               <img src={comment.picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  style={{width:"40px", height:"40px",objectFit:"cover", borderRadius:"40px"}}  alt="profile avatar"/>
               </div>
             </div>
-            <div className="col-11">
+            <div className="col-10 col-xl-11">
               <div className="row  commentTile">
                 <div className="col-9 name">
                   <h1>

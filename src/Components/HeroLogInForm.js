@@ -11,8 +11,8 @@ const HeroLogInForm = () => {
             <section className='hero'>
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-6 tagLine'>
-                            <p>Connect your loved ones with just one click.</p>
+                        <div className='col-sm-6 friendPhoto'>
+                            <img src={require("../images/fun-friends.png")} alt="friends"/>
                         </div>
                         <LoginForm/>
                     </div>

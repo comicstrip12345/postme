@@ -160,16 +160,16 @@ const HomepageFeedPost = (props) => {
       {posts.map((post, index) => (
         <div className="col-12 post" key={index}>
           <div className="row">
-            <div className="col-2">
+            <div className="col-3 col-xl-2">
               <div className="profImage">
               {post.wallid === post.userid ?
-              <img src={picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  style={{width:"70px", height:"70px",objectFit:"cover", borderRadius:"70px"}}  alt="profile avatar"/>:
-              <img src={post.picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  style={{width:"70px", height:"70px",objectFit:"cover", borderRadius:"70px"}}  alt="profile avatar"/>
+              <img src={picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="profile avatar"/>:
+              <img src={post.picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}   alt="profile avatar"/>
               }
                
               </div>
             </div>
-            <div className="col-8 postName d-flex align-items-center">
+            <div className="col-7 col-xl-8 postName d-flex align-items-center">
               <h1>
                
                 {/* {post.wallid !== post.userid ? 
@@ -186,9 +186,9 @@ const HomepageFeedPost = (props) => {
 
                 {/* eslint-disable-next-line */}
                 {(post.wallid === post.userid) && (post.userid == userid) ? 
-                  <span>
+                  <>
                    <Link to={`/profile/${post.userid}`}>{post.firstName} {post.lastName}</Link>
-                  </span> :
+                  </> :
 
                   <span>
                   
