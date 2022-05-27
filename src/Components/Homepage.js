@@ -34,9 +34,11 @@ const Homepage = () => {
       <section className="homepage">
         <div className="container">
           <div className="row">
-            <div className="col-4 shortcutMenu">
+            <div className="col-4">
               <div className="row">
-                <div className="col-12 shortcutTile" >
+                <div className="col-3 shortcutMenu">
+                  <div className="row">
+                  <div className="col-12 shortcutTile" >
                   <h1>Shortcuts</h1>
                   <div className="row">
                     <div className="col-2 shortcutPic">
@@ -103,10 +105,8 @@ const Homepage = () => {
                     </div>
                   </div>
                 </div>
-                
-
-                 
-                
+                  </div>
+                </div>
               </div>
             </div>
             <div className="col-8 newsFeed">

@@ -106,7 +106,17 @@ const ProfileFeedPost = (props) => {
 
   return (
     <>
-      {posts.length===0 && <span> You have no posts yet! </span>}
+      {posts.length===0 && 
+      <>
+      <div className="col-12 noProfilePostImage">
+        <img src={require("../images/user.png")} alt="post"/>
+      </div>
+      <div className="col-12 noProfilePostContent">
+        <p> You have no posts yet! </p>
+      </div>
+      </>
+      
+      }
       {posts.map((post, index) => (
         <div className="col-12 post" key={index}>
           <div className="row">

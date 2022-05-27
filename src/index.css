@@ -209,18 +209,27 @@ section.hero .signUpForm .errorMessage p {
   font-weight: 400;
   color: white;
   font-size: 2vh;
+  background-color: red;
+  padding: 2vh;
+  border-radius: 1vh;
 }
 
 section.hero .signUpForm .errorMessage p.emailError {
-  padding: 22px;
+  padding: 2vh;
+}
+
+section.hero .signUpForm .errorMessage p.usernameError {
+  padding: 1.4vh;
+  font-size: 1.6vh;
 }
 
 section.hero .signUpForm .errorMessage p.passwordError {
-  font-size: 1.9vh;
+  padding: 1vh;
+  font-size: 1.5vh;
 }
 
 section.hero .signUpForm .errorMessage p.confirmpasswordError {
-  padding: 10px;
+  padding: 1.5vh;
 }
 
 section.hero .signUpForm .submit input {
@@ -360,13 +369,27 @@ section.hero .profile .form.image-upload input {
   border: none;
 }
 
+section.hero .profile .errorMessage {
+  border-radius: 1vh;
+  text-align: center;
+}
+
 section.hero .profile .errorMessage p {
-  padding: 2vh;
-  font-size: 2vh;
   font-family: Quicksand;
   font-weight: 400;
   color: white;
+  font-size: 2vh;
+  background-color: red;
+  padding: 2vh;
   border-radius: 1vh;
+}
+
+section.hero .profile .errorMessage p.birthdayError {
+  font-size: 1.9vh;
+}
+
+section.hero .profile .errorMessage p.photoError {
+  font-size: 1.9vh;
 }
 
 section.hero .profile .submit input[type=submit] {
@@ -669,6 +692,31 @@ section.profile .profileFeed .newsFeed .feed .postInput label {
   font-weight: 400;
   color: black;
   z-index: 10;
+}
+
+section.profile .profileFeed .newsFeed .noProfilePostImage {
+  margin-top: 3vh;
+}
+
+section.profile .profileFeed .newsFeed .noProfilePostImage img {
+  height: 10vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section.profile .profileFeed .newsFeed .noProfilePostContent {
+  width: 35vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3vh;
+}
+
+section.profile .profileFeed .newsFeed .noProfilePostContent p {
+  font-family: Quicksand;
+  font-weight: bold;
+  color: black;
+  text-align: center;
 }
 
 section.profile .profileFeed .newsFeed .post {
@@ -1610,6 +1658,10 @@ section.homepage {
   margin-top: 5vh;
 }
 
+section.homepage .shortcutMenu {
+  position: fixed;
+}
+
 section.homepage .shortcutMenu .shortcutTile {
   border: 1px solid black;
   border-radius: 2vh;
@@ -1642,12 +1694,24 @@ section.homepage .shortcutMenu .shortcutTile .shortcutPic a i {
   font-size: 4.5vh;
 }
 
+section.homepage .shortcutMenu .shortcutTile .shortcutPic a:hover {
+  color: #0AA1DD;
+}
+
 section.homepage .shortcutMenu .shortcutTile .shortcutTitle a {
   color: black;
   font-family: Quicksand;
   font-weight: bold;
   color: black;
   font-size: 2.5vh;
+}
+
+section.homepage .shortcutMenu .shortcutTile .shortcutTitle a:hover {
+  color: #0AA1DD;
+}
+
+section.homepage .newsFeed {
+  position: relative;
 }
 
 section.homepage .newsFeed .feed {

@@ -266,15 +266,23 @@ section.hero{
             p{
                 @include contentFontRegularStyle();
                 font-size: 2vh;
+                background-color: red;
+                padding: 2vh;
+                border-radius: 1vh;
 
                 &.emailError{
-                    padding: 22px;
+                    padding: 2vh;
+                }
+                &.usernameError{
+                    padding: 1.4vh;
+                    font-size: 1.6vh;
                 }
                 &.passwordError{
-                    font-size: 1.9vh;
+                    padding: 1vh;
+                    font-size: 1.5vh;
                 }
                 &.confirmpasswordError{
-                    padding: 10px;
+                    padding: 1.5vh;
                 }
             }
         }
@@ -374,11 +382,22 @@ section.hero{
             }
         }
         .errorMessage{
+            border-radius: 1vh;
+            text-align: center;
+
             p{
-                padding: 2vh;
-                font-size: 2vh;
                 @include contentFontRegularStyle();
+                font-size: 2vh;
+                background-color: red;
+                padding: 2vh;
                 border-radius: 1vh;
+
+                &.birthdayError{
+                    font-size: 1.9vh;
+                }
+                &.photoError{
+                    font-size: 1.9vh;
+                }
             }
         }
         .submit{
@@ -670,6 +689,26 @@ section.profile{
                         @include contentFontRegularStyleProfile();
                         z-index: 10;
                     }
+                }
+            }
+            .noProfilePostImage{
+                margin-top: 3vh;
+                img{
+                    height: 10vh;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                
+            }
+            .noProfilePostContent{
+                width: 35vw;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 3vh;
+                p{
+                    @include contentFontBoldStyleProfile();
+                    text-align: center;
                 }
             }
             .post{
@@ -1538,6 +1577,8 @@ section.homepage{
     margin-top: 5vh;
 
     .shortcutMenu{
+        position: fixed;
+
         .shortcutTile{
             border: 1px solid $mainTextColor;
             border-radius: 2vh;
@@ -1564,6 +1605,9 @@ section.homepage{
                     i{
                         font-size: 4.5vh;
                     }
+                    &:hover{
+                        color: #0AA1DD;
+                    }
                 }
             }
             .shortcutTitle{
@@ -1571,11 +1615,16 @@ section.homepage{
                     color: $mainTextColor; 
                     @include contentFontBoldStyleProfile();
                     font-size: 2.5vh;
+
+                    &:hover{
+                        color: #0AA1DD;
+                    }
                 }
             }
         }
     }
     .newsFeed{
+        position: relative;
         .feed{
             border: 1px solid $mainTextColor;
             border-radius: 2vh;
