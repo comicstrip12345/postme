@@ -40,7 +40,7 @@ const NavbarLoggedIn = (props) => {
 
 
     return (
-        <nav className='navbar loggedIn'>
+        <nav className='navbar loggedIn sticky-top'>
             <div className='container'>
             <Link to={`/homepage/${props.link}`}><p>postme</p></Link>
                 <nav className='nav'>
