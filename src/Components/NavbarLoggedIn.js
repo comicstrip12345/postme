@@ -65,6 +65,9 @@ const NavbarLoggedIn = (props) => {
                         <div className='navImageCircle'>
                             <img src={profile.picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  alt="avatar" style={{width:"33px",height:"33px",objectFit:"cover",borderRadius:"500px"}}/>
                         </div>
+                        <div className='hamburger'>
+                            <button type="button" id="list-button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><span><i className="bi bi-list"></i></span></button>
+                        </div>
                     </a>
                     <div className='hamburger'>
                             <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><span><i className="bi bi-list"></i></span></button>

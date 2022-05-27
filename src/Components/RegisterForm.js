@@ -20,7 +20,6 @@ const RegisterForm = () => {
     const [errorInvalidUsernameMessage, setErrorInvalidUsernameMessage] = useState("")
     const [errorInvalidPasswordMessage, setErrorInvalidPasswordMessage] = useState("")
     const [errorInvalidConfirmPasswordMessage, setErrorInvalidConfirmPasswordMessage] = useState("")
-    const [errorColor, setErrorColor] = useState("")
     const [errorEmailBorderColor, setErrorEmailBorderColor] = useState("")
     const [errorUsernameBorderColor, setErrorUsernameBorderColor] = useState("")
     const [errorPasswordBorderColor, setErrorPasswordBorderColor] = useState("")
@@ -50,7 +49,6 @@ const RegisterForm = () => {
         }
         else if (!regEx.test(e.target.value)){
             setErrorEmailMessage("Invalid Email")
-            setErrorColor("is-invalid")
             setEmailValidity(false)
             setErrorDisp(true)
             setInvalidEmail(false)
@@ -59,7 +57,6 @@ const RegisterForm = () => {
         else{
             setEmailReg(e.target.value)
             setErrorEmailMessage("")
-            setErrorColor("")
             setEmailValidity(true)
             setErrorEmailBorderColor("")
             setErrorDisp(false)
@@ -72,7 +69,6 @@ const RegisterForm = () => {
         }
         else if (e.target.value.length < 5){
             setErrorUsernameMessage("Username must be 5 or more characters")
-            setErrorColor("is-invalid")
             setUsernameValidity(false)
             setErrorUsernameDisp(true)
             setInvalidUsername(false)
@@ -80,7 +76,6 @@ const RegisterForm = () => {
         else{
             setUsernameReg(e.target.value)
             setErrorUsernameMessage("")
-            setErrorColor("")
             setUsernameValidity(true)
             setErrorUsernameBorderColor("")
             setErrorUsernameDisp(false)
@@ -93,14 +88,12 @@ const RegisterForm = () => {
         }
         else if(!regExPW.test(e.target.value)){
             setErrorPasswordMessage("Password must be 4-8 characters and have at least one numeric digit.")
-            setErrorColor("is-invalid")
             setErrorPasswordDisp(true)
             setInvalidPassword(false)
         }
         else{
             setPasswordReg(e.target.value)
             setErrorPasswordMessage("")
-            setErrorColor("")
             setErrorPasswordBorderColor("")
             setErrorPasswordDisp(false)
         }
@@ -112,14 +105,12 @@ const RegisterForm = () => {
         }
         else if(passwordReg !== e.target.value){
             setErrorConfirmPasswordMessage("Passwords do not match")
-            setErrorColor("is-invalid")
             setPasswordValidity(false)
             setErrorConfirmPasswordDisp(true)
             setInvalidConfirmPassword(false)
         }
         else{
             setErrorConfirmPasswordMessage("")
-            setErrorColor("")
             setPasswordValidity(true)
             setErrorConfirmPasswordBorderColor("")
             setErrorConfirmPasswordDisp(false)
@@ -203,27 +194,31 @@ const RegisterForm = () => {
         <Fade right>
 
         
-        <div className='col-6 signUpForm'>
+        <div className='col-12 col-xl-6 signUpForm'>
             <h1>Sign Up</h1>
             <div className='row'>
-                <div className="col-4 form-floating mb-3 form">
+                <div className="col-6 col-xl-4 form-floating mb-3 form">
                     <input type="text" className="form-control" id="floatingFirstName" placeholder="text" onChange={(e)=>{setFirstNameReg(e.target.value)}}/>
                     <label htmlFor="floatingFirstName">First Name</label>
                 </div>
-                <div className="col-5 form-floating mb-3 form">
+                <div className="col-6 col-xl-5 form-floating mb-3 form">
                     <input type="text" className="form-control" id="floatingLastName" placeholder="text" onChange={(e)=>{setLastNameReg(e.target.value)}}/>
                     <label htmlFor="floatingLastName">Last Name</label>
                 </div>
             </div>
             <div className='row'>
-                <div className="col-9 form-floating mb-3 form">
+                <div className="col-12 col-xl-9 form-floating mb-3 form">
                     <input type="text" style={{borderColor: `${errorEmailBorderColor}`}} className={`form-control`} id="email" placeholder="text" onChange={emailChecker}/>
                     <label htmlFor="email">Email</label>
                 </div>
-                <div className='col-3 mb-3 errorMessage'>
-                {errorDisp && <p className='emailError'><i className="bi bi-exclamation-triangle-fill"></i> {errorEmailMessage}</p>}
-                {invalidEmail && <p className='emailError'><i className="bi bi-exclamation-triangle-fill"></i> {errorInvalidEmailMessage}</p>}
-                </div>
+                {errorDisp &&
+                <div className='col-12 col-xl-3 mb-3 errorMessage'> 
+                <p className='emailError'><i className="bi bi-exclamation-triangle-fill"></i> {errorEmailMessage}</p>
+                </div>}
+                {invalidEmail && 
+                <div className='col-12 col-xl-3 mb-3 errorMessage'> 
+                <p className='emailError'><i className="bi bi-exclamation-triangle-fill"></i> {errorInvalidEmailMessage}</p>
+                </div>}
             </div>
             <div className='row'>
                 <div className="col-9 form-floating mb-3 form">
