@@ -14,6 +14,7 @@ const CommentFeed = (props) => {
   const [comments, setComments] = useState([]);
   const [commentUpdater, setCommentUpdater] = useState(counter);
   const [changeHandler, setChangeHandler] = useState("");
+  const [initialSlice, setInitialSlice]=useState(5)
 
   useEffect(() => {
     axios
@@ -59,6 +60,20 @@ const CommentFeed = (props) => {
       });
   };
 
+  const seeMoreHandler=(e)=> {
+    e.preventDefault();
+    console.log("see more")
+    setInitialSlice(initialSlice+5)
+    console.log(initialSlice)
+  }
+
+  const backHandler=(e)=> {
+    e.preventDefault();
+    console.log("back")
+    setInitialSlice(initialSlice-5)
+    console.log(initialSlice)
+  }
+
     return (
       <>
         <div className="row">
@@ -66,7 +81,7 @@ const CommentFeed = (props) => {
             <CommentCountFeed postid={postid} counter={counter} commentUpdater={commentUpdater}/>
           </div>
         </div>
-        {comments.map((comment, index) => (
+        {comments.slice(initialSlice-5,initialSlice).map((comment, index) => (
           <div className="row" key={index}>
             <div className="col-2 col-xl-1">
               <div className="profPhoto">
@@ -193,6 +208,13 @@ const CommentFeed = (props) => {
             </div>
           </div>
         ))}
+
+        <div className="row">
+          <div className="col-6 text-start">{ (comments.length>5 && comments.length>initialSlice ) && <button className="btn border-0" onClick={seeMoreHandler}>See More</button>}</div>
+          <div className="col-6 text-end">{ (initialSlice>5 )  && <button className="btn border-0" onClick={backHandler}>Back</button>}</div>
+        </div>
+
+        
       </>
     );
 };
