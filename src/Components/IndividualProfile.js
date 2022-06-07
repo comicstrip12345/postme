@@ -70,6 +70,7 @@ const IndividualProfile = () => {
 
     const doneEditHandler = () => {
         setEditingMode(false)
+        console.log("cancel button has been clicked")
        
     }
 
@@ -93,16 +94,6 @@ const IndividualProfile = () => {
             }
         }
 
-        //  const data = {
-        //      userid:userid,
-        //      firstName:formInput.firstName,
-        //      lastName:formInput.lastName,
-        //      nickname:formInput.nickname,
-        //      intro:formInput.intro,
-        //      status:formInput.status,
-        //      birthday:formInput.birthday,
-        //      city:formInput.city
-        //  }
 
 
          axios.post("https://serserserver.herokuapp.com/editprofile", formData, config ).then((res)=> {

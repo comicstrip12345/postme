@@ -76,7 +76,8 @@ const ProfileFeedPost = (props) => {
             }) 
         }
 
-    const commentHandler = () => {
+    const commentHandler = (e) => {
+      e.preventDefault();
         setCommenting(true)
     }
 
