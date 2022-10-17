@@ -3,14 +3,14 @@ import React, { useEffect, useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import LikeButton from "./LikeButton";
 import OtherCommentFeed from "./OtherCommentFeed";
-import Moment from 'react-moment';
-import 'moment-timezone';
+import Moment from "react-moment";
+import "moment-timezone";
 import { Link } from "react-router-dom";
 
 const OtherProfileFeedPost = (props) => {
   const profileupdater = props.profileupdater;
   // eslint-disable-next-line
-  const [commentorid,setCommentorId] = useState(props.commentorid)
+  const [commentorid, setCommentorId] = useState(props.commentorid);
   const id = props.userid;
   const origCounter = props.postCounter;
   const [commenting, setCommenting] = useState(false);
@@ -24,18 +24,16 @@ const OtherProfileFeedPost = (props) => {
   });
 
   const [commentInput, setCommentInput] = useState();
-  const ownerpicpath=props.ownerpicpath
-  const [postUserId,setPostUserId]=useState()
-
-
+  const ownerpicpath = props.ownerpicpath;
+  const [postUserId, setPostUserId] = useState();
 
   useEffect(() => {
     axios
-      .post("https://serserserver.herokuapp.com/postfeed", {
+      .post("http://localhost:5001/postfeed", {
         userid: id,
-      } )
+      })
       .then((response) => {
-        console.log(response)
+        console.log(response);
         setPosts(response["data"]["array"]);
       });
     // eslint-disable-next-line
@@ -45,7 +43,7 @@ const OtherProfileFeedPost = (props) => {
     const postid = e.target.id;
 
     axios
-      .post("https://serserserver.herokuapp.com/deletepost", {
+      .post("http://localhost:5001/deletepost", {
         postid: postid,
       })
       .then((response) => {
@@ -68,14 +66,12 @@ const OtherProfileFeedPost = (props) => {
       content: formInput.content,
     };
 
-    axios
-      .post("https://serserserver.herokuapp.com/editpost", data)
-      .then((res) => {
-        if (res.status === 200) {
-          console.log(res);
-          setCounter(counter + 1);
-        }
-      });
+    axios.post("http://localhost:5001/editpost", data).then((res) => {
+      if (res.status === 200) {
+        console.log(res);
+        setCounter(counter + 1);
+      }
+    });
   };
 
   const commentHandler = () => {
@@ -90,32 +86,30 @@ const OtherProfileFeedPost = (props) => {
   const writeComment = (e) => {
     e.preventDefault();
     const postid = e.target.id;
-    const postuserid=e.target.name;
-    console.log(postuserid)
-    setPostUserId(postuserid)
+    const postuserid = e.target.name;
+    console.log(postuserid);
+    setPostUserId(postuserid);
     const data = {
       userid: commentorid,
       postid: postid,
       content: commentInput,
     };
 
-    axios
-      .post("https://serserserver.herokuapp.com/addcomment", data)
-      .then((res) => {
-        if (res.status === 200) {
-          console.log(res)
-          setCommentIdAdded(res["data"]["array"]["insertId"])
-          setPostOwner(postid)
-          setNotifTrigger(true)
-          setCounter(counter + 1)
-          setCommentInput("")
-        }
-      });
+    axios.post("http://localhost:5001/addcomment", data).then((res) => {
+      if (res.status === 200) {
+        console.log(res);
+        setCommentIdAdded(res["data"]["array"]["insertId"]);
+        setPostOwner(postid);
+        setNotifTrigger(true);
+        setCounter(counter + 1);
+        setCommentInput("");
+      }
+    });
   };
 
   useEffect(() => {
     axios
-      .post("https://serserserver.herokuapp.com/newcommentnotif", {
+      .post("http://localhost:5001/newcommentnotif", {
         userid: commentorid,
         commentid: postUserId,
         postid: postOwner,
@@ -125,80 +119,107 @@ const OtherProfileFeedPost = (props) => {
         console.log(response);
       });
 
-  // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [notifTrigger]);
-
 
   return (
     <>
-      {posts.length===0 && 
-      <>
-      <div className="col-12 noProfilePostImage">
-        <img src={require("../images/user.png")} alt="post"/>
-      </div>
-      <div className="col-12 noProfilePostContent">
-        <p> This user has no posts yet! </p>
-      </div>
-      </>
-      }
+      {posts.length === 0 && (
+        <>
+          <div className="col-12 noProfilePostImage">
+            <img src={require("../images/user.png")} alt="post" />
+          </div>
+          <div className="col-12 noProfilePostContent">
+            <p> This user has no posts yet! </p>
+          </div>
+        </>
+      )}
       {posts.map((post, index) => (
         <div className="col-12 post" key={index}>
           <div className="row">
             <div className="col-2">
               <div className="profImage">
-              {post.wallid === post.userid ?
-              <img src={ownerpicpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  style={{width:"70px", height:"70px",objectFit:"cover", borderRadius:"70px"}}  alt="profile avatar"/>:
-              <img src={post.picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  style={{width:"70px", height:"70px",objectFit:"cover", borderRadius:"70px"}}  alt="profile avatar"/>
-              }
+                {post.wallid === post.userid ? (
+                  <img
+                    src={ownerpicpath}
+                    onError={(event) =>
+                      (event.target.src = "https://eng.asu.edu.eg/img/user.png")
+                    }
+                    style={{
+                      width: "70px",
+                      height: "70px",
+                      objectFit: "cover",
+                      borderRadius: "70px",
+                    }}
+                    alt="profile avatar"
+                  />
+                ) : (
+                  <img
+                    src={post.picpath}
+                    onError={(event) =>
+                      (event.target.src = "https://eng.asu.edu.eg/img/user.png")
+                    }
+                    style={{
+                      width: "70px",
+                      height: "70px",
+                      objectFit: "cover",
+                      borderRadius: "70px",
+                    }}
+                    alt="profile avatar"
+                  />
+                )}
               </div>
             </div>
             <div className="col-8 postName d-flex align-items-center">
               <h1>
                 {/* eslint-disable-next-line  */}
-              {(post.wallid === post.userid)? 
+                {post.wallid === post.userid ? (
                   <span>
-                   <Link to={`/profile/${commentorid}/${post.userid}`}>{post.firstName} {post.lastName} </Link>
-                  </span> :
-
-                  <span>
-                  
+                    <Link to={`/profile/${commentorid}/${post.userid}`}>
+                      {post.firstName} {post.lastName}{" "}
+                    </Link>
                   </span>
-                }
-
+                ) : (
+                  <span></span>
+                )}
 
                 {/* eslint-disable-next-line  */}
-                {(post.wallid !== post.userid) && (post.userid != commentorid) ? 
+                {post.wallid !== post.userid && post.userid != commentorid ? (
                   <span>
-                    <Link to={`/profile/${commentorid}/${post.userid}`}>{post.firstName} {post.lastName}</Link>
-                    {" "}
-                    &gt; <Link to={`/profile/${commentorid}/${post.wallid}`}>{post.wallOwnerFirstName} {post.wallOwnerLastName}{" "}</Link>
-                  </span> :
-
-                  <span>
-                  
+                    <Link to={`/profile/${commentorid}/${post.userid}`}>
+                      {post.firstName} {post.lastName}
+                    </Link>{" "}
+                    &gt;{" "}
+                    <Link to={`/profile/${commentorid}/${post.wallid}`}>
+                      {post.wallOwnerFirstName} {post.wallOwnerLastName}{" "}
+                    </Link>
                   </span>
-                }
+                ) : (
+                  <span></span>
+                )}
 
                 {/* eslint-disable-next-line  */}
-                {(post.wallid !== post.userid) && (post.userid == commentorid) ? 
+                {post.wallid !== post.userid && post.userid == commentorid ? (
                   <span>
-                    <Link to={`/profile/${commentorid}`}>{post.firstName} {post.lastName}</Link>
-                    {" "}
-                    &gt; <Link to={`/profile/${commentorid}/${post.wallid}`}>{post.wallOwnerFirstName} {post.wallOwnerLastName}{" "}</Link>
-                  </span> :
-
-                  <span>
-                  
+                    <Link to={`/profile/${commentorid}`}>
+                      {post.firstName} {post.lastName}
+                    </Link>{" "}
+                    &gt;{" "}
+                    <Link to={`/profile/${commentorid}/${post.wallid}`}>
+                      {post.wallOwnerFirstName} {post.wallOwnerLastName}{" "}
+                    </Link>
                   </span>
-                }
+                ) : (
+                  <span></span>
+                )}
 
-
-
-                <p><Moment fromNow>{post.date_created}</Moment></p>
+                <p>
+                  <Moment fromNow>{post.date_created}</Moment>
+                </p>
               </h1>
             </div>
             <div className="col-2 postSettings">
-            {/* eslint-disable-next-line */}
+              {/* eslint-disable-next-line */}
               {commentorid == post.userid && (
                 <div className="dropdown text-end">
                   <a
@@ -229,10 +250,15 @@ const OtherProfileFeedPost = (props) => {
                       </div>
                     </li>
                     <li>
-                      <div
-                        className="dropdown-item">
-                        <button type="button" id={post.postid}
-                        onClick={(e) => deleteHandler(e)} className="btn border-0">Delete Post</button>
+                      <div className="dropdown-item">
+                        <button
+                          type="button"
+                          id={post.postid}
+                          onClick={(e) => deleteHandler(e)}
+                          className="btn border-0"
+                        >
+                          Delete Post
+                        </button>
                       </div>
                     </li>
                   </ul>
@@ -303,7 +329,7 @@ const OtherProfileFeedPost = (props) => {
             <div className="col-12 postMenu">
               <div className="row">
                 <div className="col-6 likes">
-                    <LikeButton commentorid={commentorid} postid={post.postid}/>
+                  <LikeButton commentorid={commentorid} postid={post.postid} />
                 </div>
                 <div className="col-6 comment text-center">
                   <div className="row">
@@ -315,29 +341,40 @@ const OtherProfileFeedPost = (props) => {
                   </div>
                 </div>
               </div>
-              
             </div>
             <div className="col-12 comments">
-                <OtherCommentFeed postid={post.postid} counter={counter} id={id} commentorid={commentorid}/> 
+              <OtherCommentFeed
+                postid={post.postid}
+                counter={counter}
+                id={id}
+                commentorid={commentorid}
+              />
             </div>
             {commenting && (
-                <div className="col-12 form-floating form input-group">
-                  <input type="text" hidden name="postid" />
-                  <input
-                    type="text"
-                    className="form-control"
+              <div className="col-12 form-floating form input-group">
+                <input type="text" hidden name="postid" />
+                <input
+                  type="text"
+                  className="form-control"
+                  id={post.postid}
+                  name="content"
+                  onChange={handleCommentInput}
+                  placeholder="Comment"
+                  style={{
+                    borderTopLeftRadius: "2vh",
+                    borderBottomLeftRadius: "2vh",
+                  }}
+                />
+                <label htmlFor="post">Write a comment</label>
+                <button onClick={writeComment}>
+                  <i
+                    className="bi bi-send"
                     id={post.postid}
-                    name="content"
-                    onChange={handleCommentInput}
-                    placeholder="Comment"
-                    style={{borderTopLeftRadius: '2vh',borderBottomLeftRadius: '2vh' }}
-                  />
-                  <label htmlFor="post">Write a comment</label>
-                  <button onClick={writeComment}>
-                    <i className="bi bi-send" id={post.postid} name={post.userid}></i>
-                  </button>
-                </div>
-              )}
+                    name={post.userid}
+                  ></i>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       ))}

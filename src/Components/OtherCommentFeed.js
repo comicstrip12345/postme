@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import CommentCountFeed from "./CommentCountFeed";
-import Moment from 'react-moment';
-import 'moment-timezone';
+import Moment from "react-moment";
+import "moment-timezone";
 import { Link } from "react-router-dom";
 
 const OtherCommentFeed = (props) => {
@@ -19,7 +19,7 @@ const OtherCommentFeed = (props) => {
 
   useEffect(() => {
     axios
-      .post("https://serserserver.herokuapp.com/commentfeed", {
+      .post("http://localhost:5001/commentfeed", {
         postid: postid,
       })
       .then((response) => {
@@ -31,7 +31,7 @@ const OtherCommentFeed = (props) => {
     const commentid = e.target.id;
 
     axios
-      .post("https://serserserver.herokuapp.com/deletecomment", {
+      .post("http://localhost:5001/deletecomment", {
         commentid: commentid,
       })
       .then(() => {
@@ -50,7 +50,7 @@ const OtherCommentFeed = (props) => {
     console.log(`edit comment executedc ${commentid} ${changeHandler}`);
 
     axios
-      .post("https://serserserver.herokuapp.com/editcomment", {
+      .post("http://localhost:5001/editcomment", {
         commentid: commentid,
         content: changeHandler,
       })
@@ -75,25 +75,45 @@ const OtherCommentFeed = (props) => {
         <div className="row" key={index}>
           <div className="col-1">
             <div className="profPhoto">
-            <img src={comment.picpath} onError={(event) => event.target.src = 'https://eng.asu.edu.eg/img/user.png'}  style={{width:"40px", height:"40px",objectFit:"cover", borderRadius:"40px"}}  alt="profile avatar"/>
+              <img
+                src={comment.picpath}
+                onError={(event) =>
+                  (event.target.src = "https://eng.asu.edu.eg/img/user.png")
+                }
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  objectFit: "cover",
+                  borderRadius: "40px",
+                }}
+                alt="profile avatar"
+              />
             </div>
           </div>
           <div className="col-11">
             <div className="row  commentTile">
               <div className="col-9 name">
                 <h1>
-                    {/* eslint-disable-next-line  */}
-                    {comment.id==commentorid? 
-                        <Link to={`/profile/${commentorid}`}>{comment.firstName} {comment.lastName} </Link> :
-                        <span> </span>
-                    }
-
-                   {/* eslint-disable-next-line  */}
-                   {comment.id!=commentorid? 
-                    <Link to={`/profile/${commentorid}/${comment.id}`}>{comment.firstName} {comment.lastName} </Link> :
+                  {/* eslint-disable-next-line  */}
+                  {comment.id == commentorid ? (
+                    <Link to={`/profile/${commentorid}`}>
+                      {comment.firstName} {comment.lastName}{" "}
+                    </Link>
+                  ) : (
                     <span> </span>
-                    }
-                  <span><Moment fromNow>{comment.date_created}</Moment></span>
+                  )}
+
+                  {/* eslint-disable-next-line  */}
+                  {comment.id != commentorid ? (
+                    <Link to={`/profile/${commentorid}/${comment.id}`}>
+                      {comment.firstName} {comment.lastName}{" "}
+                    </Link>
+                  ) : (
+                    <span> </span>
+                  )}
+                  <span>
+                    <Moment fromNow>{comment.date_created}</Moment>
+                  </span>
                 </h1>
                 <p>{comment.content}</p>
               </div>
@@ -142,7 +162,7 @@ const OtherCommentFeed = (props) => {
               </div>
             </div>
           </div>
-          
+
           <div
             className="modal fade"
             id={`exampleModal${comment.commentid}`}
